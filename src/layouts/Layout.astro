@@ -1,5 +1,7 @@
 ---
 import '@fontsource/questrial';
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro';
 
 interface Props {
 	title: string;
@@ -9,7 +11,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -18,9 +20,17 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+
+	<body class="relative h-full w-full bg-[#252627]">
+		<div
+			class="absolute bottom-0 z-[-2] left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
+		>
+		</div>
+		<Header/>
 		<slot />
+		<Footer/>
 	</body>
+
 </html>
 <style is:global>
 	:root {
@@ -28,8 +38,6 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: 'Questrial', system-ui, sans-serif;
-		background: #252627;
-		background-size: 224px;
 	}
 	code {
 		font-family:

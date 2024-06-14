@@ -1,0 +1,26 @@
+---
+import Card from "./Card.astro";
+import CalculatorIcon from "../icons/CalculatorIcon.astro";
+
+const tools = [
+  { title: "Cifras Significativas", description: "Herramienta para calcular cifras significativas en mediciones.", icon: CalculatorIcon, class: 'Calculadora', color: '#60a5fa' },
+  { title: "Incertidumbre", description: "Calcula la incertidumbre en tus mediciones.", icon: CalculatorIcon,class: 'Calculadora', color: '#60a5fa' },
+  { title: "Conversor de Unidades", description: "Convierte unidades de diversas magnitudes.", icon: CalculatorIcon, class: 'Conversor', color: '#fcb316' },
+  { title: "Media y Desviación", description: "Calcula la media y desviación estándar de un conjunto de datos.", icon: CalculatorIcon, class: 'Calculadora', color: '#60a5fa' },
+  { title: "Generador de Gráficos", description: "Genera gráficos para visualizar datos metrológicos.", icon: CalculatorIcon, class: 'Graficador', color: '#86efac' },
+  { title: "Error Relativo", description: "Calcula el error relativo en tus mediciones.", icon: CalculatorIcon, class: 'Calculadora', color: '#60a5fa' },
+];
+
+---
+
+<div class="h-full flex items-start justify-center">
+  <div>
+    <h3 class="flex justify-center mb-6 text-3xl ">Herramientas más usadas</h3>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      {tools.map((tool) => (
+        <Card title={tool.title} description={tool.description} icon={tool.icon} clase={tool.class} color={tool.color} />
+      ))}
+    </div>
+  </div>
+</div>

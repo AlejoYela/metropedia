@@ -1,26 +1,22 @@
 ---
-import SectionContainer from '../components/SectionContainer.astro'
-import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro'
+import Skills from '../components/Skills.astro'
+import Publi from '../components/Publi.astro';
+
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Metropedia.">
 	<main>
-		
-		
-		<SectionContainer class="h-dvh">
-			<Header/>
+		<section class="h-dvh">
 			<Hero />
-			<slot/>
-		</SectionContainer>
+		</section>
 		
-		<h1>M E T R O P E D I A</h1>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
+		<section class= "bg-[#4a4b4b] py-5">
+			<Skills/>
+		</section>
+
+		<Publi/>
 	</main>
 </Layout>
 
