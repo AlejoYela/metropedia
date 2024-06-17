@@ -1,7 +1,5 @@
 ---
-import CalculatorIcon from "../icons/CalculatorIcon.astro";
-
-const { title, description, icon, clase } = Astro.props;
+const { title, description, icon: Icon, clase } = Astro.props;
 
 const claseStyles = {
   Calculadora: {
@@ -33,9 +31,9 @@ const claseStyles = {
 const currentStyles = claseStyles[clase] || claseStyles.default;
 ---
 
-<div class="max-w-sm p-6 bg-white border border-gray-200 rounded-sm shadow dark:bg-[#252627] dark:border-gray-700">
-    <a href="#" class={`${currentStyles.button} text-xs font-medium inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md mb-2 ${currentStyles.darkButton}`}>
-        <CalculatorIcon/>
+<div class="max-w-sm p-6 bg-white border border-gray-200 rounded-sm shadow  bg-opacity-10 dark:border-white/30">
+    <a href="#" class={`${currentStyles.button} text-xs font-medium inline-flex items-center gap-1 px-2.5 rounded-sm mb-2 py-1 ${currentStyles.darkButton}`}>
+        <Icon class=" size-4" /> <!-- Asegúrate de agregar clases para el tamaño del icono -->
         {clase}
     </a>
     <a href="#">

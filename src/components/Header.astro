@@ -25,12 +25,15 @@ const navItems = [
 
 <div class="header-wrapper">
     <header class="z-10 flex justify-between fixed w-full bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10">
-        <div class="flex items-center gap-3">
-            <img src="logolargo.png" class="h-20" alt="Logo" />
-            <h2 class="absolute start-40 tracking-widest font-bold text-white">
+        <div class="relative flex items-center gap-3">
+            <div class="absolute z-10"></div>
+            <img src="logolargo.png" class="h-20 relative z-20" alt="Logo" />
+            <h2 class="absolute start-40 tracking-widest font-bold text-white z-30">
                 METRO<span class="text-[#fcb316]">PEDIA</span>
             </h2>
         </div>
+        
+        
 
         <form class="max-w-sm mx-auto flex items-center justify-center w-full">
             <label for="default-search" class="mb-2 text-sm font-medium sr-only text-white">Buscar</label>
