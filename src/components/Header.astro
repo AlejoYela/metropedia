@@ -23,35 +23,75 @@ const navItems = [
 ];
 ---
 
-<div class="header-wrapper">
-    <header class="z-10 flex justify-between fixed w-full bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10">
+<div class="z-10 header-wrapper flex justify-center fixed w-full bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10">
+    <header
+        class=" flex justify-between  max-w-screen-xl w-full"
+    >
         <div class="relative flex items-center gap-3">
             <div class="absolute z-10"></div>
             <img src="logolargo.png" class="h-20 relative z-20" alt="Logo" />
-            <h2 class="absolute start-40 tracking-widest font-bold text-white z-30">
+            <h2
+                class="absolute start-40 tracking-widest font-bold text-white z-30"
+            >
                 METRO<span class="text-[#fcb316]">PEDIA</span>
             </h2>
         </div>
-        
-        
 
-        <form class="max-w-sm mx-auto flex items-center justify-center w-full">
-            <label for="default-search" class="mb-2 text-sm font-medium sr-only text-white">Buscar</label>
+        <form class="max-w-xs mx-auto flex items-center justify-center w-full">
+            <label
+                for="default-search"
+                class="mb-2 text-sm font-medium sr-only text-white"
+                >Buscar</label
+            >
             <div class="relative w-full">
-                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"></path>
+                <div
+                    class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+                >
+                    <svg
+                        class="w-4 h-4 text-gray-400"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 20 20"
+                    >
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                        ></path>
                     </svg>
                 </div>
-                <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm border rounded-sm bg-[#252627] border-gray-600 placeholder-gray-400 text-white focus:ring-[#fcb316] focus:[#fcb316]" placeholder="Buscar en la página" required />
-                <button type="submit" class="text-[#252627] absolute end-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-sm text-sm px-4 py-2 bg-[#fcb316] hover:bg-yellow-600 focus:ring-yellow-800">Buscar</button>
+                <input
+                    type="search"
+                    id="default-search"
+                    class="block w-full p-4 ps-10 text-sm border rounded-sm bg-[#252627] border-gray-600 placeholder-gray-400 text-white focus:ring-[#fcb316] focus:[#fcb316]"
+                    placeholder="Buscar en la página"
+                    required
+                />
+                <button
+                    type="submit"
+                    class="text-[#252627] absolute end-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-sm text-sm px-4 py-2 bg-[#fcb316] hover:bg-yellow-600 focus:ring-yellow-800"
+                    >Buscar</button
+                >
             </div>
         </form>
 
-        <nav class="w-100 flex items-center text-xs md:text-lg font-medium text-gray-200 me-6">
-            { navItems.map((link) => (
-                <a class="relative block px-2 transition hover:text-yellow-500 dark:hover:text-yellow-400" aria-label={link.label} href={link.url}>{link.title}</a>
-            )) }
+        <nav
+            class="w-100 flex items-center text-xs md:text-lg font-medium text-gray-200 me-6"
+        >
+            {
+                navItems.map((link) => (
+                    <a
+                        class="relative block px-2 transition hover:text-[#fcb316] dark:hover:text-[#fcb316]"
+                        aria-label={link.label}
+                        href={link.url}
+                    >
+                        {link.title}
+                    </a>
+                ))
+            }
         </nav>
     </header>
 </div>
