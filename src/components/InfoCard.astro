@@ -1,0 +1,33 @@
+---
+import CircleCheckIcon from "../icons/CircleCheckIcon.astro"
+
+export interface Props {
+  title: string;
+  description: string[];
+  link: string;
+  icono: any;
+  color: string;
+}
+
+const { title, description, link, icono: Icon, color } = Astro.props;
+---
+
+<a
+    href={link}
+    class="max-w-sm p-6 hover:border border-gray-200 rounded-sm bg-opacity-10 dark:border-white/30 text-start shadow-2xl"
+>
+    <div class="rounded-sm p-3 w-fit mb-6" style={`background-color: ${color}1A`}> <!-- 1A es el 10% de opacidad en hexadecimal -->
+        <Icon class="size-10" style={`stroke: ${color}`} />
+    </div>
+    <h5
+        class="my-2 text-xl font-semibold tracking-wider text-gray-900 dark:text-white"
+    >
+        {title}
+    </h5>
+
+    <ul class="mb-3 font-normal text-gray-500 dark:text-gray-400">
+        {description.map(item => (
+            <li class="mb-1 flex items-center gap-1"><CircleCheckIcon fill={color}/>{item}</li>
+        ))}
+    </ul>
+</a>
