@@ -6,14 +6,9 @@ const navItems = [
         url: "/#experiencia",
     },
     {
-        title: "Formatos",
+        title: "Formación",
         label: "proyectos",
         url: "/#proyectos",
-    },
-    {
-        title: "Noticias",
-        label: "sobre-mi",
-        url: "/#sobre-mi",
     },
     {
         title: "Contacto",
@@ -24,74 +19,61 @@ const navItems = [
 ---
 
 <div class="z-10 header-wrapper flex justify-center fixed w-full bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10">
-    <header
-        class=" flex justify-between  max-w-screen-xl w-full"
-    >
+    <header class="flex justify-between items-center max-w-screen-xl w-full p-4 lg:px-6">
         <div class="relative flex items-center gap-3">
-            <div class="absolute z-10"></div>
-            <img src="logolargo.png" class="h-20 relative z-20" alt="Logo" />
-            <h2
-                class="absolute start-40 tracking-widest font-bold text-white z-30"
-            >
-                METRO<span class="text-[#fcb316]">PEDIA</span>
-            </h2>
+            <img src="logolargo.png" class="metropedia h-12 md:h-20 relative z-20" alt="Logo" />
         </div>
 
-        <form class="max-w-xs mx-auto flex items-center justify-center w-full">
-            <label
-                for="default-search"
-                class="mb-2 text-sm font-medium sr-only text-white"
-                >Buscar</label
-            >
+        <form class="hidden md:flex max-w-xs mx-auto items-center w-full">
+            <label for="default-search" class="mb-2 text-sm font-medium sr-only text-white">Buscar</label>
             <div class="relative w-full">
-                <div
-                    class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
-                >
-                    <svg
-                        class="w-4 h-4 text-gray-400"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 20 20"
-                    >
-                        <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                        ></path>
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"></path>
                     </svg>
                 </div>
-                <input
-                    type="search"
-                    id="default-search"
-                    class="block w-full p-4 ps-10 text-sm border rounded-sm bg-[#252627] border-gray-600 placeholder-gray-400 text-white focus:ring-[#fcb316] focus:[#fcb316]"
-                    placeholder="Buscar en la página"
-                    required
-                />
-                <button
-                    type="submit"
-                    class="text-[#252627] absolute end-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-sm text-sm px-4 py-2 bg-[#fcb316] hover:bg-yellow-600 focus:ring-yellow-800"
-                    >Buscar</button
-                >
+                <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm border rounded-sm bg-[#252627] border-gray-600 placeholder-gray-400 text-white focus:ring-[#fcb316] focus:border-[#fcb316]" placeholder="Buscar en la página" required />
+                <button type="submit" class="text-[#252627] absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-sm text-sm px-4 py-2 bg-[#fcb316] hover:bg-yellow-600 focus:ring-yellow-800">Buscar</button>
             </div>
         </form>
 
-        <nav
-            class="w-100 flex items-center text-xs md:text-lg font-medium text-gray-200 me-6"
-        >
-            {
-                navItems.map((link) => (
-                    <a
-                        class="relative block px-2 transition hover:text-[#fcb316] dark:hover:text-[#fcb316]"
-                        aria-label={link.label}
-                        href={link.url}
-                    >
-                        {link.title}
-                    </a>
-                ))
-            }
+        <nav class="flex items-center text-xs md:text-lg font-medium text-gray-200">
+            <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <div class="hidden md:flex space-x-2" id="mobile-menu">
+                {
+                    navItems.map((link) => (
+                        <a class="block px-2 transition hover:text-[#fcb316] dark:hover:text-[#fcb316]" aria-label={link.label} href={link.url}>
+                            {link.title}
+                        </a>
+                    ))
+                }
+            </div>
         </nav>
     </header>
 </div>
+
+<div class="md:hidden bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10" id="mobile-menu">
+    <nav class="flex flex-col p-4 space-y-2">
+        {
+            navItems.map((link) => (
+                <a class="block px-2 py-1 text-white transition hover:text-[#fcb316] dark:hover:text-[#fcb316]" aria-label={link.label} href={link.url}>
+                    {link.title}
+                </a>
+            ))
+        }
+    </nav>
+</div>
+
+<style>
+    .metropedia {
+        -webkit-mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent),
+                           linear-gradient(to left, transparent, black 30%, black 70%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent),
+                    linear-gradient(to left, transparent, black 30%, black 70%, transparent);
+    }
+</style>

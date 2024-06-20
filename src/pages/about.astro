@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CircleCheckIcon from "../icons/CircleCheckIcon.astro";
+---
+
+<Layout title="Metropedia.">
+    <div class="about flex flex-col justify-center items-center h-dvh gap-12 pt-12">
+        <p class="text-xl text-gray-400">
+            La web metrológica más <span class="text-[#fcb316]">completa</span> y
+            <span class="text-[#fcb316]">confiable</span>.
+        </p>
+        <img class="metropedia h-32" src="logocentrado.png" alt="" />
+
+        <div class="">
+            <p class="titulo tracking-widest text-5xl mb-6">METROPEDIA</p>
+            <div class="bg-white size-5 w-full"></div>
+        </div>
+
+    </div>
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
+    <div class="about h-dvh max-w-screen-xl flex flex-col items-center justify-center">
+        <img class="rounded-sm mb-14" src="imgs/3.png" alt="" />
+        <div class="grid grid-cols-2 gap-12">
+            <div class="flex flex-col gap-6">
+                <div class="flex flex-col gap-6">
+                    <h3 class="text-2xl font-extrabold">Visión General</h3>
+                    <p class="text-gray-400 text-lg">
+                        Bienvenidos a nuestra web metrológica, su fuente principal para herramientas, guías y recursos en el campo de la metrología. Desde cálculos de incertidumbre hasta cursos de capacitación, nuestra plataforma está diseñada para facilitar y optimizar sus procesos de medición, asegurando precisión y confiabilidad en cada paso.
+                    </p>
+                </div>
+    
+                <ul class="grid grid-cols-2 text-gray-400 text-lg gap-3">
+                    <li class="text-lg flex items-center gap-1">
+                        <CircleCheckIcon fill="#fcb316" />Cálculos de incertidumbre
+                    </li>
+                    <li class="text-lg flex items-center gap-1">
+                        <CircleCheckIcon fill="#fcb316" />Diseño de experimentos
+                    </li>
+                    <li class="text-lg flex items-center gap-1">
+                        <CircleCheckIcon fill="#fcb316" />Desarrollo de software
+                    </li>
+                    <li class="text-lg flex items-center gap-1">
+                        <CircleCheckIcon fill="#fcb316" />Cursos especializados
+                    </li>
+                    <li class="text-lg flex items-center gap-1">
+                        <CircleCheckIcon fill="#fcb316" />Formatos de calibración
+                    </li>
+                    <li class="text-lg flex items-center gap-1">
+                        <CircleCheckIcon fill="#fcb316" />Asesorías técnicas
+                    </li>
+                    <li class="text-lg flex items-center gap-1">
+                        <CircleCheckIcon fill="#fcb316" />Normativas internacionales
+                    </li>
+                    <li class="text-lg flex items-center gap-1">
+                        <CircleCheckIcon fill="#fcb316" />Optimización de procesos
+                    </li>
+                </ul>
+            </div>
+            <div class="flex flex-col gap-6">
+                <h3 class="text-2xl font-extrabold">Antecedentes</h3>
+                <p class="text-gray-400 text-lg">
+                    Nuestra plataforma fue fundada con la misión de simplificar y mejorar los procesos de medición para profesionales en metrología. Desde nuestros inicios, hemos crecido para servir a una comunidad diversa y global, proporcionando recursos que se mantienen al día con las últimas normas y tecnologías en el campo.
+                </p>
+                <h3 class="text-2xl font-extrabold">El Desafío</h3>
+                <p class="text-gray-400 text-lg">
+                    Enfrentamos el desafío de crear una plataforma que no solo proporcione herramientas precisas y confiables, sino que también sea intuitiva y fácil de usar. Nuestro objetivo es apoyar a los profesionales de metrología en sus esfuerzos diarios, ayudándoles a alcanzar los más altos estándares de exactitud y eficiencia.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</Layout>
+
+<style>
+    .about {
+        margin: auto;
+        color: white;
+        line-height: 1.6;
+    }
+
+    .metropedia {
+        -webkit-mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            ),
+            linear-gradient(
+                to left,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            );
+        mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            ),
+            linear-gradient(
+                to left,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            );
+    }
+
+    .titulo{
+        font-family: 'Questrial', system-ui, sans-serif;
+    }
+</style>

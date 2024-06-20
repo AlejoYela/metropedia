@@ -4,27 +4,32 @@ import Hero from '../components/Hero.astro'
 import Skills from '../components/Skills.astro'
 import Publi from '../components/Publi.astro';
 import Graphics from '../components/Graphics.astro';
+import Cta from '../components/Cta.astro';
 
 ---
 
 <Layout title="Metropedia.">
-	<main>
-		<section class=" flex items-center h-dvh bg-center bg-no-repeat bg-[url('https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/imgs/1.png')] bg-[#252627] bg-blend-multiply">
+	<main class="snap-proximity snap-y">
+		<section class="snap-start flex items-center h-dvh bg-center bg-no-repeat bg-[url('https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/imgs/1.png')] bg-[#252627] bg-blend-multiply">
 			<Hero />
 		</section>
 		
-		<section class= " py-20 z-10 flex justify-center items-center">
+		<section class= "snap-start py-20 z-10 flex justify-center items-center">
 			<Skills/>
 		</section>
-        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
-		<section class="h-dvh flex items-center">
+		<section class="snap-start h-dvh flex items-center border">
 			<Graphics/>
 		</section>
 
-		<section class="bg-[#49494a] bg-opacity-50 flex justify-center items-center">
+		<section class="snap-start bg-[#49494a] bg-opacity-50 flex justify-center items-center">
 			<Publi/>
 		</section>
+
+		<section class="snap-start border">
+			<Cta/>
+		</section>
+
 	</main>
 </Layout>
 

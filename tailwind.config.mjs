@@ -3,7 +3,11 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	darkMode: 'selector',
 	theme: {
-		extend: {},
+		extend: {
+			colors:{
+				primary:"#fcb316"
+			}
+		},
 	},
 	plugins: [],
 }
