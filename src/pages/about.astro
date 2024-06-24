@@ -1,25 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CircleCheckIcon from "../icons/CircleCheckIcon.astro";
+import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
 ---
 
 <Layout title="Metropedia.">
-    <div class="about flex flex-col justify-center items-center h-dvh gap-12 pt-12">
+    <div class="about flex flex-col justify-center items-center h-dvh gap-12 pt-12 relative">
         <p class="text-xl text-gray-400">
             La web metrológica más <span class="text-[#fcb316]">completa</span> y
             <span class="text-[#fcb316]">confiable</span>.
         </p>
-        <img class="metropedia h-32" src="logocentrado.png" alt="" />
+        <img class="metropedia h-32" src="/public/logocentrado.png" alt="" />
 
         <div class="">
             <p class="titulo tracking-widest text-5xl mb-6">METROPEDIA</p>
             <div class="bg-white size-5 w-full"></div>
         </div>
 
+        <ArrowDownIcon class="absolute bottom-0 bounce end-1/2"/>
+
     </div>
     <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
     <div class="about h-dvh max-w-screen-xl flex flex-col items-center justify-center">
-        <img class="rounded-sm mb-14" src="imgs/3.png" alt="" />
+        <img class="rounded-sm mb-14" src="/public/imgs/3.png" alt="" />
         <div class="grid grid-cols-2 gap-12">
             <div class="flex flex-col gap-6">
                 <div class="flex flex-col gap-6">
@@ -111,5 +114,17 @@ import CircleCheckIcon from "../icons/CircleCheckIcon.astro";
 
     .titulo{
         font-family: 'Questrial', system-ui, sans-serif;
+    }
+
+    @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+    }
+    .bounce {
+        animation: bounce 1s infinite;
     }
 </style>

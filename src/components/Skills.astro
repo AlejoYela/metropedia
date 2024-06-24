@@ -17,10 +17,12 @@ const tools = [
 
 <div class=" flex items-center justify-center max-w-screen-xl w-full">
   <div class="w-full">
-    <div class="flex items-center justify-center mb-14">
+    <div class="flex items-center justify-center mb-3">
       <ToolIcon class="size-10 mr-2 stroke-[#fcb316]" />
       <h3 class="text-4xl font-semibold tracking-wider">Herramientas más usadas.</h3>
     </div>
+    <p class="flex items-center justify-center mb-10 text-white/40 text-lg font-normal text-gray-300 lg:text-xl">Explora y utiliza nuestras herramientas metrológicas para mejorar la precisión y exactitud en tus mediciones y análisis de datos.</p>
+
     <div class="grid grid-cols-2 md:grid-cols-3 gap-10">
       {tools.map((tool) => (
         <Card title={tool.title} description={tool.description} icon={tool.icon} clase={tool.class} color={tool.color} link={tool.link} />

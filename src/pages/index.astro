@@ -5,13 +5,15 @@ import Skills from '../components/Skills.astro'
 import Publi from '../components/Publi.astro';
 import Graphics from '../components/Graphics.astro';
 import Cta from '../components/Cta.astro';
+import ArrowDownIcon from '../icons/ArrowDownIcon.astro';
 
 ---
 
 <Layout title="Metropedia.">
 	<main class="snap-proximity snap-y">
-		<section class="snap-start flex items-center h-dvh bg-center bg-no-repeat bg-[url('https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/imgs/1.png')] bg-[#252627] bg-blend-multiply">
+		<section class="relative snap-start flex items-center h-dvh bg-center bg-no-repeat bg-[url('https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/imgs/1.png')] bg-[#252627] bg-blend-multiply">
 			<Hero />
+			<ArrowDownIcon class="absolute bottom-0 bounce end-1/2"/>
 		</section>
 		
 		<section class= "snap-start py-20 z-10 flex justify-center items-center">
@@ -40,5 +42,17 @@ import Cta from '../components/Cta.astro';
 		font-size: 20px;
 		line-height: 1.6;
 	}
+
+	@keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+    }
+    .bounce {
+        animation: bounce 1s infinite;
+    }
 	
 </style>

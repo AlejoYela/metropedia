@@ -4,6 +4,92 @@ import Layout from "../layouts/Layout.astro";
 import CalculatorIcon from "../icons/CalculatorIcon.astro";
 import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
 
+---
+
+<Layout title="Metropedia.">
+    <div class="calculadora relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12">
+        <div class="flex">
+            <CalculatorIcon class="size-10 mr-2 stroke-[#fcb316]" />
+            <h3 class=" text-4xl font-extrabold">Calculadora de <span class=" text-primary">Cifras Significativas</span></h3>
+        </div>
+        <p class="text-xl">Determina el número de cifras significativas en un número y muestra cuáles son esas cifras.</p>
+        
+        <form id="significant-figures-form" class=" max-w-screen-xl w-full border rounded-sm p-12">
+            <div class="mb-6">
+                <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Introduzca el número en notación inglesa (ejemplos: 1.2; 1020; 12.3)</label>
+                <input type="text" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:border-primary/20 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="
+Introduzca el número" required />
+            </div> 
+            <button type="submit" class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-blue-800 mb-4">Encontrar Número de Cifras Significativas</button>
+            
+            
+
+            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                <div>
+                    <label for="significant-figures-count" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cantidad de cifras significativas</label>
+                    <span id="significant-figures-count" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:border-primary/20 dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary">0</span>
+                </div>
+                <div>
+                    <label for="significant-figures-value" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cifras significativas</label>
+                    <span id="significant-figures-value" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:border-primary/20 dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary">0</span>
+                </div>
+            </div>
+        </form>
+
+        <ArrowDownIcon class="absolute bottom-0 bounce"/>
+    </div>
+
+    <div class="p-6 mt-12 text-white/50">
+        <div class="max-w-screen-xl mx-auto shadow-lg rounded-sm p-8  bg-[#4c4c4d]/20">
+            <h1 class="text-3xl font-bold mb-6 text-primary">Cifras Significativas</h1>
+    
+            <section class="mb-8">
+                <h2 class="text-2xl text-white font-semibold mb-4">¿Qué son las cifras significativas?</h2>
+                <p class="mb-4">Las cifras significativas representan los dígitos en un número que son conocidos con certeza o con un alto grado de confianza. Son esenciales en las mediciones para reflejar la precisión y exactitud de los instrumentos de medición utilizados. Los dígitos insignificantes son aquellos en los que no confiamos como muy precisos.</p>
+                <img src="/public/cifras.png" alt="">
+            </section>
+    
+    
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4 text-white">Reglas para determinar cifras significativas</h2>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Todas las cifras no nulas son significativas.</strong>
+                        <p class="pl-6 text-primary/40">Ejemplo: 54789 tiene 5 cifras significativas.</p>
+                    </li>
+                    <li><strong>Los ceros entre cifras no nulas son significativos.</strong>
+                        <p class="pl-6 text-primary/40">Ejemplo: 200008 tiene 6 cifras significativas.</p>
+                    </li>
+                    <li><strong>Los ceros al final de un número son significativos si el número contiene un decimal.</strong>
+                        <p class="pl-6 text-primary/40">Ejemplo: 45.00 tiene 4 cifras significativas.</p>
+                    </li>
+                    <li><strong>Los ceros al final de un número son significativos si hay un punto decimal presente.</strong>
+                        <p class="pl-6 text-primary/40">Ejemplo: 12000. tiene 5 cifras significativas.</p>
+                    </li>
+                    <li><strong>Los ceros al final de un número son insignificantes si no hay un punto decimal.</strong>
+                        <p class="pl-6 text-primary/40">Ejemplo: 3400 tiene 2 cifras significativas.</p>
+                    </li>
+                    <li><strong>Los ceros a la izquierda del primer dígito distinto de cero después de un punto decimal no son significativos.</strong>
+                        <p class="pl-6 text-primary/40">Ejemplo: 0.000076 tiene 2 cifras significativas.</p>
+                    </li>
+                    <li><strong>Los ceros después del primer dígito distinto de cero después de un punto decimal son significativos.</strong>
+                        <p class="pl-6 text-primary/40">Ejemplo: 0.0005600 tiene 4 cifras significativas.</p>
+                    </li>
+                </ul>
+            </section>
+    
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4 text-white">¿Cómo usar la calculadora?</h2>
+                <ol class="list-decimal list-inside mb-4">
+                    <li class="mb-2"><strong>Introducir el número:</strong> Ingrese el número para el cual desea calcular las cifras significativas.</li>
+                    <li><strong>Hacer clic en "Encontrar Número de Cifras Significativas":</strong> La calculadora mostrará automáticamente el número de cifras significativas y cuáles son.</li>
+                </ol>
+            </section>
+        </div>
+    </div>
+</Layout>
+
+<script>
 function redondearCifrasSignificativas(num, cifras=2) {
     if (num === 0) {
         return 0;
@@ -22,9 +108,6 @@ function redondearCifrasSignificativas(num, cifras=2) {
     // Reescalar el número a su magnitud original
     return tempNum / factor;
 }
-
-// Ejemplos de uso
-console.log(redondearCifrasSignificativas(12345, 2));  // 12000
 
 function contarCifrasSignificativas(num) {
     if (num === 0) {
@@ -52,106 +135,28 @@ function contarCifrasSignificativas(num) {
 
     return significantFigures;
 }
----
 
-<Layout title="Metropedia.">
-    <div class="calculadora relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12">
-        <div class="flex">
-            <CalculatorIcon class="size-10 mr-2 stroke-[#fcb316]" />
-            <h3 class=" text-4xl font-extrabold">Calculadora de <span class=" text-primary">Cifras Significativas</span></h3>
-        </div>
-        <p class="text-xl">Determina el número de cifras significativas en un número y muestra cuáles son esas cifras.</p>
-        
-        
-        <form class=" max-w-screen-xl w-full">
-            <div class="grid gap-6 mb-6 md:grid-cols-2">
-                <div>
-                    <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First name</label>
-                    <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-[#49494a] dark:border-primary/20 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="John" required />
-                </div>
-                <div>
-                    <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last name</label>
-                    <input type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-[#49494a] dark:border-primary/20 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="Doe" required />
-                </div>
-                
-            </div>
-            <div class="mb-6">
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address</label>
-                <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-[#49494a] dark:border-primary/30 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required />
-            </div> 
-            
-           
-            <button type="submit" class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-blue-800">Submit</button>
-        </form>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("significant-figures-form");
+    const numberInput = document.getElementById("number-input");
+    const significantFiguresCount = document.getElementById("significant-figures-count");
+    const significantFiguresValue = document.getElementById("significant-figures-value");
 
-        <ArrowDownIcon class="absolute bottom-0 bounce"/>
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
 
-    </div>
+        const number = parseFloat(numberInput.value);
+        if (isNaN(number)) {
+            alert("Por favor, introduce un número válido.");
+            return;
+        }
 
-    <div class="p-6">
-        <div class="max-w-screen-xl mx-auto bg-white shadow-lg rounded-lg p-8">
-            <h1 class="text-3xl font-bold mb-6">Cifras Significativas</h1>
+        const count = contarCifrasSignificativas(number);
     
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">¿Qué son las cifras significativas?</h2>
-                <p class="mb-4">Las cifras significativas representan los dígitos en un número que son conocidos con certeza o con un alto grado de confianza. Son esenciales en las mediciones para reflejar la precisión y exactitud de los instrumentos de medición utilizados. Los dígitos insignificantes son aquellos en los que no confiamos como muy precisos.</p>
-            </section>
-    
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">Importancia en las mediciones</h2>
-                <p class="mb-4">Diferentes herramientas de medición tienen diferentes niveles de precisión. Por ejemplo:</p>
-                <ul class="list-disc list-inside mb-4">
-                    <li><strong>Regla en centímetros:</strong> Permite medir hasta un centésimo de metro.</li>
-                    <li><strong>Regla en milímetros:</strong> Permite medir hasta una milésima de metro, proporcionando un dígito significativo adicional debido a su mayor precisión.</li>
-                </ul>
-                <p class="mb-4">Es crucial que las mediciones reflejen la precisión del equipo utilizado. Por ello, el número de cifras significativas reportadas debe coincidir con la capacidad de precisión del instrumento de medición.</p>
-            </section>
-    
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">Ejemplos prácticos</h2>
-                <ul class="list-disc list-inside mb-4">
-                    <li><strong>Medición con una balanza postal:</strong> Si mide solo en gramos, el resultado tiene 1 cifra significativa (por ejemplo, 230 gramos tiene 2 cifras significativas: 2 y 3).</li>
-                    <li><strong>Medición con una balanza analítica:</strong> Puede medir hasta milésimas de gramo, proporcionando hasta 4 cifras significativas.</li>
-                </ul>
-            </section>
-    
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">Reglas para determinar cifras significativas</h2>
-                <ul class="list-disc list-inside space-y-2">
-                    <li><strong>Todas las cifras no nulas son significativas.</strong>
-                        <p class="pl-6">Ejemplo: 54789 tiene 5 cifras significativas.</p>
-                    </li>
-                    <li><strong>Los ceros entre cifras no nulas son significativos.</strong>
-                        <p class="pl-6">Ejemplo: 200008 tiene 6 cifras significativas.</p>
-                    </li>
-                    <li><strong>Los ceros al final de un número son significativos si el número contiene un decimal.</strong>
-                        <p class="pl-6">Ejemplo: 45.00 tiene 4 cifras significativas.</p>
-                    </li>
-                    <li><strong>Los ceros al final de un número son significativos si hay un punto decimal presente.</strong>
-                        <p class="pl-6">Ejemplo: 12000. tiene 5 cifras significativas.</p>
-                    </li>
-                    <li><strong>Los ceros al final de un número son insignificantes si no hay un punto decimal.</strong>
-                        <p class="pl-6">Ejemplo: 3400 tiene 2 cifras significativas.</p>
-                    </li>
-                    <li><strong>Los ceros a la izquierda del primer dígito distinto de cero después de un punto decimal no son significativos.</strong>
-                        <p class="pl-6">Ejemplo: 0.000076 tiene 2 cifras significativas.</p>
-                    </li>
-                    <li><strong>Los ceros después del primer dígito distinto de cero después de un punto decimal son significativos.</strong>
-                        <p class="pl-6">Ejemplo: 0.0005600 tiene 4 cifras significativas.</p>
-                    </li>
-                </ul>
-            </section>
-    
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">¿Cómo usar la calculadora?</h2>
-                <ol class="list-decimal list-inside mb-4">
-                    <li class="mb-2"><strong>Introducir el número:</strong> Ingrese el número para el cual desea calcular las cifras significativas.</li>
-                    <li><strong>Hacer clic en "Buscar Número de Cifras Significativas":</strong> La calculadora mostrará automáticamente el número de cifras significativas y cuáles son.</li>
-                </ol>
-            </section>
-        </div>
-    </div>
-</Layout>
+        significantFiguresCount.textContent = count;
+    });
+});
+</script>
 
 <style>
     .calculadora {
