@@ -1,0 +1,225 @@
+---
+const {} = Astro.props;
+import Layout from "../layouts/Layout.astro";
+import CalculatorIcon from "../icons/CalculatorIcon.astro";
+import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
+---
+
+<Layout title="Metropedia - Calculadora de Desviación Estándar">
+    <div class="calculadora relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12">
+        <div class="flex">
+            <CalculatorIcon class="size-10 mr-2 stroke-[#fcb316]" />
+            <h3 class="text-4xl font-extrabold">
+                Calculadora de <span class="text-primary">Desviación Estándar</span>
+            </h3>
+        </div>
+        <p class="text-xl text-white/50">
+            Calcula la desviación estándar de un conjunto de números.
+        </p>
+
+        <form id="standard-deviation-form" class="max-w-screen-xl w-full border border-primary/80 rounded-sm p-12">
+            <p class="text-white/40 text-sm mb-6 w-full flex justify-center">
+                Calcula la desviación estándar de un grupo de números
+            </p>
+            <div class="mb-6">
+                <label for="numbers-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Ingresa los números separados por comas (ejemplo: 1, 2, 3, 4, 5).
+                </label>
+                <input
+                    type="text"
+                    id="numbers-input"
+                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    placeholder="0"
+                    required
+                />
+            </div>
+            <button
+                type="submit"
+                class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+            >
+                Calcular Desviación Estándar
+            </button>
+
+            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                <div>
+                    <label for="std-deviation-population" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Desviación Estándar de la Población
+                    </label>
+                    <span
+                        id="std-deviation-population"
+                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                    >
+                        0
+                    </span>
+                </div>
+                <div>
+                    <label for="std-deviation-sample" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Desviación Estándar de la Muestra
+                    </label>
+                    <span
+                        id="std-deviation-sample"
+                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                    >
+                        0
+                    </span>
+                </div>
+                <div>
+                    <label for="sample-size" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Tamaño de la Muestra
+                    </label>
+                    <span
+                        id="sample-size"
+                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                    >
+                        0
+                    </span>
+                </div>
+                <div>
+                    <label for="average" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Promedio
+                    </label>
+                    <span
+                        id="average"
+                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                    >
+                        0
+                    </span>
+                </div>
+                <div>
+                    <label for="variance" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Varianza
+                    </label>
+                    <span
+                        id="variance"
+                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                    >
+                        0
+                    </span>
+                </div>
+            </div>
+            <p class="hidden" id="std-deviation-message">
+                La desviación estándar de los números ingresados es:
+                <span class="text-primary font-extrabold">0</span>
+            </p>
+        </form>
+
+
+        <ArrowDownIcon class="absolute bottom-0 bounce" />
+    </div>
+
+    <div class="p-6 mt-12 text-white/50">
+        <div class="max-w-screen-xl mx-auto shadow-lg rounded-sm p-12 bg-[#4c4c4d]/20">
+            <h1 class="text-3xl font-bold mb-6 text-primary">
+                Desviación Estándar
+            </h1>
+
+            <section class="mb-8">
+                <h2 class="text-2xl text-white font-semibold mb-4">
+                    ¿Qué es la Desviación Estándar?
+                </h2>
+                <p class="mb-4">
+                    La desviación estándar es una medida de dispersión que indica cuánto varían los números respecto a la media. Es útil para entender la distribución y la variabilidad de un conjunto de datos.
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4 text-white">
+                    ¿Cómo usar la calculadora?
+                </h2>
+                <p class="mb-4">
+                    Ingresa los números separados por comas y presiona "Calcular Desviación Estándar". La herramienta te mostrará el resultado de la desviación estándar calculada para ese conjunto de números.
+                </p>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function calcularDesviacionEstandar(numbers) {
+            // Convertir los números ingresados a un array
+            const nums = numbers.split(",").map(num => parseFloat(num.trim()));
+
+            // Calcular el promedio
+            const mean = nums.reduce((acc, num) => acc + num, 0) / nums.length;
+
+            // Calcular la desviación estándar de la población
+            const populationStdDeviation = Math.sqrt(nums.reduce((acc, num) => acc + Math.pow(num - mean, 2), 0) / nums.length);
+
+            // Calcular la desviación estándar de la muestra
+            const sampleStdDeviation = Math.sqrt(nums.reduce((acc, num) => acc + Math.pow(num - mean, 2), 0) / (nums.length - 1));
+
+            // Tamaño de la muestra
+            const sampleSize = nums.length;
+
+            // Promedio
+            const average = mean;
+
+            // Varianza
+            const variance = nums.reduce((acc, num) => acc + Math.pow(num - mean, 2), 0) / nums.length;
+
+            return {
+                populationStdDeviation,
+                sampleStdDeviation,
+                sampleSize,
+                average,
+                variance
+            };
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("standard-deviation-form");
+            const numbersInput = document.getElementById("numbers-input");
+            const stdDeviationPopulation = document.getElementById("std-deviation-population");
+            const stdDeviationSample = document.getElementById("std-deviation-sample");
+            const sampleSizeElem = document.getElementById("sample-size");
+            const averageElem = document.getElementById("average");
+            const varianceElem = document.getElementById("variance");
+            const stdDeviationMessage = document.getElementById("std-deviation-message");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const numbers = numbersInput.value;
+
+                const {
+                    populationStdDeviation,
+                    sampleStdDeviation,
+                    sampleSize,
+                    average,
+                    variance
+                } = calcularDesviacionEstandar(numbers);
+
+                stdDeviationPopulation.textContent = populationStdDeviation.toFixed(4);
+                stdDeviationSample.textContent = sampleStdDeviation.toFixed(4);
+                sampleSizeElem.textContent = sampleSize;
+                averageElem.textContent =average.toFixed(4);
+                varianceElem.textContent = variance.toFixed(4);
+
+                stdDeviationMessage.innerHTML = `La desviación estándar de los números ingresados es: <span class="text-primary font-extrabold">${sampleStdDeviation.toFixed(4)}</span>`;
+                stdDeviationMessage.classList.remove("hidden");
+            });
+        });
+    </script>
+
+    <style>
+        .calculadora {
+            margin: auto;
+            color: white;
+            line-height: 1.6;
+        }
+
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+    </style>
+</Layout>
+

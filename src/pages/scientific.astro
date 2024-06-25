@@ -1,0 +1,179 @@
+---
+const {} = Astro.props;
+import Layout from "../layouts/Layout.astro";
+import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
+import ArrowsIcon from "../icons/ArrowsIcon.astro";
+---
+
+<Layout title="Metropedia - Conversor de Notación Científica y Decimal">
+    <div class="calculadora relative about flex flex-col justify-center items-center gap-12 pt-12 h-dvh">
+        <div class="flex">
+            <ArrowsIcon class="size-10 mr-2 stroke-[#fcb316]" />
+            <h3 class="text-4xl font-extrabold">
+                Conversor de <span class="text-primary">Notación Científica</span> y <span class="text-primary">Decimal</span>
+            </h3>
+        </div>
+        
+        <!-- Formulario para convertir entre notación científica y decimal -->
+        <form id="scientific-notation-form" class="max-w-screen-xl w-full border border-primary/80 rounded-sm p-12">
+            <p class="text-white/40 text-sm mb-6 w-full flex justify-center">
+                Conversión entre Notación Científica y Decimal
+            </p>
+            <div class="mb-6">
+                <label for="scientific-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Ingresa un número en notación científica (ejemplo: 3.14e5).
+                </label>
+                <input
+                    type="text"
+                    id="scientific-input"
+                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    placeholder="0"
+                />
+            </div>
+            <button
+                type="submit"
+                class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+            >
+                Convertir a Decimal
+            </button>
+            <div class="mb-6">
+                <label for="decimal-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Ingresa un número decimal (ejemplo: 314000).
+                </label>
+                <input
+                    type="text"
+                    id="decimal-input"
+                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    placeholder="0"
+                />
+            </div>
+            <button
+                type="submit"
+                class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+            >
+                Convertir a Notación Científica
+            </button>
+            <div class="grid gap-6 md:grid-cols-2">
+                <div>
+                    <label for="decimal-result" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Número Decimal
+                    </label>
+                    <span
+                        id="decimal-result"
+                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                    >
+                        0
+                    </span>
+                </div>
+                <div>
+                    <label for="scientific-result" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Notación Científica
+                    </label>
+                    <span
+                        id="scientific-result"
+                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                    >
+                        0
+                    </span>
+                </div>
+            </div>
+            <p class="hidden" id="scientific-notation-message">
+                El número en notación científica es:
+                <span class="text-primary font-extrabold">0</span>
+            </p>
+        </form>
+
+        <ArrowDownIcon class="absolute bottom-0 bounce" />
+    </div>
+
+    <div class="p-6 mt-12 text-white/50">
+        <div class="max-w-screen-xl mx-auto shadow-lg rounded-sm p-12 bg-[#4c4c4d]/20">
+            <h1 class="text-3xl font-bold mb-6 text-primary">
+                Desviación Estándar y Notación Científica
+            </h1>
+
+            <section class="mb-8">
+                <h2 class="text-2xl text-white font-semibold mb-4">
+                    ¿Qué es la Desviación Estándar?
+                </h2>
+                <p class="mb-4">
+                    La desviación estándar es una medida de dispersión que indica cuánto varían los números respecto a la media. Es útil para entender la distribución y la variabilidad de un conjunto de datos.
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4 text-white">
+                    ¿Cómo usar la calculadora?
+                </h2>
+                <p class="mb-4">
+                    Ingresa los números separados por comas y presiona "Calcular Desviación Estándar". La herramienta te mostrará el resultado de la desviación estándar calculada para ese conjunto de números.
+                </p>
+                <p class="mb-4">
+                    Para convertir entre notación científica y decimal, ingresa un número en uno de los formularios y presiona el botón correspondiente. El resultado se mostrará debajo del formulario respectivo.
+                </p>
+            </section>
+        </div>
+    </div>
+</Layout>
+
+<script>
+    // Función para convertir número en notación científica a decimal
+    function scientificToDecimal(scientific) {
+        const decimal = parseFloat(scientific);
+        return decimal;
+    }
+
+    // Función para convertir número decimal a notación científica
+    function decimalToScientific(decimal) {
+        const scientific = parseFloat(decimal).toExponential();
+        return scientific;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("scientific-notation-form");
+        const scientificInput = document.getElementById("scientific-input");
+        const decimalInput = document.getElementById("decimal-input");
+        const scientificResult = document.getElementById("scientific-result");
+        const decimalResult = document.getElementById("decimal-result");
+        const scientificMessage = document.getElementById("scientific-notation-message");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (scientificInput.value) {
+                const scientific = scientificInput.value.trim();
+                const decimal = scientificToDecimal(scientific);
+                decimalResult.textContent = decimal.toFixed(4); // Mostrar resultado decimal
+                scientificMessage.innerHTML = `El número en decimal es: <span class="text-primary font-extrabold">${decimal.toFixed(4)}</span>`;
+                scientificMessage.classList.remove("hidden");
+            } else if (decimalInput.value) {
+                const decimal = decimalInput.value.trim();
+                const scientific = decimalToScientific(decimal);
+                scientificResult.textContent = scientific; // Mostrar resultado científico
+                scientificMessage.innerHTML = `El número en notación científica es: <span class="text-primary font-extrabold">${scientific}</span>`;
+                scientificMessage.classList.remove("hidden");
+            }
+        });
+    });
+</script>
+
+<style>
+    .calculadora {
+        margin: auto;
+        color: white;
+        line-height: 1.6;
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .bounce {
+        animation: bounce 1s infinite;
+    }
+</style>
