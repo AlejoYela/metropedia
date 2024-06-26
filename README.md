@@ -22,24 +22,21 @@ To start using Metropedia, follow these steps:
 
 1. Clone the repository:
 
-bash
+```bash
 https://github.com/AlejoYela/metropedia.git
-
+```
 
 2. Install dependencies:
 
-bash
+```bash
 npm install
+```
 
+3. Sstart the project
 
-3. Configure environment variables.
-
-
-4. Sstart the project
-
-bash
+```bash
 bun run dev
-
+```
 
 
 ## Screenshots
