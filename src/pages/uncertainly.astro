@@ -1,0 +1,265 @@
+---
+const {} = Astro.props;
+import Layout from "../layouts/Layout.astro";
+import CalculatorIcon from "../icons/CalculatorIcon.astro";
+import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
+import SearchIcon from "../icons/SearchIcon.astro";
+import TargetIcon from "../icons/TargetIcon.astro";
+---
+
+<Layout title="Metropedia.">
+    <div
+        class="calculadora relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12"
+    >
+        <div class="flex">
+            <CalculatorIcon class="size-10 mr-2 stroke-[#fcb316]" />
+            <h3 class="text-4xl font-extrabold">
+                Calculadora de <span class="text-primary">Incertidumbre de Medición</span>
+            </h3>
+        </div>
+        <p class="text-xl text-white/50">
+            Calcula la incertidumbre de medición basada en varias fuentes de error.
+        </p>
+
+        <div class="border-b border-gray-200 dark:border-gray-700">
+            <ul
+                class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+            >
+                <li class="me-2">
+                    <a
+                        href="#"
+                        id="calcular-incertidumbre"
+                        class="inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group"
+                    >
+                        <SearchIcon class="size-5" /> Calcular Incertidumbre
+                    </a>
+                </li>
+                <li class="me-2">
+                    <a
+                        href="#"
+                        id="historial-incertidumbre"
+                        class="inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
+                        aria-current="page"
+                    >
+                        <TargetIcon class="size-5" /> Historial
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <form
+            id="incertidumbre-form"
+            class="max-w-screen-xl w-full border border-primary/80 rounded-sm p-12"
+        >
+            <p class=" text-white/40 text-sm mb-6 w-full flex justify-center">Calcula la incertidumbre combinada de una medición.</p>
+            <div class="mb-6">
+                <label
+                    for="medicion-input"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                    Introduzca la medición (valor central)
+                </label>
+                <input
+                    type="text"
+                    id="medicion-input"
+                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    placeholder="0"
+                    required
+                />
+            </div>
+            <div class="mb-6">
+                <label
+                    for="incertidumbre-input"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                    Introduzca la incertidumbre tipo A (ejemplo: 0.02)
+                </label>
+                <input
+                    type="text"
+                    id="incertidumbre-input"
+                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    placeholder="0"
+                    required
+                />
+            </div>
+            <div class="mb-6">
+                <label
+                    for="incertidumbreB-input"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                    Introduzca la incertidumbre tipo B (ejemplo: 0.01)
+                </label>
+                <input
+                    type="text"
+                    id="incertidumbreB-input"
+                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    placeholder="0"
+                    required
+                />
+            </div>
+            <button
+                type="submit"
+                class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+                >Calcular Incertidumbre</button
+            >
+
+            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                <div>
+                    <label
+                        for="incertidumbre-combinada"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Incertidumbre combinada</label
+                    >
+                    <span
+                        id="incertidumbre-combinada"
+                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        >0</span
+                    >
+                </div>
+                <div>
+                    <label
+                        for="incertidumbre-expandida"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Incertidumbre expandida (k=2)</label
+                    >
+                    <span
+                        id="incertidumbre-expandida"
+                        class="bg-gray-50  text-gray-900 text-sm rounded-sm focus:ring-primary  block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        >0</span
+                    >
+                </div>
+            </div>
+            <p class="hidden" id="mensaje">
+                La incertidumbre combinada es <span class="text-primary font-extrabold">0</span> y la incertidumbre expandida es <span class="text-primary font-extrabold">0</span>
+            </p>
+        </form>
+
+        <form
+            id="historial-form"
+            class="hidden max-w-screen-xl w-full border-blue-500 rounded-sm p-12"
+        >
+            <p class=" text-white/40 text-sm mb-6 w-full flex justify-center">Historial de cálculos de incertidumbre.</p>
+            <div id="historial" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"></div>
+        </form>
+
+        <ArrowDownIcon class="absolute bottom-0 bounce" />
+    </div>
+</Layout>
+
+<script>
+    function calcularIncertidumbreCombinada(uA, uB) {
+        return Math.sqrt(Math.pow(uA, 2) + Math.pow(uB, 2));
+    }
+
+    function calcularIncertidumbreExpandida(uCombinada, k = 2) {
+        return uCombinada * k;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("incertidumbre-form");
+        const form2 = document.getElementById("historial-form");
+        const medicionInput = document.getElementById("medicion-input");
+        const incertidumbreInput = document.getElementById("incertidumbre-input");
+        const incertidumbreBInput = document.getElementById("incertidumbreB-input");
+        const incertidumbreCombinada = document.getElementById("incertidumbre-combinada");
+        const incertidumbreExpandida = document.getElementById("incertidumbre-expandida");
+        const mensajeSalida = document.getElementById("mensaje");
+        const historialDiv = document.getElementById("historial");
+        const botonCalcularIncertidumbre = document.getElementById("calcular-incertidumbre");
+        const botonHistorialIncertidumbre = document.getElementById("historial-incertidumbre");
+
+        let historial = [];
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const medicion = parseFloat(medicionInput.value);
+            const uA = parseFloat(incertidumbreInput.value);
+            const uB = parseFloat(incertidumbreBInput.value);
+
+            const uCombinada = calcularIncertidumbreCombinada(uA, uB);
+            const uExpandida = calcularIncertidumbreExpandida(uCombinada);
+
+            incertidumbreCombinada.textContent = uCombinada.toFixed(4);
+            incertidumbreExpandida.textContent = uExpandida.toFixed(4);
+
+            mensajeSalida.innerHTML = `La incertidumbre combinada es <span class="text-primary font-extrabold">${uCombinada.toFixed(4)}</span> y la incertidumbre expandida es <span class="text-primary font-extrabold">${uExpandida.toFixed(4)}</span>`;
+            mensajeSalida.classList.remove("hidden");
+
+            // Guardar en el historial
+            historial.push({
+                medicion,
+                uA,
+                uB,
+                uCombinada: uCombinada.toFixed(4),
+                uExpandida: uExpandida.toFixed(4),
+            });
+
+            // Limpiar los campos de entrada
+            medicionInput.value = '';
+            incertidumbreInput.value = '';
+            incertidumbreBInput.value = '';
+
+            // Actualizar el historial
+            actualizarHistorial();
+        });
+
+        botonCalcularIncertidumbre.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            form.className =
+                "block max-w-screen-xl w-full border rounded-sm p-12 border-primary/80";
+            form2.className =
+                "hidden max-w-screen-xl w-full border rounded-sm p-12";
+
+            botonCalcularIncertidumbre.className =
+                "inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group";
+            botonHistorialIncertidumbre.className =
+                "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
+        });
+
+        botonHistorialIncertidumbre.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            form2.className =
+                "block max-w-screen-xl w-full border rounded-sm p-12 border-blue-500/80";
+            form.className =
+                "hidden max-w-screen-xl w-full border rounded-sm p-12";
+
+            botonHistorialIncertidumbre.className =
+                "inline-flex gap-2 items-center justify-center p-4 text-blue-500 border-b-2 border-blue-500 rounded-t-lg active dark:text-blue-500 dark:border-blue-500 group";
+            botonCalcularIncertidumbre.className =
+                "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
+        });
+
+        function actualizarHistorial() {
+            historialDiv.innerHTML = "";
+            historial.forEach((item, index) => {
+                const itemDiv = document.createElement("div");
+                itemDiv.innerHTML = `<p>Cálculo ${index + 1}: Medición = ${item.medicion}, uA = ${item.uA}, uB = ${item.uB}, Incertidumbre Combinada = ${item.uCombinada}, Incertidumbre Expandida = ${item.uExpandida}</p>`;
+                historialDiv.appendChild(itemDiv);
+            });
+        }
+    });
+</script>
+
+<style>
+    .calculadora {
+        margin: auto;
+        color: white;
+        line-height: 1.6;
+    }
+
+    @keyframes bounce {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+    .bounce {
+        animation: bounce 1s infinite;
+    }
+</style>
