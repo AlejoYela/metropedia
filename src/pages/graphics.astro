@@ -1,0 +1,231 @@
+---
+const { } = Astro.props;
+import Layout from "../layouts/Layout.astro";
+import LineChartIcon from "../icons/LineChartIcon.astro";
+import BarChartIcon from "../icons/BarChartIcon.astro";
+import PieChartIcon from "../icons/PieChartIcon.astro";
+import GraphicIcon from "../icons/GraphicIcon.astro";
+---
+
+<Layout title="Metropedia.">
+    <div class="graficas relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12">
+        <div class="flex">
+            <GraphicIcon class="size-10 mr-2 stroke-[#fcb316]" />
+            <h3 class="text-4xl font-extrabold">
+                Corrección de <span class="text-primary">Condiciones ambientales</span>
+            </h3>
+        </div>
+        <p class="text-xl text-white/50">
+            Corrige la toma de tus consiciones ambientales en entornos ideales con regresión.
+        </p>
+
+        <div class="border-b border-gray-200 dark:border-gray-700">
+            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+                <li class="me-2">
+                    <a
+                        href="#"
+                        id="line-chart"
+                        class="inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group"
+                    >
+                        <LineChartIcon class="size-5" /> Gráfica de Líneas
+                    </a>
+                </li>
+                <li class="me-2">
+                    <a
+                        href="#"
+                        id="bar-chart"
+                        class="inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
+                        aria-current="page"
+                    >
+                        <BarChartIcon class="size-5" /> Gráfica de Barras
+                    </a>
+                </li>
+                <li class="me-2">
+                    <a
+                        href="#"
+                        id="pie-chart"
+                        class="inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
+                        aria-current="page"
+                    >
+                        <PieChartIcon class="size-5" /> Gráfica de Pastel
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <form
+            id="chart-form"
+            class="max-w-screen-xl w-full border border-primary/80 rounded-sm p-12"
+        >
+            <p class="text-white/40 text-sm mb-6 w-full flex justify-center">
+                Selecciona el tipo de gráfica y proporciona los datos para generar la visualización.
+            </p>
+            <div class="mb-6">
+                <label
+                    for="data-input"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                    Introduce los datos en formato CSV (ejemplo: x1,y1\nx2,y2\nx3,y3)
+                </label>
+                <textarea
+                    id="data-input"
+                    aria-describedby="helper-text-explanation"
+                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    placeholder="x,y\n1,2\n3,4"
+                    required
+                ></textarea>
+            </div>
+            <button
+                type="submit"
+                class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+            >
+                Generar Gráfica
+            </button>
+
+            <div id="chart-container" class="w-full h-96 rounded-sm p-4">
+                <!-- Aquí se renderizará la gráfica -->
+            </div>
+        </form>
+    </div>
+
+    <div class="p-6 mt-12 text-white/50">
+        <div class="max-w-screen-xl mx-auto shadow-lg rounded-sm p-12 bg-[#4c4c4d]/20">
+            <h1 class="text-3xl font-bold mb-6 text-primary">
+                Gráficas de Datos Metrológicos
+            </h1>
+
+            <section class="mb-8">
+                <h2 class="text-2xl text-white font-semibold mb-4">
+                    ¿Qué son las gráficas de datos metrológicos?
+                </h2>
+                <p class="mb-4">
+                    Las gráficas de datos metrológicos permiten visualizar la distribución y tendencia de los datos obtenidos a partir de mediciones. Son una herramienta esencial para el análisis y la interpretación de resultados en el campo de la metrología.
+                </p>
+                <img src="/charts.png" alt="Ejemplo de gráficas" />
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4 text-white">
+                    Tipos de gráficas disponibles
+                </h2>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>
+                        <strong>Gráfica de Líneas:</strong> Ideal para mostrar tendencias a lo largo del tiempo.
+                    </li>
+                    <li>
+                        <strong>Gráfica de Barras:</strong> Útil para comparar diferentes categorías o grupos.
+                    </li>
+                    <li>
+                        <strong>Gráfica de Pastel:</strong> Perfecta para mostrar proporciones dentro de un conjunto de datos.
+                    </li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4 text-white">
+                    ¿Cómo usar la herramienta de gráficas?
+                </h2>
+                <p class="mb-4">
+                    Selecciona el tipo de gráfica que deseas generar, introduce los datos en el formato adecuado y presiona el botón "Generar Gráfica". La gráfica se renderizará en el contenedor proporcionado.
+                </p>
+            </section>
+        </div>
+    </div>
+</Layout>
+
+<script>
+    import { Chart, registerables } from 'chart.js';
+    Chart.register(...registerables);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("chart-form");
+        const dataInput = document.getElementById("data-input");
+        const chartContainer = document.getElementById("chart-container");
+        const botonLineChart = document.getElementById("line-chart");
+        const botonBarChart = document.getElementById("bar-chart");
+        const botonPieChart = document.getElementById("pie-chart");
+        let chartType = 'line';
+
+        botonLineChart.addEventListener("click", function (event) {
+            event.preventDefault();
+            chartType = 'line';
+            botonLineChart.className = "inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group";
+            botonBarChart.className = "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
+            botonPieChart.className = "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
+        });
+
+        botonBarChart.addEventListener("click", function (event) {
+            event.preventDefault();
+            chartType = 'bar';
+            botonLineChart.className = "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
+            botonBarChart.className = "inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group";
+            botonPieChart.className = "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
+        });
+
+        botonPieChart.addEventListener("click", function (event) {
+            event.preventDefault();
+            chartType = 'pie';
+            botonLineChart.className = "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
+            botonBarChart.className = "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
+            botonPieChart.className = "inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group";
+        });
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const csvData = dataInput.value.trim();
+            const rows = csvData.split("\n").map(row => row.split(","));
+            const labels = rows.map(row => row[0]);
+            const data = rows.map(row => row[1]);
+
+            chartContainer.innerHTML = ""; // Clear previous chart
+
+            const canvas = document.createElement("canvas");
+            chartContainer.appendChild(canvas);
+
+            new Chart(canvas, {
+                type: chartType,
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Datos',
+                        data: data,
+                        backgroundColor: chartType === 'pie' ? ['#fcb316', '#4c4c4d', '#49494a'] : '#fcb316',
+                        borderColor: chartType === 'pie' ? [] : '#4c4c4d',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: chartType === 'pie' ? {} : {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    .graficas {
+        margin: auto;
+        color: white;
+        line-height: 1.6;
+    }
+
+    @keyframes bounce {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+    .bounce {
+        animation: bounce 1s infinite;
+    }
+</style>
+
