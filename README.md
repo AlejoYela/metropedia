@@ -1,54 +1,59 @@
-# Astro Starter Kit: Basics
+# Metropedia - Metrology Web Tools
 
-```sh
-npm create astro@latest -- --template basics
-```
+![Metropedia Banner](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/logocentrado.png)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Metropedia is a web application designed for metrology professionals, providing tools for significant figures calculation and measurement uncertainty analysis. It offers precise and efficient methods for handling numerical data in metrological applications.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Features
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+* **Significant Figures Calculator**: Calculate significant figures in numerical data.
+* **Measurement Uncertainty Tool**: Analyze measurement uncertainty using Type A and Type B methods.
 
-## 🚀 Project Structure
+## Technologies Used
 
-Inside of your Astro project, you'll see the following folders and files:
+<a href="https://astro.build/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/astroicon.svg" width="36" height="36" alt="Astro" /></a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/tailwindcss-colored.svg" width="36" height="36" alt="Tailwind" /></a>
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+* **Astro**: The web framework for content-driven websites
+* **Tailwind**: A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Installation and Usage
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+To start using Metropedia, follow these steps:
 
-Any static assets, like images, can be placed in the `public/` directory.
+1. Clone the repository:
 
-## 🧞 Commands
+bash
+https://github.com/AlejoYela/metropedia.git
 
-All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+2. Install dependencies:
 
-## 👀 Want to learn more?
+bash
+npm install
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+3. Configure environment variables.
+
+
+4. Sstart the project
+
+bash
+bun run dev
+
+
+
+## Screenshots
+
+![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/1.png)
+![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/2.png)
+![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/3.png)
+![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/4.png)
+![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/5.png)
+
+## Sources and Credits
+
+- [Fontsource](https://fontsource.org/)
+- [Tabler icons](https://tabler.io/icons)
+
+## Thank you for viewing!
+Don't forget to leave your star ⭐ on the repository if you found it helpful or useful.
