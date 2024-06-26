@@ -1,6 +1,6 @@
 # Metropedia - Metrology Web Tools
 
-![Metropedia Banner](https://raw.githubusercontent.com/AlejoYela/Metropedia/main/public/images/banner.png)
+![Metropedia Banner](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/logocentrado.png)
 
 Metropedia is a web application designed for metrology professionals, providing tools for significant figures calculation and measurement uncertainty analysis. It offers precise and efficient methods for handling numerical data in metrological applications.
 
@@ -11,12 +11,10 @@ Metropedia is a web application designed for metrology professionals, providing 
 
 ## Technologies Used
 
-<a href="https://reactjs.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/react-colored.svg" width="36" height="36" alt="React" /></a> <a href="https://getbootstrap.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/bootstrap-colored.svg" width="36" height="36" alt="Bootstrap" /></a>
+<a href="https://astro.build/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/astroicon.svg" width="36" height="36" alt="Astro" /></a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/tailwindcss-colored.svg" width="36" height="36" alt="Tailwind" /></a>
 
-* **React**: Frontend library for building user interfaces.
-* **React Bootstrap**: Bootstrap components built for React.
-* **CSS Modules**: Locally scoped CSS by default in React.
-* **TypeScript**: Typed JavaScript at Any Scale.
+* **Astro**: The web framework for content-driven websites
+* **Tailwind**: A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
 
 ## Installation and Usage
 
@@ -25,7 +23,7 @@ To start using Metropedia, follow these steps:
 1. Clone the repository:
 
 bash
-https://github.com/AlejoYela/Bi-U-e-commerce.git
+https://github.com/AlejoYela/metropedia.git
 
 
 2. Install dependencies:
@@ -36,37 +34,26 @@ npm install
 
 3. Configure environment variables.
 
-4. Clone in a separated folder the backend repository:
+
+4. Sstart the project
 
 bash
-https://github.com/AlejoYela/Biu-API.git
-
-5. In the backend folder, start the server:
-bash
-npm run dev
-
-
-4. In the frontend folder, start the project
-
-bash
-npm start
+bun run dev
 
 
 
 ## Screenshots
 
-![screenshot1](https://raw.githubusercontent.com/AlejoYela/Bi-U-e-commerce/main/public/images/readme/1.png)
-![screenshot1](https://raw.githubusercontent.com/AlejoYela/Bi-U-e-commerce/main/public/images/readme/2.png)
-![screenshot1](https://raw.githubusercontent.com/AlejoYela/Bi-U-e-commerce/main/public/images/readme/3.png)
-![screenshot1](https://raw.githubusercontent.com/AlejoYela/Bi-U-e-commerce/main/public/images/readme/4.png)
-![screenshot1](https://raw.githubusercontent.com/AlejoYela/Bi-U-e-commerce/main/public/images/readme/5.png)
-![screenshot1](https://raw.githubusercontent.com/AlejoYela/Bi-U-e-commerce/main/public/images/readme/6.png)
-![screenshot1](https://raw.githubusercontent.com/AlejoYela/Bi-U-e-commerce/main/public/images/readme/8.png)
+![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/1.png)
+![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/2.png)
+![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/3.png)
+![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/4.png)
+![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/5.png)
 
 ## Sources and Credits
 
-- [Google Fonts](https://fonts.google.com/)
-- [Tabler icons](https://tablericons.com/)
+- [Fontsource](https://fontsource.org/)
+- [Tabler icons](https://tabler.io/icons)
 
 ## Thank you for viewing!
 Don't forget to leave your star ⭐ on the repository if you found it helpful or useful.
