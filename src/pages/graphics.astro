@@ -1,209 +1,443 @@
 ---
-const { } = Astro.props;
-import Layout from "../layouts/Layout.astro";
-import LineChartIcon from "../icons/LineChartIcon.astro";
-import BarChartIcon from "../icons/BarChartIcon.astro";
-import PieChartIcon from "../icons/PieChartIcon.astro";
+const {} = Astro.props;
 import GraphicIcon from "../icons/GraphicIcon.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Metropedia.">
-    <div class="graficas relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12">
+    <div
+        class="graficas relative about flex flex-col justify-center items-center gap-12 pt-36"
+    >
         <div class="flex">
             <GraphicIcon class="size-10 mr-2 stroke-[#fcb316]" />
             <h3 class="text-4xl font-extrabold">
-                Corrección de <span class="text-primary">Condiciones ambientales</span>
+                Corrección de <span class="text-primary"
+                    >Condiciones ambientales</span
+                >
             </h3>
         </div>
         <p class="text-xl text-white/50">
-            Corrige la toma de tus consiciones ambientales en entornos ideales con regresión.
+            Calcula la corrección de las mediciones de tus condiciones
+            ambientales para simular ambientes ideales en servicios externos.
         </p>
 
-        <div class="border-b border-gray-200 dark:border-gray-700">
-            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
-                <li class="me-2">
-                    <a
-                        href="#"
-                        id="line-chart"
-                        class="inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group"
-                    >
-                        <LineChartIcon class="size-5" /> Gráfica de Líneas
-                    </a>
-                </li>
-                <li class="me-2">
-                    <a
-                        href="#"
-                        id="bar-chart"
-                        class="inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
-                        aria-current="page"
-                    >
-                        <BarChartIcon class="size-5" /> Gráfica de Barras
-                    </a>
-                </li>
-                <li class="me-2">
-                    <a
-                        href="#"
-                        id="pie-chart"
-                        class="inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
-                        aria-current="page"
-                    >
-                        <PieChartIcon class="size-5" /> Gráfica de Pastel
-                    </a>
-                </li>
-            </ul>
-        </div>
-
         <form
-            id="chart-form"
+            id="correction-form"
             class="max-w-screen-xl w-full border border-primary/80 rounded-sm p-12"
         >
             <p class="text-white/40 text-sm mb-6 w-full flex justify-center">
-                Selecciona el tipo de gráfica y proporciona los datos para generar la visualización.
+                Ingresa los datos de lectura del instrumento y referencia del
+                patrón presentes en el certificado de tu instrumento de
+                monitoreo.
             </p>
-            <div class="mb-6">
-                <label
-                    for="data-input"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+
+            <div class="relative overflow-x-auto shadow-md sm:rounded-sm my-6">
+                <table
+                    class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
                 >
-                    Introduce los datos en formato CSV (ejemplo: x1,y1\nx2,y2\nx3,y3)
-                </label>
-                <textarea
-                    id="data-input"
-                    aria-describedby="helper-text-explanation"
-                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
-                    placeholder="x,y\n1,2\n3,4"
-                    required
-                ></textarea>
+                    <thead
+                        class="text-xs text-gray-700 uppercase dark:text-gray-400"
+                    >
+                        <tr>
+                            <th
+                                scope="col"
+                                class="px-6 py-3 bg-gray-50 dark:bg-[#49494a]/50"
+                            >
+                                Lectura del instrumento
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Referencia del patrón
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            class="border-b border-gray-200 dark:border-primary"
+                        >
+                            <th
+                                scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-[#49494a]/50"
+                            >
+                                <input
+                                    type="text"
+                                    id="number-input-1.1"
+                                    aria-describedby="helper-text-explanation"
+                                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                                    placeholder="0"
+                                />
+                            </th>
+                            <td class="px-6 py-4">
+                                <input
+                                    type="text"
+                                    id="number-input-1.2"
+                                    aria-describedby="helper-text-explanation"
+                                    class="bg-transparent text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                                    placeholder="0"
+                                />
+                            </td>
+                        </tr>
+
+                        <tr
+                            class="border-b border-gray-200 dark:border-primary"
+                        >
+                            <th
+                                scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-[#49494a]/50"
+                            >
+                                <input
+                                    type="text"
+                                    id="number-input-2.1"
+                                    aria-describedby="helper-text-explanation"
+                                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                                    placeholder="0"
+                                />
+                            </th>
+                            <td class="px-6 py-4">
+                                <input
+                                    type="text"
+                                    id="number-input-2.2"
+                                    aria-describedby="helper-text-explanation"
+                                    class="bg-transparent text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                                    placeholder="0"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th
+                                scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-[#49494a]/50"
+                            >
+                                <input
+                                    type="text"
+                                    id="number-input-3.1"
+                                    aria-describedby="helper-text-explanation"
+                                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                                    placeholder="0"
+                                />
+                            </th>
+                            <td class="px-6 py-4">
+                                <input
+                                    type="text"
+                                    id="number-input-3.2"
+                                    aria-describedby="helper-text-explanation"
+                                    class="bg-transparent text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                                    placeholder="0"
+                                />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <button
-                type="submit"
-                class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+
+            <div class="flex justify-between">
+                <button
+                    type="submit"
+                    class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+                    >Procesar datos de entrada</button
+                >
+                <button
+                    id="add"
+                    class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+                    >+</button
+                >
+            </div>
+
+            <div
+                id="equations-div"
+                class="hidden gap-6 mb-6 md:grid-cols-1 bg-[#49494a]/50 p-6 rounded-sm"
             >
-                Generar Gráfica
-            </button>
-
-            <div id="chart-container" class="w-full h-96 rounded-sm p-4">
-                <!-- Aquí se renderizará la gráfica -->
+                <div>
+                    <label
+                        id="equations-label"
+                        for="equations"
+                        class="block mb-6 text-sm font-medium text-gray-900 dark:text-white"
+                        >Ecuaciones de regresión evaluadas:</label
+                    >
+                    <div
+                        id="equations"
+                        class="flex justify-center gap-24 font-extrabold"
+                    >
+                        <div class="flex flex-col justify-center items-center">
+                            <p
+                                id="linear"
+                                class="text-white p-3 rounded-sm mb-2"
+                            >
+                                0
+                            </p>
+                            <label class="font-normal text-sm" for="linear"
+                                >Ecuación lineal</label
+                            >
+                        </div>
+                        <div class="flex flex-col justify-center items-center">
+                            <p
+                                id="quadratic"
+                                class="text-white p-3 rounded-sm mb-2"
+                            >
+                                0
+                            </p>
+                            <label class="font-normal text-sm" for="quadratic"
+                                >Ecuación cuadrática</label
+                            >
+                        </div>
+                        <div class="flex flex-col justify-center items-center">
+                            <p
+                                id="cubic"
+                                class="text-white p-3 rounded-sm mb-2"
+                            >
+                                0
+                            </p>
+                            <label class="font-normal text-sm" for="cubic"
+                                >Ecuación cúbica</label
+                            >
+                        </div>
+                    </div>
+                </div>
             </div>
+            <p class="hidden" id="mensaje">
+                La mejor regresión global es la <span
+                    class="text-green-500 font-extrabold">Lineal</span
+                >
+            </p>
+            <div id="chart-container"></div>
+            <p
+                class="hidden mt-12 border rounded-sm p-6 backdrop-blur-lg"
+                id="mensaje2"
+            >
+                hidden
+            </p>
         </form>
-    </div>
-
-    <div class="p-6 mt-12 text-white/50">
-        <div class="max-w-screen-xl mx-auto shadow-lg rounded-sm p-12 bg-[#4c4c4d]/20">
-            <h1 class="text-3xl font-bold mb-6 text-primary">
-                Gráficas de Datos Metrológicos
-            </h1>
-
-            <section class="mb-8">
-                <h2 class="text-2xl text-white font-semibold mb-4">
-                    ¿Qué son las gráficas de datos metrológicos?
-                </h2>
-                <p class="mb-4">
-                    Las gráficas de datos metrológicos permiten visualizar la distribución y tendencia de los datos obtenidos a partir de mediciones. Son una herramienta esencial para el análisis y la interpretación de resultados en el campo de la metrología.
-                </p>
-                <img src="/charts.png" alt="Ejemplo de gráficas" />
-            </section>
-
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4 text-white">
-                    Tipos de gráficas disponibles
-                </h2>
-                <ul class="list-disc list-inside space-y-2">
-                    <li>
-                        <strong>Gráfica de Líneas:</strong> Ideal para mostrar tendencias a lo largo del tiempo.
-                    </li>
-                    <li>
-                        <strong>Gráfica de Barras:</strong> Útil para comparar diferentes categorías o grupos.
-                    </li>
-                    <li>
-                        <strong>Gráfica de Pastel:</strong> Perfecta para mostrar proporciones dentro de un conjunto de datos.
-                    </li>
-                </ul>
-            </section>
-
-            <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4 text-white">
-                    ¿Cómo usar la herramienta de gráficas?
-                </h2>
-                <p class="mb-4">
-                    Selecciona el tipo de gráfica que deseas generar, introduce los datos en el formato adecuado y presiona el botón "Generar Gráfica". La gráfica se renderizará en el contenedor proporcionado.
-                </p>
-            </section>
-        </div>
     </div>
 </Layout>
 
 <script>
-    import { Chart, registerables } from 'chart.js';
+    import regression from "regression";
+    import { Chart, registerables } from "chart.js";
+    import annotationPlugin from "chartjs-plugin-annotation";
+
     Chart.register(...registerables);
+    Chart.register(annotationPlugin);
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("chart-form");
-        const dataInput = document.getElementById("data-input");
+    // Tus arrays de datos
+    const lectura = [
+        15.0, 19.8, 21.5, 23.2, 25.1, 27.1, 30.6, 32.2, 34.7, 39.7,
+    ];
+    const referencia = [
+        15.0, 20.01, 22.01, 24.01, 26.0, 28.02, 30.01, 32.0, 34.99, 39.99,
+    ];
+
+    // Combine los datos en un solo array de pares [x, y]
+    const data = lectura.map((x, i) => [x, referencia[i]]);
+
+    // Calcular regresión lineal
+    const linearResult = regression.linear(data);
+    const linearPredict = (x) => linearResult.predict(x)[1];
+
+    // Calcular regresión polinómica de grado 2
+    const poly2Result = regression.polynomial(data, { order: 2 });
+    const poly2Predict = (x) => poly2Result.predict(x)[1];
+
+    // Calcular regresión polinómica de grado 3
+    const poly3Result = regression.polynomial(data, { order: 3 });
+    const poly3Predict = (x) => poly3Result.predict(x)[1];
+
+    // Contadores para cada tipo de regresión
+    let countLineal = 0;
+    let countPolinomial2 = 0;
+    let countPolinomial3 = 0;
+
+    // Evaluar cada lectura con las tres fórmulas y almacenar los datos
+    const results = lectura.map((x, i) => {
+        const ref = referencia[i];
+        const lineal = linearPredict(x);
+        const polinomial2 = poly2Predict(x);
+        const polinomial3 = poly3Predict(x);
+
+        // Calcular errores
+        const errorLineal = Math.abs(ref - lineal);
+        const errorPolinomial2 = Math.abs(ref - polinomial2);
+        const errorPolinomial3 = Math.abs(ref - polinomial3);
+
+        // Determinar la regresión con menor error
+        const minError = Math.min(
+            errorLineal,
+            errorPolinomial2,
+            errorPolinomial3,
+        );
+        let mejorRegresion = "";
+        if (minError === errorLineal) {
+            mejorRegresion = "lineal";
+            countLineal++;
+        } else if (minError === errorPolinomial2) {
+            mejorRegresion = "polinomial2";
+            countPolinomial2++;
+        } else {
+            mejorRegresion = "polinomial3";
+            countPolinomial3++;
+        }
+
+        return {
+            lectura: x,
+            lineal,
+            polinomial2,
+            polinomial3,
+            errorLineal,
+            errorPolinomial2,
+            errorPolinomial3,
+            mejorRegresion,
+        };
+    });
+
+    // Determinar la mejor regresión basada en la mayoría de medidas
+    let mejorRegresionGlobal = "";
+    if (countLineal > countPolinomial2 && countLineal > countPolinomial3) {
+        mejorRegresionGlobal = "lineal";
+    } else if (
+        countPolinomial2 > countLineal &&
+        countPolinomial2 > countPolinomial3
+    ) {
+        mejorRegresionGlobal = "polinomial2";
+    } else if (
+        countPolinomial3 > countLineal &&
+        countPolinomial3 > countPolinomial2
+    ) {
+        mejorRegresionGlobal = "polinomial3";
+    } else {
+        mejorRegresionGlobal = "Empate entre regresiones"; // Caso de empate
+    }
+
+    // Imprimir los resultados
+    console.log("Resultados de predicción:");
+    results.forEach((result) => {
+        console.log(
+            `Lectura: ${result.lectura}, Lineal: ${result.lineal}, Polinomial Grado 2: ${result.polinomial2}, Polinomial Grado 3: ${result.polinomial3}`,
+        );
+        console.log(
+            `Errores -> Lineal: ${result.errorLineal}, Polinomial Grado 2: ${result.errorPolinomial2}, Polinomial Grado 3: ${result.errorPolinomial3}`,
+        );
+        console.log(`Mejor regresión: ${result.mejorRegresion}`);
+    });
+
+    // Imprimir la mejor regresión global
+    console.log(`La mejor regresión global es: ${mejorRegresionGlobal}`);
+
+    console.log("Linear result", linearResult);
+
+    const form = document.getElementById("correction-form");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
         const chartContainer = document.getElementById("chart-container");
-        const botonLineChart = document.getElementById("line-chart");
-        const botonBarChart = document.getElementById("bar-chart");
-        const botonPieChart = document.getElementById("pie-chart");
-        let chartType = 'line';
+        const canvas = document.createElement("canvas");
+        const mensaje = document.getElementById("mensaje");
+        const mensaje2 = document.getElementById("mensaje2");
+        const equationsDiv = document.getElementById("equations-div");
+        const linearEquation = document.getElementById("linear");
+        const quadraticEquation = document.getElementById("quadratic");
+        const cubicEquation = document.getElementById("cubic");
 
-        botonLineChart.addEventListener("click", function (event) {
-            event.preventDefault();
-            chartType = 'line';
-            botonLineChart.className = "inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group";
-            botonBarChart.className = "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
-            botonPieChart.className = "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
-        });
+        const texto1 = `Un ajuste <span class="text-green-500 font-extrabold">lineal</span> es adecuado cuando los datos siguen una tendencia constante y uniforme. Es el modelo más simple y fácil de interpretar, sugiriendo que no hay interacciones complejas o no lineales en los datos. En el contexto de calibración, esto podría significar que el instrumento está funcionando de manera consistente en todo el rango de mediciones.`;
+        const texto2 = `Un ajuste <span class="text-green-500 font-extrabold">cuadrático</span> es útil cuando los datos muestran una tendencia que no es lineal pero aún relativamente simple. Puede capturar variaciones que una regresión lineal no puede, como un aumento o disminución en la sensibilidad del instrumento en ciertos rangos de medición. Esto podría implicar que el instrumento tiene un rendimiento óptimo o una desviación sistemática en ciertas condiciones.`;
+        const texto3 = `Un ajuste <span class="text-green-500 font-extrabold">cúbico</span> es adecuado cuando los datos presentan una relación intrincada que no puede ser capturada por modelos lineales o cuadráticos. Este tipo de regresión puede modelar fluctuaciones y cambios abruptos en la tendencia, indicando que el instrumento podría estar respondiendo de manera no lineal a diferentes condiciones de medición. Esto puede ser útil para identificar y corregir comportamientos anómalos en el instrumento.`;
 
-        botonBarChart.addEventListener("click", function (event) {
-            event.preventDefault();
-            chartType = 'bar';
-            botonLineChart.className = "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
-            botonBarChart.className = "inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group";
-            botonPieChart.className = "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
-        });
+        chartContainer.appendChild(canvas);
 
-        botonPieChart.addEventListener("click", function (event) {
-            event.preventDefault();
-            chartType = 'pie';
-            botonLineChart.className = "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
-            botonBarChart.className = "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
-            botonPieChart.className = "inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group";
-        });
+        mensaje.className = "block my-12 text-xl flex justify-center";
+        mensaje.innerHTML = `¡ La mejor regresión global es la&nbsp<span class="text-green-500 font-extrabold text-xl">${mejorRegresionGlobal}</span>&nbsp!`;
 
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
+        mensaje2.className =
+            "block mt-12 border rounded-sm p-6 backdrop-blur-lg";
+        mensaje2.innerHTML =
+            mejorRegresionGlobal == "lineal"
+                ? texto1
+                : mejorRegresionGlobal == "polinomial2"
+                  ? texto2
+                  : texto3;
 
-            const csvData = dataInput.value.trim();
-            const rows = csvData.split("\n").map(row => row.split(","));
-            const labels = rows.map(row => row[0]);
-            const data = rows.map(row => row[1]);
+        equationsDiv.className =
+            "grid gap-6 mb-6 md:grid-cols-1 bg-[#49494a]/50 p-6 rounded-sm";
 
-            chartContainer.innerHTML = ""; // Clear previous chart
+        linearEquation.innerHTML = linearResult.string;
+        quadraticEquation.innerHTML = poly2Result.string;
+        cubicEquation.innerHTML = poly3Result.string;
 
-            const canvas = document.createElement("canvas");
-            chartContainer.appendChild(canvas);
+        if (mejorRegresionGlobal === "lineal") {
+            linearEquation.className =
+                "text-green-500 border p-3 rounded-sm mb-2";
+        } else if (mejorRegresionGlobal === "polinomial2") {
+            quadraticEquation.className =
+                "text-green-500 border p-3 rounded-sm mb-2";
+        } else {
+            cubicEquation.className =
+                "text-green-500 border p-3 rounded-sm mb-2";
+        }
 
-            new Chart(canvas, {
-                type: chartType,
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Datos',
-                        data: data,
-                        backgroundColor: chartType === 'pie' ? ['#fcb316', '#4c4c4d', '#49494a'] : '#fcb316',
-                        borderColor: chartType === 'pie' ? [] : '#4c4c4d',
-                        borderWidth: 1
-                    }]
+        const linealRegressionGraphic = linearResult.points.map((point) => ({
+            x: point[0],
+            y: point[1],
+        }));
+        const quadraticRegressionGraphic = poly2Result.points.map((point) => ({
+            x: point[0],
+            y: point[1],
+        }));
+        const cubicRegressionGraphic = poly3Result.points.map((point) => ({
+            x: point[0],
+            y: point[1],
+        }));
+
+        const dataGrafico = {
+            datasets: [
+                {
+                    type: "scatter",
+                    label: "Datos de Referencia",
+                    data: data,
+                    backgroundColor: "#55a7ef",
                 },
-                options: {
-                    responsive: true,
-                    scales: chartType === 'pie' ? {} : {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
+                {
+                    type: "line",
+                    label: `Regresión ${mejorRegresionGlobal}`,
+                    data:
+                        mejorRegresionGlobal == "lineal"
+                            ? linealRegressionGraphic
+                            : mejorRegresionGlobal == "polinomial2"
+                              ? quadraticRegressionGraphic
+                              : cubicRegressionGraphic,
+                    backgroundColor: "#e05b59",
+                    borderColor: "#e05b59",
+                },
+            ],
+            labels: ["January", "February", "March", "April"],
+        };
+
+        const options = {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                },
+            },
+            plugins: {
+                annotation: {
+                    annotations: {
+                        label1: {
+                            type: "label",
+                            
+                            yValue: 2,
+                            color: "#ffffff",
+                            content: [
+                            mejorRegresionGlobal == "lineal" ? linearResult.string : mejorRegresionGlobal == "polinomial2" ? poly2Result.string : poly3Result.string,
+                            ],
+                            font: {
+                                size: 18,
+                            },
+                        },
+                    },
+                },
+            },
+        };
+
+        new Chart(canvas, {
+            data: dataGrafico,
+            options: options,
         });
     });
 </script>
@@ -228,4 +462,3 @@ import GraphicIcon from "../icons/GraphicIcon.astro";
         animation: bounce 1s infinite;
     }
 </style>
-
