@@ -50,7 +50,7 @@ import Layout from "../layouts/Layout.astro";
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="data-table-body">
                         <tr
                             class="border-b border-gray-200 dark:border-primary"
                         >
@@ -60,7 +60,6 @@ import Layout from "../layouts/Layout.astro";
                             >
                                 <input
                                     type="text"
-                                    id="number-input-1.1"
                                     aria-describedby="helper-text-explanation"
                                     class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
                                     placeholder="0"
@@ -69,56 +68,6 @@ import Layout from "../layouts/Layout.astro";
                             <td class="px-6 py-4">
                                 <input
                                     type="text"
-                                    id="number-input-1.2"
-                                    aria-describedby="helper-text-explanation"
-                                    class="bg-transparent text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
-                                    placeholder="0"
-                                />
-                            </td>
-                        </tr>
-
-                        <tr
-                            class="border-b border-gray-200 dark:border-primary"
-                        >
-                            <th
-                                scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-[#49494a]/50"
-                            >
-                                <input
-                                    type="text"
-                                    id="number-input-2.1"
-                                    aria-describedby="helper-text-explanation"
-                                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
-                                    placeholder="0"
-                                />
-                            </th>
-                            <td class="px-6 py-4">
-                                <input
-                                    type="text"
-                                    id="number-input-2.2"
-                                    aria-describedby="helper-text-explanation"
-                                    class="bg-transparent text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
-                                    placeholder="0"
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th
-                                scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-[#49494a]/50"
-                            >
-                                <input
-                                    type="text"
-                                    id="number-input-3.1"
-                                    aria-describedby="helper-text-explanation"
-                                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
-                                    placeholder="0"
-                                />
-                            </th>
-                            <td class="px-6 py-4">
-                                <input
-                                    type="text"
-                                    id="number-input-3.2"
                                     aria-describedby="helper-text-explanation"
                                     class="bg-transparent text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
                                     placeholder="0"
@@ -136,7 +85,8 @@ import Layout from "../layouts/Layout.astro";
                     >Procesar datos de entrada</button
                 >
                 <button
-                    id="add"
+                    id="add-row"
+                    type="button"
                     class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
                     >+</button
                 >
@@ -217,115 +167,136 @@ import Layout from "../layouts/Layout.astro";
     Chart.register(...registerables);
     Chart.register(annotationPlugin);
 
-    // Tus arrays de datos
-    const lectura = [
-        15.0, 19.8, 21.5, 23.2, 25.1, 27.1, 30.6, 32.2, 34.7, 39.7,
-    ];
-    const referencia = [
-        15.0, 20.01, 22.01, 24.01, 26.0, 28.02, 30.01, 32.0, 34.99, 39.99,
-    ];
+    const form = document.getElementById("correction-form");
 
-    // Combine los datos en un solo array de pares [x, y]
-    const data = lectura.map((x, i) => [x, referencia[i]]);
-
-    // Calcular regresión lineal
-    const linearResult = regression.linear(data);
-    const linearPredict = (x) => linearResult.predict(x)[1];
-
-    // Calcular regresión polinómica de grado 2
-    const poly2Result = regression.polynomial(data, { order: 2 });
-    const poly2Predict = (x) => poly2Result.predict(x)[1];
-
-    // Calcular regresión polinómica de grado 3
-    const poly3Result = regression.polynomial(data, { order: 3 });
-    const poly3Predict = (x) => poly3Result.predict(x)[1];
-
-    // Contadores para cada tipo de regresión
-    let countLineal = 0;
-    let countPolinomial2 = 0;
-    let countPolinomial3 = 0;
-
-    // Evaluar cada lectura con las tres fórmulas y almacenar los datos
-    const results = lectura.map((x, i) => {
-        const ref = referencia[i];
-        const lineal = linearPredict(x);
-        const polinomial2 = poly2Predict(x);
-        const polinomial3 = poly3Predict(x);
-
-        // Calcular errores
-        const errorLineal = Math.abs(ref - lineal);
-        const errorPolinomial2 = Math.abs(ref - polinomial2);
-        const errorPolinomial3 = Math.abs(ref - polinomial3);
-
-        // Determinar la regresión con menor error
-        const minError = Math.min(
-            errorLineal,
-            errorPolinomial2,
-            errorPolinomial3,
+    function addRow() {
+        const tableBody = document.getElementById("data-table-body");
+        const newRow = document.createElement("tr");
+        newRow.classList.add(
+            "border-b",
+            "border-gray-200",
+            "dark:border-primary",
         );
-        let mejorRegresion = "";
-        if (minError === errorLineal) {
-            mejorRegresion = "lineal";
-            countLineal++;
-        } else if (minError === errorPolinomial2) {
-            mejorRegresion = "polinomial2";
-            countPolinomial2++;
-        } else {
-            mejorRegresion = "polinomial3";
-            countPolinomial3++;
-        }
-
-        return {
-            lectura: x,
-            lineal,
-            polinomial2,
-            polinomial3,
-            errorLineal,
-            errorPolinomial2,
-            errorPolinomial3,
-            mejorRegresion,
-        };
-    });
-
-    // Determinar la mejor regresión basada en la mayoría de medidas
-    let mejorRegresionGlobal = "";
-    if (countLineal > countPolinomial2 && countLineal > countPolinomial3) {
-        mejorRegresionGlobal = "lineal";
-    } else if (
-        countPolinomial2 > countLineal &&
-        countPolinomial2 > countPolinomial3
-    ) {
-        mejorRegresionGlobal = "polinomial2";
-    } else if (
-        countPolinomial3 > countLineal &&
-        countPolinomial3 > countPolinomial2
-    ) {
-        mejorRegresionGlobal = "polinomial3";
-    } else {
-        mejorRegresionGlobal = "Empate entre regresiones"; // Caso de empate
+        newRow.innerHTML = `
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-[#49494a]/50">
+            <input type="text" aria-describedby="helper-text-explanation" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" />
+        </th>
+        <td class="px-6 py-4">
+            <input type="text" aria-describedby="helper-text-explanation" class="bg-transparent text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" />
+        </td>
+    `;
+        tableBody.appendChild(newRow);
     }
 
-    // Imprimir los resultados
-    console.log("Resultados de predicción:");
-    results.forEach((result) => {
-        console.log(
-            `Lectura: ${result.lectura}, Lineal: ${result.lineal}, Polinomial Grado 2: ${result.polinomial2}, Polinomial Grado 3: ${result.polinomial3}`,
-        );
-        console.log(
-            `Errores -> Lineal: ${result.errorLineal}, Polinomial Grado 2: ${result.errorPolinomial2}, Polinomial Grado 3: ${result.errorPolinomial3}`,
-        );
-        console.log(`Mejor regresión: ${result.mejorRegresion}`);
-    });
-
-    // Imprimir la mejor regresión global
-    console.log(`La mejor regresión global es: ${mejorRegresionGlobal}`);
-
-    console.log("Linear result", linearResult);
-
-    const form = document.getElementById("correction-form");
+    document.getElementById("add-row").addEventListener("click", addRow);
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
+        const rows = document.querySelectorAll("#data-table-body tr");
+        const lectura = [];
+        const referencia = [];
+
+        rows.forEach((row) => {
+            const inputs = row.querySelectorAll("input");
+            lectura.push(parseFloat(inputs[0].value));
+            referencia.push(parseFloat(inputs[1].value));
+        });
+
+        const data = lectura.map((x, i) => [x, referencia[i]]);
+
+        // Calcular regresión lineal
+        const linearResult = regression.linear(data);
+        const linearPredict = (x) => linearResult.predict(x)[1];
+
+        // Calcular regresión polinómica de grado 2
+        const poly2Result = regression.polynomial(data, { order: 2 });
+        const poly2Predict = (x) => poly2Result.predict(x)[1];
+
+        // Calcular regresión polinómica de grado 3
+        const poly3Result = regression.polynomial(data, { order: 3 });
+        const poly3Predict = (x) => poly3Result.predict(x)[1];
+
+        // Contadores para cada tipo de regresión
+        let countLineal = 0;
+        let countPolinomial2 = 0;
+        let countPolinomial3 = 0;
+
+        // Evaluar cada lectura con las tres fórmulas y almacenar los datos
+        const results = lectura.map((x, i) => {
+            const ref = referencia[i];
+            const lineal = linearPredict(x);
+            const polinomial2 = poly2Predict(x);
+            const polinomial3 = poly3Predict(x);
+
+            // Calcular errores
+            const errorLineal = Math.abs(ref - lineal);
+            const errorPolinomial2 = Math.abs(ref - polinomial2);
+            const errorPolinomial3 = Math.abs(ref - polinomial3);
+
+            // Determinar la regresión con menor error
+            const minError = Math.min(
+                errorLineal,
+                errorPolinomial2,
+                errorPolinomial3,
+            );
+            let mejorRegresion = "";
+            if (minError === errorLineal) {
+                mejorRegresion = "lineal";
+                countLineal++;
+            } else if (minError === errorPolinomial2) {
+                mejorRegresion = "polinomial2";
+                countPolinomial2++;
+            } else {
+                mejorRegresion = "polinomial3";
+                countPolinomial3++;
+            }
+
+            return {
+                lectura: x,
+                lineal,
+                polinomial2,
+                polinomial3,
+                errorLineal,
+                errorPolinomial2,
+                errorPolinomial3,
+                mejorRegresion,
+            };
+        });
+
+        // Determinar la mejor regresión basada en la mayoría de medidas
+        let mejorRegresionGlobal = "";
+        if (countLineal > countPolinomial2 && countLineal > countPolinomial3) {
+            mejorRegresionGlobal = "lineal";
+        } else if (
+            countPolinomial2 > countLineal &&
+            countPolinomial2 > countPolinomial3
+        ) {
+            mejorRegresionGlobal = "polinomial2";
+        } else if (
+            countPolinomial3 > countLineal &&
+            countPolinomial3 > countPolinomial2
+        ) {
+            mejorRegresionGlobal = "polinomial3";
+        } else {
+            mejorRegresionGlobal = "Empate entre regresiones"; // Caso de empate
+        }
+
+        // Imprimir los resultados
+        console.log("Resultados de predicción:");
+        results.forEach((result) => {
+            console.log(
+                `Lectura: ${result.lectura}, Lineal: ${result.lineal}, Polinomial Grado 2: ${result.polinomial2}, Polinomial Grado 3: ${result.polinomial3}`,
+            );
+            console.log(
+                `Errores -> Lineal: ${result.errorLineal}, Polinomial Grado 2: ${result.errorPolinomial2}, Polinomial Grado 3: ${result.errorPolinomial3}`,
+            );
+            console.log(`Mejor regresión: ${result.mejorRegresion}`);
+        });
+
+        // Imprimir la mejor regresión global
+        console.log(`La mejor regresión global es: ${mejorRegresionGlobal}`);
+
+        console.log("Linear result", linearResult);
 
         const chartContainer = document.getElementById("chart-container");
         const canvas = document.createElement("canvas");
@@ -336,9 +307,12 @@ import Layout from "../layouts/Layout.astro";
         const quadraticEquation = document.getElementById("quadratic");
         const cubicEquation = document.getElementById("cubic");
 
-        const texto1 = `Un ajuste <span class="text-green-500 font-extrabold">lineal</span> es adecuado cuando los datos siguen una tendencia constante y uniforme. Es el modelo más simple y fácil de interpretar, sugiriendo que no hay interacciones complejas o no lineales en los datos. En el contexto de calibración, esto podría significar que el instrumento está funcionando de manera consistente en todo el rango de mediciones.`;
-        const texto2 = `Un ajuste <span class="text-green-500 font-extrabold">cuadrático</span> es útil cuando los datos muestran una tendencia que no es lineal pero aún relativamente simple. Puede capturar variaciones que una regresión lineal no puede, como un aumento o disminución en la sensibilidad del instrumento en ciertos rangos de medición. Esto podría implicar que el instrumento tiene un rendimiento óptimo o una desviación sistemática en ciertas condiciones.`;
-        const texto3 = `Un ajuste <span class="text-green-500 font-extrabold">cúbico</span> es adecuado cuando los datos presentan una relación intrincada que no puede ser capturada por modelos lineales o cuadráticos. Este tipo de regresión puede modelar fluctuaciones y cambios abruptos en la tendencia, indicando que el instrumento podría estar respondiendo de manera no lineal a diferentes condiciones de medición. Esto puede ser útil para identificar y corregir comportamientos anómalos en el instrumento.`;
+        const texto1 =
+            'Un ajuste <span class="text-green-500 font-extrabold">lineal</span> es adecuado cuando los datos siguen una tendencia constante y uniforme. Es el modelo más simple y fácil de interpretar, sugiriendo que no hay interacciones complejas o no lineales en los datos. En el contexto de calibración, esto podría significar que el instrumento está funcionando de manera consistente en todo el rango de mediciones.';
+        const texto2 =
+            'Un ajuste <span class="text-green-500 font-extrabold">cuadrático</span> es útil cuando los datos muestran una tendencia que no es lineal pero aún relativamente simple. Puede capturar variaciones que una regresión lineal no puede, como un aumento o disminución en la sensibilidad del instrumento en ciertos rangos de medición. Esto podría implicar que el instrumento tiene un rendimiento óptimo o una desviación sistemática en ciertas condiciones.';
+        const texto3 =
+            'Un ajuste <span class="text-green-500 font-extrabold">cúbico</span> es adecuado cuando los datos presentan una relación intrincada que no puede ser capturada por modelos lineales o cuadráticos. Este tipo de regresión puede modelar fluctuaciones y cambios abruptos en la tendencia, indicando que el instrumento podría estar respondiendo de manera no lineal a diferentes condiciones de medición. Esto puede ser útil para identificar y corregir comportamientos anómalos en el instrumento.';
 
         chartContainer.appendChild(canvas);
 
@@ -420,11 +394,15 @@ import Layout from "../layouts/Layout.astro";
                     annotations: {
                         label1: {
                             type: "label",
-                            
+
                             yValue: 2,
                             color: "#ffffff",
                             content: [
-                            mejorRegresionGlobal == "lineal" ? linearResult.string : mejorRegresionGlobal == "polinomial2" ? poly2Result.string : poly3Result.string,
+                                mejorRegresionGlobal == "lineal"
+                                    ? linearResult.string
+                                    : mejorRegresionGlobal == "polinomial2"
+                                      ? poly2Result.string
+                                      : poly3Result.string,
                             ],
                             font: {
                                 size: 18,
