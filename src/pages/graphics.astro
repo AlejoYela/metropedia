@@ -190,8 +190,18 @@ import Layout from "../layouts/Layout.astro";
 
     document.getElementById("add-row").addEventListener("click", addRow);
 
+    let chart;
+    const chartContainer = document.getElementById("chart-container");
+    const canvas = document.createElement("canvas");
+
     form.addEventListener("submit", function (event) {
         event.preventDefault();
+
+        if (chart) {
+            chart.destroy();
+        }
+        chartContainer.appendChild(canvas);
+
         const rows = document.querySelectorAll("#data-table-body tr");
         const lectura = [];
         const referencia = [];
@@ -298,8 +308,6 @@ import Layout from "../layouts/Layout.astro";
 
         console.log("Linear result", linearResult);
 
-        const chartContainer = document.getElementById("chart-container");
-        const canvas = document.createElement("canvas");
         const mensaje = document.getElementById("mensaje");
         const mensaje2 = document.getElementById("mensaje2");
         const equationsDiv = document.getElementById("equations-div");
@@ -313,8 +321,6 @@ import Layout from "../layouts/Layout.astro";
             'Un ajuste <span class="text-green-500 font-extrabold">cuadrático</span> es útil cuando los datos muestran una tendencia que no es lineal pero aún relativamente simple. Puede capturar variaciones que una regresión lineal no puede, como un aumento o disminución en la sensibilidad del instrumento en ciertos rangos de medición. Esto podría implicar que el instrumento tiene un rendimiento óptimo o una desviación sistemática en ciertas condiciones.';
         const texto3 =
             'Un ajuste <span class="text-green-500 font-extrabold">cúbico</span> es adecuado cuando los datos presentan una relación intrincada que no puede ser capturada por modelos lineales o cuadráticos. Este tipo de regresión puede modelar fluctuaciones y cambios abruptos en la tendencia, indicando que el instrumento podría estar respondiendo de manera no lineal a diferentes condiciones de medición. Esto puede ser útil para identificar y corregir comportamientos anómalos en el instrumento.';
-
-        chartContainer.appendChild(canvas);
 
         mensaje.className = "block my-12 text-xl flex justify-center";
         mensaje.innerHTML = `¡ La mejor regresión global es la&nbsp<span class="text-green-500 font-extrabold text-xl">${mejorRegresionGlobal}</span>&nbsp!`;
@@ -345,6 +351,28 @@ import Layout from "../layouts/Layout.astro";
             cubicEquation.className =
                 "text-green-500 border p-3 rounded-sm mb-2";
         }
+
+        const regressionPlugin = {
+            id: "regressionPlugin",
+            beforeInit: function (chart) {
+                const data = chart.config.data;
+
+                // Para cada dataset ...
+                for (let i = 0; i < data.datasets.length; i++) {
+                    const dataset = data.datasets[i];
+
+                    // Para cada etiqueta (label) ...
+                    for (let j = 0; j < data.labels.length; j++) {
+                        const x = data.labels[j];
+                        const y = dataset.function(x);
+                        // Agregar el valor calculado al array de datos del dataset
+                        dataset.data.push(y);
+                    }
+                }
+            },
+        };
+
+        Chart.register(regressionPlugin);
 
         const linealRegressionGraphic = linearResult.points.map((point) => ({
             x: point[0],
@@ -378,6 +406,15 @@ import Layout from "../layouts/Layout.astro";
                               : cubicRegressionGraphic,
                     backgroundColor: "#e05b59",
                     borderColor: "#e05b59",
+                },
+                {
+                    label: "Prueba",
+                    function: function (x) {
+                        return x ** 2;
+                    },
+                    data: [],
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    fill: false,
                 },
             ],
             labels: ["January", "February", "March", "April"],
@@ -413,10 +450,12 @@ import Layout from "../layouts/Layout.astro";
             },
         };
 
-        new Chart(canvas, {
+        chart = new Chart(canvas, {
             data: dataGrafico,
             options: options,
         });
+
+        console.log(linearResult);
     });
 </script>
 
