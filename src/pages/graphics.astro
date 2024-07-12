@@ -352,27 +352,27 @@ import Layout from "../layouts/Layout.astro";
                 "text-green-500 border p-3 rounded-sm mb-2";
         }
 
-        const regressionPlugin = {
-            id: "regressionPlugin",
-            beforeInit: function (chart) {
-                const data = chart.config.data;
+        // const regressionPlugin = {
+        //     id: "regressionPlugin",
+        //     beforeInit: function (chart) {
+        //         const data = chart.config.data;
 
-                // Para cada dataset ...
-                for (let i = 0; i < data.datasets.length; i++) {
-                    const dataset = data.datasets[i];
+        //         // Para cada dataset ...
+        //         for (let i = 0; i < data.datasets.length; i++) {
+        //             const dataset = data.datasets[i];
 
-                    // Para cada etiqueta (label) ...
-                    for (let j = 0; j < data.labels.length; j++) {
-                        const x = data.labels[j];
-                        const y = dataset.function(x);
-                        // Agregar el valor calculado al array de datos del dataset
-                        dataset.data.push(y);
-                    }
-                }
-            },
-        };
+        //             // Para cada etiqueta (label) ...
+        //             for (let j = 0; j < data.labels.length; j++) {
+        //                 const x = data.labels[j];
+        //                 const y = dataset.function(x);
+        //                 // Agregar el valor calculado al array de datos del dataset
+        //                 dataset.data.push(y);
+        //             }
+        //         }
+        //     },
+        // };
 
-        Chart.register(regressionPlugin);
+        // Chart.register(regressionPlugin);
 
         const linealRegressionGraphic = linearResult.points.map((point) => ({
             x: point[0],
@@ -407,15 +407,15 @@ import Layout from "../layouts/Layout.astro";
                     backgroundColor: "#e05b59",
                     borderColor: "#e05b59",
                 },
-                {
-                    label: "Prueba",
-                    function: function (x) {
-                        return x ** 2;
-                    },
-                    data: [],
-                    borderColor: "rgba(75, 192, 192, 1)",
-                    fill: false,
-                },
+                // {
+                //     label: "Prueba",
+                //     function: function (x) {
+                //         return x ** 2;
+                //     },
+                //     data: [],
+                //     borderColor: "rgba(75, 192, 192, 1)",
+                //     fill: false,
+                // },
             ],
             labels: ["January", "February", "March", "April"],
         };
