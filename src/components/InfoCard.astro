@@ -14,7 +14,7 @@ const { title, description, link, icono: Icon, color } = Astro.props;
 
 <a
     href={link}
-    class="max-w-sm p-6 hover:border border-gray-200 rounded-sm bg-opacity-10 dark:border-white/30 text-start shadow-2xl flex flex-col gap-3 justify-between"
+    class="max-w-sm p-6 border border-transparent hover:border-gray-200 rounded-sm bg-opacity-10 hover:dark:border-white/30 text-start shadow-2xl flex flex-col gap-3 justify-between"
 >
     <div class="rounded-sm p-3 w-fit mb-6" style={`background-color: ${color}1A`}> <!-- 1A es el 10% de opacidad en hexadecimal -->
         <Icon class="size-10" style={`stroke: ${color}`} />

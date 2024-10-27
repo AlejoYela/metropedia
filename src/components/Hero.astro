@@ -72,7 +72,7 @@ const features = [
         >
             <a
                 href="#"
-                class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-[#252627] hover:text-white rounded-sm bg-[#fcb316] hover:bg-[#fcb316]/60 hover:border focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-[#252627] hover:text-white rounded-sm bg-[#fcb316] hover:bg-[#fcb316]/60 border border-primary hover:border-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
             >
                 Vamos
                 <svg
@@ -138,7 +138,7 @@ const features = [
     <div class="w-full h-2.5 col-span-12 my-12 grid grid-cols-3 gap-4">
         {
             features.map((feature) => (
-                <a href="#" class="flex gap-2 hover:border border-white/30 rounded-sm px-4 py-2">
+                <a href="#" class="flex gap-2 border border-transparent hover:border-white/30 rounded-sm px-4 py-2">
                     <feature.icono class="size-8 text-[#fcb316]" />
                     <div>
                         <h4 class="text-md font-bold">{feature.title}</h4>
