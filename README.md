@@ -47,6 +47,11 @@ bun run dev
 ![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/4.png)
 ![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/5.png)
 
+## Deploy status on Netlify:
+The portfolio is deployed on Netlify. Current status:
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f2cd2dcf-de8c-45fc-bc87-6171071d81d6/deploy-status)](https://app.netlify.com/sites/metropedia/deploys)
+
 ## Sources and Credits
 
 - [Fontsource](https://fontsource.org/)
