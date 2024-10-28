@@ -1,0 +1,126 @@
+---
+import Layout from "../layouts/Layout.astro";
+let errorMessage = ""; // Mensajes de error
+let searchResult = null; // Resultados de la búsqueda
+---
+
+<Layout title="Certificados">
+    <div
+        class="certificates-container flex flex-col items-center justify-center h-screen text-center"
+    >
+        <h1 class="text-3xl font-bold text-[#fcb316] mb-8">
+            Certificados Generados
+        </h1>
+
+        <form id="searchForm" class="mb-4">
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="Cédula o Número de Certificado"
+                class="px-4 py-2 rounded text-black"
+                required
+            />
+            <button
+                type="submit"
+                class="bg-[#fcb316] text-white px-4 py-2 rounded ml-2"
+            >
+                Buscar
+            </button>
+        </form>
+
+        <div id="message" class="text-red-500">{errorMessage}</div>
+
+        <div id="result" class="mt-6 text-gray-300">
+            {
+                searchResult ? (
+                    <>
+                        <h2 class="text-xl font-bold">{searchResult.name}</h2>
+                        <ul>
+                            {searchResult.certificates.map((cert) => (
+                                <li class="mt-2" key={cert.certificate}>
+                                    <strong>Curso:</strong> {cert.course} <br />
+                                    <strong>Duración:</strong> {cert.duration}{" "}
+                                    horas <br />
+                                    <strong>Certificado:</strong>{" "}
+                                    {cert.certificate} <br />
+                                    <strong>Fecha:</strong>{" "}
+                                    {new Date(cert.date).toLocaleDateString()}
+                                </li>
+                            ))}
+                        </ul>
+                    </>
+                ) : (
+                    <p class="text-gray-300 text-lg">
+                        Ingrese una cédula o un número de certificado para
+                        buscar el registro.
+                    </p>
+                )
+            }
+        </div>
+    </div>
+
+    <script>
+        let searchResult = null; // Resultados de la búsqueda
+        const form = document.getElementById("searchForm");
+        //const input = {id: 1049625178};
+
+        const messageDiv = document.getElementById("message");
+        const resultDiv = document.getElementById("result");
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const input = document.getElementById("searchInput");
+            const query = input.value; // Obtiene el valor directamente del input
+
+            try {
+                const response = await fetch(`/api/searchCertificateById`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ query }),
+                });
+
+                // Verifica si la respuesta es válida
+                if (!response.ok) {
+                    throw new Error("Error en la respuesta de la API");
+                }
+
+                const data = await response.json();
+
+                // Actualiza el resultado y el mensaje de error
+                searchResult = data;
+                messageDiv.innerHTML = ""; // Limpia cualquier mensaje de error
+                updateResult(); // Llama a la función para actualizar el contenido del resultado
+            } catch (error) {
+                console.error(error);
+                messageDiv.innerHTML =
+                    "Hubo un problema con la búsqueda. Inténtalo de nuevo."; // Mensaje de error
+                updateResult(); // Llama a la función para actualizar el contenido del resultado
+            }
+        });
+
+        function updateResult() {
+            if (searchResult) {
+                resultDiv.innerHTML = `
+                    <h2 class="text-xl font-bold">${searchResult.name}</h2>
+                    <ul>
+                        ${searchResult.certificates
+                            .map(
+                                (cert) => `
+                            <li class="mt-2">
+                                <strong>Curso:</strong> ${cert.course} <br />
+                                <strong>Duración:</strong> ${cert.duration} horas <br />
+                                <strong>Certificado:</strong> ${cert.certificate} <br />
+                                <strong>Fecha:</strong> ${new Date(cert.date).toLocaleDateString()}
+                            </li>
+                        `,
+                            )
+                            .join("")}
+                    </ul>
+                `;
+            } else {
+                resultDiv.innerHTML =
+                    '<p class="text-gray-300 text-lg">Ingrese una cédula o un número de certificado para buscar el registro.</p>';
+            }
+        }
+    </script>
+</Layout>
