@@ -1,35 +1,44 @@
-import db from './db.js'; // Configuración de conexión a MongoDB
-import Certificate from './models/Certificate.js'; // Esquema de certificados
+// src/pages/api/searchCertificate.js
+import User from '../functions/User'; // Asegúrate de que la ruta sea correcta
 
-export default async function handler(req, res) {
-    if (req.method !== 'POST') {
-        return res.status(405).json({ message: 'Método no permitido' });
-    }
+export async function post(context) {
+    const { request } = context;
+    const { query } = await request.json();
 
-    const { query } = req.body;
-
-    if (!query) {
-        return res.status(400).json({ message: 'Se requiere un número de cédula o certificado' });
+    // Validación de entrada
+    if (!query || typeof query !== 'string' || query.trim().length === 0) {
+        return new Response(JSON.stringify({ message: 'Ingrese un parámetro de búsqueda válido' }), {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' },
+        });
     }
 
     try {
-        await db.connect();
-        
-        // Buscar por cédula o número de certificado
-        const user = await Certificate.findOne({
+        // Busca un usuario que tenga un certificado o cédula que coincida con la consulta
+        const user = await User.findOne({
             $or: [
-                { id: query }, // Búsqueda por cédula
-                { 'certificates.certificate': query } // Búsqueda por número de certificado
+                { 'certificates.certificate': query },
+                { 'id': query } // o cualquier otro campo relevante
             ]
         });
-        
+
         if (!user) {
-            return res.status(404).json({ message: 'Certificado no encontrado' });
+            return new Response(JSON.stringify({ message: 'No se encontró ningún certificado.' }), {
+                status: 404,
+                headers: { 'Content-Type': 'application/json' },
+            });
         }
 
-        res.status(200).json(user);
+        // Devuelve el usuario encontrado, o puedes extraer solo los certificados si lo prefieres
+        return new Response(JSON.stringify(user.certificates), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+        });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Error al buscar el certificado' });
+        return new Response(JSON.stringify({ message: 'Error al realizar la búsqueda' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' },
+        });
     }
 }
