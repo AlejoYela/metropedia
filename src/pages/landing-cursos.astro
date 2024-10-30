@@ -5,31 +5,33 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Metropedia.">
     <div class="calculadora relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12">
-        <h1>Consulta de usuario</h1>
-        <!-- Botón para hacer la consulta -->
-        <button onclick="fetchUserData()">Consultar usuario</button>
-
-        <script>
-            const userId = "1049625178"; // ID de usuario específico
-
-            // Define la función en el ámbito global
-            window.fetchUserData = async function () {
-                try {
-                    const response = await fetch(
-                        `http://localhost:3000/api/certificates/${userId}`,
-                    );
-                    if (!response.ok) {
-                        throw new Error(
-                            "Error al obtener los datos del usuario",
-                        );
-                    }
-                    const userData = await response.json();
-                    console.log("Datos del usuario:", userData); // Muestra los datos en la consola
-                } catch (error) {
-                    console.error("Error:", error);
-                }
-            };
-        </script>
+        <div>
+            <h1>Cursos en Metrología y Normativa Internacional</h1>
+            <h2>*Educación informal - No conduce a título o certificado de aptitud ocupacional - Decreto 1075 de 2015 (artículo 2.6.6.8)</h2>
+        </div>
+        <div>
+            <h3>Cursos virtuales diseñados por profesionales, información actualizada y ejemplos aplicados reales</h3>
+            <a
+    href="/certificates/"
+    class="inline-flex justify-center items-center mt-14 py-3 px-5 text-base font-medium text-center text-[#252627] hover:text-white rounded-sm bg-[#fcb316] hover:bg-[#fcb316]/60 border border-primary hover:border-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+  >
+    Ingrese aquí
+    <svg
+      class="w-3.5 h-3.5 ms-2 rtl:rotate-180"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 14 10"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+    </svg>
+  </a>
+        </div>
     </div>
 </Layout>
 
