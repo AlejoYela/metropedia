@@ -1,0 +1,78 @@
+---
+import BooksIcon from "../icons/BooksIcon.astro"
+import CertificateIcon from "../icons/CertificateIcon.astro"
+import LoadIcon from "../icons/LoadIcon.astro"
+
+const {view} = Astro.props
+---
+<div class=`overflow-hidden py-24 sm:py-32 ${view}`>
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div
+        class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+      >
+        <div class="lg:pr-2 lg:pt-4">
+          <div class="lg:max-w-lg">
+            <h2 class="text-base/7 font-semibold text-primary">
+              Capacitaciones para potenciar tus habilidades profesionales
+            </h2>
+            <p
+              class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl"
+            >
+              Certifica tu potencial
+            </p>
+            <p class="mt-6 text-lg/8 text-[#9a9a9a]">
+              Nuestros cursos están diseñados para fortalecer tus conocimientos
+              en metrología y normativa internacional, proporcionándote
+              herramientas prácticas que incrementarán tu eficiencia en el
+              ámbito profesional.
+            </p>
+            <dl
+              class="mt-10 max-w-xl space-y-8 text-base/7 text-[#9a9a9a] lg:max-w-none"
+            >
+              <div class="relative pl-9">
+                <dt class="inline font-semibold text-white">
+                  <BooksIcon
+                    class="absolute left-1 top-1 h-5 w-5 text-primary"
+                  />
+                  Aprendizaje personalizado.
+                </dt>
+                <dd class="inline">
+                  Contenidos diseñados por expertos para ayudarte a dominar
+                  conceptos complejos con facilidad
+                </dd>
+              </div>
+              <div class="relative pl-9">
+                <dt class="inline font-semibold text-white">
+                  <CertificateIcon
+                    class="absolute left-1 top-1 h-5 w-5 text-primary"
+                  />
+                  Certificación de habilidades.
+                </dt>
+                <dd class="inline">
+                  Obtén certificaciones validadas que te distinguirán en tu área
+                  profesional
+                </dd>
+              </div>
+              <div class="relative pl-9">
+                <dt class="inline font-semibold text-white">
+                  <LoadIcon
+                    class="absolute left-1 top-1 h-5 w-5 text-primary"
+                  />
+                  Actualización continua.
+                </dt>
+                <dd class="inline">
+                  Aprende con materiales actualizados que reflejan los
+                  estándares y prácticas más recientes.
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <img
+          src="/imgs/online-certificate.png"
+          alt="Product screenshot"
+          class="w-[48rem] h-[35rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 object-cover"
+        />
+      </div>
+    </div>
+  </div>

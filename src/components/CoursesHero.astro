@@ -1,0 +1,147 @@
+---
+
+import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
+import CubeIcon from "../icons/CubeIcon.astro";
+import NotebookIcon from "../icons/NotebookIcon.astro";
+import SettingsCheckIcon from "../icons/SettingsCheckIcon.astro";
+import StarIcon from "../icons/StarIcon.astro";
+import InfoCard from "./InfoCard.astro";
+
+const ownToolsInfo = [
+  {
+    title: "Didácticos",
+    description: [
+      "Contenido claro y conciso",
+      "Accesible",
+      "Interfaz amigable",
+    ],
+    link: "#",
+    icono: CubeIcon,
+    color: "#ff7900",
+  },
+  {
+    title: "Profesionales",
+    description: [
+      "Impartidos por expertos",
+      "Experiencia en metrología",
+      "Calidad de enseñanza",
+    ],
+    link: "#",
+    icono: StarIcon,
+    color: "#60a5fa",
+  },
+  {
+    title: "Actualizados",
+    description: [
+      "Contenido actualizado",
+      "Normativas internacionales",
+      "Cumplimiento con estándares",
+    ],
+    link: "#",
+    icono: NotebookIcon,
+    color: "#ac94fa",
+  },
+  {
+    title: "Prácticos",
+    description: [
+      "Ejemplos prácticos",
+      "Estudios de caso",
+      "Aplicaciones reales",
+    ],
+    link: "#",
+    icono: SettingsCheckIcon,
+    color: "#16bdca",
+  },
+];
+---
+
+<section
+    class="calculadora relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12"
+  >
+    <ArrowDownIcon class="absolute bottom-0 bounce end-1/2" />
+
+    <div class="content">
+      <h2
+        class="text-center max-w-4xl mt-4 text-3xl font-extrabold leading-none md:text-3xl xl:text-5xl dark:text-white mx-auto"
+      >
+        Los cursos más completos
+      </h2>
+      <h2
+        class="text-center max-w-5xl mb-4 text-3xl font-extrabold leading-none md:text-3xl xl:text-5xl dark:text-primary mx-auto"
+      >
+        en Metrología y Normativa Internacional
+      </h2>
+
+      <h3 class="mx-auto text-center max-w-2xl mt-10 text-2xl text-[#c4c8ce]">
+        Cursos virtuales diseñados por profesionales, información actualizada y
+        ejemplos aplicados reales.
+      </h3>
+      <div class="p-0 w-full max-w-screen-xl align-middle mx-auto">
+        <div class="grid col-span-12 grid-cols-4 gap-4 mx-6 my-6">
+          {
+            ownToolsInfo.map((tool) => (
+              <InfoCard
+                title={tool.title}
+                description={tool.description}
+                link={tool.link}
+                icono={tool.icono}
+                color={tool.color}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <h3
+        class="text-center max-w-4xl my-4 text-sm text-[#5d5d5d] font-bold mx-auto"
+      >
+        Educación informal - No conduce a título o certificado de aptitud
+        ocupacional - Decreto 1075 de 2015 (artículo 2.6.6.8)
+      </h3>
+    </div>
+  </section>
+
+  <style>
+    .about {
+      margin: auto;
+      color: white;
+      line-height: 1.6;
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .floating-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      animation: floating 6s ease-in-out infinite;
+      z-index: -1; /* Asegura que el fondo esté detrás del contenido */
+    }
+  
+    @keyframes floating {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  
+    @keyframes bounce {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .bounce {
+      animation: bounce 1s infinite;
+    }
+  </style>

@@ -1,0 +1,76 @@
+---
+import MeasureIcon from "../icons/MeasureIcon.astro";
+import NotebookIcon from "../icons/NotebookIcon.astro";
+import ScaleIcon from "../icons/ScaleIcon.astro";
+import UncertainlyIcon from "../icons/UncertainlyIcon.astro";
+import InfoCard from "./InfoCard.astro";
+
+const {view} = Astro.props
+
+const coursesInfo = [
+  {
+    title: "Metrología básica",
+    description: [
+      "Conceptos fundamentales",
+      "Importancia y aplicaciones",
+      "Historia y evolución",
+    ],
+    link: "#",
+    icono: MeasureIcon,
+    color: "#ff7900",
+  },
+  {
+    title: "VIM",
+    description: [
+      "Conceptos fundamentales",
+      "Importancia y aplicaciones",
+      "Historia y evolución",
+    ],
+    link: "#",
+    icono: NotebookIcon,
+    color: "#60a5fa",
+  },
+  {
+    title: "ISO/IEC 10012:2003",
+    description: [
+      "Conceptos fundamentales",
+      "Importancia y aplicaciones",
+      "Historia y evolución",
+    ],
+    link: "#",
+    icono: ScaleIcon,
+    color: "#ac94fa",
+  },
+  {
+    title: "Incertidumbre",
+    description: [
+      "Ejemplos prácticos",
+      "Estudios de caso",
+      "Aplicaciones reales",
+    ],
+    link: "#",
+    icono: UncertainlyIcon,
+    color: "#16bdca",
+  },
+];
+---
+
+<div class="pb-24 w-full max-w-screen-xl align-middle mx-auto text-center my-24">
+    <h3 class="text-white font-semibold text-2xl">Cursos populares</h3>
+    <h3 class="text-[#9a9a9a] text-lg">
+      Las habilidades profesionales más valoradas
+    </h3>
+    <div class="grid col-span-12 grid-cols-4 gap-4 mx-6 my-6">
+      {
+        coursesInfo.map((tool) => (
+          <InfoCard
+            title={tool.title}
+            description={tool.description}
+            link={tool.link}
+            icono={tool.icono}
+            color={tool.color}
+          />
+        ))
+      }
+    </div>
+  </div>
