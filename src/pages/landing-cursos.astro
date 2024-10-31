@@ -1,38 +1,193 @@
 ---
 const {} = Astro.props;
 import Layout from "../layouts/Layout.astro";
+import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
+import CubeIcon from "../icons/CubeIcon.astro";
+import StarIcon from "../icons/StarIcon.astro";
+import NotebookIcon from "../icons/NotebookIcon.astro";
+import SettingsCheckIcon from "../icons/SettingsCheckIcon.astro";
+import InfoCard from "../components/InfoCard.astro";
+
+const ownToolsInfo = [
+  {
+    title: "Didácticos",
+    description: [
+      "Contenido claro y conciso",
+      "Accesible",
+      "Interfaz amigable",
+    ],
+    link: "#",
+    icono: CubeIcon,
+    color: "#ff7900",
+  },
+  {
+    title: "Profesionales",
+    description: [
+      "Impartidos por expertos",
+      "Experiencia en metrología",
+      "Calidad de enseñanza",
+    ],
+    link: "#",
+    icono: StarIcon,
+    color: "#60a5fa",
+  },
+  {
+    title: "Actualizados",
+    description: [
+      "Contenido actualizado",
+      "Normativas internacionales",
+      "Cumplimiento con estándares",
+    ],
+    link: "#",
+    icono: NotebookIcon,
+    color: "#ac94fa",
+  },
+  {
+    title: "Prácticos",
+    description: [
+      "Ejemplos prácticos",
+      "Estudios de caso",
+      "Aplicaciones reales",
+    ],
+    link: "#",
+    icono: SettingsCheckIcon,
+    color: "#16bdca",
+  },
+];
 ---
 
 <Layout title="Metropedia.">
-    <div class="calculadora relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12">
-        <div>
-            <h1>Cursos en Metrología y Normativa Internacional</h1>
-            <h2>*Educación informal - No conduce a título o certificado de aptitud ocupacional - Decreto 1075 de 2015 (artículo 2.6.6.8)</h2>
-        </div>
-        <div>
-            <h3>Cursos virtuales diseñados por profesionales, información actualizada y ejemplos aplicados reales</h3>
-            <a
-    href="/certificates/"
-    class="inline-flex justify-center items-center mt-14 py-3 px-5 text-base font-medium text-center text-[#252627] hover:text-white rounded-sm bg-[#fcb316] hover:bg-[#fcb316]/60 border border-primary hover:border-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
-  >
-    Ingrese aquí
-    <svg
-      class="w-3.5 h-3.5 ms-2 rtl:rotate-180"
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 14 10"
+    <div
+        class="calculadora relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12"
     >
-      <path
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M1 5h12m0 0L9 1m4 4L9 9"></path>
-    </svg>
-  </a>
+    <ArrowDownIcon class="absolute bottom-0 bounce end-1/2"/>
+        <!-- Fondo flotante con transparencia -->
+        <div class="floating-background">
+            <img src="/imgs/4.png" alt="fondo decorativo flotante" class="w-full h-full opacity-20 object-cover" />
+        </div>
+
+        <div class="content z-10">
+            <h2
+                class="text-center max-w-4xl mt-4 text-3xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white"
+            >
+                Los cursos más completos
+            </h2>
+            <h2
+                class="text-center max-w-4xl mb-4 text-2xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-primary"
+            >
+                en Metrología y Normativa Internacional
+            </h2>
+            
+            <h3 class=" mx-auto text-center max-w-2xl mt-10 text-2xl text-[#c4c8ce]">
+                Cursos virtuales diseñados por profesionales, información
+                actualizada y ejemplos aplicados reales.
+            </h3>
+            <h3 class=" mx-auto text-center max-w-3xl mt-10 mb-4 text-2xl text-[#c4c8ce]">
+                ¿Qué quieres aprender?
+            </h3>
+            <form class="hidden md:flex max-w-3xl mx-auto items-center w-full">
+                <label for="default-search" class="mb-2 text-sm font-medium sr-only text-white">
+                    Buscar
+                </label>
+                <div class="relative w-full">
+                    <input
+                        type="search"
+                        id="default-search"
+                        class=" block w-full p-4 text-lg border rounded-sm bg-[#131414] border-primary placeholder-[#757575] text-white"
+                        placeholder="Buscar en la página"
+                        required
+                    />
+                    <button
+                        type="submit"
+                        class="absolute right-2.5 top-1/2 -translate-y-1/2 text-white focus:ring-4 focus:outline-none font-medium rounded-sm text-sm px-4 py-2 bg-transparent"
+                    >
+                        <svg
+                            class="w-5 h-5 text-gray-400"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+            
+            <h3
+                class="text-center max-w-4xl my-4 text-sm text-gray-500 font-bold"
+            >
+                Educación informal - No conduce a título o certificado de
+                aptitud ocupacional - Decreto 1075 de 2015 (artículo 2.6.6.8)
+            </h3>
         </div>
     </div>
+    <div class="px-4 w-full max-w-screen-xl align-middle mx-auto">
+        
+        <div class="grid col-span-12 grid-cols-4 gap-4 mx-6 my-24">
+            {
+              ownToolsInfo.map((tool) => (
+                <InfoCard
+                  title={tool.title}
+                  description={tool.description}
+                  link={tool.link}
+                  icono={tool.icono}
+                  color={tool.color}
+                />
+              ))
+            }
+          </div>
+    </div>
+    <div class="overflow-hidden py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+            <div class="lg:pr-8 lg:pt-4">
+              <div class="lg:max-w-lg">
+                <h2 class="text-base/7 font-semibold text-primary">Deploy faster</h2>
+                <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl">A better workflow</p>
+                <p class="mt-6 text-lg/8 text-[#757575]">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
+                <dl class="mt-10 max-w-xl space-y-8 text-base/7 text-[#757575] lg:max-w-none">
+                  <div class="relative pl-9">
+                    <dt class="inline font-semibold text-white">
+                      <svg class="absolute left-1 top-1 h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                        <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Zm3.75-2.75a.75.75 0 0 0 1.5 0V9.66l1.95 2.1a.75.75 0 1 0 1.1-1.02l-3.25-3.5a.75.75 0 0 0-1.1 0l-3.25 3.5a.75.75 0 1 0 1.1 1.02l1.95-2.1v4.59Z" clip-rule="evenodd" />
+                      </svg>
+                      Push to deploy.
+                    </dt>
+                    <dd class="inline">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
+                  </div>
+                  <div class="relative pl-9">
+                    <dt class="inline font-semibold text-white">
+                      <svg class="absolute left-1 top-1 h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                        <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" />
+                      </svg>
+                      SSL certificates.
+                    </dt>
+                    <dd class="inline">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.</dd>
+                  </div>
+                  <div class="relative pl-9">
+                    <dt class="inline font-semibold text-white">
+                      <svg class="absolute left-1 top-1 h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                        <path d="M4.632 3.533A2 2 0 0 1 6.577 2h6.846a2 2 0 0 1 1.945 1.533l1.976 8.234A3.489 3.489 0 0 0 16 11.5H4c-.476 0-.93.095-1.344.267l1.976-8.234Z" />
+                        <path fill-rule="evenodd" d="M4 13a2 2 0 1 0 0 4h12a2 2 0 1 0 0-4H4Zm11.24 2a.75.75 0 0 1 .75-.75H16a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75h-.01a.75.75 0 0 1-.75-.75V15Zm-2.25-.75a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75H13a.75.75 0 0 0 .75-.75V15a.75.75 0 0 0-.75-.75h-.01Z" clip-rule="evenodd" />
+                      </svg>
+                      Database backups.
+                    </dt>
+                    <dd class="inline">Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+            <img src="https://tailwindui.com/plus/img/component-images/dark-project-app-screenshot.png" alt="Product screenshot" class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442">
+          </div>
+        </div>
+      </div>
 </Layout>
 
 <style>
@@ -40,51 +195,39 @@ import Layout from "../layouts/Layout.astro";
         margin: auto;
         color: white;
         line-height: 1.6;
+        position: relative;
+        overflow: hidden;
     }
 
-    .metropedia {
-        -webkit-mask-image: linear-gradient(
-                to right,
-                transparent,
-                black 30%,
-                black 70%,
-                transparent
-            ),
-            linear-gradient(
-                to left,
-                transparent,
-                black 30%,
-                black 70%,
-                transparent
-            );
-        mask-image: linear-gradient(
-                to right,
-                transparent,
-                black 30%,
-                black 70%,
-                transparent
-            ),
-            linear-gradient(
-                to left,
-                transparent,
-                black 30%,
-                black 70%,
-                transparent
-            );
+    .floating-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        animation: floating 6s ease-in-out infinite;
+        z-index: -1; /* Asegura que el fondo esté detrás del contenido */
     }
 
-    .titulo {
-        font-family: "Questrial", system-ui, sans-serif;
-    }
-
-    @keyframes bounce {
-        0%,
-        100% {
+    @keyframes floating {
+        0% {
             transform: translateY(0);
         }
         50% {
-            transform: translateY(-10px);
+            transform: translateY(20px);
         }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
     }
     .bounce {
         animation: bounce 1s infinite;
