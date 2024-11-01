@@ -1,0 +1,81 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const { certificateId } = Astro.params; // Captura el ID desde la URL
+let userData = null;
+
+try {
+    // Realiza la solicitud `fetch` con el ID capturado
+    const response = await fetch(
+        `https://certificados-backend.onrender.com/api/certificates/validate/${certificateId}`,
+    );
+    if (response.ok) {
+        userData = await response.json();
+        
+    } else {
+        console.error("Certificado no encontrado o error en la solicitud.");
+    }
+} catch (error) {
+    console.error("Error al obtener los datos del certificado:", error);
+}
+---
+
+<!-- Renderiza la información del certificado -->
+<Layout title="Metropedia.">
+    <section class="relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12">
+        {
+            userData ? (
+                <div>
+                    <h1 class="text-green-600 font-bold text-2xl">CERTIFICADO VÁLIDO</h1>
+                    <h1>Certificado de: {userData.name}</h1>
+                    <p>Curso completado: {userData.certificate.course}</p>
+                    <p>Fecha de emisión: {new Date(userData.certificate.date).toLocaleDateString()}</p>
+                </div>
+            ) : (
+                <p>No se encontró información para este certificado.</p>
+            )
+        }
+    </section>
+</Layout>
+
+<style>
+    .about {
+        margin: auto;
+        color: white;
+        line-height: 1.6;
+    }
+
+    .metropedia {
+        -webkit-mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            ),
+            linear-gradient(
+                to left,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            );
+        mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            ),
+            linear-gradient(
+                to left,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            );
+    }
+
+    .titulo {
+        font-family: "Questrial", system-ui, sans-serif;
+    }
+</style>

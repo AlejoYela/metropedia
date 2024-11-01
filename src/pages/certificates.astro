@@ -16,7 +16,7 @@ import Layout from "../layouts/Layout.astro";
             window.fetchUserData = async function () {
                 try {
                     const response = await fetch(
-                        `http://localhost:3000/api/certificates/${userId}`,
+                        `https://certificados-backend.onrender.com/api/certificates/${userId}`,
                     );
                     if (!response.ok) {
                         throw new Error(

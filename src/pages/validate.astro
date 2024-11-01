@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+const {} = Astro.props
+
+const code = Astro.url.pathname.split('/').pop(); // Extrae el código del certificado desde la URL
+let userData = null;
+
+async function fetchUserData() {
+  try {
+    const response = await fetch(`https://certificados-backend.onrender.com/api/certificates/validate/${code}`);
+    userData = await response.json();
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+  }
+}
+
+await fetchUserData();
+---
+
+<Layout title="Metropedia.">
+    <div class="validation-container">
+        <h1>Validación de Certificado</h1>
+    </div>
+</Layout>

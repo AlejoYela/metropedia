@@ -1,0 +1,195 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Metropedia.">
+    <div class="bg-secondary">
+        <div class="flex justify-center h-screen">
+            <div
+                class="hidden bg-cover lg:block lg:w-2/3"
+                style="background-image: url(/vernier.png)"
+            >
+                <div
+                    class="flex items-center h-full px-20 bg-secondary bg-opacity-40"
+                >
+                    <div>
+                        <h2 class="text-3xl font-bold text-white sm:text-4xl">
+                            Campus virtual de <span class="text-primary"
+                                >METROPEDIA</span
+                            >
+                        </h2>
+                        <p
+                            class="max-w-xl mt-3 text-[#9a9a9a] font-semibold text-xl"
+                        >
+                            Accede a todos los cursos de METROPEDIA, creados por
+                            profesionales con alta experiencia, casos reales
+                            aplicados y dacumentacion actualizada.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6"
+            >
+                <div class="flex-1">
+                    <div class="text-center">
+                        <div class="flex justify-center mx-auto">
+                            <img
+                                class="metropedia w-auto h-20 sm:h-14"
+                                src="/logocentrado.png"
+                                alt=""
+                            />
+                        </div>
+                        <p class="mt-3 text-white dark:text-gray-300">
+                            Sign in to access your account
+                        </p>
+                    </div>
+
+                    <div class="mt-8">
+                        <form onsubmit="return validateLogin()">
+                            <div>
+                                <label
+                                    for="email"
+                                    class="block mb-2 text-sm text-[#9a9a9a] dark:text-gray-200"
+                                    >Email Address</label
+                                >
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    placeholder="example@example.com"
+                                    class="block w-full px-4 py-2 mt-2 text-[#9a9a9a] placeholder-gray-400 bg-white border border-gray-200 rounded-sm dark:placeholder-[#9a9a9a] dark:bg-[#191919] dark:text-gray-300 dark:border-[#9a9a9a] focus:border-[#ffcd61] dark:focus:border-[#ffcd61] focus:ring-[#ffcd61] focus:outline-none focus:ring focus:ring-opacity-40"
+                                />
+                            </div>
+
+                            <div class="mt-6">
+                                <div class="flex justify-between mb-2">
+                                    <label
+                                        for="password"
+                                        class="text-sm text-[#9a9a9a] dark:text-gray-200"
+                                        >Password</label
+                                    >
+                                    <a
+                                        href="#"
+                                        class="text-sm text-gray-400 focus:text-primary hover:text-primary hover:underline"
+                                        >Forgot password?</a
+                                    >
+                                </div>
+
+                                <input
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    placeholder="Your Password"
+                                    class="block w-full px-4 py-2 mt-2 text-[#9a9a9a] placeholder-gray-400 bg-white border border-gray-200 rounded-sm dark:placeholder-[#9a9a9a] dark:bg-[#191919] dark:text-gray-300 dark:border-[#9a9a9a] focus:border-[#ffcd61] dark:focus:border-[#ffcd61] focus:ring-[#ffcd61] focus:outline-none focus:ring focus:ring-opacity-40"
+                                />
+                            </div>
+
+                            <div class="mt-6">
+                                <button
+                                    type="submit"
+                                    class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-primary rounded-sm hover:bg-[#ffcd61] focus:outline-none focus:bg-[#ffcd61] focus:ring focus:ring-[#ffcd61] focus:ring-opacity-50"
+                                >
+                                    Sign in
+                                </button>
+                            </div>
+                        </form>
+
+                        <p class="mt-6 text-sm text-center text-gray-400">
+                            Don&#x27;t have an account yet? <a
+                                href="#"
+                                class="text-primary focus:outline-none focus:underline hover:underline"
+                                >Sign up</a
+                            >.
+                        </p>
+                        <p
+                            id="error-message"
+                            class="mt-4 text-sm text-center text-red-500 hidden"
+                        >
+                            Invalid email or password. Please try again.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<script>
+    // Credenciales de ejemplo
+    const validEmail = "usuario@example.com";
+    const validPassword = "password123";
+
+    function validateLogin() {
+        // Obtener valores de los campos
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const errorMessage = document.getElementById("error-message");
+
+        // Validar credenciales
+        if (email === validEmail && password === validPassword) {
+            alert("Login exitoso!");
+            return true; // Permitir el envío del formulario
+        } else {
+            errorMessage.classList.remove("hidden"); // Mostrar mensaje de error
+            return false; // Evitar el envío del formulario
+        }
+    }
+</script>
+
+<style>
+    .about {
+        margin: auto;
+        color: white;
+        line-height: 1.6;
+    }
+
+    .metropedia {
+        -webkit-mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            ),
+            linear-gradient(
+                to left,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            );
+        mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            ),
+            linear-gradient(
+                to left,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            );
+    }
+
+    .titulo {
+        font-family: "Questrial", system-ui, sans-serif;
+    }
+
+    @keyframes bounce {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+    .bounce {
+        animation: bounce 1s infinite;
+    }
+</style>

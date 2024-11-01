@@ -12,17 +12,16 @@ const { view } = Astro.props;
             <h2
                 class="text-lg font-bold text-[#c2c6cc] dark:text-white md:text-gray-100"
             >
-                Busca tus
+                Busca todos tus
                 <span class="text-primary dark:text-primary md:text-primary"
                     >certificados</span
                 >
-                por cédula o código
+                por cédula
             </h2>
             <p
                 class="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-400"
             >
-                Consulta cada certificado por separado o busca todos los que has
-                realizado.
+                Consulta todos los certificado que realizaste solo con tu número de cédula.
             </p>
         </div>
     </div>
@@ -59,72 +58,84 @@ const { view } = Astro.props;
     </div>
 
     <!-- Modal -->
-<div
-id="crud-modal"
-tabindex="-1"
-aria-hidden="true"
-class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
->
-<div class="relative p-4 w-full max-w-md max-h-full">
-    <!-- Modal content -->
-    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-        <!-- Modal header -->
-        <div
-            class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
-        >
-            <h3
-                class="text-lg font-semibold text-gray-900 dark:text-white"
-            >
-                Información de la consulta
-            </h3>
-            <button
-                type="button"
-                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                data-modal-toggle="crud-modal"
-            >
-                <svg
-                    class="w-3 h-3"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 14"
+    <div
+        id="crud-modal"
+        tabindex="-1"
+        aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+    >
+        <div class="relative p-4 w-full max-w-md max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div
+                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
                 >
-                    <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
-                </svg>
-                <span class="sr-only">Close modal</span>
-            </button>
-        </div>
-        <!-- Modal body -->
-        <form class="p-4 md:p-5">
-            <div class="grid gap-4 mb-4 grid-cols-2">
-                <div class="col-span-2">
-                    <label
-                        for="name"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Nombre</label
+                    <h3
+                        class="text-lg font-semibold text-gray-900 dark:text-white"
                     >
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="Type product name"
-                        required=""
-                    />
-                    <!-- Resultado del fetch -->
-                    <p id="modal-output"></p>
+                        Información de la consulta
+                    </h3>
+                    <button
+                        type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-toggle="crud-modal"
+                    >
+                        <svg
+                            class="w-3 h-3"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 14 14"
+                        >
+                            <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
                 </div>
+                <!-- Modal body -->
+                <form class="p-4 md:p-5">
+                    <div class="grid gap-4 mb-4 grid-cols-2">
+                        <div class="col-span-1">
+                            <label
+                                for="name"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                >Nombre</label
+                            >
+                            <!-- Resultado del fetch -->
+                            <p class="text-sm text-[#9a9a9a]" id="modal-output-name">
+                            </p>
+                        </div>
+                        <div class="col-span-1">
+                            <label
+                                for="name"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                >Cédula</label
+                            >
+                            <!-- Resultado del fetch -->
+                            <p class="text-sm text-[#9a9a9a]" id="modal-output-id">
+                            </p>
+                        </div>
+                        <div class="col-span-2">
+                            <label
+                                for="name"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                >Cursos</label
+                            >
+                            <!-- Resultado del fetch -->
+                            <p class="text-sm text-[#9a9a9a]" id="modal-output-courses">
+                            </p>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
-</div>
-</div>
-
 </section>
 
 <script>
@@ -164,15 +175,19 @@ class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 
         // ID de usuario específico
 
         // Define la función en el ámbito global
-        window.fetchUserData = async function () {
+       // ... Código anterior ...
+
+window.fetchUserData = async function () {
     const modalInput = document.getElementById("modal-input");
-    const modalOutput = document.getElementById("modal-output"); // Selecciona el <p> donde mostrarás el resultado
+    const modalOutputName = document.getElementById("modal-output-name");
+    const modalOutputId = document.getElementById("modal-output-id");
+    const modalOutputCourses = document.getElementById("modal-output-courses");
     const userId = modalInput.value;
 
     if (userId) {
         try {
             const response = await fetch(
-                `http://localhost:3000/api/certificates/${userId}`
+                `https://certificados-backend.onrender.com/api/certificates/${userId}`
             );
             if (!response.ok) {
                 throw new Error("Error al obtener los datos del usuario");
@@ -181,15 +196,40 @@ class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 
             const userData = await response.json();
 
             // Muestra los datos en el <p> del modal
-            modalOutput.textContent = `${JSON.stringify(userData.name)}`;
+            modalOutputName.textContent = userData.name;
+            modalOutputId.textContent = userData.id;
+
+            // Crear una lista de cursos
+            if (userData.certificates && userData.certificates.length > 0) {
+                // Limpiar contenido previo
+                modalOutputCourses.innerHTML = ''; // Limpiar contenido previo
+
+                // Crear un <ul> para los cursos
+                const ul = document.createElement("ul");
+                ul.className = "list-disc pl-5"; // Puedes agregar clases para estilos si lo deseas
+
+                userData.certificates.forEach((course) => {
+                    const li = document.createElement("li");
+                    li.textContent = course.course; // Asumiendo que cada curso tiene una propiedad 'name'
+                    ul.appendChild(li);
+                });
+
+                // Añadir la lista de cursos al contenedor del modal
+                modalOutputCourses.appendChild(ul);
+            } else {
+                modalOutputCourses.innerHTML = "<p>No hay cursos disponibles.</p>";
+            }
         } catch (error) {
             console.error("Error:", error);
-            modalOutput.textContent = "Error al obtener los datos.";
+            modalOutputName.textContent = "Error al obtener los datos.";
         }
     } else {
-        modalOutput.textContent = "Por favor ingresa un número de cédula o código.";
+        modalOutputName.textContent =
+            "Por favor ingresa un número de cédula o código.";
     }
 };
+
+// ... Código posterior ...
 
     });
 </script>
