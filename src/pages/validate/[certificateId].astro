@@ -1,5 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import DownloadIcon from "../../icons/DownloadIcon.astro";
+import CertificateIcon from "../../icons/CertificateIcon.astro";
+
 const { certificateId } = Astro.params; // Captura el ID desde la URL
 let userData = null;
 
@@ -25,29 +28,71 @@ try {
     >
         {
             userData ? (
-                <div>
-                    <h1 class="text-3xl font-bold">
-                        Validación de{" "}
-                        <span class="text-primary">certificados</span> y{" "}
-                        <span class="text-primary">cursos</span>.
-                    </h1>
-                    <p>
-                        Metropedia como plataforma virtual de formación en
-                        metrología y normativa internacional, informa que el certificado de formación con código <span class=" font-semibold">{certificateId}</span>:
-                    </p>
+                <section class="py-8 bg-transparent md:py-16 antialiased">
+                    <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
+                        <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
+                            <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">
+                                <img
+                                    class="w-full rounded-lg"
+                                    src="/imgs/certificate-mockup.png"
+                                    alt=""
+                                />
+                            </div>
 
-                    <h1 class="text-green-600 font-bold text-2xl">
-                        CERTIFICADO VÁLIDO
-                    </h1>
-                    <h1>Certificado de: {userData.name}</h1>
-                    <p>Curso completado: {userData.certificate.course}</p>
-                    <p>
-                        Fecha de emisión:{" "}
-                        {new Date(
-                            userData.certificate.date,
-                        ).toLocaleDateString()}
-                    </p>
-                </div>
+                            <div class="mt-6 sm:mt-8 lg:mt-0">
+                                <h1 class="text-xl font-semibold text-[#191919] sm:text-2xl dark:text-white">
+                                    {userData.certificate.course}
+                                </h1>
+                                <div class="mt-4 sm:items-center sm:gap-4 sm:flex">
+                                    <p class="text-2xl font-extrabold text-[#191919] sm:text-3xl dark:text-white">
+                                        {userData.name}
+                                    </p>
+                                </div>
+
+                                <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
+                                    <div
+                                        title=""
+                                        class="flex items-center justify-center py-2.5 px-5 text-sm font-medium text-[#191919] focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-[#191919] dark:text-gray-400 dark:border-gray-600"
+                                        role="button"
+                                    >
+                                        <CertificateIcon class="w-5 h-5 -ms-2 me-2" />
+                                        {certificateId}
+                                    </div>
+
+                                    <a
+                                        href="#"
+                                        title=""
+                                        class="text-secondary mt-4 sm:mt-0 bg-primary hover:bg-primary focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary dark:hover:bg-primary focus:outline-none dark:focus:ring-primary-800 flex items-center justify-center"
+                                        role="button"
+                                    >
+                                        <DownloadIcon class="w-5 h-5 -ms-2 me-2" />
+                                        Descargar certificado
+                                    </a>
+                                </div>
+
+                                <hr class="my-6 md:my-8 border-gray-200 dark:border-[#9a9a9a]" />
+
+                                <p class="mb-6 text-[#9a9a9a] dark:text-gray-400">
+                                    Metropedia, como plataforma virtual de
+                                    formación en metrología y normativa
+                                    internacional, informa que el certificado de
+                                    formación con código
+                                    <span class="font-semibold">
+                                        {certificateId}
+                                    </span>{" "}
+                                    es <span class="font-bold text-green-600">VÁLIDO</span> desde la fecha{" "}
+                                    {new Date(
+                                        userData.certificate.date,
+                                    ).toLocaleDateString()}{" "}
+                                    y se encuentra vigente como Educación
+                                    informal (No conduce a título o certificado
+                                    de aptitud ocupacional - Decreto 1075 de
+                                    2015 (artículo 2.6.6.8)).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             ) : (
                 <p>No se encontró información para este certificado.</p>
             )
