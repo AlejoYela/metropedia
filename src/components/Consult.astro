@@ -227,7 +227,7 @@ const { view } = Astro.props;
             if (userId) {
                 try {
                     const response = await fetch(
-                        `https://metropedia.vercel.app/${userId}`,
+                        `https://certificados-backend.onrender.com/api/certificates/${userId}`,
                     );
                     console.log(response);
 
