@@ -10,7 +10,6 @@ try {
     );
     if (response.ok) {
         userData = await response.json();
-        
     } else {
         console.error("Certificado no encontrado o error en la solicitud.");
     }
@@ -21,14 +20,33 @@ try {
 
 <!-- Renderiza la información del certificado -->
 <Layout title="Metropedia.">
-    <section class="relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12">
+    <section
+        class="relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12"
+    >
         {
             userData ? (
                 <div>
-                    <h1 class="text-green-600 font-bold text-2xl">CERTIFICADO VÁLIDO</h1>
+                    <h1 class="text-3xl font-bold">
+                        Validación de{" "}
+                        <span class="text-primary">certificados</span> y{" "}
+                        <span class="text-primary">cursos</span>.
+                    </h1>
+                    <p>
+                        Metropedia como plataforma virtual de formación en
+                        metrología y normativa internacional, informa que el certificado de formación con código <span class=" font-semibold">{certificateId}</span>:
+                    </p>
+
+                    <h1 class="text-green-600 font-bold text-2xl">
+                        CERTIFICADO VÁLIDO
+                    </h1>
                     <h1>Certificado de: {userData.name}</h1>
                     <p>Curso completado: {userData.certificate.course}</p>
-                    <p>Fecha de emisión: {new Date(userData.certificate.date).toLocaleDateString()}</p>
+                    <p>
+                        Fecha de emisión:{" "}
+                        {new Date(
+                            userData.certificate.date,
+                        ).toLocaleDateString()}
+                    </p>
                 </div>
             ) : (
                 <p>No se encontró información para este certificado.</p>

@@ -21,7 +21,8 @@ const { view } = Astro.props;
             <p
                 class="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-400"
             >
-                Consulta todos los certificado que realizaste solo con tu número de cédula.
+                Consulta todos los certificado que realizaste solo con tu número
+                de cédula.
             </p>
         </div>
     </div>
@@ -57,26 +58,28 @@ const { view } = Astro.props;
     <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40">
     </div>
 
-    <!-- Modal -->
+    <!-- Main modal -->
     <div
         id="crud-modal"
         tabindex="-1"
         aria-hidden="true"
-        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full"
     >
-        <div class="relative p-4 w-full max-w-md max-h-full">
+        <div class="relative p-4 w-full max-w-xl h-full md:h-auto">
             <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div
+                class="relative p-4 bg-white rounded-lg shadow dark:bg-[#252627] sm:p-5"
+            >
                 <!-- Modal header -->
-                <div
-                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
-                >
-                    <h3
-                        class="text-lg font-semibold text-gray-900 dark:text-white"
+                <div class="flex justify-between mb-4 rounded-t sm:mb-5">
+                    <div
+                        class="text-lg text-gray-900 md:text-xl dark:text-white"
                     >
-                        Información de la consulta
-                    </h3>
-                    <button
+                        <h3 id="modal-output-name" class="font-semibold"></h3>
+                        <p id="modal-output-id" class="font-bold"></p>
+                    </div>
+                    <div>
+                        <button
                         type="button"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                         data-modal-toggle="crud-modal"
@@ -97,42 +100,76 @@ const { view } = Astro.props;
                         </svg>
                         <span class="sr-only">Close modal</span>
                     </button>
-                </div>
-                <!-- Modal body -->
-                <form class="p-4 md:p-5">
-                    <div class="grid gap-4 mb-4 grid-cols-2">
-                        <div class="col-span-1">
-                            <label
-                                for="name"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                >Nombre</label
-                            >
-                            <!-- Resultado del fetch -->
-                            <p class="text-sm text-[#9a9a9a]" id="modal-output-name">
-                            </p>
-                        </div>
-                        <div class="col-span-1">
-                            <label
-                                for="name"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                >Cédula</label
-                            >
-                            <!-- Resultado del fetch -->
-                            <p class="text-sm text-[#9a9a9a]" id="modal-output-id">
-                            </p>
-                        </div>
-                        <div class="col-span-2">
-                            <label
-                                for="name"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                >Cursos</label
-                            >
-                            <!-- Resultado del fetch -->
-                            <p class="text-sm text-[#9a9a9a]" id="modal-output-courses">
-                            </p>
-                        </div>
                     </div>
-                </form>
+                </div>
+                <dl>
+                    <dt
+                        class="mb-2 font-semibold leading-none text-gray-900 dark:text-white"
+                    >
+                        Cursos
+                    </dt>
+                    <dd
+                    id="modal-output-courses"    
+                    class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400"
+                    >
+                    </dd>
+                    <dt
+                        class="mb-2 font-semibold leading-none text-gray-900 dark:text-white"
+                    >
+                        Category
+                    </dt>
+                    <dd
+                        class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400"
+                    >
+                        Electronics/PC
+                    </dd>
+                </dl>
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-3 sm:space-x-4">
+                        <button
+                            type="button"
+                            class="text-[#252627] inline-flex items-center bg-primary hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary"
+                        >
+                            <svg
+                                aria-hidden="true"
+                                class="mr-1 -ml-1 w-5 h-5"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                                ><path
+                                    d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"
+                                ></path><path
+                                    fill-rule="evenodd"
+                                    d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                    clip-rule="evenodd"></path></svg
+                            >
+                            Edit
+                        </button>
+                        <button
+                            type="button"
+                            class="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-[#373737] dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                        >
+                            Preview
+                        </button>
+                    </div>
+                    <button
+                        type="button"
+                        class="inline-flex items-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900"
+                    >
+                        <svg
+                            aria-hidden="true"
+                            class="w-5 h-5 mr-1.5 -ml-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                            ><path
+                                fill-rule="evenodd"
+                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                clip-rule="evenodd"></path></svg
+                        >
+                        Delete
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -175,61 +212,71 @@ const { view } = Astro.props;
         // ID de usuario específico
 
         // Define la función en el ámbito global
-       // ... Código anterior ...
+        // ... Código anterior ...
 
-window.fetchUserData = async function () {
-    const modalInput = document.getElementById("modal-input");
-    const modalOutputName = document.getElementById("modal-output-name");
-    const modalOutputId = document.getElementById("modal-output-id");
-    const modalOutputCourses = document.getElementById("modal-output-courses");
-    const userId = modalInput.value;
-
-    if (userId) {
-        try {
-            const response = await fetch(
-                `https://certificados-backend.onrender.com/api/certificates/${userId}`
+        window.fetchUserData = async function () {
+            const modalInput = document.getElementById("modal-input");
+            const modalOutputName =
+                document.getElementById("modal-output-name");
+            const modalOutputId = document.getElementById("modal-output-id");
+            const modalOutputCourses = document.getElementById(
+                "modal-output-courses",
             );
-            if (!response.ok) {
-                throw new Error("Error al obtener los datos del usuario");
-            }
+            const userId = modalInput.value;
 
-            const userData = await response.json();
+            if (userId) {
+                try {
+                    const response = await fetch(
+                        `https://metropedia.vercel.app/${userId}`,
+                    );
+                    console.log(response);
 
-            // Muestra los datos en el <p> del modal
-            modalOutputName.textContent = userData.name;
-            modalOutputId.textContent = userData.id;
+                    if (!response.ok) {
+                        throw new Error(
+                            "Error al obtener los datos del usuario",
+                        );
+                    }
 
-            // Crear una lista de cursos
-            if (userData.certificates && userData.certificates.length > 0) {
-                // Limpiar contenido previo
-                modalOutputCourses.innerHTML = ''; // Limpiar contenido previo
+                    const userData = await response.json();
 
-                // Crear un <ul> para los cursos
-                const ul = document.createElement("ul");
-                ul.className = "list-disc pl-5"; // Puedes agregar clases para estilos si lo deseas
+                    // Muestra los datos en el <p> del modal
+                    modalOutputName.textContent = userData.name;
+                    modalOutputId.textContent = userData.id;
 
-                userData.certificates.forEach((course) => {
-                    const li = document.createElement("li");
-                    li.textContent = course.course; // Asumiendo que cada curso tiene una propiedad 'name'
-                    ul.appendChild(li);
-                });
+                    // Crear una lista de cursos
+                    if (
+                        userData.certificates &&
+                        userData.certificates.length > 0
+                    ) {
+                        // Limpiar contenido previo
+                        modalOutputCourses.innerHTML = ""; // Limpiar contenido previo
 
-                // Añadir la lista de cursos al contenedor del modal
-                modalOutputCourses.appendChild(ul);
+                        // Crear un <ul> para los cursos
+                        const ul = document.createElement("ul");
+                        ul.className = "list-disc pl-5"; // Puedes agregar clases para estilos si lo deseas
+
+                        userData.certificates.forEach((course) => {
+                            const li = document.createElement("li");
+                            li.textContent = course.course; // Asumiendo que cada curso tiene una propiedad 'name'
+                            ul.appendChild(li);
+                        });
+
+                        // Añadir la lista de cursos al contenedor del modal
+                        modalOutputCourses.appendChild(ul);
+                    } else {
+                        modalOutputCourses.innerHTML =
+                            "<p>No hay cursos disponibles.</p>";
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    modalOutputName.textContent = "Error al obtener los datos.";
+                }
             } else {
-                modalOutputCourses.innerHTML = "<p>No hay cursos disponibles.</p>";
+                modalOutputName.textContent =
+                    "Por favor ingresa un número de cédula o código.";
             }
-        } catch (error) {
-            console.error("Error:", error);
-            modalOutputName.textContent = "Error al obtener los datos.";
-        }
-    } else {
-        modalOutputName.textContent =
-            "Por favor ingresa un número de cédula o código.";
-    }
-};
+        };
 
-// ... Código posterior ...
-
+        // ... Código posterior ...
     });
 </script>
