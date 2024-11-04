@@ -14,16 +14,14 @@ import Layout from "../layouts/Layout.astro";
                 >
                     <div>
                         <h2 class="text-3xl font-bold text-white sm:text-4xl">
-                            Campus virtual de <span class="text-primary"
-                                >METROPEDIA</span
-                            >
+                            Campus virtual de <span class="text-primary">METROPEDIA</span>
                         </h2>
                         <p
                             class="max-w-xl mt-3 text-[#9a9a9a] font-semibold text-xl"
                         >
                             Accede a todos los cursos de METROPEDIA, creados por
-                            profesionales con alta experiencia, casos reales
-                            aplicados y dacumentacion actualizada.
+                            profesionales con alta experiencia, casos reales aplicados y
+                            documentación actualizada.
                         </p>
                     </div>
                 </div>
@@ -42,23 +40,24 @@ import Layout from "../layouts/Layout.astro";
                             />
                         </div>
                         <p class="mt-3 text-white dark:text-gray-300">
-                            Sign in to access your account
+                            Inicia sesión para acceder a tu cuenta
                         </p>
                     </div>
 
                     <div class="mt-8">
-                        <form onsubmit="return validateLogin()">
+                        <form id="login-form">
                             <div>
                                 <label
                                     for="email"
                                     class="block mb-2 text-sm text-[#9a9a9a] dark:text-gray-200"
-                                    >Email Address</label
                                 >
+                                    Correo electrónico
+                                </label>
                                 <input
                                     type="email"
                                     name="email"
                                     id="email"
-                                    placeholder="example@example.com"
+                                    placeholder="ejemplo@correo.com"
                                     class="block w-full px-4 py-2 mt-2 text-[#9a9a9a] placeholder-gray-400 bg-white border border-gray-200 rounded-sm dark:placeholder-[#9a9a9a] dark:bg-[#191919] dark:text-gray-300 dark:border-[#9a9a9a] focus:border-[#ffcd61] dark:focus:border-[#ffcd61] focus:ring-[#ffcd61] focus:outline-none focus:ring focus:ring-opacity-40"
                                 />
                             </div>
@@ -68,20 +67,22 @@ import Layout from "../layouts/Layout.astro";
                                     <label
                                         for="password"
                                         class="text-sm text-[#9a9a9a] dark:text-gray-200"
-                                        >Password</label
                                     >
+                                        Contraseña
+                                    </label>
                                     <a
                                         href="#"
                                         class="text-sm text-gray-400 focus:text-primary hover:text-primary hover:underline"
-                                        >Forgot password?</a
                                     >
+                                        ¿Olvidaste tu contraseña?
+                                    </a>
                                 </div>
 
                                 <input
                                     type="password"
                                     name="password"
                                     id="password"
-                                    placeholder="Your Password"
+                                    placeholder="Tu contraseña"
                                     class="block w-full px-4 py-2 mt-2 text-[#9a9a9a] placeholder-gray-400 bg-white border border-gray-200 rounded-sm dark:placeholder-[#9a9a9a] dark:bg-[#191919] dark:text-gray-300 dark:border-[#9a9a9a] focus:border-[#ffcd61] dark:focus:border-[#ffcd61] focus:ring-[#ffcd61] focus:outline-none focus:ring focus:ring-opacity-40"
                                 />
                             </div>
@@ -91,23 +92,25 @@ import Layout from "../layouts/Layout.astro";
                                     type="submit"
                                     class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-primary rounded-sm hover:bg-[#ffcd61] focus:outline-none focus:bg-[#ffcd61] focus:ring focus:ring-[#ffcd61] focus:ring-opacity-50"
                                 >
-                                    Sign in
+                                    Iniciar sesión
                                 </button>
                             </div>
                         </form>
 
                         <p class="mt-6 text-sm text-center text-gray-400">
-                            Don&#x27;t have an account yet? <a
-                                href="#"
+                            ¿No tienes una cuenta? 
+                            <a
+                                href="/register/"
                                 class="text-primary focus:outline-none focus:underline hover:underline"
-                                >Sign up</a
-                            >.
+                            >
+                                Regístrate
+                            </a>.
                         </p>
                         <p
                             id="error-message"
                             class="mt-4 text-sm text-center text-red-500 hidden"
                         >
-                            Invalid email or password. Please try again.
+                            Correo electrónico o contraseña incorrectos. Inténtalo de nuevo.
                         </p>
                     </div>
                 </div>
@@ -117,26 +120,53 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-    // Credenciales de ejemplo
-    const validEmail = "usuario@example.com";
-    const validPassword = "password123";
+    async function validateLogin(event) {
+        event.preventDefault(); // Evita el envío del formulario
 
-    function validateLogin() {
         // Obtener valores de los campos
         const email = document.getElementById("email").value;
+        console.log(email);
+        
         const password = document.getElementById("password").value;
+        console.log(password);
+        
         const errorMessage = document.getElementById("error-message");
+        console.log(errorMessage);
+        
 
-        // Validar credenciales
-        if (email === validEmail && password === validPassword) {
-            alert("Login exitoso!");
-            return true; // Permitir el envío del formulario
-        } else {
+        try {
+            // Hacer la solicitud al backend
+            const response = await fetch("http://certificados-backend.onrender.com/api/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Credenciales inválidas");
+            }
+
+            const data = await response.json();
+            errorMessage.classList.add("hidden"); // Ocultar mensaje de error si es visible
+            console.log("Login exitoso! Redirigiendo...", data.user); // Mensaje de éxito en la consola
+            window.location.href = "/campus/dashboard/"; // Redirigir al dashboard
+        } catch (error) {
+            console.log(error.message); // Mensaje de error en la consola
             errorMessage.classList.remove("hidden"); // Mostrar mensaje de error
-            return false; // Evitar el envío del formulario
+            errorMessage.textContent = "Credenciales inválidas"; // Actualizar mensaje de error
         }
     }
+
+    // Agregar el event listener para el formulario
+    document.getElementById("login-form").addEventListener("submit", validateLogin);
 </script>
+
+
 
 <style>
     .about {
