@@ -11,83 +11,46 @@ const features = [
     },
     {
         title: "Cursos didácticos",
-        description:
-            "Aprende a desarrollar tus propias herramientas metrológicas",
+        description: "Aprende a desarrollar tus propias herramientas metrológicas",
         icono: CourseIcon,
     },
     {
         title: "Formatos completos",
-        description:
-            "Descarga formatos completos y funcionales para actividades AVR",
+        description: "Descarga formatos completos y funcionales para actividades AVR",
         icono: DownloadIcon,
     },
 ];
 ---
 
-<div
-    class="grid max-w-screen-xl  mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12 pt-auto"
->
-    <div class="mr-auto place-self-center lg:col-span-7">
+<section class="grid max-w-screen-xl mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12 pt-auto px-4 sm:px-6 lg:px-0 pt-12 md:pt-20">
+    <!-- Hero Section -->
+    <header class="mr-auto place-self-center lg:col-span-7">
         <a
             href="#"
             class="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-yellow-700 bg-blue-100 rounded-sm dark:bg-[#fab116]/40 dark:text-yellow-100 hover:bg-blue-200 dark:hover:bg-[#fab116] hover:text-[#242425]"
         >
-            <span
-                class="text-xs bg-[#fab116] rounded-sm text-[#252627] px-4 py-1.5 me-3"
-                >¡Nuevo!</span
-            >
-            <span class="text-sm font-medium"
-                >Graficadora estadística funcional</span
-            >
-            <svg
-                class="w-2.5 h-2.5 ms-2 rtl:rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 6 10"
-            >
-                <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m1 9 4-4-4-4"></path>
+            <span class="text-xs bg-[#fab116] rounded-sm text-[#252627] px-4 py-1.5 me-3">¡Nuevo!</span>
+            <span class="text-sm font-medium">Graficadora estadística funcional</span>
+            <svg class="w-2.5 h-2.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"></path>
             </svg>
         </a>
 
-        <h1
-            class="max-w-2xl my-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
-        >
+        <h1 class="max-w-2xl my-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
             <span class="text-[#fcb316]">Metropedia:</span> La Web Metrológica Definitiva.
         </h1>
-        <p
-            class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
-        >
-            Desde cálculos de incertidumbre hasta cifras significativas,
-            nuestras herramientas son el patrón de referencia en metrología.
-            
+        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+            Desde cálculos de incertidumbre hasta cifras significativas, nuestras herramientas son el patrón de referencia en metrología.
         </p>
-        <div
-            class="flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0"
-        >
+
+        <div class="flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0">
             <a
                 href="#"
                 class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-[#252627] hover:text-white rounded-sm bg-[#fcb316] hover:bg-[#fcb316]/60 border border-primary hover:border-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
             >
                 Vamos
-                <svg
-                    class="w-3.5 h-3.5 ms-2 rtl:rotate-180"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 10"
-                >
-                    <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"></path>
                 </svg>
             </a>
             <a
@@ -97,57 +60,40 @@ const features = [
                 Saber más
             </a>
         </div>
-    </div>
-    <div class="lg:mt-0 col-span-4 2xl:col-span-5 lg:flex">
+    </header>
+
+    <!-- Image Section - Desktop Only -->
+    <aside class="lg:mt-0 col-span-4 2xl:col-span-5 lg:flex hidden lg:block" aria-label="Imágenes destacadas">
         <div class="grid grid-cols-2 gap-4">
             <div class="grid gap-4">
-                <div>
-                    <img
-                        class="h-auto max-w-full rounded-lg"
-                        src="imgs/grid/1.jpg"
-                        alt=""
-                    />
-                </div>
-                <div>
-                    <img
-                        class="h-auto max-w-full rounded-lg"
-                        src="imgs/grid/3.jpg"
-                        alt=""
-                    />
-                </div>
+                <figure>
+                    <img class="h-auto max-w-full rounded-lg" src="imgs/grid/1.jpg" alt="Descripción de la imagen 1"/>
+                </figure>
+                <figure>
+                    <img class="h-auto max-w-full rounded-lg" src="imgs/grid/3.jpg" alt="Descripción de la imagen 3"/>
+                </figure>
             </div>
             <div class="grid gap-4">
-                <div>
-                    <img
-                        class="h-auto max-w-full rounded-lg"
-                        src="imgs/grid/2.jpg"
-                        alt=""
-                    />
-                </div>
-                <div>
-                    <img
-                        class="h-auto max-w-full rounded-lg"
-                        src="imgs/grid/4.jpg"
-                        alt=""
-                    />
-                </div>
+                <figure>
+                    <img class="h-auto max-w-full rounded-lg" src="imgs/grid/2.jpg" alt="Descripción de la imagen 2"/>
+                </figure>
+                <figure>
+                    <img class="h-auto max-w-full rounded-lg" src="imgs/grid/4.jpg" alt="Descripción de la imagen 4"/>
+                </figure>
             </div>
         </div>
-    </div>
+    </aside>
 
-    <div class="w-full h-2.5 col-span-12 my-3 grid grid-cols-3 gap-4">
-        {
-            features.map((feature) => (
-                <a href="#" class="flex gap-2 border border-transparent hover:border-white/30 rounded-sm px-4 py-2">
-                    <feature.icono class="size-8 text-[#fcb316]" />
-                    <div>
-                        <h4 class="text-md font-bold">{feature.title}</h4>
-                        <p class=" text-md text-gray-500 leading-tight">
-                            {feature.description}
-                        </p>
-                    </div>
-                </a>
-            ))
-        }
-    </div>
-</div>
+    <!-- Features Section -->
+    <section class="w-full col-span-12 my-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" aria-label="Características principales">
+        {features.map((feature) => (
+            <article class="flex gap-2 border border-transparent hover:border-white/30 rounded-sm px-4 py-2">
+                <feature.icono class="size-8 text-[#fcb316]" aria-hidden="true" />
+                <div>
+                    <h2 class="text-md font-bold">{feature.title}</h2>
+                    <p class="text-md text-gray-500 leading-tight">{feature.description}</p>
+                </div>
+            </article>
+        ))}
+    </section>
+</section>

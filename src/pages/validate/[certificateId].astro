@@ -1,7 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import DownloadIcon from "../../icons/DownloadIcon.astro";
 import CertificateIcon from "../../icons/CertificateIcon.astro";
+import ExternalLinkIcon from "../../icons/ExternalLinkIcon.astro";
+import ArrowDownIcon from "../../icons/ArrowDownIcon.astro";
 
 const { certificateId } = Astro.params; // Captura el ID desde la URL
 let userData = null;
@@ -24,12 +25,13 @@ try {
 <!-- Renderiza la información del certificado -->
 <Layout title="Metropedia.">
     <section
-        class="relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12"
+        class="relative about flex flex-col justify-center items-center gap-12 pt-12"
     >
         {
             userData ? (
-                <section class="py-8 bg-transparent md:py-16 antialiased">
-                    <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
+                <section class=" bg-transparent  antialiased mt-20">
+                    <div class="relative max-w-screen-xl px-4 mx-auto 2xl:px-0">
+                        <ArrowDownIcon class="absolute bottom-0 bounce end-1/2" />
                         <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
                             <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">
                                 <img
@@ -60,13 +62,19 @@ try {
                                     </div>
 
                                     <a
-                                        href="#"
                                         title=""
                                         class="text-secondary mt-4 sm:mt-0 bg-primary hover:bg-primary focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary dark:hover:bg-primary focus:outline-none dark:focus:ring-primary-800 flex items-center justify-center"
                                         role="button"
+                                        download
+                                        href={
+                                            userData.certificate.link
+                                                ? userData.certificate.link
+                                                : ""
+                                        }
+                                        target="_blank"
                                     >
-                                        <DownloadIcon class="w-5 h-5 -ms-2 me-2" />
-                                        Descargar certificado
+                                        <ExternalLinkIcon class="w-5 h-5 -ms-2 me-2" />
+                                        Ver certificado
                                     </a>
                                 </div>
 
@@ -80,7 +88,11 @@ try {
                                     <span class="font-semibold">
                                         {certificateId}
                                     </span>{" "}
-                                    es <span class="font-bold text-green-600">VÁLIDO</span> desde la fecha{" "}
+                                    es{" "}
+                                    <span class="font-bold text-green-600">
+                                        VÁLIDO
+                                    </span>{" "}
+                                    desde la fecha{" "}
                                     {new Date(
                                         userData.certificate.date,
                                     ).toLocaleDateString()}{" "}
@@ -92,6 +104,17 @@ try {
                             </div>
                         </div>
                     </div>
+                    <embed
+                        src={
+                            userData.certificate.link
+                                ? userData.certificate.link
+                                : "#"
+                        }
+                        type="application/pdf"
+                        class="mt-20"
+                        width="100%"
+                        height="600px"
+                    />
                 </section>
             ) : (
                 <p>No se encontró información para este certificado.</p>
@@ -140,5 +163,18 @@ try {
 
     .titulo {
         font-family: "Questrial", system-ui, sans-serif;
+    }
+
+    @keyframes bounce {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+    .bounce {
+        animation: bounce 1s infinite;
     }
 </style>
