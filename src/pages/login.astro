@@ -154,7 +154,7 @@ import Layout from "../layouts/Layout.astro";
             const data = await response.json();
             errorMessage.classList.add("hidden"); // Ocultar mensaje de error si es visible
             console.log("Login exitoso! Redirigiendo...", data.user); // Mensaje de éxito en la consola
-            window.location.href = "/campus/dashboard/"; // Redirigir al dashboard
+            window.location.href = `/campus/${data.id}/`; // Redirigir al dashboard
         } catch (error) {
             console.log(error.message); // Mensaje de error en la consola
             errorMessage.classList.remove("hidden"); // Mostrar mensaje de error

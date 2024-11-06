@@ -3,6 +3,24 @@ import "@fontsource/questrial";
 import "@fontsource-variable/inter";
 import SchoolIcon from "../../icons/SchoolIcon.astro";
 import CertificateIcon from "../../icons/CertificateIcon.astro";
+import NotebookIcon from "../../icons/NotebookIcon.astro";
+
+const { userId } = Astro.params;
+let userData = null;
+
+try {
+  // Realiza la solicitud `fetch` con el ID capturado
+  const response = await fetch(
+    `https://certificados-backend.onrender.com/api/certificates/${userId}`,
+  );
+  if (response.ok) {
+    userData = await response.json();
+  } else {
+    console.error("Usuario no encontrado o error en la solicitud.");
+  }
+} catch (error) {
+  console.error("Error al obtener los datos del usuario:", error);
+}
 ---
 
 <div class="antialiased bg-gray-50 dark:bg-gray-900">
@@ -719,7 +737,7 @@ import CertificateIcon from "../../icons/CertificateIcon.astro";
   <!-- Sidebar -->
 
   <aside
-    class="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+    class="fixed top-0 left-0 z-40 w-96 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
     aria-label="Sidenav"
     id="drawer-navigation"
   >
@@ -764,9 +782,9 @@ import CertificateIcon from "../../icons/CertificateIcon.astro";
         </div>
         <div class="py-4 px-6">
           <h1 class="text-lg font-semibold text-gray-800">
-            Andres Alejandro Yela Bastidas
+            {userData.name}
           </h1>
-          <p class="py-2 text-md text-gray-700">1087619754</p>
+          <p class="py-2 text-md text-gray-700">{userData.id}</p>
           <a
             href="/landing-cursos/"
             class="flex justify-center items-center mt-2 py-2 px-auto text-base font-medium text-center text-[#252627] hover:text-white rounded-sm bg-[#fcb316] hover:bg-[#fcb316]/60 border border-primary hover:border-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
@@ -1066,25 +1084,49 @@ import CertificateIcon from "../../icons/CertificateIcon.astro";
     </div>
   </aside>
 
-  <main class="p-4 md:ml-64 h-auto pt-20">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-      <div
-        class="border-2 border-dashed border-gray-300 rounded-lg dark:border-gray-600 h-32 md:h-64"
-      >
-      </div>
-      <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-32 md:h-64"
-      >
-      </div>
-      <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-32 md:h-64"
-      >
-      </div>
-      <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-32 md:h-64"
-      >
+  <main class="p-4 md:ml-96 h-auto pt-20">
+    <div
+      style="background-image: url(/measure-bg.png)"
+      class="border-2 bg-[#252627] rounded-lg border-gray-300 dark:border-gray-600 h-48 mb-4 flex-col items-center p-10"
+    >
+      <h1 class="text-white text-3xl font-bold">
+        ¡Bienvenido {userData.name}!
+      </h1>
+      <p class="text-[#9a9a9a] text-lg font-semibold">
+        En este dashboard encontrarás toda la información y progreso de tus
+        cursos.
+      </p>
+      <div class="flex gap-5 mt-3">
+        <div class="inline-flex text-white gap-1">
+          <NotebookIcon class="stroke-[#60a5fa]" />
+
+          0 cursos en curso.
+        </div>
+        <div class="inline-flex text-white gap-1">
+          <CertificateIcon class="stroke-[#47be72]" />
+          {userData.certificates.length} cursos completados.
+        </div>
       </div>
     </div>
+
+    <h2 class="font-bold text-3xl mb-3">En Curso.</h2>
+
+    <div
+      class={`grid ${userData.certificates.length === 1 ? "grid-cols-1" : userData.certificates.length === 2 ? "grid-cols-2" : userData.certificates.length <= 4 ? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-4" : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"} gap-4 mb-4`}
+    >
+      {
+        userData.certificates.slice(0, 4).map((certificate, index) => (
+          <a href={`/validate/${certificate.certificate}`} class="relative border-2 border-dashed border-gray-300 rounded-lg dark:border-gray-600 h-32 md:h-64 flex-col p-5 items-center justify-center">
+            <p class="text-center font-semibold text-md">{certificate.course}</p>
+
+            <div class="absolute bottom-0 left-0 w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%" />
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
     <div
       class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-96 mb-4"
     >
