@@ -103,17 +103,21 @@ try {
                             </div>
                         </div>
                     </div>
-                    <embed
-                        src={
-                            userData.certificate.link
-                                ? userData.certificate.link
-                                : "#"
-                        }
-                        type="application/pdf"
-                        class="mt-20"
-                        width="100%"
-                        height="600px"
-                    />
+                    {userData.certificate.link ?
+                     (<embed
+                         src={
+                             userData.certificate.link
+                                 ? userData.certificate.link
+                                 : "#"
+                         }
+                         type="application/pdf"
+                         class="mt-20"
+                         width="100%"
+                         height="600px"
+                     />)
+                     : (<p>No se encontró el certificado para descargar.</p>)
+                     }
+                
                 </section>
             ) : (
                 <p>No se encontró información para este certificado.</p>
