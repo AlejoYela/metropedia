@@ -4,6 +4,7 @@ import "@fontsource-variable/inter";
 import SchoolIcon from "../../icons/SchoolIcon.astro";
 import CertificateIcon from "../../icons/CertificateIcon.astro";
 import NotebookIcon from "../../icons/NotebookIcon.astro";
+import courseData from "../../courseData.js";
 
 const { userId } = Astro.params;
 let userData = null;
@@ -22,6 +23,14 @@ try {
   console.error("Error al obtener los datos del usuario:", error);
 }
 ---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Astro description" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+</head>
 
 <div class="antialiased bg-gray-50 dark:bg-gray-900">
   <nav
@@ -71,7 +80,7 @@ try {
             alt="Flowbite Logo"
           />
           <span
-            class="titulo self-center text-2xl font-normal whitespace-nowrap dark:text-white uppercase ml-28"
+            class="titulo self-center text-2xl font-semibold whitespace-nowrap dark:text-white uppercase ml-28"
             >Campus <span class="text-primary">virtual</span></span
           >
         </a>
@@ -770,7 +779,7 @@ try {
           />
         </div>
       </form>
-      <div class="max-w-sm bg-white shadow-lg rounded-sm overflow-hidden my-4">
+      <div class="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-1">
         <img
           class="w-full h-56 object-cover object-center"
           src="https://campus.icontecvirtual.edu.co/uploads/avatars/default.jpg"
@@ -801,19 +810,9 @@ try {
             href="#"
             class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
           >
-            <svg
-              aria-hidden="true"
+            <NotebookIcon
               class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
-              <path
-                fill-rule="evenodd"
-                d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
-                clip-rule="evenodd"></path>
-            </svg>
+            />
             <span class="ml-3">Cursos</span>
           </a>
         </li>
@@ -1090,7 +1089,7 @@ try {
       class="border-2 bg-[#252627] rounded-lg border-gray-300 dark:border-gray-600 h-48 mb-4 flex-col items-center p-10"
     >
       <h1 class="text-white text-3xl font-bold">
-        ¡Bienvenido {userData.name}!
+        ¡Bienvenido(a) {userData.name}!
       </h1>
       <p class="text-[#9a9a9a] text-lg font-semibold">
         En este dashboard encontrarás toda la información y progreso de tus
@@ -1112,15 +1111,69 @@ try {
     <h2 class="font-bold text-3xl mb-3">En Curso.</h2>
 
     <div
+      class={`grid ${userData.certificates.length === 1 ? "grid-cols-1" : userData.certificates.length === 2 ? "grid-cols-2" : userData.certificates.length <= 3 ? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-3" : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-3"} gap-4 mb-4`}
+    >
+      {
+        userData.certificates.slice(0, 3).map((certificate, index) => (
+          <a
+            href={`/validate/${certificate.certificate}`}
+            style={`background-image: url(${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"})`}
+            class=" bg-opacity-50 border-2 border-gray-300 rounded-lg dark:border-gray-600 h-32 md:h-64 flex flex-col p-5 justify-between"
+          >
+            <div>
+              <p class="font-semibold text-md text-white">
+                {certificate.course}
+              </p>
+              <span class="text-[#9a9a9a] font-semibold text-sm">
+                Duración de {certificate.duration} horas
+              </span>
+            </div>
+
+            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div
+                class="bg-blue-600 h-2.5 rounded-full"
+                style={`background-color: ${courseData[index].color}; width: 45%`}
+              />
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <h2 class="font-bold text-3xl mb-3">Completados.</h2>
+
+    <div
       class={`grid ${userData.certificates.length === 1 ? "grid-cols-1" : userData.certificates.length === 2 ? "grid-cols-2" : userData.certificates.length <= 4 ? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-4" : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"} gap-4 mb-4`}
     >
       {
         userData.certificates.slice(0, 4).map((certificate, index) => (
-          <a href={`/validate/${certificate.certificate}`} class="relative border-2 border-dashed border-gray-300 rounded-lg dark:border-gray-600 h-32 md:h-64 flex-col p-5 items-center justify-center">
-            <p class="text-center font-semibold text-md">{certificate.course}</p>
+          <a
+            href={`/validate/${certificate.certificate}`}
+            style={`background-image: url(${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"})`}
+            class=" bg-opacity-50 border-2 border-gray-300 rounded-lg dark:border-gray-600 h-32 md:h-64 flex flex-col p-5 justify-between"
+          >
+            <div>
+              <p class="font-semibold text-md text-white">
+                {certificate.course}
+              </p>
+              <span class="text-[#9a9a9a] font-semibold text-sm">
+                Duración de {certificate.duration} horas
+              </span>
+            </div>
+            <div>
+              <span
+                class="font-bold"
+                style={`color: ${courseData[index].color}; width: 100%`}
+              >
+                {certificate.certificate}
+              </span>
 
-            <div class="absolute bottom-0 left-0 w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-              <div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%" />
+              <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                <div
+                  class="bg-blue-600 h-2.5 rounded-full"
+                  style={`background-color: ${courseData[index].color}; width: 100%`}
+                />
+              </div>
             </div>
           </a>
         ))
@@ -1128,9 +1181,10 @@ try {
     </div>
 
     <div
-      class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-96 mb-4"
+      class=" bg-[url('/courses/banner.png')] border-2 rounded-lg border-gray-300 dark:border-gray-600 h-52 mb-4"
     >
     </div>
+
     <div class="grid grid-cols-2 gap-4 mb-4">
       <div
         class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
