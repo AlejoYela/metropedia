@@ -22,12 +22,12 @@ const features = [
 ];
 ---
 
-<section class="grid max-w-screen-xl mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12 pt-auto px-4 sm:px-6 lg:px-0 pt-12 md:pt-20">
+<section class="grid max-w-screen-xl mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12 md:pt-20 px-4 sm:px-6 lg:px-0 mt-10 md:mt-0">
     <!-- Hero Section -->
     <header class="mr-auto place-self-center lg:col-span-7">
         <a
             href="#"
-            class="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-yellow-700 bg-blue-100 rounded-sm dark:bg-[#fab116]/40 dark:text-yellow-100 hover:bg-blue-200 dark:hover:bg-[#fab116] hover:text-[#242425]"
+            class="inline-flex justify-between items-center py-1 px-1 pe-4 mb-1 md:mb-7 text-sm text-yellow-700 bg-blue-100 rounded-sm dark:bg-[#fab116]/40 dark:text-yellow-100 hover:bg-blue-200 dark:hover:bg-[#fab116] hover:text-[#242425]"
         >
             <span class="text-xs bg-[#fab116] rounded-sm text-[#252627] px-4 py-1.5 me-3">¡Nuevo!</span>
             <span class="text-sm font-medium">Graficadora estadística funcional</span>
@@ -67,31 +67,31 @@ const features = [
         <div class="grid grid-cols-2 gap-4">
             <div class="grid gap-4">
                 <figure>
-                    <img class="h-auto max-w-full rounded-lg" src="imgs/grid/1.jpg" alt="Descripción de la imagen 1"/>
+                    <img class="h-auto max-w-full rounded-lg" src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011300/1_oydkw9.jpg" alt="Descripción de la imagen 1"/>
                 </figure>
                 <figure>
-                    <img class="h-auto max-w-full rounded-lg" src="imgs/grid/3.jpg" alt="Descripción de la imagen 3"/>
+                    <img class="h-auto max-w-full rounded-lg" src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011302/3_dc7bew.jpg" alt="Descripción de la imagen 3"/>
                 </figure>
             </div>
             <div class="grid gap-4">
                 <figure>
-                    <img class="h-auto max-w-full rounded-lg" src="imgs/grid/2.jpg" alt="Descripción de la imagen 2"/>
+                    <img class="h-auto max-w-full rounded-lg" src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011301/2_pq2isl.jpg" alt="Descripción de la imagen 2"/>
                 </figure>
                 <figure>
-                    <img class="h-auto max-w-full rounded-lg" src="imgs/grid/4.jpg" alt="Descripción de la imagen 4"/>
+                    <img class="h-auto max-w-full rounded-lg" src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011303/4_vrvmvm.jpg" alt="Descripción de la imagen 4"/>
                 </figure>
             </div>
         </div>
     </aside>
 
     <!-- Features Section -->
-    <section class="w-full col-span-12 my-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" aria-label="Características principales">
+    <section class="w-full col-span-12 my-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 md:gap-4" aria-label="Características principales">
         {features.map((feature) => (
-            <article class="flex gap-2 border border-transparent hover:border-white/30 rounded-sm px-4 py-2">
+            <article class="flex gap-2 border border-transparent hover:border-white/30 rounded-sm px-4 py-1 md:py-2">
                 <feature.icono class="size-8 text-[#fcb316]" aria-hidden="true" />
                 <div>
-                    <h2 class="text-md font-bold">{feature.title}</h2>
-                    <p class="text-md text-gray-500 leading-tight">{feature.description}</p>
+                    <h2 class="text-sm font-bold md:text-md">{feature.title}</h2>
+                    <p class="hidden md:block text-md text-gray-500 leading-tight">{feature.description}</p>
                 </div>
             </article>
         ))}

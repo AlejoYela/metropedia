@@ -30,7 +30,22 @@ const courseData = [
       course: "ESTIMACIÓN DE LA INCERTIDUMBRE",
       image: "https://res.cloudinary.com/dc0aja7yx/image/upload/v1730907987/6_ojgioi.png",  // Cambia a la ruta real de la imagen
       color: "#3b82f6",
-    }
+    },
+    {
+      course: "ISO/IEC 19011:2018 AUDITORÍA DE SISTEMAS DE GESTIÓN",
+      image: "https://res.cloudinary.com/dc0aja7yx/image/upload/v1731014114/7_nur6p4.png",  // Cambia a la ruta real de la imagen
+      color: "#60a5fa",
+    },
+    {
+      course: "ISO/IEC 31000:2018 GESTIÓN DEL RIESGO",
+      image: "https://res.cloudinary.com/dc0aja7yx/image/upload/v1731014114/8_hniuy2.png",  // Cambia a la ruta real de la imagen
+      color: "#60a5fa",
+    },
+    {
+      course: "INDICADORES DE GESTIÓN",
+      image: "https://res.cloudinary.com/dc0aja7yx/image/upload/v1731014115/9_cnvglh.png",  // Cambia a la ruta real de la imagen
+      color: "#60a5fa",
+    },
   ];
 
   

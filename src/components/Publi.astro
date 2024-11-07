@@ -55,20 +55,22 @@ const ownToolsInfo = [
 ---
 
 <div
-  class="px-4 w-full max-w-screen-xl text-center py-6 lg:py-auto h-auto align-middle"
+  class="px-4 w-full max-w-screen-xl md:text-center py-6 lg:py-auto h-auto align-middle mx-auto"
 >
-  <div class="flex items-center justify-center mb-0">
-    <CertificateIcon class="size-12 mr-2 stroke-[#fcb316]" />
-    <h3 class="text-4xl font-semibold tracking-tight leading-none">
+  <!-- Encabezado y Subtítulo -->
+  <div class="flex items-center justify-center mb-4">
+    <CertificateIcon class="size-10 sm:size-12 mr-2 stroke-[#fcb316]" />
+    <h3 class="text-xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-none">
       Desarrolla tus propias habilidades.
     </h3>
   </div>
-  <p class="mb-8 text-white/40 text-lg font-normal text-gray-300 lg:text-xl">
+  <p class="mb-6 text-white/40 text-base sm:text-lg md:text-xl font-normal text-gray-300">
     Aprende como implementar y aplicar la normativa metrológica en tu contexto
-    con los cursos disponibles
+    con los cursos disponibles.
   </p>
 
-  <div class="grid col-span-12 grid-cols-4 gap-4 mx-6">
+  <!-- Tarjetas Responsivas -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto px-4">
     {
       ownToolsInfo.map((tool) => (
         <InfoCard
@@ -82,13 +84,14 @@ const ownToolsInfo = [
     }
   </div>
 
+  <!-- Botón Más Información -->
   <a
     href="/landing-cursos/"
-    class="inline-flex justify-center items-center mt-8 py-3 px-5 text-base font-medium text-center text-[#252627] hover:text-white rounded-sm bg-[#fcb316] hover:bg-[#fcb316]/60 border border-primary hover:border-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+    class="inline-flex justify-center items-center mt-8 py-2 sm:py-3 px-4 sm:px-5 text-sm sm:text-base font-medium text-center text-[#252627] hover:text-white rounded-sm bg-[#fcb316] hover:bg-[#fcb316]/60 border border-primary hover:border-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
   >
     Más información
     <svg
-      class="w-3.5 h-3.5 ms-2 rtl:rotate-180"
+      class="w-3 h-3 sm:w-3.5 sm:h-3.5 ms-2 rtl:rotate-180"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -103,3 +106,4 @@ const ownToolsInfo = [
     </svg>
   </a>
 </div>
+

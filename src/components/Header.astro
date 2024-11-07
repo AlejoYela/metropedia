@@ -1,32 +1,20 @@
 ---
 const navItems = [
-    {
-        title: "Herramientas",
-        label: "experiencia",
-        url: "/#experiencia",
-    },
-    {
-        title: "Formación",
-        label: "proyectos",
-        url: "/landing-cursos/",
-    },
-    {
-        title: "Contacto",
-        label: "contacto",
-        url: "mailto:andres.alejo.yela@gmail.com",
-    },
+    { title: "Herramientas", label: "experiencia", url: "/#experiencia" },
+    { title: "Formación", label: "proyectos", url: "/landing-cursos/" },
+    { title: "Contacto", label: "contacto", url: "mailto:andres.alejo.yela@gmail.com" },
 ];
 ---
 
 <div class="z-10 header-wrapper flex justify-center fixed w-full bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10">
     <header class="flex justify-between items-center max-w-screen-xl w-full px-4 lg:px-6">
         <a href="/" class="relative flex items-center gap-3">
-            <img src="/logolargo.png" class="metropedia h-12 md:h-20 relative z-20" alt="Logo" />
+            <img src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731012164/logolargo_yjfjl4.png" class="metropedia h-12 md:h-20 relative z-20" alt="Logo" />
         </a>
 
+        <!-- Search Form -->
         <form class="hidden md:flex max-w-xs mx-auto items-center w-full">
             <label for="default-search" class="mb-2 text-sm font-medium sr-only text-white">Buscar</label>
-            
             <div class="relative w-full">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -38,38 +26,50 @@ const navItems = [
             </div>
         </form>
 
+        <!-- Navbar -->
         <nav class="flex items-center text-xs md:text-lg font-medium text-gray-200">
-            <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu" aria-expanded="false">
+            <button id="menu-toggle" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
                 </svg>
             </button>
-            <div class="hidden md:flex space-x-2" id="mobile-menu">
-                {
-                    navItems.map((link) => (
-                        <a class="block px-2 transition hover:text-[#fcb316] dark:hover:text-[#fcb316]" aria-label={link.label} href={link.url}>
-                            {link.title}
-                        </a>
-                    ))
-                }
+            <div class="hidden md:flex space-x-2" id="desktop-menu">
+                {navItems.map((link) => (
+                    <a class="block px-2 transition hover:text-[#fcb316] dark:hover:text-[#fcb316]" aria-label={link.label} href={link.url}>
+                        {link.title}
+                    </a>
+                ))}
             </div>
         </nav>
     </header>
 </div>
 
-<div class="md:hidden bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10" id="mobile-menu">
+<!-- Mobile Menu -->
+<div class="hidden md:hidden bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10" id="mobile-menu">
     <nav class="flex flex-col p-4 space-y-2">
-        {
-            navItems.map((link) => (
-                <a class="block px-2 py-1 text-white transition hover:text-[#fcb316] dark:hover:text-[#fcb316]" aria-label={link.label} href={link.url}>
-                    {link.title}
-                </a>
-            ))
-        }
+        {navItems.map((link) => (
+            <a class="block px-2 py-1 text-white transition hover:text-[#fcb316] dark:hover:text-[#fcb316]" aria-label={link.label} href={link.url}>
+                {link.title}
+            </a>
+        ))}
     </nav>
 </div>
 
+<!-- JavaScript para el Toggle del Menú -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            // Alterna la clase hidden para mostrar/ocultar el menú
+            mobileMenu.classList.toggle('hidden');
+        });
+    });
+</script>
+
+<!-- Estilos -->
 <style>
     .metropedia {
         -webkit-mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent),

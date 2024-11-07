@@ -1,6 +1,6 @@
 # Metropedia - Metrology Web Tools
 
-![Metropedia Banner](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/logocentrado.png)
+![Metropedia Banner](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731012161/logocentrado_kj8zb5.png)
 
 Metropedia is a web application designed for metrology professionals, providing tools for significant figures calculation and measurement uncertainty analysis. It offers precise and efficient methods for handling numerical data in metrological applications.
 
@@ -41,11 +41,11 @@ bun run dev
 
 ## Screenshots
 
-![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/1.png)
-![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/2.png)
-![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/3.png)
-![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/4.png)
-![screenshot1](https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/screenshots/5.png)
+![screenshot1](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011745/1_eqokma.png)
+![screenshot1](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011744/2_xjeusl.png)
+![screenshot1](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011744/3_wacugt.png)
+![screenshot1](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011744/4_j0ayoz.png)
+![screenshot1](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011745/5_lt2wvh.png)
 
 ## Deploy status on Netlify:
 The portfolio is deployed on Netlify. Current status:
