@@ -5,13 +5,17 @@ import SchoolIcon from "../../icons/SchoolIcon.astro";
 import CertificateIcon from "../../icons/CertificateIcon.astro";
 import NotebookIcon from "../../icons/NotebookIcon.astro";
 import courseData from "../../courseData.js";
-import auth0 from '../../auth/authConfig';
+import { initAuth0 } from "../../auth/authConfig";
 
-const isAuthenticated = await auth0.isAuthenticated();
-
-if (!isAuthenticated) {
-  window.location.href = "/login"; // Redirige si no está autenticado
+async function checkAuthStatus() {
+  const auth0Client = await initAuth0();
+  const isAuthenticated = await auth0Client.isAuthenticated();
+  if (isAuthenticated) {
+    const user = await auth0Client.getUser();
+    console.log(user); // Datos del usuario autenticado
+  }
 }
+
 
 const { userId } = Astro.params;
 let userData = null;

@@ -10,6 +10,16 @@ import Consult from "../components/Consult.astro";
 
 <Layout title="Metropedia.">
   <CoursesHero />
+  <button onclick="login()">Login with Auth0</button>
+  <a href="https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/authorize?
+  response_type=code|token&
+  client_id=JozbrwbE60QoHfD6hZiQy18zIQFxGEw0&
+  connection=CONNECTION&
+  redirect_uri=https://metropedia.vercel.app&
+  state=STATE&
+  ADDITIONAL_PARAMETERS
+">Login with Auth0</a>
+
 
   <div
     id="tabs"
@@ -67,9 +77,12 @@ import Consult from "../components/Consult.astro";
 </Layout>
 
 <script>
-  import { login } from "../auth/authService";
+  import { initAuth0 } from "../auth/authConfig";
 
-  document.getElementById("login-button").addEventListener("click", login);
+async function login() {
+  const auth0Client = await initAuth0();
+  await auth0Client.loginWithRedirect();
+}
 </script>
 
 <style>
