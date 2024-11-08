@@ -120,50 +120,38 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-    async function validateLogin(event) {
-        event.preventDefault(); // Evita el envío del formulario
+    // En tu página de login
+window.onload = async () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const code = urlParams.get('code'); // Obtener el código de autorización de la URL
 
-        // Obtener valores de los campos
-        const email = document.getElementById("email").value;
-        console.log(email);
-        
-        const password = document.getElementById("password").value;
-        console.log(password);
-        
-        const errorMessage = document.getElementById("error-message");
-        console.log(errorMessage);
-        
+  if (code) {
+    // Intercambiar el código por un access token y id token
+    const response = await fetch('https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/oauth/token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        grant_type: 'authorization_code',
+        client_id: 'JozbrwbE60QoHfD6hZiQy18zIQFxGEw0',
+        client_secret: 'YOUR_CLIENT_SECRET',  // Reemplaza esto con tu client secret
+        code: code,
+        redirect_uri: 'https://metropedia.vercel.app/login'  // La misma URL de redirección
+      })
+    });
 
-        try {
-            // Hacer la solicitud al backend
-            const response = await fetch("https://certificados-backend.onrender.com/api/auth/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password,
-                }),
-            });
+    const data = await response.json();
+    console.log('Access Token:', data.access_token);
+    console.log('ID Token:', data.id_token);
 
-            if (!response.ok) {
-                throw new Error("Credenciales inválidas");
-            }
+    // Aquí puedes almacenar los tokens en localStorage o en el estado de tu aplicación
+    // y redirigir al usuario al lugar deseado.
+  } else {
+    console.error('No authorization code found');
+  }
+};
 
-            const data = await response.json();
-            errorMessage.classList.add("hidden"); // Ocultar mensaje de error si es visible
-            console.log("Login exitoso! Redirigiendo...", data.user); // Mensaje de éxito en la consola
-            window.location.href = `/campus/${data.id}/`; // Redirigir al dashboard
-        } catch (error) {
-            console.log(error.message); // Mensaje de error en la consola
-            errorMessage.classList.remove("hidden"); // Mostrar mensaje de error
-            errorMessage.textContent = "Credenciales inválidas"; // Actualizar mensaje de error
-        }
-    }
-
-    // Agregar el event listener para el formulario
-    document.getElementById("login-form").addEventListener("submit", validateLogin);
 </script>
 
 

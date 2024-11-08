@@ -1,4 +1,4 @@
-import createAuth0Client from '@auth0/auth0-spa-js';
+import { createAuth0Client } from '@auth0/auth0-spa-js';
 
 let auth0Client;
 
@@ -14,7 +14,9 @@ export const initAuth0 = async () => {
 // Función para iniciar sesión
 export const login = async () => {
   await auth0Client.loginWithRedirect({
-    connection: 'google-oauth2'  // Aquí eliges el tipo de conexión
+    authorizationParams: {
+        redirect_uri: window.location.origin
+      }  // Aquí eliges el tipo de conexión
   });
 };
 
