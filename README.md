@@ -1,61 +1,65 @@
-# Metropedia - Metrology Web Tools
+# Metropedia - Herramientas Web de Metrología
 
-![Metropedia Banner](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731012161/logocentrado_kj8zb5.png)
+![Banner de Metropedia](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731012161/logocentrado_kj8zb5.png)
 
-Metropedia is a web application designed for metrology professionals, providing tools for significant figures calculation and measurement uncertainty analysis. It offers precise and efficient methods for handling numerical data in metrological applications.
+"Metropedia es una aplicación web diseñada para profesionales de la metrología. Ofrece herramientas especializadas para el cálculo de cifras significativas y el análisis de incertidumbre de medición, además de ser una plataforma de formación en metrología y normativa internacional. Con Metropedia, puedes realizar cálculos precisos y analizar datos numéricos de manera eficiente en aplicaciones metrológicas."
 
-## Features
+## Características
 
-* **Significant Figures Calculator**: Calculate significant figures in numerical data.
-* **Measurement Uncertainty Tool**: Analyze measurement uncertainty using Type A and Type B methods.
+* **Calculadora de Cifras Significativas**: "Calcula las cifras significativas en datos numéricos."
+* **Herramienta de Incertidumbre de Medición**: "Analiza la incertidumbre de medición mediante los métodos de Tipo A y Tipo B."
+* **Plataforma de Formación**: "Accede a cursos y recursos de formación en metrología y estándares internacionales, diseñados para fortalecer el conocimiento y la práctica metrológica en diversos sectores."
 
-## Technologies Used
+## Tecnologías Utilizadas
 
 <a href="https://astro.build/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/AlejoYela/metropedia/main/public/astroicon.svg" width="36" height="36" alt="Astro" /></a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/tailwindcss-colored.svg" width="36" height="36" alt="Tailwind" /></a>
 
-* **Astro**: The web framework for content-driven websites
-* **Tailwind**: A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
+* **Astro**: "Framework web optimizado para sitios de contenido."
+* **Tailwind**: "Un framework CSS basado en utilidades que facilita el diseño mediante clases predefinidas, como `flex`, `pt-4`, `text-center`, y `rotate-90`."
 
-## Installation and Usage
+## Instalación y Uso
 
-To start using Metropedia, follow these steps:
+"Para comenzar a utilizar Metropedia, sigue estos pasos:"
 
-1. Clone the repository:
+1. "Clona el repositorio:"
 
 ```bash
 https://github.com/AlejoYela/metropedia.git
 ```
 
-2. Install dependencies:
+2. Instala las dependencias:
 
 ```bash
 npm install
 ```
 
-3. Sstart the project
+3. Inicia el proyecto
 
 ```bash
 bun run dev
 ```
 
 
-## Screenshots
 
-![screenshot1](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011745/1_eqokma.png)
-![screenshot1](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011744/2_xjeusl.png)
-![screenshot1](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011744/3_wacugt.png)
-![screenshot1](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011744/4_j0ayoz.png)
-![screenshot1](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011745/5_lt2wvh.png)
+## Capturas de Pantalla
 
-## Deploy status on Netlify:
-The portfolio is deployed on Netlify. Current status:
+![captura1](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011745/1_eqokma.png)
+![captura2](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011744/2_xjeusl.png)
+![captura3](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011744/3_wacugt.png)
+![captura4](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011744/4_j0ayoz.png)
+![captura5](https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011745/5_lt2wvh.png)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f2cd2dcf-de8c-45fc-bc87-6171071d81d6/deploy-status)](https://app.netlify.com/sites/metropedia/deploys)
+## Estado de Despliegue en Vercel
 
-## Sources and Credits
+"Metropedia está desplegado en Vercel. Estado actual:"
+
+![Website Deploy](https://deploy-badge.vercel.app/?url=https://metropedia.vercel.app/&name=Metropedia)
+## Fuentes y Créditos
 
 - [Fontsource](https://fontsource.org/)
-- [Tabler icons](https://tabler.io/icons)
+- [Iconos de Tabler](https://tabler.io/icons)
 
-## Thank you for viewing!
-Don't forget to leave your star ⭐ on the repository if you found it helpful or useful.
+## ¡Gracias por visitar!
+
+"No olvides dejar tu estrella ⭐ en el repositorio si te pareció útil o interesante."
+

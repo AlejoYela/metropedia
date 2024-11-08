@@ -3,30 +3,35 @@ import CircleCheckIcon from "../icons/CircleCheckIcon.astro"
 import GraphicIcon from "../icons/GraphicIcon.astro"
 ---
 
-<div class="grid grid-cols-1 max-w-screen-xl mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-2">
-    <img class="mr-12 md:place-self-center" src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011420/graphics_tedad4.svg" alt="">
-    <div class="mr-auto ml-12">
-        <div class="flex">
-            <GraphicIcon class="size-10 mr-2 stroke-[#fcb316]" />
-            <h3 class="text-3xl font-extrabold tracking-wider mb-4">Calcula las Correcciones Gráficas</h3>
-        </div>
-        <p class="text-gray-400 text-lg mb-4">Nuestra plataforma ofrece herramientas avanzadas para la corrección de condiciones ambientales en mediciones metrológicas, permitiendo obtener resultados precisos y ajustados.</p>
-        <p class="text-gray-400 text-lg">Genera gráficos interactivos, realiza análisis estadísticos de corrección ambiental y presenta tus resultados de manera clara y profesional con nuestras soluciones.</p>
-        
-        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+<div class="flex flex-col-reverse lg:grid lg:grid-cols-2 max-w-screen-xl mx-auto gap-6 lg:gap-8 xl:gap-12">
+    <!-- Imagen en móvil al final, en desktop a la izquierda -->
+    <img class="w-full lg:w-auto lg:place-self-center" src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011420/graphics_tedad4.svg" alt="Gráfica representativa">
 
-        <ul class="mb-8">
-            <li class="text-lg flex items-center gap-2"><CircleCheckIcon fill="#fcb316"/>Gráficos interactivos y personalizables</li>
-            <li class="text-lg flex items-center gap-2"><CircleCheckIcon fill="#fcb316"/>Análisis estadístico</li>
-            <li class="text-lg flex items-center gap-2"><CircleCheckIcon fill="#fcb316"/>Importación de datos en múltiples formatos</li>
+    <div class="md:text-center lg:text-left mx-4 lg:mx-0">
+        <div class="flex items-center justify-center lg:justify-start mb-4">
+            <GraphicIcon class="w-8 h-8 mr-2 stroke-[#fcb316]" />
+            <h3 class="text-2xl sm:text-3xl font-extrabold tracking-wider">Calcula las Correcciones Gráficas</h3>
+        </div>
+        <p class="text-gray-400 text-base sm:text-lg mb-4">Nuestra plataforma ofrece herramientas avanzadas para la corrección de condiciones ambientales en mediciones metrológicas, permitiendo obtener resultados precisos y ajustados.</p>
+        <p class="text-gray-400 text-base sm:text-lg mb-6">Genera gráficos interactivos, realiza análisis estadísticos de corrección ambiental y presenta tus resultados de manera clara y profesional con nuestras soluciones.</p>
+        
+        <hr class="h-px my-6 lg:my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+        <ul class="space-y-2 mb-6 lg:mb-8">
+            <li class="text-base sm:text-lg flex items-center gap-2"><CircleCheckIcon fill="#fcb316"/>Gráficos interactivos y personalizables</li>
+            <li class="text-base sm:text-lg flex items-center gap-2"><CircleCheckIcon fill="#fcb316"/>Análisis estadístico</li>
+            <li class="text-base sm:text-lg flex items-center gap-2"><CircleCheckIcon fill="#fcb316"/>Importación de datos en múltiples formatos</li>
         </ul>
+
+        <!-- Botón con texto corto en móvil -->
         <a
             href="/graphics/"
-            class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-[#252627] hover:text-white rounded-sm bg-[#fcb316] hover:bg-[#fcb316]/60 border border-primary hover:border-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+            class="inline-flex justify-center items-center py-3 px-5 text-sm sm:text-base font-medium text-[#252627] hover:text-white rounded-sm bg-[#fcb316] hover:bg-[#fcb316]/60 border border-primary hover:border-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
         >
-            Descubre más sobre nuestras capacidades de análisis
+            <span class="block sm:hidden">Descubre más</span> <!-- Texto corto en móvil -->
+            <span class="hidden sm:block">Descubre más sobre nuestras capacidades de análisis</span> <!-- Texto completo en desktop -->
             <svg
-                class="w-3.5 h-3.5 ms-2 rtl:rotate-180"
+                class="w-3.5 h-3.5 ml-2 rtl:rotate-180"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

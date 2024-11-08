@@ -55,22 +55,46 @@ const coursesInfo = [
 ];
 ---
 
-<div class="pb-24 w-full max-w-screen-xl align-middle mx-auto text-center my-24">
-    <h3 class="text-white font-semibold text-2xl">Cursos populares</h3>
-    <h3 class="text-[#9a9a9a] text-lg">
-      Las habilidades profesionales más valoradas
-    </h3>
-    <div class="grid col-span-12 grid-cols-4 gap-4 mx-6 my-6">
-      {
-        coursesInfo.map((tool) => (
-          <InfoCard
-            title={tool.title}
-            description={tool.description}
-            link={tool.link}
-            icono={tool.icono}
-            color={tool.color}
-          />
-        ))
-      }
-    </div>
+<div class="pb-24 w-full max-w-screen-xl align-middle mx-auto text-center my-0">
+  <!-- Título principal -->
+  <h3 class="text-white font-semibold text-xl sm:text-2xl">Cursos populares</h3>
+  <h3 class="text-[#9a9a9a] text-base sm:text-lg">
+    Las habilidades profesionales más valoradas
+  </h3>
+
+  <!-- Grid de InfoCards con configuración responsive -->
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mx-4 my-6">
+    {
+      coursesInfo.map((tool) => (
+        <InfoCard
+          title={tool.title}
+          description={tool.description}
+          link={tool.link}
+          icono={tool.icono}
+          color={tool.color}
+        />
+      ))
+    }
   </div>
+</div>
+
+<style>
+  /* Mantener el estilo general igual */
+  .text-white {
+    color: #ffffff;
+  }
+
+  /* Ajuste de estilo para el título en diferentes pantallas */
+  .text-xl {
+    font-size: 1.25rem;
+  }
+  .text-lg {
+    font-size: 1.125rem;
+  }
+
+  /* Opcional: Mejorar el espaciado en dispositivos más pequeños */
+  .mx-4 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+</style>

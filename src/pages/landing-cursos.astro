@@ -13,39 +13,39 @@ import Consult from "../components/Consult.astro";
 
   <div
     id="tabs"
-    class="max-w-screen-xl mx-auto border-b border-gray-200 dark:border-gray-700"
+    class="max-w-screen-xl mx-auto border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 lg:px-8"
   >
     <ul
-      class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+      class="flex overflow-x-auto no-scrollbar -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
     >
-      <li class="me-2">
+      <li class="me-2 flex-none">
         <a
           href="#"
           id="boton-inicio"
-          class="tab-link inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-primary dark:hover:text-primary group"
+          class="tab-link inline-flex items-center justify-center p-3 sm:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-primary dark:hover:text-primary group"
           >Inicio</a
         >
       </li>
-      <li class="me-2">
+      <li class="me-2 flex-none">
         <a
           href="#"
           id="boton-cursos"
-          class="tab-link inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
+          class="tab-link inline-flex items-center justify-center p-3 sm:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
           >Cursos</a
         >
       </li>
-      <li class="me-2">
+      <li class="me-2 flex-none">
         <a
           href="#"
           id="boton-certificados"
-          class="tab-link inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
+          class="tab-link inline-flex items-center justify-center p-3 sm:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
           >Certificados</a
         >
       </li>
-      <li class="me-2">
+      <li class="me-2 flex-none">
         <a
           href="/login/"
-          class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
+          class="inline-flex items-center justify-center p-3 sm:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
           >Ingresar</a
         >
       </li>
@@ -73,6 +73,31 @@ import Consult from "../components/Consult.astro";
   .tab-link.active {
     color: #fcb316;
     border-bottom: 2px solid #fcb316;
+  }
+  /* Eliminar scroll de la barra de navegación en móvil */
+  .no-scrollbar {
+    scrollbar-width: none; /* Firefox */
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Safari y Chrome */
+  }
+
+  /* Asegurar que los tab-links se alineen de forma más compacta */
+  @media (max-width: 640px) {
+    .tab-link {
+      padding: 10px 12px;
+      font-size: 0.875rem;
+    }
+
+    /* Espaciado más pequeño para la navegación en móvil */
+    #tabs {
+      padding: 0 1rem;
+    }
+
+    /* Tamaño más compacto de las secciones */
+    .tab-content {
+      padding: 1rem;
+    }
   }
 </style>
 

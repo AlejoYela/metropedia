@@ -56,92 +56,96 @@ const ownToolsInfo = [
 ---
 
 <section
-    class="calculadora relative about flex flex-col justify-center items-center h-dvh gap-12 pt-12"
-  >
-    <ArrowDownIcon class="absolute bottom-0 bounce end-1/2" />
+  class="calculadora relative about flex flex-col justify-center items-center md:h-dvh gap-6 pt-12 px-4 sm:px-8 lg:gap-12 lg:pt-12"
+>
+  <ArrowDownIcon class="absolute bottom-0 bounce end-1/2" />
 
-    <div class="content">
-      <h2
-        class="text-center max-w-4xl mt-4 text-3xl font-extrabold leading-none md:text-3xl xl:text-5xl dark:text-white mx-auto"
-      >
-        Los cursos más completos
-      </h2>
-      <h2
-        class="text-center max-w-5xl mb-4 text-3xl font-extrabold leading-none md:text-3xl xl:text-5xl dark:text-primary mx-auto"
-      >
-        en Metrología y Normativa Internacional
-      </h2>
+  <div class="content">
+    <!-- Títulos principales -->
+    <h2
+      class="text-center max-w-4xl mt-4 text-2xl font-extrabold leading-none sm:text-3xl xl:text-5xl dark:text-white mx-auto"
+    >
+      Los cursos más completos
+    </h2>
+    <h2
+      class="text-center max-w-5xl mb-4 text-2xl font-extrabold leading-none sm:text-3xl xl:text-5xl dark:text-primary mx-auto"
+    >
+      en Metrología y Normativa Internacional
+    </h2>
 
-      <h3 class="mx-auto text-center max-w-2xl mt-10 text-2xl text-[#c4c8ce]">
-        Cursos virtuales diseñados por profesionales, información actualizada y
-        ejemplos aplicados reales.
-      </h3>
-      <div class="p-0 w-full max-w-screen-xl align-middle mx-auto">
-        <div class="grid col-span-12 grid-cols-4 gap-4 mx-6 my-6">
-          {
-            ownToolsInfo.map((tool) => (
-              <InfoCard
-                title={tool.title}
-                description={tool.description}
-                link={tool.link}
-                icono={tool.icono}
-                color={tool.color}
-              />
-            ))
-          }
-        </div>
+    <!-- Subtítulo de descripción -->
+    <h3 class="mx-auto text-center max-w-lg mt-6 text-lg text-[#c4c8ce]">
+      Cursos virtuales diseñados por profesionales, información actualizada y ejemplos aplicados reales.
+    </h3>
+
+    <!-- Grid de InfoCards que cambia solo en móviles a una columna -->
+    <div class="p-0 w-full max-w-screen-xl align-middle mx-auto">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mx-2 my-6">
+        {
+          ownToolsInfo.map((tool) => (
+            <InfoCard
+              title={tool.title}
+              description={tool.description}
+              link={tool.link}
+              icono={tool.icono}
+              color={tool.color}
+            />
+          ))
+        }
       </div>
-
-      <h3
-        class="text-center max-w-4xl my-4 text-sm text-[#5d5d5d] font-bold mx-auto"
-      >
-        Educación informal - No conduce a título o certificado de aptitud
-        ocupacional - Decreto 1075 de 2015 (artículo 2.6.6.8)
-      </h3>
     </div>
-  </section>
 
-  <style>
-    .about {
-      margin: auto;
-      color: white;
-      line-height: 1.6;
-      position: relative;
-      overflow: hidden;
+    <!-- Notificación de tipo de educación -->
+    <h3
+      class="text-center max-w-md my-4 text-xs text-[#5d5d5d] font-bold mx-auto sm:text-sm lg:max-w-4xl"
+    >
+      Educación informal - No conduce a título o certificado de aptitud ocupacional - Decreto 1075 de 2015 (artículo 2.6.6.8)
+    </h3>
+  </div>
+</section>
+
+<style>
+  .about {
+    margin: auto;
+    color: white;
+    line-height: 1.6;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .floating-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: floating 6s ease-in-out infinite;
+    z-index: -1; /* Asegura que el fondo esté detrás del contenido */
+  }
+
+  @keyframes floating {
+    0% {
+      transform: translateY(0);
     }
-  
-    .floating-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      animation: floating 6s ease-in-out infinite;
-      z-index: -1; /* Asegura que el fondo esté detrás del contenido */
+    50% {
+      transform: translateY(20px);
     }
-  
-    @keyframes floating {
-      0% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(20px);
-      }
-      100% {
-        transform: translateY(0);
-      }
+    100% {
+      transform: translateY(0);
     }
-  
-    @keyframes bounce {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
     }
-    .bounce {
-      animation: bounce 1s infinite;
+    50% {
+      transform: translateY(-10px);
     }
-  </style>
+  }
+  .bounce {
+    animation: bounce 1s infinite;
+  }
+</style>
+
