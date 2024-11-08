@@ -6,14 +6,15 @@ import PopularCourses from "../components/PopularCourses.astro";
 import CTACourses from "../components/CTACourses.astro";
 import CoursesHero from "../components/CoursesHero.astro";
 import Consult from "../components/Consult.astro";
+import Auxiliarlogin from "../components/auxiliarlogin.astro";
 ---
 
 <Layout title="Metropedia.">
   <CoursesHero />
   <a href="https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/authorize?
-  response_type=code id_token token&
+  response_type=code&
   client_id=JozbrwbE60QoHfD6hZiQy18zIQFxGEw0&
-  connection=CONNECTION&
+  connection=google-oauth2&
   redirect_uri=https://metropedia.vercel.app&
   state=STATE&
   ADDITIONAL_PARAMETERS
@@ -52,10 +53,11 @@ import Consult from "../components/Consult.astro";
         >
       </li>
       <li class="me-2 flex-none">
-        <button
+        <a
+        href=""
           id="login-button"
           class="inline-flex items-center justify-center p-3 sm:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
-          >Ingresar</button
+          >Ingresar</a
         >
       </li>
     </ul>
@@ -72,6 +74,7 @@ import Consult from "../components/Consult.astro";
   </div>
   <div id="content-certificados" class="tab-content hidden">
     <Consult />
+    <Auxiliarlogin/>
   </div>
 </Layout>
 
