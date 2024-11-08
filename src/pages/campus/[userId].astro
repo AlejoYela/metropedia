@@ -5,16 +5,6 @@ import SchoolIcon from "../../icons/SchoolIcon.astro";
 import CertificateIcon from "../../icons/CertificateIcon.astro";
 import NotebookIcon from "../../icons/NotebookIcon.astro";
 import courseData from "../../courseData.js";
-import { initAuth0 } from "../../auth/authConfig";
-
-async function checkAuthStatus() {
-  const auth0Client = await initAuth0();
-  const isAuthenticated = await auth0Client.isAuthenticated();
-  if (isAuthenticated) {
-    const user = await auth0Client.getUser();
-    console.log(user); // Datos del usuario autenticado
-  }
-}
 
 
 const { userId } = Astro.params;
