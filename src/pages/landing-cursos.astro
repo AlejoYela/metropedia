@@ -43,10 +43,10 @@ import Consult from "../components/Consult.astro";
         >
       </li>
       <li class="me-2 flex-none">
-        <a
-          href="/login/"
+        <button
+          id="login-button"
           class="inline-flex items-center justify-center p-3 sm:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
-          >Ingresar</a
+          >Ingresar</button
         >
       </li>
     </ul>
@@ -65,6 +65,12 @@ import Consult from "../components/Consult.astro";
     <Consult />
   </div>
 </Layout>
+
+<script>
+  import { login } from "../auth/authService";
+
+  document.getElementById("login-button").addEventListener("click", login);
+</script>
 
 <style>
   .tab-content.hidden {

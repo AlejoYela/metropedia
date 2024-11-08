@@ -5,6 +5,13 @@ import SchoolIcon from "../../icons/SchoolIcon.astro";
 import CertificateIcon from "../../icons/CertificateIcon.astro";
 import NotebookIcon from "../../icons/NotebookIcon.astro";
 import courseData from "../../courseData.js";
+import auth0 from '../../auth/authConfig';
+
+const isAuthenticated = await auth0.isAuthenticated();
+
+if (!isAuthenticated) {
+  window.location.href = "/login"; // Redirige si no está autenticado
+}
 
 const { userId } = Astro.params;
 let userData = null;
