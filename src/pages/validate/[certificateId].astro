@@ -1,36 +1,37 @@
 ---
+// Importamos los componentes de iconos y layout
 import Layout from "../../layouts/Layout.astro";
 import CertificateIcon from "../../icons/CertificateIcon.astro";
 import ExternalLinkIcon from "../../icons/ExternalLinkIcon.astro";
 import ArrowDownIcon from "../../icons/ArrowDownIcon.astro";
 
-const { certificateId } = Astro.params; // Captura el ID desde la URL
+// Captura el ID desde la URL
+const { certificateId } = Astro.params;
 let userData = null;
 
-try {
-    // Realiza la solicitud `fetch` con el ID capturado
-    const response = await fetch(
-        `https://certificados-backend.onrender.com/api/certificates/validate/${certificateId}`,
-    );
-    if (response.ok) {
-        userData = await response.json();
-        
-    } else {
-        console.error("Certificado no encontrado o error en la solicitud.");
+// Función para obtener datos del certificado al cargar el componente en el cliente
+async function fetchCertificate() {
+    try {
+        const response = await fetch(`https://certificados-backend.onrender.com/api/certificates/validate/${certificateId}`);
+        if (response.ok) {
+            userData = await response.json();
+        } else {
+            console.error("Certificado no encontrado o error en la solicitud.");
+        }
+    } catch (error) {
+        console.error("Error al obtener los datos del certificado:", error);
     }
-} catch (error) {
-    console.error("Error al obtener los datos del certificado:", error);
 }
+
+// Ejecuta la función al cargar en el cliente
+await fetchCertificate();
 ---
 
-<!-- Renderiza la información del certificado -->
 <Layout title="Metropedia.">
-    <section
-        class="relative about flex flex-col justify-center items-center gap-12 pt-12"
-    >
+    <section class="relative about flex flex-col justify-center items-center gap-12 pt-12">
         {
             userData ? (
-                <section class=" bg-transparent  antialiased mt-20">
+                <section class="bg-transparent antialiased mt-20">
                     <div class="relative max-w-screen-xl px-4 mx-auto 2xl:px-0">
                         <ArrowDownIcon class="absolute bottom-0 bounce end-1/2" />
                         <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
@@ -56,7 +57,6 @@ try {
                                     <div
                                         title=""
                                         class="flex items-center justify-center py-2.5 px-5 text-sm font-medium text-[#191919] focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-[#191919] dark:text-gray-400 dark:border-gray-600"
-                                        
                                     >
                                         <CertificateIcon class="w-5 h-5 -ms-2 me-2" />
                                         {certificateId}
@@ -67,11 +67,7 @@ try {
                                         class="text-secondary mt-4 sm:mt-0 bg-primary hover:bg-primary focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary dark:hover:bg-primary focus:outline-none dark:focus:ring-primary-800 flex items-center justify-center"
                                         role="button"
                                         download
-                                        href={
-                                            userData.certificate.link
-                                                ? userData.certificate.link
-                                                : ""
-                                        }
+                                        href={userData.certificate.link || ""}
                                         target="_blank"
                                     >
                                         <ExternalLinkIcon class="w-5 h-5 -ms-2 me-2" />
@@ -82,42 +78,23 @@ try {
                                 <hr class="my-6 md:my-8 border-gray-200 dark:border-[#9a9a9a]" />
 
                                 <p class="mb-6 text-[#9a9a9a] dark:text-gray-400">
-                                    Metropedia, como plataforma virtual de
-                                    formación en metrología y normativa
-                                    internacional, informa que el certificado de
-                                    formación con código
-                                    <span class="font-semibold">
-                                        {certificateId}
-                                    </span>{" "}
-                                    es{" "}
-                                    <span class="font-bold text-green-600">
-                                        VÁLIDO
-                                    </span>{" "}
-                                    desde la fecha{" "}
-                                    {new Date(userData.certificate.date).toLocaleDateString("en-CA")}{" "}
-                                    y se encuentra vigente como Educación
-                                    informal (No conduce a título o certificado
-                                    de aptitud ocupacional - Decreto 1075 de
-                                    2015 (artículo 2.6.6.8)).
+                                    Metropedia, como plataforma virtual de formación en metrología y normativa internacional, informa que el certificado de formación con código <span class="font-semibold">{certificateId}</span> es <span class="font-bold text-green-600">VÁLIDO</span> desde la fecha {new Date(userData.certificate.date).toLocaleDateString("en-CA")} y se encuentra vigente como Educación informal (No conduce a título o certificado de aptitud ocupacional - Decreto 1075 de 2015 (artículo 2.6.6.8)).
                                 </p>
                             </div>
                         </div>
                     </div>
-                    {userData.certificate.link ?
-                     (<embed
-                         src={
-                             userData.certificate.link
-                                 ? userData.certificate.link
-                                 : "#"
-                         }
-                         type="application/pdf"
-                         class="mt-20"
-                         width="100%"
-                         height="600px"
-                     />)
-                     : (<p>No se encontró el certificado para descargar.</p>)
-                     }
-                
+
+                    {userData.certificate.link ? (
+                        <embed
+                            src={userData.certificate.link || "#"}
+                            type="application/pdf"
+                            class="mt-20"
+                            width="100%"
+                            height="600px"
+                        />
+                    ) : (
+                        <p>No se encontró el certificado para descargar.</p>
+                    )}
                 </section>
             ) : (
                 <p>No se encontró información para este certificado.</p>
@@ -134,34 +111,10 @@ try {
     }
 
     .metropedia {
-        -webkit-mask-image: linear-gradient(
-                to right,
-                transparent,
-                black 30%,
-                black 70%,
-                transparent
-            ),
-            linear-gradient(
-                to left,
-                transparent,
-                black 30%,
-                black 70%,
-                transparent
-            );
-        mask-image: linear-gradient(
-                to right,
-                transparent,
-                black 30%,
-                black 70%,
-                transparent
-            ),
-            linear-gradient(
-                to left,
-                transparent,
-                black 30%,
-                black 70%,
-                transparent
-            );
+        -webkit-mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent),
+                          linear-gradient(to left, transparent, black 30%, black 70%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent),
+                    linear-gradient(to left, transparent, black 30%, black 70%, transparent);
     }
 
     .titulo {
@@ -169,13 +122,8 @@ try {
     }
 
     @keyframes bounce {
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-10px);
-        }
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
     }
     .bounce {
         animation: bounce 1s infinite;
