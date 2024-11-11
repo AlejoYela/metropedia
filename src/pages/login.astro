@@ -1,68 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-let isLoading = true;
-let isRegistered = false;
-
-const clientId = "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0"; // Tu Client ID de Auth0
-const clientSecret =
-  "dP2T0wgImFNyHKNa-rIziBbA9_3H2p5cYC3wYyuy3Xx37nBW9sPeWm7vKFVn-qE7"; // Tu Client Secret de Auth0
-const redirectUri = "https://metropedia.vercel.app/login"; // La URI de redirección que configuraste
-
-const { code } = Astro.params;
-
-async function getAuthToken(code) {
-  const response = await fetch(
-    "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/oauth/token",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        grant_type: "authorization_code",
-        client_id: clientId,
-        client_secret: clientSecret, // Recuerda proteger esto en el backend
-        code: code,
-        redirect_uri: redirectUri,
-      }),
-    },
-  );
-
-  if (!response.ok) {
-    throw new Error("Error al obtener el token");
-  }
-
-  const data = await response.json();
-  return data; // Este objeto incluirá `access_token` y `id_token`
-}
-
-// Obtener el token y luego la información del usuario
-let userInfo = null;
-if (code) {
-  const { access_token } = await getAuthToken(code);
-
-  // Usar el token para obtener los datos del usuario
-  const userResponse = await fetch(
-    "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo",
-    {
-      headers: {
-        Authorization: `Bearer ${access_token}`,
-      },
-    },
-  );
-
-  if (userResponse.ok) {
-    userInfo = await userResponse.json();
-  }
-}
 ---
 
-<Layout title="Metropedia.">
+<Layout title="Metropedia">
   <section class="flex justify-center items-center h-dvh">
     <form class="max-w-md mx-auto">
       <p class="text-white font-semibold text-xl">
-        Hola, ${userInfo.name} Registre su número de cédula.
+        Hola, Registre su número de cédula.
       </p>
       <p class="text-[#9a9a9a] font-bold mb-5">
         Éste se usará en su certificado.
@@ -91,8 +35,65 @@ if (code) {
         Registrar
       </button>
     </form>
+
+    <!-- Contenedor para mostrar el código -->
+    <div id="code-display" class="text-white mt-5">
+      <p><strong>Code:</strong> <span id="code"></span></p>
+    </div>
+
+    <!-- Contenedor para mostrar el token -->
+    <div id="token-display" class="text-white mt-5">
+      <p><strong>Token:</strong> <span id="token"></span></p>
+    </div>
   </section>
 </Layout>
+
+<script>
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const code = urlSearchParams.get("code"); // Extraemos el código
+  console.log(code); // Ver en consola
+
+  // Mostrar el valor de 'code' en el HTML
+  document.getElementById("code").textContent = code;
+
+  // Función para obtener el token
+  async function getAuthToken(code) {
+    try {
+      console.log("Making request with code:", code); // Verificar que la función se llama con el 'code'
+      const response = await fetch(
+        `https://certificados-backend.onrender.com/auth/token/${code}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+
+      console.log("Response status:", response.status); // Verificar el estado de la respuesta
+
+      if (!response.ok) {
+        throw new Error("Error al obtener el token");
+      }
+
+      const data = await response.json();
+      console.log("Resultado del fetch:", data); // Mostrar el objeto completo de la respuesta
+
+      // Asumimos que los tokens están en 'access_token' e 'id_token'
+      document.getElementById("token").textContent =
+        data.access_token || "Token no disponible"; // Mostrar el token
+    } catch (error) {
+      console.error("Error:", error);
+      document.getElementById("token").textContent =
+        "Hubo un error al obtener el token.";
+    }
+  }
+
+  // Llamar a la función para obtener el token si el 'code' está presente
+  if (code) {
+    getAuthToken(code);
+  }
+</script>
 
 <style>
   .about {
