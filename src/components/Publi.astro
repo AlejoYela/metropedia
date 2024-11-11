@@ -1,10 +1,12 @@
 ---
 import InfoCard from "./InfoCard.astro";
+import InfoList from "./InfoList.astro";
 import CertificateIcon from "../icons/CertificateIcon.astro";
 import CubeIcon from "../icons/CubeIcon.astro";
 import StarIcon from "../icons/StarIcon.astro";
 import NotebookIcon from "../icons/NotebookIcon.astro";
 import SettingsCheckIcon from "../icons/SettingsCheckIcon.astro";
+import Categories from "./Categories.astro";
 
 const ownToolsInfo = [
   {
@@ -55,22 +57,28 @@ const ownToolsInfo = [
 ---
 
 <div
-  class="px-4 w-full max-w-screen-xl md:text-center py-12 lg:py-auto h-auto align-middle mx-auto"
+  class="px-4 w-full max-w-screen-xl md:text-center py-12 lg:py-auto align-middle mx-auto"
 >
   <!-- Encabezado y Subtítulo -->
   <div class="flex items-center justify-center mb-4">
     <CertificateIcon class="size-10 sm:size-12 mr-2 stroke-[#fcb316]" />
-    <h3 class="text-xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-none">
+    <h3
+      class="text-xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-none"
+    >
       Desarrolla tus propias habilidades.
     </h3>
   </div>
-  <p class="mb-6 text-white/40 text-base sm:text-lg md:text-xl font-normal text-gray-300">
+  <p
+    class="mb-6 text-white/40 text-base sm:text-lg md:text-xl font-normal text-gray-300"
+  >
     Aprende como implementar y aplicar la normativa metrológica en tu contexto
     con los cursos disponibles.
   </p>
 
   <!-- Tarjetas Responsivas -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto px-4">
+  <div
+    class="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mx-auto px-4"
+  >
     {
       ownToolsInfo.map((tool) => (
         <InfoCard
@@ -83,6 +91,24 @@ const ownToolsInfo = [
       ))
     }
   </div>
+
+  <ul role="list" class=" md:hidden divide-y divide-[#9a9a9a]">
+    {
+      ownToolsInfo.map((tool)=>(
+        <InfoList
+          title={tool.title}
+          description={tool.description}
+          link={tool.link}
+          icono={tool.icono}
+          color={tool.color}
+        />
+      ))
+    }
+  </ul>
+
+
+
+  <Categories />
 
   <!-- Botón Más Información -->
   <a
@@ -106,4 +132,3 @@ const ownToolsInfo = [
     </svg>
   </a>
 </div>
-

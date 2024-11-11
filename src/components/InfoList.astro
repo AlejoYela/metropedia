@@ -1,0 +1,29 @@
+---
+export interface Props {
+  title: string;
+  description: string[];
+  link: string;
+  icono: any;
+  color: string;
+}
+
+const { title, description, link, icono: Icon, color } = Astro.props;
+---
+
+<a href={link} class="flex justify-between gap-x-6 py-4 hover:border-gray-200 rounded-sm bg-opacity-10 hover:dark:border-white/30">
+  <div class="flex min-w-0 gap-x-4">
+    <div
+      class="rounded-sm p-3 w-fit mb-6"
+      style={`background-color: ${color}1A`}
+    >
+      <!-- 1A es el 10% de opacidad en hexadecimal -->
+      <Icon class="size-10" style={`stroke: ${color}`} />
+    </div>
+    <div class="min-w-0 flex-auto text-left">
+      <p class=" font-semibold text-white text-lg">{title}</p>
+      <ul class="font-normal text-sm text-[#9a9a9a]">
+        {description.map((item) => <span>{item}, </span>)}
+      </ul>
+    </div>
+  </div>
+</a>

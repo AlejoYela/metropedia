@@ -47,8 +47,12 @@ const navItems = [
 </div>
 
 <!-- Mobile Menu -->
-<div class="hidden md:hidden bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10" id="mobile-menu">
-    <nav class="flex flex-col p-4 space-y-2">
+<div class="fixed top-0 right-0 w-3/4 max-w-sm h-full bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10 transform transition-transform duration-300 ease-in-out translate-x-full opacity-0 md:hidden z-20" id="mobile-menu">
+    <!-- Botón para cerrar el menú -->
+    <button id="close-menu" class="absolute top-4 right-4 text-white text-lg focus:outline-none">
+        ✕
+    </button>
+    <nav class="flex flex-col p-4 mt-10 space-y-2">
         {navItems.map((link) => (
             <a class="block px-2 py-1 text-white transition hover:text-[#fcb316] dark:hover:text-[#fcb316]" aria-label={link.label} href={link.url}>
                 {link.title}
@@ -62,13 +66,22 @@ const navItems = [
     document.addEventListener('DOMContentLoaded', () => {
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
 
+        // Abrir menú
         menuToggle.addEventListener('click', () => {
-            // Alterna la clase hidden para mostrar/ocultar el menú
-            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.remove('translate-x-full', 'opacity-0'); // Remueve para que se vea
+            mobileMenu.classList.add('translate-x-0', 'opacity-100'); // Añade clases para mostrar con animación
+        });
+
+        // Cerrar menú
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full', 'opacity-0'); // Oculta el menú nuevamente con animación
+            mobileMenu.classList.remove('translate-x-0', 'opacity-100');
         });
     });
 </script>
+
 
 <!-- Estilos -->
 <style>

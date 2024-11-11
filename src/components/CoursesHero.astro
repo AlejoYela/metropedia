@@ -1,11 +1,10 @@
 ---
-
-import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
 import CubeIcon from "../icons/CubeIcon.astro";
 import NotebookIcon from "../icons/NotebookIcon.astro";
 import SettingsCheckIcon from "../icons/SettingsCheckIcon.astro";
 import StarIcon from "../icons/StarIcon.astro";
 import InfoCard from "./InfoCard.astro";
+import InfoList from "./InfoList.astro";
 
 const ownToolsInfo = [
   {
@@ -24,7 +23,6 @@ const ownToolsInfo = [
     description: [
       "Impartidos por expertos",
       "Experiencia en metrología",
-      "Calidad de enseñanza",
     ],
     link: "#",
     icono: StarIcon,
@@ -34,7 +32,6 @@ const ownToolsInfo = [
     title: "Actualizados",
     description: [
       "Contenido actualizado",
-      "Normativas internacionales",
       "Cumplimiento con estándares",
     ],
     link: "#",
@@ -56,9 +53,8 @@ const ownToolsInfo = [
 ---
 
 <section
-  class="calculadora relative about flex flex-col justify-center items-center md:h-dvh gap-6 pt-12 px-4 sm:px-8 lg:gap-12 lg:pt-12"
+  class="calculadora relative about flex flex-col justify-center items-center h-dvh gap-6 pt-12 px-4 sm:px-8 lg:gap-12 lg:pt-12"
 >
-  <ArrowDownIcon class="absolute bottom-0 bounce end-1/2" />
 
   <div class="content">
     <!-- Títulos principales -->
@@ -74,13 +70,13 @@ const ownToolsInfo = [
     </h2>
 
     <!-- Subtítulo de descripción -->
-    <h3 class="mx-auto text-center max-w-lg mt-6 text-lg text-[#c4c8ce]">
+    <h3 class="hidden md:block mx-auto text-center max-w-lg mt-6 text-lg text-[#c4c8ce]">
       Cursos virtuales diseñados por profesionales, información actualizada y ejemplos aplicados reales.
     </h3>
 
     <!-- Grid de InfoCards que cambia solo en móviles a una columna -->
     <div class="p-0 w-full max-w-screen-xl align-middle mx-auto">
-      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mx-2 my-6">
+      <div class="hidden md:grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mx-2 my-6">
         {
           ownToolsInfo.map((tool) => (
             <InfoCard
@@ -93,7 +89,23 @@ const ownToolsInfo = [
           ))
         }
       </div>
+
+      <ul role="list" class=" md:hidden divide-y divide-[#9a9a9a]">
+        {
+          ownToolsInfo.map((tool)=>(
+            <InfoList
+              title={tool.title}
+              description={tool.description}
+              link={tool.link}
+              icono={tool.icono}
+              color={tool.color}
+            />
+          ))
+        }
+      </ul>
     </div>
+
+    
 
     <!-- Notificación de tipo de educación -->
     <h3
