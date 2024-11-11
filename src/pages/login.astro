@@ -40,29 +40,30 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-  import {createAuth0Client} from "@auth0/auth0-spa-js";
+  import { createAuth0Client } from "@auth0/auth0-spa-js";
 
   async function configureAuth0() {
-  const auth0 = await createAuth0Client({
-    domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Reemplaza con tu dominio de Auth0
-    clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Reemplaza con tu Client ID
-    authorizationParams: {
-      scope: "openid profile email" // Incluye 'openid' para el acceso al perfil básico del usuario
-    }
-  });
+    const auth0 = await createAuth0Client({
+      domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Reemplaza con tu dominio de Auth0
+      clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Reemplaza con tu Client ID
+      authorizationParams: {
+        scope: "openid profile email", // Incluye 'openid' para el acceso al perfil básico del usuario
+        redirect_uri: window.location.origin + "/login",
+      },
+    });
 
-  // Inicia la autenticación con Universal Login
-  await auth0.loginWithRedirect();
-  
-  return auth0;
-}
+    // Inicia la autenticación con Universal Login
+    await auth0.loginWithRedirect();
 
-const auth0 = await configureAuth0();
+    return auth0;
+  }
+
+  const auth0 = await configureAuth0();
 
   const urlSearchParams = new URLSearchParams(window.location.search);
   const code = urlSearchParams.get("code"); // Extraemos el código
   console.log(code); // Ver en consola
-// Obtener el parámetro "code" de la URL (si está disponible)
+  // Obtener el parámetro "code" de la URL (si está disponible)
 
   // Mostrar el valor de 'code' en el HTML
   document.getElementById("code").textContent = code;
@@ -70,9 +71,6 @@ const auth0 = await configureAuth0();
   // Función para manejar la autenticación y obtener el token de acceso
   async function handleLogin() {
     try {
-      const auth0 = await configureAuth0();
-
-      // Realizamos la autenticación mediante el login con redirección
       await auth0.loginWithRedirect();
     } catch (error) {
       console.error("Error en el proceso de login:", error);
@@ -86,7 +84,7 @@ const auth0 = await configureAuth0();
   async function getUserData(code) {
     try {
       const auth0 = await configureAuth0();
-      
+
       // Obtenemos el token de acceso usando `getTokenSilently`
       const ACCESS_TOKEN = await auth0.getTokenSilently();
 
