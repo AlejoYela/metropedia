@@ -40,10 +40,28 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
+  import {createAuth0Client} from "@auth0/auth0-spa-js";
+
+  async function configureAuth0() {
+  const auth0 = await createAuth0Client({
+    domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Reemplaza con tu dominio de Auth0
+    clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Reemplaza con tu Client ID
+    authorizationParams: {
+      scope: "openid profile email" // Incluye 'openid' para el acceso al perfil básico del usuario
+    }
+  });
+
+  // Inicia la autenticación con Universal Login
+  await auth0.loginWithRedirect();
+  
+  return auth0;
+}
+
+const auth0 = await configureAuth0();
+
   const urlSearchParams = new URLSearchParams(window.location.search);
   const code = urlSearchParams.get("code"); // Extraemos el código
   console.log(code); // Ver en consola
-  import configureAuth0 from "../auth.js";
 // Obtener el parámetro "code" de la URL (si está disponible)
 
   // Mostrar el valor de 'code' en el HTML
