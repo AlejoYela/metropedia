@@ -7,7 +7,7 @@ export const initAuth0 = async () => {
   auth0Client = await createAuth0Client({
     domain: 'dev-6tbiy7tc5eqhqb7k.us.auth0.com',  // Cambia al tuyo
     client_id: 'JozbrwbE60QoHfD6hZiQy18zIQFxGEw0', // Cambia al tuyo
-    redirect_uri: window.location.origin // La URL donde quieres redirigir después del login
+    redirect_uri: window.location.origin+"/login" // La URL donde quieres redirigir después del login
   });
 };
 

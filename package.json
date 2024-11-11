@@ -17,6 +17,7 @@
     "@fontsource-variable/inter": "^5.0.18",
     "@fontsource/questrial": "^5.0.13",
     "astro": "^4.10.2",
+    "auth0-js": "^9.28.0",
     "chart.js": "^4.4.3",
     "chartjs-plugin-annotation": "^3.0.1",
     "mathjs": "^13.0.0",
