@@ -57,43 +57,51 @@ import Layout from "../layouts/Layout.astro";
   document.getElementById("code").textContent = code;
 
   // Función para obtener el token
-  async function getAuthToken(code) {
-    try {
-      console.log("Making request with code:", code); // Verificar que la función se llama con el 'code'
-      const response = await fetch(
-        `https://certificados-backend.onrender.com/auth/token/${code}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        },
-      );
-
-      console.log("Response status:", response.status); // Verificar el estado de la respuesta
-
-      if (!response.ok) {
-        throw new Error("Error al obtener el token");
-      }
-
-      const data = await response.json();
-
-      console.log("Resultado del fetch:", data); // Mostrar el objeto completo de la respuesta
-
-      // Asumimos que los tokens están en 'access_token' e 'id_token'
-      const token = data.access_token || "Token no disponible"; // Mostrar el token
-      return token;
-    } catch (error) {
-      console.error("Error:", error);
-      document.getElementById("token").textContent =
-        "Hubo un error al obtener el token.";
-      return null;
-    }
-  }
-
-  async function getUserInfo(code) {
+  // Función para obtener el token
+async function getAuthToken(code) {
   try {
-    const ACCESS_TOKEN = await getAuthToken(code);  // Esperamos el token
+    console.log("Making request with code:", code); // Verificar que la función se llama con el 'code'
+    const response = await fetch(
+      `https://certificados-backend.onrender.com/auth/token/${code}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
+
+    console.log("Response status:", response.status); // Verificar el estado de la respuesta
+
+    if (!response.ok) {
+      throw new Error("Error al obtener el token");
+    }
+
+    const data = await response.json();
+
+    console.log("Resultado del fetch:", data); // Mostrar el objeto completo de la respuesta
+
+    // Asumimos que los tokens están en 'access_token' e 'id_token'
+    const token = data.access_token || "Token no disponible"; // Mostrar el token
+    return token;
+  } catch (error) {
+    console.error("Error:", error);
+    document.getElementById("token").textContent =
+      "Hubo un error al obtener el token.";
+    return null;
+  }
+}
+
+// Función para obtener la información del usuario usando el token
+async function getUserInfo(code) {
+  try {
+    // Esperar a que el token se obtenga correctamente
+    const ACCESS_TOKEN = await getAuthToken(code);
+
+    // Verificar si el token es válido
+    if (!ACCESS_TOKEN) {
+      throw new Error("No se pudo obtener un token válido");
+    }
 
     const response = await fetch(
       "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo",
@@ -102,7 +110,7 @@ import Layout from "../layouts/Layout.astro";
         headers: {
           Authorization: `Bearer ${ACCESS_TOKEN}`, // Usamos el token como Bearer
         },
-      }
+      },
     );
     console.log("Response status:", response.status); // Verificar el estado de la respuesta
 
@@ -111,6 +119,7 @@ import Layout from "../layouts/Layout.astro";
     }
 
     const data = await response.json();
+
     console.log("Resultado del fetch:", data); // Mostrar el objeto completo de la respuesta
     return data;
   } catch (error) {
@@ -118,13 +127,12 @@ import Layout from "../layouts/Layout.astro";
   }
 }
 
-// Llamar a la función para obtener el token y la información del usuario
+// Llamar a la función para obtener la información del usuario si el 'code' está presente
 if (code) {
-  // Esperar que la función asincrónica retorne el resultado
-  getUserInfo(code).then(userData => {
-    console.log("userData:", userData); // Aquí ya deberías tener los datos del usuario
-  });
+  const userData = await getUserInfo(code);
+  console.log("userData: ", userData);
 }
+
 
 </script>
 
