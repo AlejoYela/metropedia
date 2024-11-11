@@ -92,37 +92,40 @@ import Layout from "../layouts/Layout.astro";
   }
 
   async function getUserInfo(code) {
-    try {
-      const ACCESS_TOKEN = getAuthToken(code);
+  try {
+    const ACCESS_TOKEN = await getAuthToken(code);  // Esperamos el token
 
-      const response = await fetch(
-        "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${ACCESS_TOKEN}`, // Usamos el token como Bearer
-          },
+    const response = await fetch(
+      "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${ACCESS_TOKEN}`, // Usamos el token como Bearer
         },
-      );
-      console.log("Response status:", response.status); // Verificar el estado de la respuesta
-
-      if (!response.ok) {
-        throw new Error("Error al obtener el usuario");
       }
+    );
+    console.log("Response status:", response.status); // Verificar el estado de la respuesta
 
-      const data = await response.json();
+    if (!response.ok) {
+      throw new Error("Error al obtener el usuario");
+    }
 
-      console.log("Resultado del fetch:", data); // Mostrar el objeto completo de la respuesta
-      return data;
-    } catch {}
+    const data = await response.json();
+    console.log("Resultado del fetch:", data); // Mostrar el objeto completo de la respuesta
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
   }
+}
 
-  // Llamar a la función para obtener el token si el 'code' está presente
-  if (code) {
-    const userData = getUserInfo(code)
-    console.log("userData: ",userData);
-    
-  }
+// Llamar a la función para obtener el token y la información del usuario
+if (code) {
+  // Esperar que la función asincrónica retorne el resultado
+  getUserInfo(code).then(userData => {
+    console.log("userData:", userData); // Aquí ya deberías tener los datos del usuario
+  });
+}
+
 </script>
 
 <style>
