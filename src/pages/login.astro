@@ -24,7 +24,6 @@ import Layout from "../layouts/Layout.astro";
           Número de cédula
         </label>
       </div>
-
     </form>
     <button id="login">Click to Login</button>
 
@@ -41,22 +40,91 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-  import auth0 from 'auth0-js';
-   var webAuth = new auth0.WebAuth({
-    domain: 'dev-6tbiy7tc5eqhqb7k.us.auth0.com',  // Cambia al tuyo
-    clientID: 'JozbrwbE60QoHfD6hZiQy18zIQFxGEw0',
-  });
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const code = urlSearchParams.get("code"); // Extraemos el código
+  console.log(code); // Ver en consola
 
-  webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
-  if (err) {
-    return console.log(err);
+  // Mostrar el valor de 'code' en el HTML
+  document.getElementById("code").textContent = code;
+
+  // Función para obtener el token y luego los datos del usuario en un solo flujo
+  async function getUserData(code) {
+    try {
+      console.log("Making request with code:", code); // Verificar que la función se llama con el 'code'
+
+      // Primero, obtenemos el token
+      const responseToken = await fetch(
+        `https://certificados-backend.onrender.com/auth/token/${code}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            grant_type: "authorization_code", // Ajustar según cómo estés autenticando
+            scope: "openid profile email", // Agregar los scopes necesarios
+          }),
+        },
+      );
+
+      console.log("Response status for token:", responseToken.status); // Verificar el estado de la respuesta del token
+
+      if (!responseToken.ok) {
+        throw new Error("Error al obtener el token");
+      }
+
+      // Parseamos el JSON de la respuesta del token
+      const dataToken = await responseToken.json();
+
+      // Extraemos el token de la respuesta
+      const ACCESS_TOKEN = dataToken.access_token;
+
+      console.log("Token obtenido:", ACCESS_TOKEN); // Verificar que se obtuvo el token
+
+      if (!ACCESS_TOKEN) {
+        throw new Error("Token no disponible");
+      }
+
+      // Ahora, con el token, hacemos el segundo fetch para obtener los datos del usuario
+      const responseUser = await fetch(
+        "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${ACCESS_TOKEN}`, // Usamos el token como Bearer
+          },
+        },
+      );
+
+      console.log("Response status for user data:", responseUser.status); // Verificar el estado de la respuesta del usuario
+
+      if (!responseUser.ok) {
+        throw new Error("Error al obtener los datos del usuario");
+      }
+
+      // Parseamos el JSON de la respuesta del usuario
+      const dataUser = await responseUser.json();
+
+      // Mostrar los datos del usuario de forma legible
+      console.log(
+        "Resultado del fetch (user data):",
+        JSON.stringify(dataUser, null, 2),
+      );
+
+      return dataUser;
+    } catch (error) {
+      console.error("Error:", error);
+      document.getElementById("token").textContent =
+        "Hubo un error al obtener los datos.";
+      return null;
+    }
   }
 
-  webAuth.client.userInfo(authResult.accessToken, function(err, user) {
-    console.log(user);
-    
-  });
-});
+  // Llamamos a la función con el 'code' que obtenemos de la URL
+  if (code) {
+    const userData = await getUserData(code); // Solo llamamos a la función una vez
+    console.log("userData: ", JSON.stringify(userData, null, 2)); // Visualización mejorada
+  }
 </script>
 
 <style>
