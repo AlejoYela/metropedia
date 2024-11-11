@@ -1,44 +1,17 @@
-import { createAuth0Client } from '@auth0/auth0-spa-js';
+import createAuth0Client from "@auth0/auth0-spa-js";
 
-let auth0Client;
-
-// Inicializar Auth0
-export const initAuth0 = async () => {
-  auth0Client = await createAuth0Client({
-    domain: 'dev-6tbiy7tc5eqhqb7k.us.auth0.com',  // Cambia al tuyo
-    client_id: 'JozbrwbE60QoHfD6hZiQy18zIQFxGEw0', // Cambia al tuyo
-    redirect_uri: window.location.origin+"/login" // La URL donde quieres redirigir después del login
-  });
-};
-
-// Función para iniciar sesión
-export const login = async () => {
-  await auth0Client.loginWithRedirect({
+async function configureAuth0() {
+  const auth0 = await createAuth0Client({
+    domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Reemplaza con tu dominio de Auth0
+    client_id: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Reemplaza con tu Client ID
     authorizationParams: {
-        redirect_uri: window.location.origin
-      }  // Aquí eliges el tipo de conexión
+      scope: "openid profile email" // Incluye 'openid' para el acceso al perfil básico del usuario
+    }
   });
-};
 
-// Función de logout
-export const logout = () => {
-  auth0Client.logout({
-    returnTo: window.location.origin  // La URL donde redirigir después del logout
-  });
-};
+  // Retornamos el cliente Auth0 configurado
+  return auth0;
+}
 
-// Función para manejar el callback
-export const handleRedirectCallback = async () => {
-  await auth0Client.handleRedirectCallback();
-  console.log('Redirection handled');
-};
-
-// Función para obtener el usuario autenticado
-export const getUser = async () => {
-  return await auth0Client.getUser();
-};
-
-// Comprobar si el usuario está autenticado
-export const isAuthenticated = async () => {
-  return await auth0Client.isAuthenticated();
-};
+// Exportamos el cliente Auth0 para usarlo en otros archivos
+export default configureAuth0;

@@ -1,0 +1,2 @@
+GET https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo
+Authorization: 'Bearer {ACCESS_TOKEN}'
