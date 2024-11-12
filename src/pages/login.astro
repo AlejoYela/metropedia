@@ -77,7 +77,7 @@ async function getUserData() {
 
     const userData = await userInfoResponse.json();
     console.log("Datos del usuario:", userData);
-    document.getElementById("saludo").textContent = "Hola, "+userData.givenName + ", ingresa tu número de cédula:"
+    document.getElementById("saludo").textContent = "Hola, "+userData.given_name + ", ingresa tu número de cédula:"
 
     // Mostrar los datos en el DOM (opcional)
     document.getElementById("user-data").textContent = JSON.stringify(userData, null, 2);
