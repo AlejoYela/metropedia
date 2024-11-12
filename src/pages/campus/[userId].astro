@@ -55,7 +55,7 @@ try {
       </div>
       <div class="flex items-center lg:order-2">
         <span
-          class="titulo self-center text-2xl font-semibold whitespace-nowrap text-white uppercase p-2"
+          class=" invisible md:visible titulo self-center text-2xl whitespace-nowrap text-white uppercase p-2"
           >Campus <span class="text-primary">virtual</span></span
         >
       </div>
@@ -64,7 +64,7 @@ try {
 
   <!-- Sidebar -->
   <aside
-    class="fixed top-0 left-0 z-40 w-96 h-screen pt-14 transition-transform -translate-x-full border-r md:translate-x-0 bg-secondary border-gray-700"
+    class="fixed top-0 left-0 z-40 w-80 h-screen pt-14 transition-transform -translate-x-full border-r md:translate-x-0 bg-secondary border-gray-700"
     aria-label="Sidenav"
     id="drawer-navigation"
   >
@@ -72,7 +72,7 @@ try {
       <div class="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-1">
         <img
           class="w-full h-56 object-cover object-center"
-          src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1730913326/user2_a2p8w8.png"
+          src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731453365/user2d_vihej7.png"
           alt="avatar"
         />
         <div class="flex items-center px-6 py-3 bg-[#252627]">
@@ -137,19 +137,19 @@ try {
     </div>
   </aside>
 
-  <main class="p-4 md:ml-96 h-auto pt-20 bg-[#161717]">
+  <main class="p-4 md:ml-80 h-auto pt-20 bg-[#161717]">
     <div
       style="background-image: url(https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011941/measure-bg_c27r6h.png)"
-      class="bg-[#252627] rounded-lg h-48 mb-4 flex-col items-center p-10"
+      class="bg-[#252627] rounded-lg h-auto mb-4 flex-col items-center p-10"
     >
-      <h1 class="text-white text-3xl font-bold">
+      <h1 class="text-white text-lg md:text-3xl font-bold">
         ¡Bienvenido(a) {userData?.name ?? "Estudiante"}!
       </h1>
-      <p class="text-[#9a9a9a] text-lg font-semibold">
+      <p class="text-[#9a9a9a] text-sm md:text-lg font-semibold">
         En este dashboard encontrarás toda la información y progreso de tus
         cursos.
       </p>
-      <div class="flex gap-5 mt-3">
+      <div class="md:flex gap-5 mt-3">
         <div class="inline-flex text-white gap-1">
           <NotebookIcon class="stroke-[#60a5fa]" />
           0 cursos en curso.
@@ -160,7 +160,7 @@ try {
         </div>
       </div>
     </div>
-    <p class="font-semibold text-xl text-white">
+    <p class="font-semibold text-xl text-white mb-3">
       Formaciones <span class="text-[#ffd16f]">en curso</span>.
     </p>
 
@@ -178,30 +178,39 @@ try {
     >
       {
         userData?.certificates?.slice(0, 3).map((certificate, index) => (
-          <a
-            href={`/validate/${certificate.certificate}`}
-            style={`background-image: url(${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"})`}
-            class=" bg-opacity-50 border-2 border-transparent hover:border-gray-300 rounded-lg h-32 md:h-64 flex flex-col p-5 justify-between"
-          >
-            <div>
-              <p class="font-semibold text-md text-white">
-                {certificate.course}
-              </p>
-              <span class="text-[#9a9a9a] font-semibold text-sm">
-                Duración de {certificate.duration} horas
-              </span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-              <div
-                class="bg-blue-600 h-2.5 rounded-full"
-                style={`background-color: ${courseData[index].color}; width: 30%`}
-              />
-            </div>
-          </a>
+        <a
+  href={`/validate/${certificate.certificate}`}
+  class="relative border-2 border-transparent hover:border-gray-300 rounded-lg h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
+>
+  <!-- Imagen de fondo con opacidad -->
+  <img
+    src={`${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"}`}
+    alt="Course Image"
+    class="absolute inset-0 w-full h-full object-cover opacity-30"
+  />
+  
+  <!-- Contenido -->
+  <div class="relative z-10">
+    <p class="font-semibold text-sm md:text-md text-white">
+      {certificate.course}
+    </p>
+    <span class="text-[#9a9a9a] font-semibold text-sm">
+      Duración de {certificate.duration} horas
+    </span>
+  </div>
+
+  <div class="relative z-10 w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mt-2">
+    <div
+      class="bg-blue-600 h-2.5 rounded-full"
+      style={`background-color: ${courseData[index].color}; width: 30%`}
+    />
+  </div>
+</a>
+
         ))
       }
     </div>
-    <p class="font-semibold text-xl text-white">
+    <p class="font-semibold text-xl text-white mb-3">
       Formaciones <span class="text-[#ffd16f]">completadas</span>.
     </p>
     <div
@@ -209,35 +218,44 @@ try {
     >
       {
         userData.certificates.slice(0, 4).map((certificate, index) => (
-          <a
-            href={`/validate/${certificate.certificate}`}
-            style={`background-image: url(${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"})`}
-            class=" bg-opacity-50 border-2 border-transparent hover:border-gray-300 rounded-lg dark:border-gray-600 h-32 md:h-64 flex flex-col p-5 justify-between"
-          >
-            <div>
-              <p class="font-semibold text-md text-white">
-                {certificate.course}
-              </p>
-              <span class="text-[#9a9a9a] font-semibold text-sm">
-                Duración de {certificate.duration} horas
-              </span>
-            </div>
-            <div>
-              <span
-                class="font-bold"
-                style={`color: ${courseData[index].color}; width: 100%`}
-              >
-                {certificate.certificate}
-              </span>
+        <a
+  href={`/validate/${certificate.certificate}`}
+  class="relative border-2 border-transparent hover:border-gray-300 rounded-lg dark:border-gray-600 h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
+>
+  <!-- Imagen de fondo con opacidad -->
+  <img
+    src={`${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"}`}
+    alt="Course Background"
+    class="absolute inset-0 w-full h-full object-cover opacity-20"
+  />
+  
+  <!-- Contenido en primer plano -->
+  <div class="relative z-10">
+    <p class="font-semibold text-sm md:text-md text-white">
+      {certificate.course}
+    </p>
+    <span class="text-[#9a9a9a] font-semibold text-sm">
+      Duración de {certificate.duration} horas
+    </span>
+  </div>
+  
+  <div class="relative z-10 mt-4">
+    <span
+      class="font-bold text-sm md:text-lg"
+      style={`color: ${courseData[index].color}; width: 100%`}
+    >
+      {certificate.certificate}
+    </span>
 
-              <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                <div
-                  class="bg-blue-600 h-2.5 rounded-full"
-                  style={`background-color: ${courseData[index].color}; width: 100%`}
-                />
-              </div>
-            </div>
-          </a>
+    <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mt-1">
+      <div
+        class="h-2.5 rounded-full"
+        style={`background-color: ${courseData[index].color}; width: 100%`}
+      />
+    </div>
+  </div>
+</a>
+
         ))
       }
     </div>
