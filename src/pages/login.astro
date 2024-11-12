@@ -57,15 +57,6 @@ import Layout from "../layouts/Layout.astro";
     try {
       const auth0 = await configureAuth0();
 
-      // Verificamos si el usuario está autenticado
-      const isAuthenticated = await auth0.isAuthenticated();
-
-      if (!isAuthenticated) {
-        // Si el usuario no está autenticado, redirige al login
-        await auth0.loginWithRedirect();
-        return;
-      }
-
       // Si ya está autenticado, obtenemos el token
       const ACCESS_TOKEN = await auth0.getTokenSilently();
 
