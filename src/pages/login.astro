@@ -4,9 +4,12 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Metropedia">
   <section class="flex justify-center items-center h-dvh">
-    <form class="max-w-md mx-auto">
+    <form class="max-w-2xl mx-auto">
       <p id="saludo" class="text-white font-semibold text-xl">
-        Hola, Registre su número de cédula.
+        Hola, registre su número de cédula.
+      </p>
+      <p class="text-[#9a9a9a] font-semibold mb-5">
+        Este se usará para generar sus certificados.
       </p>
       <div class="relative z-0 w-full mb-5 group">
         <input
@@ -24,6 +27,12 @@ import Layout from "../layouts/Layout.astro";
           Número de cédula
         </label>
       </div>
+      <a
+        id="ingresar-campus"
+        href=""
+        class="bg-primary hover:bg-[#ffd16f] text-[#252627] p-3 rounded-sm font-semibold"
+        role="button">Ingresar al campus</a
+      >
     </form>
   </section>
 </Layout>
@@ -31,67 +40,79 @@ import Layout from "../layouts/Layout.astro";
 <script>
   import { createAuth0Client } from "@auth0/auth0-spa-js";
 
-let auth0Client = null;
+  let auth0Client = null;
 
-async function configureAuth0() {
-  // Configurar Auth0 Client
-  auth0Client = await createAuth0Client({
-    domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Tu dominio de Auth0
-    clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Tu Client ID
-    authorizationParams: {
-      scope: "openid profile email", // Solicitar los permisos necesarios
-    },
-  });
-}
-
-
-
-async function getUserData() {
-  try {
-    if (!auth0Client) {
-      // Si Auth0 aún no ha sido configurado, hacerlo
-      await configureAuth0();
-    }
-
-    // Si ya estamos autenticados, obtenemos el token silenciosamente
-    const accessToken = await auth0Client.getTokenSilently();
-
-    if (!accessToken) {
-      throw new Error("No se pudo obtener el token de acceso.");
-    }
-
-    console.log("access token: ", accessToken);
-    
-
-    // Obtener los datos del usuario con el token de acceso
-    const userInfoResponse = await fetch("https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${accessToken}`, // Usamos el token como Bearer
+  async function configureAuth0() {
+    // Configurar Auth0 Client
+    auth0Client = await createAuth0Client({
+      domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Tu dominio de Auth0
+      clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Tu Client ID
+      authorizationParams: {
+        scope: "openid profile email", // Solicitar los permisos necesarios
       },
     });
-
-    if (!userInfoResponse.ok) {
-      throw new Error("Error al obtener los datos del usuario.");
-    }
-
-    const userData = await userInfoResponse.json();
-    console.log("Datos del usuario:", userData);
-    document.getElementById("saludo").textContent = "Hola, "+userData.given_name + ", ingresa tu número de cédula:"
-
-    // Mostrar los datos en el DOM (opcional)
-    document.getElementById("user-data").textContent = JSON.stringify(userData, null, 2);
-  } catch (error) {
-    console.error("Error al obtener los datos del usuario:", error);
   }
-}
 
-// Llamar a la función para obtener los datos del usuario al cargar la página.
-getUserData();
+  async function getUserData() {
+    try {
+      if (!auth0Client) {
+        // Si Auth0 aún no ha sido configurado, hacerlo
+        await configureAuth0();
+      }
+
+      // Si ya estamos autenticados, obtenemos el token silenciosamente
+      const accessToken = await auth0Client.getTokenSilently();
+
+      if (!accessToken) {
+        throw new Error("No se pudo obtener el token de acceso.");
+      }
+
+      console.log("access token: ", accessToken);
+
+      // Obtener los datos del usuario con el token de acceso
+      const userInfoResponse = await fetch(
+        "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${accessToken}`, // Usamos el token como Bearer
+          },
+        },
+      );
+
+      if (!userInfoResponse.ok) {
+        throw new Error("Error al obtener los datos del usuario.");
+      }
+
+      const userData = await userInfoResponse.json();
+      console.log("Datos del usuario:", userData);
+      document.getElementById("saludo").textContent =
+        "Hola, " + userData.given_name + ", ingresa tu número de cédula.";
+
+      // Ahora que tenemos el correo electrónico, hacer un fetch al segundo backend
+      const backendResponse = await fetch(
+        `https://certificados-backend.onrender.com/api/user/${userData.email}`,
+      );
+
+      if (!backendResponse.ok) {
+        throw new Error("Error al obtener los datos del backend.");
+      }
+
+      const backendData = await backendResponse.json();
+      console.log("Datos del backend:", backendData);
+
+      // Aquí podrías usar los datos del backend, por ejemplo, para mostrarlos en el DOM
+      // document.getElementById("user-backend-data").textContent = JSON.stringify(backendData, null, 2);
+    } catch (error) {
+      console.error("Error al obtener los datos del usuario:", error);
+    }
+  }
+
+  // Llamar a la función para obtener los datos del usuario al cargar la página.
+  getUserData();
 </script>
 
 <div id="user-data"></div>
-
 
 <style>
   .about {
