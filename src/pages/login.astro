@@ -25,69 +25,96 @@ import Layout from "../layouts/Layout.astro";
         </label>
       </div>
     </form>
-    <button id="login">Click to Login</button>
-
-    <!-- Contenedor para mostrar el código -->
-    <div id="code-display" class="text-white mt-5">
-      <p><strong>Code:</strong> <span id="code"></span></p>
-    </div>
-
-    <!-- Contenedor para mostrar el token -->
-    <div id="token-display" class="text-white mt-5">
-      <p><strong>Token:</strong> <span id="token"></span></p>
-    </div>
+    <button id="login">Ir al campus</button>
   </section>
 </Layout>
 
 <script>
-  import { createAuth0Client } from "@auth0/auth0-spa-js";
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const code = urlSearchParams.get("code"); // Extraemos el código
+  console.log(code); // Ver en consola
 
-  async function configureAuth0() {
-    return await createAuth0Client({
-      domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Reemplaza con tu dominio de Auth0
-      clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Reemplaza con tu Client ID
-      authorizationParams: {
-        scope: "openid profile email", // Los permisos que necesitas
-      },
-    });
-  }
+  // Mostrar el valor de 'code' en el HTML
+  document.getElementById("code").textContent = code;
 
-  async function getUserData() {
+  // Función para obtener el token y luego los datos del usuario en un solo flujo
+  async function getUserData(code) {
     try {
-      const auth0 = await configureAuth0();
+      console.log("Making request with code:", code); // Verificar que la función se llama con el 'code'
 
-      // Obtenemos el token de acceso de manera silenciosa
-      const ACCESS_TOKEN = await auth0.getTokenSilently();
+      // Primero, obtenemos el token
+      const responseToken = await fetch(
+        `https://certificados-backend.onrender.com/auth/token/${code}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            grant_type: "authorization_code", // Ajustar según cómo estés autenticando
+            scope: "openid profile email", // Agregar los scopes necesarios
+          }),
+        },
+      );
 
-      if (!ACCESS_TOKEN) {
-        throw new Error("No se pudo obtener el token de acceso");
+      console.log("Response status for token:", responseToken.status); // Verificar el estado de la respuesta del token
+
+      if (!responseToken.ok) {
+        throw new Error("Error al obtener el token");
       }
 
-      // Ahora obtenemos los datos del usuario usando el token
-      const responseUser = await fetch("https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${ACCESS_TOKEN}`, // Usamos el token como Bearer
+      // Parseamos el JSON de la respuesta del token
+      const dataToken = await responseToken.json();
+
+      // Extraemos el token de la respuesta
+      const ACCESS_TOKEN = dataToken.access_token;
+
+      console.log("Token obtenido:", ACCESS_TOKEN); // Verificar que se obtuvo el token
+
+      if (!ACCESS_TOKEN) {
+        throw new Error("Token no disponible");
+      }
+
+      // Ahora, con el token, hacemos el segundo fetch para obtener los datos del usuario
+      const responseUser = await fetch(
+        "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${ACCESS_TOKEN}`, // Usamos el token como Bearer
+          },
         },
-      });
+      );
+
+      console.log("Response status for user data:", responseUser.status); // Verificar el estado de la respuesta del usuario
 
       if (!responseUser.ok) {
         throw new Error("Error al obtener los datos del usuario");
       }
 
-      // Parseamos y mostramos los datos del usuario
-      const userData = await responseUser.json();
-      console.log("Datos del usuario:", userData);
+      // Parseamos el JSON de la respuesta del usuario
+      const dataUser = await responseUser.json();
 
-      // Puedes hacer algo con los datos del usuario, como mostrarlos en el DOM
-      document.getElementById("user-data").textContent = JSON.stringify(userData, null, 2);
+      // Mostrar los datos del usuario de forma legible
+      console.log(
+        "Resultado del fetch (user data):",
+        JSON.stringify(dataUser, null, 2),
+      );
+
+      return dataUser;
     } catch (error) {
-      console.error("Error al obtener los datos del usuario:", error);
+      console.error("Error:", error);
+      document.getElementById("token").textContent =
+        "Hubo un error al obtener los datos.";
+      return null;
     }
   }
 
-  // Llamamos a la función para obtener los datos del usuario
-  getUserData();
+  // Llamamos a la función con el 'code' que obtenemos de la URL
+  if (code) {
+    const userData = await getUserData(code); // Solo llamamos a la función una vez
+    console.log("userData: ", JSON.stringify(userData, null, 2)); // Visualización mejorada
+  }
 </script>
 
 <div id="user-data"></div>
