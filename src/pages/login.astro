@@ -47,8 +47,7 @@ import Layout from "../layouts/Layout.astro";
       domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Reemplaza con tu dominio de Auth0
       clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Reemplaza con tu Client ID
       authorizationParams: {
-        scope: "openid profile email",
-        redirect_uri: window.location.origin + "/login", // Ajusta la URL si es necesario
+        scope: "openid profile email", // Los permisos que necesitas
       },
     });
   }
@@ -57,7 +56,7 @@ import Layout from "../layouts/Layout.astro";
     try {
       const auth0 = await configureAuth0();
 
-      // Si ya está autenticado, obtenemos el token
+      // Obtenemos el token de acceso de manera silenciosa
       const ACCESS_TOKEN = await auth0.getTokenSilently();
 
       if (!ACCESS_TOKEN) {
@@ -79,7 +78,7 @@ import Layout from "../layouts/Layout.astro";
       // Parseamos y mostramos los datos del usuario
       const userData = await responseUser.json();
       console.log("Datos del usuario:", userData);
-      
+
       // Puedes hacer algo con los datos del usuario, como mostrarlos en el DOM
       document.getElementById("user-data").textContent = JSON.stringify(userData, null, 2);
     } catch (error) {
@@ -92,7 +91,6 @@ import Layout from "../layouts/Layout.astro";
 </script>
 
 <div id="user-data"></div>
-
 
 
 <style>
