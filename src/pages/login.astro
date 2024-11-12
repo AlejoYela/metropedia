@@ -25,93 +25,63 @@ import Layout from "../layouts/Layout.astro";
         </label>
       </div>
     </form>
-    <button id="login">Ir al campus</button>
   </section>
 </Layout>
 
 <script>
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  const code = urlSearchParams.get("code"); // Extraemos el código
-  console.log(code); // Ver en consola
+  import { createAuth0Client } from "@auth0/auth0-spa-js";
 
-  // Función para obtener el token y luego los datos del usuario en un solo flujo
-  async function getUserData(code) {
-    try {
-      console.log("Making request with code:", code); // Verificar que la función se llama con el 'code'
+let auth0Client = null;
 
-      // Primero, obtenemos el token
-      const responseToken = await fetch(
-        `https://certificados-backend.onrender.com/auth/token/${code}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            grant_type: "authorization_code", // Ajustar según cómo estés autenticando
-            scope: "openid profile email", // Agregar los scopes necesarios
-          }),
-        },
-      );
+async function configureAuth0() {
+  // Configurar Auth0 Client
+  auth0Client = await createAuth0Client({
+    domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Tu dominio de Auth0
+    clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Tu Client ID
+    authorizationParams: {
+      scope: "openid profile email", // Solicitar los permisos necesarios
+    },
+  });
+}
 
-      console.log("Response status for token:", responseToken.status); // Verificar el estado de la respuesta del token
-
-      if (!responseToken.ok) {
-        throw new Error("Error al obtener el token");
-      }
-
-      // Parseamos el JSON de la respuesta del token
-      const dataToken = await responseToken.json();
-
-      // Extraemos el token de la respuesta
-      const ACCESS_TOKEN = dataToken.access_token;
-
-      console.log("Token obtenido:", ACCESS_TOKEN); // Verificar que se obtuvo el token
-
-      if (!ACCESS_TOKEN) {
-        throw new Error("Token no disponible");
-      }
-
-      // Ahora, con el token, hacemos el segundo fetch para obtener los datos del usuario
-      const responseUser = await fetch(
-        "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${ACCESS_TOKEN}`, // Usamos el token como Bearer
-          },
-        },
-      );
-
-      console.log("Response status for user data:", responseUser.status); // Verificar el estado de la respuesta del usuario
-
-      if (!responseUser.ok) {
-        throw new Error("Error al obtener los datos del usuario");
-      }
-
-      // Parseamos el JSON de la respuesta del usuario
-      const dataUser = await responseUser.json();
-
-      // Mostrar los datos del usuario de forma legible
-      console.log(
-        "Resultado del fetch (user data):",
-        JSON.stringify(dataUser, null, 2),
-      );
-
-      return dataUser;
-    } catch (error) {
-      console.error("Error:", error);
-      document.getElementById("token").textContent =
-        "Hubo un error al obtener los datos.";
-      return null;
+async function getUserData() {
+  try {
+    if (!auth0Client) {
+      // Si Auth0 aún no ha sido configurado, hacerlo
+      await configureAuth0();
     }
-  }
 
-  // Llamamos a la función con el 'code' que obtenemos de la URL
-  if (code) {
-    const userData = await getUserData(code); // Solo llamamos a la función una vez
-    console.log("userData: ", JSON.stringify(userData, null, 2)); // Visualización mejorada
+    // Si ya estamos autenticados, obtenemos el token silenciosamente
+    const accessToken = await auth0Client.getTokenSilently();
+
+    if (!accessToken) {
+      throw new Error("No se pudo obtener el token de acceso.");
+    }
+
+    // Obtener los datos del usuario con el token de acceso
+    const userInfoResponse = await fetch("https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`, // Usamos el token como Bearer
+      },
+    });
+
+    if (!userInfoResponse.ok) {
+      throw new Error("Error al obtener los datos del usuario.");
+    }
+
+    const userData = await userInfoResponse.json();
+    console.log("Datos del usuario:", userData);
+
+    // Mostrar los datos en el DOM (opcional)
+    document.getElementById("user-data").textContent = JSON.stringify(userData, null, 2);
+  } catch (error) {
+    console.error("Error al obtener los datos del usuario:", error);
   }
+}
+
+// Llamar a la función para obtener los datos del usuario al cargar la página.
+getUserData();
 </script>
 
 <div id="user-data"></div>
