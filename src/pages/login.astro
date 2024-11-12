@@ -43,86 +43,65 @@ import Layout from "../layouts/Layout.astro";
   import { createAuth0Client } from "@auth0/auth0-spa-js";
 
   async function configureAuth0() {
-    const auth0 = await createAuth0Client({
-      domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com",
-      clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0",
+    return await createAuth0Client({
+      domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Reemplaza con tu dominio de Auth0
+      clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Reemplaza con tu Client ID
       authorizationParams: {
         scope: "openid profile email",
-        redirect_uri: window.location.origin + "/login", // Define la URL de redirección
+        redirect_uri: window.location.origin + "/login", // Ajusta la URL si es necesario
       },
     });
-    return auth0;
   }
 
-  const auth0 = await configureAuth0();
-
-  // Función para manejar la autenticación
-  async function checkLogin() {
-    try {
-      // Detectamos si hay un `code` en la URL (lo que indica una redirección de Auth0)
-      const urlSearchParams = new URLSearchParams(window.location.search);
-      const code = urlSearchParams.get("code");
-
-      if (code) {
-        // Si ya existe un `code`, significa que estamos en el callback
-        await auth0.handleRedirectCallback();
-        window.history.replaceState({}, document.title, "/login"); // Limpia el código de la URL
-      } else {
-        // Si no hay `code`, revisa si el usuario ya está autenticado
-        const isAuthenticated = await auth0.isAuthenticated();
-        if (!isAuthenticated) {
-          // Si no está autenticado, inicia el login
-          await auth0.loginWithRedirect();
-        }
-      }
-    } catch (error) {
-      console.error("Error en el proceso de login:", error);
-    }
-  }
-
-  // Ejecutar la función checkLogin para iniciar la autenticación solo cuando sea necesario
-  checkLogin();
-
-  // Función para obtener los datos del usuario después de la autenticación
   async function getUserData() {
     try {
+      const auth0 = await configureAuth0();
+
+      // Verificamos si el usuario está autenticado
+      const isAuthenticated = await auth0.isAuthenticated();
+
+      if (!isAuthenticated) {
+        // Si el usuario no está autenticado, redirige al login
+        await auth0.loginWithRedirect();
+        return;
+      }
+
+      // Si ya está autenticado, obtenemos el token
       const ACCESS_TOKEN = await auth0.getTokenSilently();
 
       if (!ACCESS_TOKEN) {
-        throw new Error("Token no disponible");
+        throw new Error("No se pudo obtener el token de acceso");
       }
 
-      const responseUser = await fetch(
-        "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${ACCESS_TOKEN}`,
-          },
+      // Ahora obtenemos los datos del usuario usando el token
+      const responseUser = await fetch("https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${ACCESS_TOKEN}`, // Usamos el token como Bearer
         },
-      );
+      });
 
       if (!responseUser.ok) {
         throw new Error("Error al obtener los datos del usuario");
       }
 
-      const dataUser = await responseUser.json();
-      console.log("Datos del usuario:", JSON.stringify(dataUser, null, 2));
-
-      return dataUser;
+      // Parseamos y mostramos los datos del usuario
+      const userData = await responseUser.json();
+      console.log("Datos del usuario:", userData);
+      
+      // Puedes hacer algo con los datos del usuario, como mostrarlos en el DOM
+      document.getElementById("user-data").textContent = JSON.stringify(userData, null, 2);
     } catch (error) {
-      console.error("Error:", error);
-      return null;
+      console.error("Error al obtener los datos del usuario:", error);
     }
   }
 
-  // Llamar a getUserData si el usuario ya está autenticado
-  auth0.isAuthenticated().then((isAuthenticated) => {
-    if (isAuthenticated) {
-      getUserData();
-    }
-  });
+  // Llamamos a la función para obtener los datos del usuario
+  getUserData();
 </script>
+
+<div id="user-data"></div>
+
 
 
 <style>
