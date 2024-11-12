@@ -38,11 +38,14 @@ async function configureAuth0() {
   auth0Client = await createAuth0Client({
     domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Tu dominio de Auth0
     clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Tu Client ID
+    redirectUri: "https://metropedia.vercel.app/login", // URL de redirección configurada
     authorizationParams: {
       scope: "openid profile email", // Solicitar los permisos necesarios
     },
   });
 }
+
+
 
 async function getUserData() {
   try {
@@ -57,6 +60,9 @@ async function getUserData() {
     if (!accessToken) {
       throw new Error("No se pudo obtener el token de acceso.");
     }
+
+    console.log("access token: ", accessToken);
+    
 
     // Obtener los datos del usuario con el token de acceso
     const userInfoResponse = await fetch("https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo", {
