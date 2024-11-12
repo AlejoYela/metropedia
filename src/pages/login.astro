@@ -44,61 +44,60 @@ import Layout from "../layouts/Layout.astro";
 
   async function configureAuth0() {
     const auth0 = await createAuth0Client({
-      domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Reemplaza con tu dominio de Auth0
-      clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Reemplaza con tu Client ID
+      domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com",
+      clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0",
       authorizationParams: {
-        scope: "openid profile email", // Incluye 'openid' para el acceso al perfil básico del usuario
-        redirect_uri: window.location.origin + "/login",
+        scope: "openid profile email",
+        redirect_uri: window.location.origin + "/login", // Define la URL de redirección
       },
     });
-
-    // Inicia la autenticación con Universal Login
-    await auth0.loginWithRedirect();
-
     return auth0;
   }
 
   const auth0 = await configureAuth0();
 
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  const code = urlSearchParams.get("code"); // Extraemos el código
-  console.log(code); // Ver en consola
-  // Obtener el parámetro "code" de la URL (si está disponible)
-
-  // Mostrar el valor de 'code' en el HTML
-  document.getElementById("code").textContent = code;
-
-  // Función para manejar la autenticación y obtener el token de acceso
-  async function handleLogin() {
+  // Función para manejar la autenticación
+  async function checkLogin() {
     try {
-      await auth0.loginWithRedirect();
+      // Detectamos si hay un `code` en la URL (lo que indica una redirección de Auth0)
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      const code = urlSearchParams.get("code");
+
+      if (code) {
+        // Si ya existe un `code`, significa que estamos en el callback
+        await auth0.handleRedirectCallback();
+        window.history.replaceState({}, document.title, "/login"); // Limpia el código de la URL
+      } else {
+        // Si no hay `code`, revisa si el usuario ya está autenticado
+        const isAuthenticated = await auth0.isAuthenticated();
+        if (!isAuthenticated) {
+          // Si no está autenticado, inicia el login
+          await auth0.loginWithRedirect();
+        }
+      }
     } catch (error) {
       console.error("Error en el proceso de login:", error);
     }
   }
 
-  // Añadir el evento al botón de login
-  document.getElementById("login").addEventListener("click", handleLogin);
+  // Ejecutar la función checkLogin para iniciar la autenticación solo cuando sea necesario
+  checkLogin();
 
-  // Función para obtener el token y luego los datos del usuario en un solo flujo
-  async function getUserData(code) {
+  // Función para obtener los datos del usuario después de la autenticación
+  async function getUserData() {
     try {
-      const auth0 = await configureAuth0();
-
-      // Obtenemos el token de acceso usando `getTokenSilently`
       const ACCESS_TOKEN = await auth0.getTokenSilently();
 
       if (!ACCESS_TOKEN) {
         throw new Error("Token no disponible");
       }
 
-      // Solicita los datos del usuario
       const responseUser = await fetch(
         "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo",
         {
           method: "GET",
           headers: {
-            Authorization: `Bearer ${ACCESS_TOKEN}`, // Usamos el token como Bearer
+            Authorization: `Bearer ${ACCESS_TOKEN}`,
           },
         },
       );
@@ -107,30 +106,24 @@ import Layout from "../layouts/Layout.astro";
         throw new Error("Error al obtener los datos del usuario");
       }
 
-      // Parseamos el JSON de la respuesta del usuario
       const dataUser = await responseUser.json();
-
-      // Mostrar los datos del usuario de forma legible
-      console.log(
-        "Resultado del fetch (user data):",
-        JSON.stringify(dataUser, null, 2),
-      );
+      console.log("Datos del usuario:", JSON.stringify(dataUser, null, 2));
 
       return dataUser;
     } catch (error) {
       console.error("Error:", error);
-      document.getElementById("token").textContent =
-        "Hubo un error al obtener los datos.";
       return null;
     }
   }
 
-  // Llamamos a la función para obtener los datos si ya tenemos el `code`
-  if (code) {
-    const userData = await getUserData(code); // Solo llamamos a la función una vez
-    console.log("userData: ", JSON.stringify(userData, null, 2)); // Visualización mejorada
-  }
+  // Llamar a getUserData si el usuario ya está autenticado
+  auth0.isAuthenticated().then((isAuthenticated) => {
+    if (isAuthenticated) {
+      getUserData();
+    }
+  });
 </script>
+
 
 <style>
   .about {
