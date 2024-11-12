@@ -10,30 +10,9 @@ const selectedCourse = selectedObject[0];
 console.log(selectedCourse);
 ---
 
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    theme: {
-      extend: {
-        gridTemplateRows: {
-          '[auto,auto,1fr]': 'auto auto 1fr',
-        },
-      },
-    },
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
 <Layout title="Metropedia.">
   <div
-    class="relative about flex flex-col justify-center items-center gap-12 pt-12"
+    class="relative about flex flex-col justify-center items-center gap-12 pt-10 md:pt-20"
   >
     <div class="pt-6">
       <nav aria-label="Breadcrumb">
@@ -43,7 +22,9 @@ console.log(selectedCourse);
         >
           <li>
             <div class="flex items-center">
-              <a href="#" class="mr-2 text-sm font-medium text-[#9a9a9a]">Men</a>
+              <a href="#" class="mr-2 text-sm font-medium text-[#9a9a9a]"
+                >Cursos</a
+              >
               <svg
                 width="16"
                 height="20"
@@ -60,7 +41,7 @@ console.log(selectedCourse);
           <li>
             <div class="flex items-center">
               <a href="#" class="mr-2 text-sm font-medium text-[#9a9a9a]"
-                >Clothing</a
+                >{selectedCourse.category}</a
               >
               <svg
                 width="16"
@@ -80,7 +61,7 @@ console.log(selectedCourse);
             <a
               href="#"
               aria-current="page"
-              class="font-medium text-gray-500 hover:text-[#9a9a9a]"
+              class="font-medium text-[#ffd16f] hover:text-[#9a9a9a]"
               >{selectedCourse.course}</a
             >
           </li>
@@ -120,7 +101,7 @@ console.log(selectedCourse);
           class="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg"
         >
           <img
-            src="https://tailwindui.com/plus/img/ecommerce-images/product-page-02-featured-product-shot.jpg"
+            src={selectedCourse.image}
             alt="Model wearing plain white basic tee."
             class="h-full w-full object-cover object-center"
           />
@@ -217,252 +198,88 @@ console.log(selectedCourse);
               <a
                 href="#"
                 class="ml-3 text-sm font-medium text-primary hover:text-[#ffd16f]"
-                >117 reviews</a
+                >117 reseñas</a
               >
             </div>
           </div>
 
           <form class="mt-10">
-            <!-- Colors -->
-            <div>
-              <h3 class="text-sm font-medium text-[#9a9a9a]">Color</h3>
+            <!-- Duration -->
+            <div class="mb-3">
+              <h3 class="text-sm font-medium text-white">Duración</h3>
 
-              <fieldset aria-label="Choose a color" class="mt-4">
-                <div class="flex items-center space-x-3">
-                  <!-- Active and Checked: "ring ring-offset-1" -->
-                  <label
-                    aria-label="White"
-                    class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-400 focus:outline-none"
-                  >
-                    <input
-                      type="radio"
-                      name="color-choice"
-                      value="White"
-                      class="sr-only"
-                    />
-                    <span
-                      aria-hidden="true"
-                      class="h-8 w-8 rounded-full border border-black border-opacity-10 bg-white"
-                    ></span>
-                  </label>
-                  <!-- Active and Checked: "ring ring-offset-1" -->
-                  <label
-                    aria-label="Gray"
-                    class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-400 focus:outline-none"
-                  >
-                    <input
-                      type="radio"
-                      name="color-choice"
-                      value="Gray"
-                      class="sr-only"
-                    />
-                    <span
-                      aria-hidden="true"
-                      class="h-8 w-8 rounded-full border border-black border-opacity-10 bg-gray-200"
-                    ></span>
-                  </label>
-                  <!-- Active and Checked: "ring ring-offset-1" -->
-                  <label
-                    aria-label="Black"
-                    class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-[#9a9a9a] focus:outline-none"
-                  >
-                    <input
-                      type="radio"
-                      name="color-choice"
-                      value="Black"
-                      class="sr-only"
-                    />
-                    <span
-                      aria-hidden="true"
-                      class="h-8 w-8 rounded-full border border-black border-opacity-10 bg-[#9a9a9a]"
-                    ></span>
-                  </label>
-                </div>
-              </fieldset>
-            </div>
-
-            <!-- Sizes -->
-            <div class="mt-10">
-              <div class="flex items-center justify-between">
-                <h3 class="text-sm font-medium text-[#9a9a9a]">Size</h3>
-                <a
-                  href="#"
-                  class="text-sm font-medium text-primary hover:text-[#ffd16f]"
-                  >Size guide</a
+              <li class="flex items-center text-2xl font-semibold text-[#9a9a9a]">
+                <svg
+                  class="w-4 h-4 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
                 >
-              </div>
-
-              <fieldset aria-label="Choose a size" class="mt-4">
-                <div
-                  class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
-                >
-                  <!-- Active: "ring-2 ring-[#ffd16f]" -->
-                  <label
-                    class="group relative flex cursor-not-allowed items-center justify-center rounded-md border bg-gray-50 px-4 py-3 text-sm font-medium uppercase text-gray-200 hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
-                  >
-                    <input
-                      type="radio"
-                      name="size-choice"
-                      value="XXS"
-                      disabled
-                      class="sr-only"
-                    />
-                    <span>XXS</span>
-                    <span
-                      aria-hidden="true"
-                      class="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
-                    >
-                      <svg
-                        class="absolute inset-0 h-full w-full stroke-2 text-gray-200"
-                        viewBox="0 0 100 100"
-                        preserveAspectRatio="none"
-                        stroke="currentColor"
-                      >
-                        <line
-                          x1="0"
-                          y1="100"
-                          x2="100"
-                          y2="0"
-                          vector-effect="non-scaling-stroke"></line>
-                      </svg>
-                    </span>
-                  </label>
-                  <!-- Active: "ring-2 ring-[#ffd16f]" -->
-                  <label
-                    class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium uppercase text-[#9a9a9a] shadow-sm hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
-                  >
-                    <input
-                      type="radio"
-                      name="size-choice"
-                      value="XS"
-                      class="sr-only"
-                    />
-                    <span>XS</span>
-                    <!--
-                      Active: "border", Not Active: "border-2"
-                      Checked: "border-[#ffd16f]", Not Checked: "border-transparent"
-                    -->
-                    <span
-                      class="pointer-events-none absolute -inset-px rounded-md"
-                      aria-hidden="true"></span>
-                  </label>
-                  <!-- Active: "ring-2 ring-[#ffd16f]" -->
-                  <label
-                    class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium uppercase text-[#9a9a9a] shadow-sm hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
-                  >
-                    <input
-                      type="radio"
-                      name="size-choice"
-                      value="S"
-                      class="sr-only"
-                    />
-                    <span>S</span>
-                    <!--
-                      Active: "border", Not Active: "border-2"
-                      Checked: "border-[#ffd16f]", Not Checked: "border-transparent"
-                    -->
-                    <span
-                      class="pointer-events-none absolute -inset-px rounded-md"
-                      aria-hidden="true"></span>
-                  </label>
-                  <!-- Active: "ring-2 ring-[#ffd16f]" -->
-                  <label
-                    class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium uppercase text-[#9a9a9a] shadow-sm hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
-                  >
-                    <input
-                      type="radio"
-                      name="size-choice"
-                      value="M"
-                      class="sr-only"
-                    />
-                    <span>M</span>
-                    <!--
-                      Active: "border", Not Active: "border-2"
-                      Checked: "border-[#ffd16f]", Not Checked: "border-transparent"
-                    -->
-                    <span
-                      class="pointer-events-none absolute -inset-px rounded-md"
-                      aria-hidden="true"></span>
-                  </label>
-                  <!-- Active: "ring-2 ring-[#ffd16f]" -->
-                  <label
-                    class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium uppercase text-[#9a9a9a] shadow-sm hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
-                  >
-                    <input
-                      type="radio"
-                      name="size-choice"
-                      value="L"
-                      class="sr-only"
-                    />
-                    <span>L</span>
-                    <!--
-                      Active: "border", Not Active: "border-2"
-                      Checked: "border-[#ffd16f]", Not Checked: "border-transparent"
-                    -->
-                    <span
-                      class="pointer-events-none absolute -inset-px rounded-md"
-                      aria-hidden="true"></span>
-                  </label>
-                  <!-- Active: "ring-2 ring-[#ffd16f]" -->
-                  <label
-                    class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium uppercase text-[#9a9a9a] shadow-sm hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
-                  >
-                    <input
-                      type="radio"
-                      name="size-choice"
-                      value="XL"
-                      class="sr-only"
-                    />
-                    <span>XL</span>
-                    <!--
-                      Active: "border", Not Active: "border-2"
-                      Checked: "border-[#ffd16f]", Not Checked: "border-transparent"
-                    -->
-                    <span
-                      class="pointer-events-none absolute -inset-px rounded-md"
-                      aria-hidden="true"></span>
-                  </label>
-                  <!-- Active: "ring-2 ring-[#ffd16f]" -->
-                  <label
-                    class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium uppercase text-[#9a9a9a] shadow-sm hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
-                  >
-                    <input
-                      type="radio"
-                      name="size-choice"
-                      value="2XL"
-                      class="sr-only"
-                    />
-                    <span>2XL</span>
-                    <!--
-                      Active: "border", Not Active: "border-2"
-                      Checked: "border-[#ffd16f]", Not Checked: "border-transparent"
-                    -->
-                    <span
-                      class="pointer-events-none absolute -inset-px rounded-md"
-                      aria-hidden="true"></span>
-                  </label>
-                  <!-- Active: "ring-2 ring-[#ffd16f]" -->
-                  <label
-                    class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium uppercase text-[#9a9a9a] shadow-sm hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
-                  >
-                    <input
-                      type="radio"
-                      name="size-choice"
-                      value="3XL"
-                      class="sr-only"
-                    />
-                    <span>3XL</span>
-                    <!--
-                      Active: "border", Not Active: "border-2"
-                      Checked: "border-[#ffd16f]", Not Checked: "border-transparent"
-                    -->
-                    <span
-                      class="pointer-events-none absolute -inset-px rounded-md"
-                      aria-hidden="true"></span>
-                  </label>
-                </div>
-              </fieldset>
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+                  ></path>
+                </svg>
+                {selectedCourse.duration} horas
+              </li>
             </div>
+            <div class="mb-3">
+              <h3 class="text-sm font-medium text-white">Modalidad</h3>
+
+              <li class="flex items-center text-2xl font-semibold text-[#9a9a9a]">
+                <svg
+                  class="w-4 h-4 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+                  ></path>
+                </svg>
+                Autoguiado
+              </li>
+            </div>
+            <div class="mb-3">
+              <h3 class="text-sm font-medium text-white">Certificación</h3>
+
+              <li class="flex items-center text-2xl font-semibold text-[#9a9a9a]">
+                <svg
+                  class="w-4 h-4 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+                  ></path>
+                </svg>
+                Certificado digital
+              </li>
+            </div>
+            <div class="mb-3">
+              <h3 class="text-sm font-medium text-white">Prerrequisitos</h3>
+
+              <li class="flex items-center text-2xl font-semibold text-[#9a9a9a]">
+                <svg
+                  class="w-4 h-4 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+                  ></path>
+                </svg>
+                Ninguno
+              </li>
+            </div>
+            
+
+           
 
             <button
               type="submit"
@@ -473,7 +290,7 @@ console.log(selectedCourse);
         </div>
 
         <div
-          class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6"
+          class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pr-8 lg:py-6"
         >
           <!-- Description and details -->
           <div>
@@ -481,47 +298,38 @@ console.log(selectedCourse);
 
             <div class="space-y-6">
               <p class="text-base text-[#9a9a9a] font-semibold">
-                The Basic Tee 6-Pack allows you to fully express your vibrant
-                personality with three grayscale options. Feeling adventurous?
-                Put on a heather gray tee. Want to be a trendsetter? Try our
-                exclusive colorway: &quot;Black&quot;. Need to add an extra pop
-                of color to your outfit? Our white tee has you covered.
+                {selectedCourse.description}
               </p>
             </div>
           </div>
 
           <div class="mt-10">
-            <h3 class="text-sm font-medium text-white">Highlights</h3>
+            <h3 class="text-sm font-medium text-white">Módulos</h3>
 
             <div class="mt-4">
               <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
-                <li class="text-gray-400">
-                  <span class="text-[#9a9a9a]">Hand cut and sewn locally</span>
-                </li>
-                <li class="text-gray-400">
-                  <span class="text-[#9a9a9a]"
-                    >Dyed with our proprietary colors</span
-                  >
-                </li>
-                <li class="text-gray-400">
-                  <span class="text-[#9a9a9a]">Pre-washed &amp; pre-shrunk</span>
-                </li>
-                <li class="text-gray-400">
-                  <span class="text-[#9a9a9a]">Ultra-soft 100% cotton</span>
-                </li>
+                {
+                  selectedCourse.modules.map((module) => (
+                    <li class="text-gray-400">
+                      <span class="text-[#9a9a9a]">{module}</span>
+                    </li>
+                  ))
+                }
               </ul>
             </div>
           </div>
 
           <div class="mt-10">
-            <h2 class="text-sm font-medium text-white">Details</h2>
+            <h2 class="text-sm font-medium text-white">Detailles</h2>
 
             <div class="mt-4 space-y-6">
               <p class="text-sm text-[#9a9a9a]">
-                The 6-Pack includes two black, two white, and two heather gray
-                Basic Tees. Sign up for our subscription service and be the
-                first to get new, exciting colors, like our upcoming
-                &quot;Charcoal Gray&quot; limited release.
+                Nuestros cursos, impartidos por expertos en metrología, ofrecen
+                contenido actualizado conforme a las normativas internacionales.
+                Diseñados para facilitar el aprendizaje práctico, combinan
+                explicaciones claras, ejemplos aplicables y estudios de caso
+                reales para que puedas desarrollar tus habilidades y aplicar los
+                conocimientos en tu entorno profesional.
               </p>
             </div>
           </div>
