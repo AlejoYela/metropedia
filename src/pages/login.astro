@@ -34,9 +34,6 @@ import Layout from "../layouts/Layout.astro";
   const code = urlSearchParams.get("code"); // Extraemos el código
   console.log(code); // Ver en consola
 
-  // Mostrar el valor de 'code' en el HTML
-  document.getElementById("code").textContent = code;
-
   // Función para obtener el token y luego los datos del usuario en un solo flujo
   async function getUserData(code) {
     try {
