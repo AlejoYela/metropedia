@@ -38,7 +38,6 @@ async function configureAuth0() {
   auth0Client = await createAuth0Client({
     domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Tu dominio de Auth0
     clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Tu Client ID
-    redirectUri: "https://metropedia.vercel.app/login", // URL de redirección configurada
     authorizationParams: {
       scope: "openid profile email", // Solicitar los permisos necesarios
     },
