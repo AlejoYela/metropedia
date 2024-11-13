@@ -157,7 +157,7 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
       async function fetchUserData(id) {
         try {
           const response = await fetch(
-            `https://certificados-backend.onrender.com/api/certificates/${id}`,
+            `https://certificados-backend.onrender.com/api/certificates/${id}`
           );
 
           if (!response.ok) {
@@ -168,24 +168,30 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
           console.log(userData);
           nombreUsuario.textContent = userData.name;
           extraP.textContent = "Cursos completados";
+
+          // Limpiar la lista existente antes de agregar nuevos elementos
+          auxDiv.innerHTML = "";  // Esto elimina los elementos anteriores
+
           const auxUl = document.createElement("ul");
           auxUl.classList.add("list-disc");
+
           userData.certificates.forEach((certificate) => {
-            const li = document.createElement("li"); // Crea un nuevo elemento <p>
-            li.textContent = certificate.course; // Agrega texto al <p>
+            const li = document.createElement("li"); // Crea un nuevo elemento <li>
+            li.textContent = certificate.course; // Agrega texto al <li>
 
             li.classList.add("mt-1"); // Agrega una clase específica
             li.classList.add("text-gray-800");
             li.classList.add("dark:text-neutral-400");
             li.classList.add("ml-5");
 
-            auxUl.appendChild(li); // Agrega el <p> al contenedor div
+            auxUl.appendChild(li); // Agrega el <li> al contenedor
           });
-          auxDiv.appendChild(auxUl);
+
+          auxDiv.appendChild(auxUl); // Finalmente, agrega la lista al contenedor
         } catch (err) {
           console.log(
             "Error al obtener los datos. Verifica el número de cédula o código: ",
-            err,
+            err
           );
         }
       }
@@ -195,3 +201,4 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
     });
   });
 </script>
+
