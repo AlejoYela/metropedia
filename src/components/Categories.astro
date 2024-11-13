@@ -41,7 +41,74 @@ import courseData from "../courseData";
                         </div>
                     </div>
                 </div>
+
+                <div class="-mr-2 flex md:hidden">
+                    <!-- Mobile menu button -->
+                    <button
+                        id="mobile-menu-button"
+                        type="button"
+                        class="relative inline-flex items-center justify-center rounded-md bg-secondary p-2 text-gray-400 hover:bg-[#9a9a9a] hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                        aria-controls="mobile-menu"
+                        aria-expanded="false"
+                    >
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Menu open: "hidden", Menu closed: "block" -->
+                        <svg
+                            class="block size-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            aria-hidden="true"
+                            data-slot="icon"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                            ></path>
+                        </svg>
+                        <!-- Menu open: "block", Menu closed: "hidden" -->
+                        <svg
+                            class="hidden size-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            aria-hidden="true"
+                            data-slot="icon"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18 18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
+        </div>
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div id="mobile-menu" class="md:hidden">
+            <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+
+                {
+                    [
+                        ...new Set(courseData.map((course) => course.category)),
+                    ].map((category) => (
+                        <a
+                            data-category={category}
+                            href="#"
+                            class="tab-link block rounded-md bg-secondary px-3 py-2 text-base font-medium text-white"
+                            aria-current="page"
+                        >
+                            {category}
+                        </a>
+                    ))
+                }
+            </div>
+            
         </div>
     </nav>
 
@@ -49,10 +116,15 @@ import courseData from "../courseData";
         <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
             <h1
                 id="category-title"
-                class="text-3xl font-bold tracking-tight text-white"
+                class="text-3xl font-bold tracking-tight text-white mb-3"
             >
                 Todos los cursos
             </h1>
+            <p
+                id="description"
+                class="text-[#9a9a9a] font-semibold text-base md:text-lg"
+            >
+            </p>
         </div>
     </header>
 
@@ -83,26 +155,23 @@ import courseData from "../courseData";
                         <div
                             class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap opacity-0 transition-transform duration-700"
                         >
-                            
-                                {
-                                    courseData.map((course) => (
-                                        <div
-                                            class="course-card hs-carousel-slide px-1"
-                                            data-category={course.category}
-                                        >
-                                            <CourseCard
-                                                id={course.id}
-                                                name={course.course}
-                                                img={course.image}
-                                                description={course.description}
-                                                category={course.category}
-                                                price={course.price}
-                                            />
-                                        </div>
-                                    ))
-                                }
-                           
-                            
+                            {
+                                courseData.map((course) => (
+                                    <div
+                                        class="course-card hs-carousel-slide px-1"
+                                        data-category={course.category}
+                                    >
+                                        <CourseCard
+                                            id={course.id}
+                                            name={course.course}
+                                            img={course.image}
+                                            description={course.description}
+                                            category={course.category}
+                                            price={course.price}
+                                        />
+                                    </div>
+                                ))
+                            }
                         </div>
                     </div>
                 </div>
@@ -151,8 +220,6 @@ import courseData from "../courseData";
                         </svg>
                     </span>
                 </button>
-
-                
             </div>
             <!-- End Slider -->
         </div>
@@ -165,6 +232,15 @@ import courseData from "../courseData";
         const courseContainer = document.getElementById("course-container");
         const courseCards = courseContainer.querySelectorAll(".course-card");
         const categoryTitle = document.getElementById("category-title");
+        const descriptionText = document.getElementById("description");
+        const mobileMenu = document.getElementById("mobile-menu")
+        const mobileMenuButton = document.getElementById("mobile-menu-button")
+
+        mobileMenuButton.addEventListener("click",(event)=>{
+            event.preventDefault();
+
+            mobileMenu.classList.toggle('hidden');
+        })
 
         tabLinks.forEach((link) => {
             link.addEventListener("click", (e) => {
@@ -175,6 +251,27 @@ import courseData from "../courseData";
                 categoryTitle.textContent = category
                     ? category
                     : "Todos los cursos";
+
+                // Descripciones de cada categoría
+                const DESCRIPTIONS = {
+                    Metrología:
+                        "Tanto si trabajas en manufactura, salud o control de calidad, el conocimiento de metrología es clave para garantizar precisión y confiabilidad en productos y servicios, haciendo tus habilidades valiosas en cualquier entorno que requiera medición precisa.",
+                    "Normativa internacional":
+                        "Conocer la normativa internacional es fundamental para asegurar que tu organización cumpla con estándares globales en calidad, seguridad y eficiencia, favoreciendo la competitividad y el cumplimiento en mercados internacionales.",
+                    "Gestión de la calidad":
+                        "La gestión de la calidad optimiza procesos y asegura productos y servicios de alto estándar. Aprender sobre calidad te ayudará a mejorar la eficiencia y satisfacción del cliente en cualquier entorno profesional.",
+                };
+
+                // Función para actualizar la descripción
+
+                // Verifica si la categoría tiene una descripción en el objeto DESCRIPTIONS
+                if (DESCRIPTIONS[categoryTitle.textContent]) {
+                    descriptionText.textContent =
+                        DESCRIPTIONS[categoryTitle.textContent];
+                } else {
+                    descriptionText.textContent =
+                        "Selecciona una categoría para ver la descripción correspondiente.";
+                }
 
                 // Filtrar los cursos
                 courseCards.forEach((card) => {

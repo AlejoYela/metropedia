@@ -19,17 +19,17 @@ const tools = [
   <div class="w-full">
     <!-- Título -->
     <div class=" inline-flex items-center justify-center md:text-center mb-4 md:mb-6">
-      <ToolIcon class="size-8 sm:size-10 mr-2 stroke-[#fcb316]" />
+      <ToolIcon class="size-6 sm:size-10 mr-2 stroke-[#fcb316]" />
       <h3 class=" text-xl md:text-2xl lg:text-3xl font-semibold tracking-tight leading-tight">
         Herramientas más usadas.
       </h3>
     </div>
     <!-- Descripción -->
-    <p class="flex items-center justify-center md:text-center mb-6 md:mb-10 text-white/40 text-base sm:text-lg md:text-xl font-normal text-gray-300 px-2 sm:px-0">
-      Explora y utiliza nuestras herramientas metrológicas para mejorar la precisión y exactitud en tus mediciones y análisis de datos.
+    <p class="md:flex items-center justify-center md:text-center mb-6 md:mb-10 text-white/40 text-base sm:text-lg md:text-xl font-normal text-gray-300 px-2 sm:px-0">
+      Explora y utiliza nuestras <span class="text-[#ffd16f]">herramientas metrológicas</span> para mejorar la precisión y exactitud en tus mediciones y análisis de datos.
     </p>
     <!-- Grid de herramientas -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
       {tools.map((tool) => (
         <Card title={tool.title} description={tool.description} icon={tool.icon} clase={tool.class} color={tool.color} link={tool.link} />
       ))}

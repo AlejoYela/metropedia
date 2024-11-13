@@ -9,14 +9,14 @@ const claseStyles = {
     darkReadMoreButton: "dark:bg-blue-400 dark:text-[#252627]"
   },
   Conversor: {
-    button: "bg-yellow-100 text-yellow-600",
-    darkButton: "dark:bg-yellow-700 dark:text-[#fcb316]",
-    readMoreButton: "bg-yellow-600 text-white",
-    darkReadMoreButton: "dark:bg-[#fcb316] dark:text-[#252627]"
+    button: "bg-[#f9cc6d] text-primary",
+    darkButton: "dark:bg-primary dark:bg-opacity-10 dark:text-primary",
+    readMoreButton: "bg-primary text-white",
+    darkReadMoreButton: "dark:bg-primary dark:text-[#252627]"
   },
   Graficador: {
     button: "bg-green-100 text-green-800",
-    darkButton: "dark:bg-green-700 dark:text-green-400",
+    darkButton: "dark:bg-green-400 dark:bg-opacity-10 dark:text-green-400",
     readMoreButton: "bg-green-800 text-white",
     darkReadMoreButton: "dark:bg-green-400 dark:text-[#252627]"
   },
@@ -37,9 +37,9 @@ const currentStyles = claseStyles[clase] || claseStyles.default;
         {clase}
     </a>
     <a href="#">
-        <h5 class="my-2 text-2xl font-semibold tracking-wider text-gray-900 dark:text-white">{title}</h5>
+        <h5 class=" my-2 text-lg md:text-2xl font-semibold tracking-wider text-gray-900 dark:text-white">{title}</h5>
     </a>
-    <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">{description}</p>
+    <p class="text-base md:text-xl mb-3 font-normal text-gray-500 dark:text-gray-400">{description}</p>
     <a href={link} class={`inline-flex items-center px-3 py-2 text-sm font-medium text-center rounded-sm hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-opacity-50 ${currentStyles.readMoreButton} ${currentStyles.darkReadMoreButton}`}>
         Ir a la herramienta
         <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
