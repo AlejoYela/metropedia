@@ -108,7 +108,6 @@ import courseData from "../courseData";
                     ))
                 }
             </div>
-            
         </div>
     </nav>
 
@@ -116,13 +115,13 @@ import courseData from "../courseData";
         <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
             <h1
                 id="category-title"
-                class="text-3xl font-bold tracking-tight text-white mb-3"
+                class="text-xl md:text-3xl font-bold tracking-tight text-white mb-3"
             >
                 Todos los cursos
             </h1>
             <p
                 id="description"
-                class="text-[#9a9a9a] font-semibold text-base md:text-lg"
+                class="text-[#9a9a9a] font-semibold text-sm md:text-lg"
             >
             </p>
         </div>
@@ -233,14 +232,14 @@ import courseData from "../courseData";
         const courseCards = courseContainer.querySelectorAll(".course-card");
         const categoryTitle = document.getElementById("category-title");
         const descriptionText = document.getElementById("description");
-        const mobileMenu = document.getElementById("mobile-menu")
-        const mobileMenuButton = document.getElementById("mobile-menu-button")
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
 
-        mobileMenuButton.addEventListener("click",(event)=>{
+        mobileMenuButton.addEventListener("click", (event) => {
             event.preventDefault();
 
-            mobileMenu.classList.toggle('hidden');
-        })
+            mobileMenu.classList.toggle("hidden");
+        });
 
         tabLinks.forEach((link) => {
             link.addEventListener("click", (e) => {
@@ -255,11 +254,11 @@ import courseData from "../courseData";
                 // Descripciones de cada categoría
                 const DESCRIPTIONS = {
                     Metrología:
-                        "Tanto si trabajas en manufactura, salud o control de calidad, el conocimiento de metrología es clave para garantizar precisión y confiabilidad en productos y servicios, haciendo tus habilidades valiosas en cualquier entorno que requiera medición precisa.",
+                        "Clave para la precisión y confiabilidad en entornos que requieren medición exacta.",
                     "Normativa internacional":
-                        "Conocer la normativa internacional es fundamental para asegurar que tu organización cumpla con estándares globales en calidad, seguridad y eficiencia, favoreciendo la competitividad y el cumplimiento en mercados internacionales.",
+                        "Fundamental para el cumplimiento y competitividad en mercados globales.",
                     "Gestión de la calidad":
-                        "La gestión de la calidad optimiza procesos y asegura productos y servicios de alto estándar. Aprender sobre calidad te ayudará a mejorar la eficiencia y satisfacción del cliente en cualquier entorno profesional.",
+                        "Optimiza procesos y asegura productos y servicios de alto estándar.",
                 };
 
                 // Función para actualizar la descripción
