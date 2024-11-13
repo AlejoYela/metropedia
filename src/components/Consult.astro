@@ -25,15 +25,14 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
     </div>
   </div>
 
-  <div class="flex items-center justify-center pb-6 md:py-0 ">
+  <div class="flex items-center justify-center pb-6 md:py-0">
     <form id="modal-form">
       <div
         class="flex mx-3 px-3 flex-col p-1.5 overflow-hidden rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-primary focus-within:ring focus-within:ring-opacity-40 focus-within:border-primary focus-within:ring-primary"
       >
-
         <button
           type="button"
-          class="py-3  px-5 text-base font-medium text-center text-[#252627] hover:text-white rounded-sm bg-[#fcb316] hover:bg-[#fcb316]/60 border border-primary hover:border-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+          class="py-3 px-5 text-base font-medium text-center text-[#252627] hover:text-white rounded-sm bg-[#fcb316] hover:bg-[#fcb316]/60 border border-primary hover:border-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
           aria-haspopup="dialog"
           aria-expanded="false"
           aria-controls="hs-vertically-centered-scrollable-modal"
@@ -104,8 +103,6 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
               aria-label="Enter your email"
               required
             />
-
-            
           </div>
         </form>
         <div class="p-4 overflow-y-auto">
@@ -116,8 +113,8 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
                 class="text-lg font-semibold text-gray-800 dark:text-white"
               >
               </h3>
-              <ul id="aux-div" class="list-disc"></ul>
-              <p id="extra-p" class="mt-1 text-gray-800 dark:text-neutral-400">
+              <div id="aux-div"></div>
+              <p id="extra-p" class="mt-1 text-[#ffd16f]">
               </p>
             </div>
           </div>
@@ -150,7 +147,7 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
     const modalInput = document.getElementById("modal-input");
     const modalButton = document.getElementById("modal-button");
     const nombreUsuario = document.getElementById("nombre-usuario");
-    const auxUl = document.getElementById("aux-div");
+    const auxDiv = document.getElementById("aux-div");
     const extraP = document.getElementById("extra-p");
 
     modalButton.addEventListener("click", () => {
@@ -171,7 +168,8 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
           console.log(userData);
           nombreUsuario.textContent = userData.name;
           extraP.textContent = "Cursos completados";
-
+          const auxUl = document.createElement("ul");
+          auxUl.classList.add("list-disc");
           userData.certificates.forEach((certificate) => {
             const li = document.createElement("li"); // Crea un nuevo elemento <p>
             li.textContent = certificate.course; // Agrega texto al <p>
@@ -179,9 +177,11 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
             li.classList.add("mt-1"); // Agrega una clase específica
             li.classList.add("text-gray-800");
             li.classList.add("dark:text-neutral-400");
+            li.classList.add("ml-5");
 
             auxUl.appendChild(li); // Agrega el <p> al contenedor div
           });
+          auxDiv.appendChild(auxUl);
         } catch (err) {
           console.log(
             "Error al obtener los datos. Verifica el número de cédula o código: ",
