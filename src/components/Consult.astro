@@ -109,14 +109,9 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
               >
                 Cargando...
               </h3>
+              <ul id="aux-div"></ul>
               <p class="mt-1 text-gray-800 dark:text-neutral-400">
-                Motivate teams to do their best work. Offer best practices to
-                get users going in the right direction. Be bold and offer just
-                enough help to get the work started, and then get out of the
-                way. Give accurate information so users can make educated
-                decisions. Know your user's struggles and desired outcomes and
-                give just enough information to let them get where they need to
-                go.
+                Cursos completados
               </p>
             </div>
           </div>
@@ -145,14 +140,17 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
 </section>
 
 <script>
+  import { forEach } from "mathjs";
+
   document.addEventListener("DOMContentLoaded", () => {
     const modalInput = document.getElementById("modal-input");
     const modalButton = document.getElementById("modal-button");
-    
+    const nombreUsuario = document.getElementById("nombre-usuario");
+    const auxUl = document.getElementById("aux-div");
+
     modalButton.addEventListener("click", () => {
       const id = modalInput.value;
-      console.log("modalimput value: ", modalInput.value);
-      
+      console.log("modalinput value: ", modalInput.value);
 
       async function fetchUserData(id) {
         try {
@@ -166,6 +164,18 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
 
           let userData = await response.json();
           console.log(userData);
+          nombreUsuario.textContent = userData.name;
+
+          userData.certificates.forEach((certificate) => {
+            const li = document.createElement("li"); // Crea un nuevo elemento <p>
+            li.textContent = certificate.course; // Agrega texto al <p>
+
+            li.classList.add("mt-1 "); // Agrega una clase específica
+            li.classList.add("text-gray-800");
+            li.classList.add("dark:text-neutral-400");
+
+            auxUl.appendChild(li); // Agrega el <p> al contenedor div
+          });
         } catch (err) {
           console.log(
             "Error al obtener los datos. Verifica el número de cédula o código: ",
@@ -179,4 +189,3 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
     });
   });
 </script>
-
