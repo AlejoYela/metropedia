@@ -6,7 +6,7 @@ const {name,img,description, category, price, id} = Astro.props
 
 <a
 href=`/courses/${id}`
-class="relative bg-cover group rounded-3xl bg-center overflow-hidden mx-auto sm:mr-0 xl:mx-auto cursor-pointer"
+class="relative bg-cover group rounded-sm bg-center overflow-hidden mx-auto sm:mr-0 xl:mx-auto cursor-pointer"
 >
 <img
     class="rounded-2xl object-cover opacity-40"
@@ -14,7 +14,7 @@ class="relative bg-cover group rounded-3xl bg-center overflow-hidden mx-auto sm:
     alt="Jacket image"
 />
 <div
-    class="absolute z-10 bottom-3 left-0 mx-3 p-3 bg-white w-[calc(100%-24px)] rounded-xl shadow-sm shadow-transparent transition-all duration-500 group-hover:shadow-secondary group-hover:bg-[#9a9a9a]"
+    class="absolute z-10 bottom-3 left-0 mx-3 p-3 bg-white w-[calc(100%-24px)] rounded-lg shadow-sm shadow-transparent transition-all duration-500 group-hover:shadow-secondary group-hover:bg-[#9a9a9a]"
 >
     <div class="flex items-center justify-between mb-2">
         <h6
