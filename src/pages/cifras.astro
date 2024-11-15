@@ -20,15 +20,15 @@ import TargetIcon from "../icons/TargetIcon.astro";
         </p>
 
         <!-- Navegación de Pestañas -->
-        <div class="border-b border-gray-200 dark:border-gray-700">
-            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+        <div class="border-b border-neutral-200 dark:border-neutral-700">
+            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-neutral-500 dark:text-neutral-400">
                 <li class="me-2">
                     <button id="encontrar-cifras" onclick="showSection('find')" class="inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group" role="tab">
                         <SearchIcon class="size-5" /> Encontrar cifras
                     </button>
                 </li>
                 <li class="me-2">
-                    <button id="redondear-cifras" onclick="showSection('round')" class="inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group" role="tab">
+                    <button id="redondear-cifras" onclick="showSection('round')" class="inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-neutral-600 hover:border-neutral-300 dark:hover:text-neutral-300 group" role="tab">
                         <TargetIcon class="size-5" /> Redondear cifras
                     </button>
                 </li>
@@ -41,20 +41,20 @@ import TargetIcon from "../icons/TargetIcon.astro";
                 Encuentra cuántas cifras significativas tiene un número.
             </p>
             <div class="mb-6">
-                <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label for="number-input" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
                     Introduzca el número en notación inglesa (ejemplos: 1.2; 1020; 12.3)
                 </label>
-                <input type="text" id="number-input" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
+                <input type="text" id="number-input" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
             </div>
-            <button type="button" onclick="calculateSignificantFigures()" class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4">Encontrar Número de Cifras Significativas</button>
+            <button type="button" onclick="calculateSignificantFigures()" class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4">Encontrar Número de Cifras Significativas</button>
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
-                    <label for="significant-figures-count" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cantidad de cifras significativas</label>
-                    <span id="significant-figures-count" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary">0</span>
+                    <label for="significant-figures-count" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">Cantidad de cifras significativas</label>
+                    <span id="significant-figures-count" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary">0</span>
                 </div>
                 <div>
-                    <label for="significant-figures-value" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cifras significativas</label>
-                    <span id="significant-figures-value" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary">0</span>
+                    <label for="significant-figures-value" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">Cifras significativas</label>
+                    <span id="significant-figures-value" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary">0</span>
                 </div>
             </div>
         </form>
@@ -66,22 +66,22 @@ import TargetIcon from "../icons/TargetIcon.astro";
             </p>
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
-                    <label for="round-number-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    <label for="round-number-input" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
                         Introduzca el número en notación inglesa (ejemplos: 1.2; 1020; 12.3)
                     </label>
-                    <input type="text" id="round-number-input" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
+                    <input type="text" id="round-number-input" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
                 </div>
                 <div>
-                    <label for="precision-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    <label for="precision-input" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
                         Introduzca las cifras a las que quiere redondear
                     </label>
-                    <input type="number" id="precision-input" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
+                    <input type="number" id="precision-input" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
                 </div>
             </div>
-            <button type="button" onclick="roundSignificantFigures()" class="text-white bg-blue-500 hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-500 dark:hover:bg-blue-700 dark:focus:ring-white mb-4">Redondear Número a las Cifras Ingresadas</button>
+            <button type="button" onclick="roundSignificantFigures()" class="text-white bg-blue-500 hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-500 dark:hover:bg-blue-700 dark:focus:ring-white mb-4">Redondear Número a las Cifras Ingresadas</button>
             <div class="mb-6">
-                <label for="rounded-result" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Número redondeado</label>
-                <div id="rounded-result" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-blue-500 dark:focus:ring-primary dark:focus:border-primary">0</div>
+                <label for="rounded-result" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">Número redondeado</label>
+                <div id="rounded-result" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-blue-500 dark:focus:ring-primary dark:focus:border-primary">0</div>
             </div>
         </form>
     </div>

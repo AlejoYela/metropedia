@@ -38,7 +38,7 @@ try {
 
 <div class="antialiased bg-secondary">
   <nav
-    class="bg-secondary px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50"
+    class="bg-secondary px-4 py-2.5 dark:bg-neutral-800 dark:border-neutral-700 fixed left-0 right-0 top-0 z-50"
   >
     <div class="flex flex-wrap justify-between items-center">
       <div class="flex justify-start items-center">
@@ -64,7 +64,7 @@ try {
 
   <!-- Sidebar -->
   <aside
-    class="fixed top-0 left-0 z-40 w-80 h-screen pt-14 transition-transform -translate-x-full border-r md:translate-x-0 bg-secondary border-gray-700"
+    class="fixed top-0 left-0 z-40 w-80 h-screen pt-14 transition-transform -translate-x-full border-r md:translate-x-0 bg-secondary border-neutral-700"
     aria-label="Sidenav"
     id="drawer-navigation"
   >
@@ -95,16 +95,16 @@ try {
 
       <!-- Menú de navegación -->
       <ul
-        class="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700"
+        class="pt-5 mt-5 space-y-2 border-t border-neutral-200 dark:border-neutral-700"
       >
         <!-- Cursos -->
         <li>
           <a
             href="#"
-            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
+            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-lg transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
           >
             <NotebookIcon
-              class="flex-shrink-0 w-6 h-6 text-[#9a9a9a] transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              class="flex-shrink-0 w-6 h-6 text-[#9a9a9a] transition duration-75 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"
             />
             <span class="ml-3">Cursos</span>
           </a>
@@ -113,10 +113,10 @@ try {
         <li>
           <a
             href="#"
-            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
+            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-lg transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
           >
             <CertificateIcon
-              class="flex-shrink-0 w-6 h-6 text-[#9a9a9a] transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              class="flex-shrink-0 w-6 h-6 text-[#9a9a9a] transition duration-75 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"
             />
             <span class="ml-3">Certificados</span>
           </a>
@@ -125,10 +125,10 @@ try {
         <li>
           <a
             href="#"
-            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
+            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-lg transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
           >
             <SettingsCheckIcon
-              class="flex-shrink-0 w-6 h-6 text-[#9a9a9a] transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              class="flex-shrink-0 w-6 h-6 text-[#9a9a9a] transition duration-75 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"
             />
             <span class="ml-3">Configuración</span>
           </a>
@@ -180,7 +180,7 @@ try {
         userData?.certificates?.slice(0, 3).map((certificate, index) => (
         <a
   href={`/validate/${certificate.certificate}`}
-  class="relative border-2 border-transparent hover:border-gray-300 rounded-lg h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
+  class="relative border-2 border-transparent hover:border-neutral-300 rounded-lg h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
 >
   <!-- Imagen de fondo con opacidad -->
   <img
@@ -199,7 +199,7 @@ try {
     </span>
   </div>
 
-  <div class="relative z-10 w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mt-2">
+  <div class="relative z-10 w-full bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 mt-2">
     <div
       class="bg-blue-600 h-2.5 rounded-full"
       style={`background-color: ${courseData[index].color}; width: 30%`}
@@ -220,7 +220,7 @@ try {
         userData.certificates.slice(0, 4).map((certificate, index) => (
         <a
   href={`/validate/${certificate.certificate}`}
-  class="relative border-2 border-transparent hover:border-gray-300 rounded-lg dark:border-gray-600 h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
+  class="relative border-2 border-transparent hover:border-neutral-300 rounded-lg dark:border-neutral-600 h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
 >
   <!-- Imagen de fondo con opacidad -->
   <img
@@ -247,7 +247,7 @@ try {
       {certificate.certificate}
     </span>
 
-    <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mt-1">
+    <div class="w-full bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 mt-1">
       <div
         class="h-2.5 rounded-full"
         style={`background-color: ${courseData[index].color}; width: 100%`}
@@ -261,41 +261,41 @@ try {
     </div>
     <div class="grid grid-cols-2 gap-4 mb-4">
       <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
       <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
       <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
       <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
     </div>
     <div
-      class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-96 mb-4"
+      class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-96 mb-4"
     >
     </div>
     <div class="grid grid-cols-2 gap-4">
       <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
       <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
       <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
       <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
     </div>

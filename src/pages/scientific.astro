@@ -19,15 +19,15 @@ import SuperScriptIcon from "../icons/SuperScriptIcon.astro"
             Convierte números de notación decimal a notación científica y viceversa.
         </p>
 
-        <div class="border-b border-gray-200 dark:border-gray-700">
-            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+        <div class="border-b border-neutral-200 dark:border-neutral-700">
+            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-neutral-500 dark:text-neutral-400">
                 <li class="me-2">
                     <a href="#" id="decimal-a-cientifica" class="inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group">
                         <SuperScriptIcon class="size-5" /> Decimal a Científica
                     </a>
                 </li>
                 <li class="me-2">
-                    <a href="#" id="cientifica-a-decimal" class="inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                    <a href="#" id="cientifica-a-decimal" class="inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-neutral-600 hover:border-neutral-300 dark:hover:text-neutral-300 group">
                         <DecimalIcon class="size-6" /> Científica a Decimal
                     </a>
                 </li>
@@ -37,15 +37,15 @@ import SuperScriptIcon from "../icons/SuperScriptIcon.astro"
         <form id="scientific-notation-form1" class="max-w-screen-xl w-full border border-primary/80 rounded-sm p-12">
             <p class="text-white/40 text-sm mb-6 w-full flex justify-center">Convierte un número de notación decimal a notación científica.</p>
             <div class="mb-6">
-                <label for="decimal-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Introduzca el número en notación decimal (ejemplos: 1.2; 1020; 12.3)</label>
-                <input type="text" id="decimal-input" aria-describedby="helper-text-explanation" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
+                <label for="decimal-input" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">Introduzca el número en notación decimal (ejemplos: 1.2; 1020; 12.3)</label>
+                <input type="text" id="decimal-input" aria-describedby="helper-text-explanation" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
             </div>
-            <button type="submit" class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4">Convertir a Notación Científica</button>
+            <button type="submit" class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4">Convertir a Notación Científica</button>
 
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
-                    <label for="scientific-output" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Número en notación científica</label>
-                    <span id="scientific-output" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary">0</span>
+                    <label for="scientific-output" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">Número en notación científica</label>
+                    <span id="scientific-output" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary">0</span>
                 </div>
             </div>
             <p class="hidden" id="mensaje3">
@@ -56,14 +56,14 @@ import SuperScriptIcon from "../icons/SuperScriptIcon.astro"
         <form id="scientific-notation-form2" class="hidden max-w-screen-xl w-full border rounded-sm p-12">
             <p class="text-white/40 text-sm mb-6 w-full flex justify-center">Convierte un número de notación científica a notación decimal.</p>
             <div class="mb-6">
-                <label for="scientific-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Introduzca el número en notación científica (ejemplos: 1.2e3; 2.34e-5)</label>
-                <input type="text" id="scientific-input" aria-describedby="helper-text-explanation" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
+                <label for="scientific-input" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">Introduzca el número en notación científica (ejemplos: 1.2e3; 2.34e-5)</label>
+                <input type="text" id="scientific-input" aria-describedby="helper-text-explanation" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
             </div>
-            <button type="submit" class="text-white bg-blue-500 hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-500 dark:hover:bg-blue-700 dark:focus:ring-white mb-4">Convertir a Notación Decimal</button>
+            <button type="submit" class="text-white bg-blue-500 hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-500 dark:hover:bg-blue-700 dark:focus:ring-white mb-4">Convertir a Notación Decimal</button>
 
             <div class="mb-6">
-                <label for="decimal-output" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Número en notación decimal</label>
-                <div id="decimal-output" aria-describedby="helper-text-explanation" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-blue-500 dark:focus:ring-primary dark:focus:border-primary">0</div>
+                <label for="decimal-output" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">Número en notación decimal</label>
+                <div id="decimal-output" aria-describedby="helper-text-explanation" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-blue-500 dark:focus:ring-primary dark:focus:border-primary">0</div>
             </div>
             <p class="hidden" id="mensaje4">
                 El número ingresado en notación decimal es: <span class="text-blue-500 font-extrabold">0</span>
@@ -149,7 +149,7 @@ import SuperScriptIcon from "../icons/SuperScriptIcon.astro"
             botonDecimalACientifica.className =
                 "inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group";
             botonCientificaADecimal.className =
-                "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
+                "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-neutral-600 hover:border-neutral-300 dark:hover:text-neutral-300 group";
         });
 
         botonCientificaADecimal.addEventListener("click", function (event) {
@@ -161,7 +161,7 @@ import SuperScriptIcon from "../icons/SuperScriptIcon.astro"
             botonCientificaADecimal.className =
                 "inline-flex gap-2 items-center justify-center p-4 text-blue-500 border-b-2 border-blue-500 rounded-t-lg active dark:text-blue-500 dark:border-blue-500 group";
             botonDecimalACientifica.className =
-                "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
+                "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-neutral-600 hover:border-neutral-300 dark:hover:text-neutral-300 group";
         });
     });
 </script>

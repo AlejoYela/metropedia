@@ -4,7 +4,7 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
 ---
 
 <section
-  class="my-24 flex flex-col max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-[#191919] md:flex-row md:h-48"
+  class="my-24 flex flex-col max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-[#191919] md:flex-row md:h-48 justify-center"
 >
   <!-- Contenido del formulario de búsqueda -->
   <div
@@ -12,13 +12,13 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
   >
     <div class="px-6 py-6 md:px-8 md:py-0">
       <h2
-        class="text-lg font-bold text-[#c2c6cc] dark:text-white md:text-gray-100"
+        class="text-lg font-bold text-[#c2c6cc] dark:text-white md:text-neutral-100"
       >
         Busca todos tus certificados por <span
           class="text-primary dark:text-primary md:text-primary">cédula</span
         >
       </h2>
-      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-400">
+      <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400 md:text-neutral-400">
         Consulta todos los certificado que realizaste solo con tu número de
         cédula.
       </p>
@@ -28,7 +28,7 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
   <div class="flex items-center justify-center pb-6 md:py-0">
     <form id="modal-form">
       <div
-        class="flex mx-3 px-3 flex-col p-1.5 overflow-hidden rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-primary focus-within:ring focus-within:ring-opacity-40 focus-within:border-primary focus-within:ring-primary"
+        class="flex mx-3 px-3 flex-col p-1.5 overflow-hidden rounded-lg dark:border-neutral-600 lg:flex-row dark:focus-within:border-primary focus-within:ring focus-within:ring-opacity-40 focus-within:border-primary focus-within:ring-primary"
       >
         <button
           type="button"
@@ -62,13 +62,13 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
         >
           <h3
             id="hs-vertically-centered-scrollable-modal-label"
-            class="font-bold text-gray-800 dark:text-white"
+            class="font-bold text-neutral-800 dark:text-white"
           >
             Tus Certificados
           </h3>
           <button
             type="button"
-            class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600"
+            class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-neutral-100 text-neutral-800 hover:bg-neutral-200 focus:outline-none focus:bg-neutral-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600"
             aria-label="Close"
             data-hs-overlay="#hs-vertically-centered-scrollable-modal"
           >
@@ -92,11 +92,11 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
         </div>
         <form id="modal-form">
           <div
-            class="flex flex-col justify-center p-1.5 overflow-hidden rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-primary focus-within:ring focus-within:ring-opacity-40 focus-within:border-[#9a9a9a] focus-within:ring-[#9a9a9a]"
+            class="flex flex-col justify-center p-1.5 overflow-hidden rounded-lg dark:border-neutral-600 lg:flex-row dark:focus-within:border-primary focus-within:ring focus-within:ring-opacity-40 focus-within:border-[#9a9a9a] focus-within:ring-[#9a9a9a]"
           >
             <input
               id="modal-input"
-              class="px-6 py-2 w-full text-[#c2c6cc] placeholder-gray-500 bg-white outline-none dark:bg-[#191919] dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
+              class="px-6 py-2 w-full text-[#c2c6cc] placeholder-neutral-500 bg-white outline-none dark:bg-[#191919] dark:placeholder-neutral-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
               type="text"
               name="search"
               placeholder="Ingresa número de cédula"
@@ -110,14 +110,14 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
             <div>
               <h3
                 id="nombre-usuario"
-                class="text-lg font-semibold text-gray-800 dark:text-white"
+                class="text-lg font-semibold text-neutral-800 dark:text-white"
               >
               </h3>
-              <li id="spinner" class="items-center hidden">
+              <li id="spinner" class="items-center hidden text-[#9a9a9a]">
                 <div role="status">
                   <svg
                     aria-hidden="true"
-                    class="w-4 h-4 me-2 text-gray-200 animate-spin dark:text-gray-600 fill-primary"
+                    class="w-4 h-4 me-2 text-neutral-200 animate-spin dark:text-neutral-600 fill-primary"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -127,9 +127,9 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
                       d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
                       fill="currentFill"></path></svg
                   >
-                  <span class="sr-only text-[#9a9a9a]">Loading...</span>
+                  <span class="sr-only">Loading...</span>
                 </div>
-                Cargando
+                Cargando...
               </li>
               <div id="aux-div"></div>
               <p id="extra-p" class="mt-1 text-[#ffd16f]"></p>
@@ -141,7 +141,7 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
         >
           <button
             type="button"
-            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-sm border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-sm border border-neutral-200 bg-white text-neutral-800 shadow-sm hover:bg-neutral-50 focus:outline-none focus:bg-neutral-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
             data-hs-overlay="#hs-vertically-centered-scrollable-modal"
           >
             Cerrar
@@ -201,7 +201,7 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
             li.textContent = certificate.course; // Agrega texto al <li>
 
             li.classList.add("mt-1"); // Agrega una clase específica
-            li.classList.add("text-gray-800");
+            li.classList.add("text-neutral-800");
             li.classList.add("dark:text-neutral-400");
             li.classList.add("ml-5");
 

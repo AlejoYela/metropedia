@@ -21,9 +21,9 @@ import TargetIcon from "../icons/TargetIcon.astro";
             Calcula la incertidumbre de medición basada en varias fuentes de error.
         </p>
 
-        <div class="border-b border-gray-200 dark:border-gray-700">
+        <div class="border-b border-neutral-200 dark:border-neutral-700">
             <ul
-                class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+                class="flex flex-wrap -mb-px text-sm font-medium text-center text-neutral-500 dark:text-neutral-400"
             >
                 <li class="me-2">
                     <a
@@ -38,7 +38,7 @@ import TargetIcon from "../icons/TargetIcon.astro";
                     <a
                         href="#"
                         id="historial-incertidumbre"
-                        class="inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
+                        class="inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-neutral-600 hover:border-neutral-300 dark:hover:text-neutral-300 group"
                         aria-current="page"
                     >
                         <TargetIcon class="size-5" /> Historial
@@ -55,14 +55,14 @@ import TargetIcon from "../icons/TargetIcon.astro";
             <div class="mb-6">
                 <label
                     for="medicion-input"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white"
                 >
                     Introduzca la medición (valor central)
                 </label>
                 <input
                     type="text"
                     id="medicion-input"
-                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
                     placeholder="0"
                     required
                 />
@@ -70,14 +70,14 @@ import TargetIcon from "../icons/TargetIcon.astro";
             <div class="mb-6">
                 <label
                     for="incertidumbre-input"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white"
                 >
                     Introduzca la incertidumbre tipo A (ejemplo: 0.02)
                 </label>
                 <input
                     type="text"
                     id="incertidumbre-input"
-                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
                     placeholder="0"
                     required
                 />
@@ -85,21 +85,21 @@ import TargetIcon from "../icons/TargetIcon.astro";
             <div class="mb-6">
                 <label
                     for="incertidumbreB-input"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white"
                 >
                     Introduzca la incertidumbre tipo B (ejemplo: 0.01)
                 </label>
                 <input
                     type="text"
                     id="incertidumbreB-input"
-                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
                     placeholder="0"
                     required
                 />
             </div>
             <button
                 type="submit"
-                class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+                class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
                 >Calcular Incertidumbre</button
             >
 
@@ -107,24 +107,24 @@ import TargetIcon from "../icons/TargetIcon.astro";
                 <div>
                     <label
                         for="incertidumbre-combinada"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white"
                         >Incertidumbre combinada</label
                     >
                     <span
                         id="incertidumbre-combinada"
-                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
                         >0</span
                     >
                 </div>
                 <div>
                     <label
                         for="incertidumbre-expandida"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white"
                         >Incertidumbre expandida (k=2)</label
                     >
                     <span
                         id="incertidumbre-expandida"
-                        class="bg-gray-50  text-gray-900 text-sm rounded-sm focus:ring-primary  block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        class="bg-neutral-50  text-neutral-900 text-sm rounded-sm focus:ring-primary  block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
                         >0</span
                     >
                 </div>
@@ -139,7 +139,7 @@ import TargetIcon from "../icons/TargetIcon.astro";
             class="hidden max-w-screen-xl w-full border-blue-500 rounded-sm p-12"
         >
             <p class=" text-white/40 text-sm mb-6 w-full flex justify-center">Historial de cálculos de incertidumbre.</p>
-            <div id="historial" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"></div>
+            <div id="historial" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"></div>
         </form>
 
         <ArrowDownIcon class="absolute bottom-0 bounce" />
@@ -215,7 +215,7 @@ import TargetIcon from "../icons/TargetIcon.astro";
             botonCalcularIncertidumbre.className =
                 "inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group";
             botonHistorialIncertidumbre.className =
-                "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
+                "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-neutral-600 hover:border-neutral-300 dark:hover:text-neutral-300 group";
         });
 
         botonHistorialIncertidumbre.addEventListener("click", function (event) {
@@ -229,7 +229,7 @@ import TargetIcon from "../icons/TargetIcon.astro";
             botonHistorialIncertidumbre.className =
                 "inline-flex gap-2 items-center justify-center p-4 text-blue-500 border-b-2 border-blue-500 rounded-t-lg active dark:text-blue-500 dark:border-blue-500 group";
             botonCalcularIncertidumbre.className =
-                "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group";
+                "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-neutral-600 hover:border-neutral-300 dark:hover:text-neutral-300 group";
         });
 
         function actualizarHistorial() {

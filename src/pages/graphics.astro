@@ -33,15 +33,15 @@ import Layout from "../layouts/Layout.astro";
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-sm my-6">
                 <table
-                    class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                    class="w-full text-sm text-left rtl:text-right text-neutral-500 dark:text-neutral-400"
                 >
                     <thead
-                        class="text-xs text-gray-700 uppercase dark:text-gray-400"
+                        class="text-xs text-neutral-700 uppercase dark:text-neutral-400"
                     >
                         <tr>
                             <th
                                 scope="col"
-                                class="px-6 py-3 bg-gray-50 dark:bg-[#49494a]/50"
+                                class="px-6 py-3 bg-neutral-50 dark:bg-[#49494a]/50"
                             >
                                 Lectura del instrumento
                             </th>
@@ -52,16 +52,16 @@ import Layout from "../layouts/Layout.astro";
                     </thead>
                     <tbody id="data-table-body">
                         <tr
-                            class="border-b border-gray-200 dark:border-primary"
+                            class="border-b border-neutral-200 dark:border-primary"
                         >
                             <th
                                 scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-[#49494a]/50"
+                                class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap bg-neutral-50 dark:text-white dark:bg-[#49494a]/50"
                             >
                                 <input
                                     type="text"
                                     aria-describedby="helper-text-explanation"
-                                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                                    class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
                                     placeholder="0"
                                 />
                             </th>
@@ -69,7 +69,7 @@ import Layout from "../layouts/Layout.astro";
                                 <input
                                     type="text"
                                     aria-describedby="helper-text-explanation"
-                                    class="bg-transparent text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                                    class="bg-transparent text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
                                     placeholder="0"
                                 />
                             </td>
@@ -81,13 +81,13 @@ import Layout from "../layouts/Layout.astro";
             <div class="flex justify-between">
                 <button
                     type="submit"
-                    class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+                    class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
                     >Procesar datos de entrada</button
                 >
                 <button
                     id="add-row"
                     type="button"
-                    class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+                    class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
                     >+</button
                 >
             </div>
@@ -100,7 +100,7 @@ import Layout from "../layouts/Layout.astro";
                     <label
                         id="equations-label"
                         for="equations"
-                        class="block mb-6 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-6 text-sm font-medium text-neutral-900 dark:text-white"
                         >Ecuaciones de regresión evaluadas:</label
                     >
                     <div
@@ -174,15 +174,15 @@ import Layout from "../layouts/Layout.astro";
         const newRow = document.createElement("tr");
         newRow.classList.add(
             "border-b",
-            "border-gray-200",
+            "border-neutral-200",
             "dark:border-primary",
         );
         newRow.innerHTML = `
-        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-[#49494a]/50">
-            <input type="text" aria-describedby="helper-text-explanation" class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" />
+        <th scope="row" class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap bg-neutral-50 dark:text-white dark:bg-[#49494a]/50">
+            <input type="text" aria-describedby="helper-text-explanation" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" />
         </th>
         <td class="px-6 py-4">
-            <input type="text" aria-describedby="helper-text-explanation" class="bg-transparent text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" />
+            <input type="text" aria-describedby="helper-text-explanation" class="bg-transparent text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" />
         </td>
     `;
         tableBody.appendChild(newRow);

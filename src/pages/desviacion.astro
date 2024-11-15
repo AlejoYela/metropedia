@@ -22,76 +22,76 @@ import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
                 Calcula la desviación estándar de un grupo de números
             </p>
             <div class="mb-6">
-                <label for="numbers-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label for="numbers-input" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
                     Ingresa los números separados por comas (ejemplo: 1, 2, 3, 4, 5).
                 </label>
                 <input
                     type="text"
                     id="numbers-input"
-                    class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
                     placeholder="0"
                     required
                 />
             </div>
             <button
                 type="submit"
-                class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+                class="text-[#252627] bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
             >
                 Calcular Desviación Estándar
             </button>
 
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
-                    <label for="std-deviation-population" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    <label for="std-deviation-population" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
                         Desviación Estándar de la Población
                     </label>
                     <span
                         id="std-deviation-population"
-                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
                     >
                         0
                     </span>
                 </div>
                 <div>
-                    <label for="std-deviation-sample" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    <label for="std-deviation-sample" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
                         Desviación Estándar de la Muestra
                     </label>
                     <span
                         id="std-deviation-sample"
-                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
                     >
                         0
                     </span>
                 </div>
                 <div>
-                    <label for="sample-size" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    <label for="sample-size" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
                         Tamaño de la Muestra
                     </label>
                     <span
                         id="sample-size"
-                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
                     >
                         0
                     </span>
                 </div>
                 <div>
-                    <label for="average" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    <label for="average" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
                         Promedio
                     </label>
                     <span
                         id="average"
-                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
                     >
                         0
                     </span>
                 </div>
                 <div>
-                    <label for="variance" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    <label for="variance" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
                         Varianza
                     </label>
                     <span
                         id="variance"
-                        class="bg-gray-50 text-gray-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-gray-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
                     >
                         0
                     </span>
