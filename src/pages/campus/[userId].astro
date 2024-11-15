@@ -7,7 +7,7 @@ import NotebookIcon from "../../icons/NotebookIcon.astro";
 import courseData from "../../courseData.js";
 import SettingsCheckIcon from "../../icons/SettingsCheckIcon.astro";
 
-const { userId } = Astro.params;
+const { userId, img } = Astro.params;
 let userData = null;
 
 try {
@@ -49,7 +49,7 @@ try {
           <img
             src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731012164/logolargo_yjfjl4.png"
             class="metropedia mr-3 h-full w-auto object-cover absolute"
-            alt="Flowbite Logo"
+            alt="Metropedia Logo"
           />
         </a>
       </div>
@@ -69,10 +69,11 @@ try {
     id="drawer-navigation"
   >
     <div class="overflow-y-auto py-5 px-3 h-full bg-[#161717]">
-      <div class="max-w-sm bg-secondary shadow-lg rounded-lg overflow-hidden my-1">
+      <div class="max-w-sm bg-secondary shadow-lg rounded-sm overflow-hidden my-1">
         <img
+          id="avatar-image"
           class="w-full h-56 object-cover object-center"
-          src="https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
+          src={img}
           alt="avatar"
         />
         <div class="flex items-center px-6 py-3 bg-[#191919]">
@@ -101,7 +102,7 @@ try {
         <li>
           <a
             href="#"
-            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-lg transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
+            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-sm transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
           >
             <NotebookIcon
               class="flex-shrink-0 w-6 h-6 text-[#9a9a9a] transition duration-75 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"
@@ -113,7 +114,7 @@ try {
         <li>
           <a
             href="#"
-            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-lg transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
+            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-sm transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
           >
             <CertificateIcon
               class="flex-shrink-0 w-6 h-6 text-[#9a9a9a] transition duration-75 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"
@@ -125,7 +126,7 @@ try {
         <li>
           <a
             href="#"
-            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-lg transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
+            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-sm transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
           >
             <SettingsCheckIcon
               class="flex-shrink-0 w-6 h-6 text-[#9a9a9a] transition duration-75 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"
@@ -140,7 +141,7 @@ try {
   <main class="p-4 md:ml-80 h-auto pt-20 bg-[#161717]">
     <div
       style="background-image: url(https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011941/measure-bg_c27r6h.png)"
-      class="bg-[#252627] rounded-lg h-auto mb-4 flex-col items-center p-10"
+      class="bg-[#252627] rounded-sm h-auto mb-4 flex-col items-center p-10"
     >
       <h1 class="text-white text-lg md:text-3xl font-bold">
         ¡Bienvenido(a) {userData?.name ?? "Estudiante"}!
@@ -166,49 +167,40 @@ try {
 
     <!-- Grid de cursos en curso -->
     <div
-      class={`grid ${
-        (userData?.certificates?.length ?? 0) <= 1
-          ? "grid-cols-1"
-          : (userData?.certificates?.length ?? 0) === 2
-            ? "grid-cols-2"
-            : (userData?.certificates?.length ?? 0) <= 3
-              ? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-3"
-              : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-3"
-      } gap-4 mb-4`}
+      class={`grid ${(userData?.certificates?.length ?? 0) <= 1 ? "grid-cols-1" : (userData?.certificates?.length ?? 0) === 2? "grid-cols-2": (userData?.certificates?.length ?? 0) <= 3? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-3": "grid-cols-2 sm:grid-cols-3 lg:grid-cols-3"} gap-4 mb-4`}
     >
       {
+        userData.certificates.length == 0 ? 
+        <p class="text-[#9a9a9a]">¡No tienes formaciones en curso!</p> :
         userData?.certificates?.slice(0, 3).map((certificate, index) => (
         <a
-  href={`/validate/${certificate.certificate}`}
-  class="relative border-2 border-transparent hover:border-neutral-300 rounded-lg h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
->
-  <!-- Imagen de fondo con opacidad -->
-  <img
-    src={`${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"}`}
-    alt="Course Image"
-    class="absolute inset-0 w-full h-full object-cover opacity-30"
-  />
+          href={`/validate/${certificate.certificate}`}
+          class="relative border-2 border-transparent hover:border-neutral-300 rounded-sm h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
+        >
+        <!-- Imagen de fondo con opacidad -->
+        <img
+          src={`${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"}`}
+          alt="Course Image"
+          class="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
   
-  <!-- Contenido -->
-  <div class="relative z-10">
-    <p class="font-semibold text-sm md:text-md text-white">
-      {certificate.course}
-    </p>
-    <span class="text-[#9a9a9a] font-semibold text-sm">
-      Duración de {certificate.duration} horas
-    </span>
-  </div>
+        <!-- Contenido -->
+        <div class="relative z-10">
+          <p class="font-semibold text-sm md:text-md text-white">
+            {certificate.course}
+          </p>
+          <span class="text-[#9a9a9a] font-semibold text-sm">
+            Duración de {certificate.duration} horas
+          </span>
+        </div>
 
-  <div class="relative z-10 w-full bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 mt-2">
-    <div
-      class="bg-blue-600 h-2.5 rounded-full"
-      style={`background-color: ${courseData[index].color}; width: 30%`}
-    />
-  </div>
-</a>
-
-        ))
-      }
+        <div class="relative z-10 w-full bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 mt-2">
+          <div
+            class="bg-blue-600 h-2.5 rounded-full"
+            style={`background-color: ${courseData[index].color}; width: 30%`}
+          />
+        </div>
+      </a> ))}
     </div>
     <p class="font-semibold text-xl text-white mb-3">
       Formaciones <span class="text-[#ffd16f]">completadas</span>.
@@ -217,10 +209,12 @@ try {
       class={`grid ${userData.certificates.length === 1 ? "grid-cols-1" : userData.certificates.length === 2 ? "grid-cols-2" : userData.certificates.length <= 4 ? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-4" : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"} gap-4 mb-4`}
     >
       {
+        userData.certificates.length == 0 ? 
+        <p class="text-[#9a9a9a]">¡No tienes formaciones completadas!</p> :
         userData.certificates.slice(0, 4).map((certificate, index) => (
         <a
   href={`/validate/${certificate.certificate}`}
-  class="relative border-2 border-transparent hover:border-neutral-300 rounded-lg dark:border-neutral-600 h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
+  class="relative border-2 border-transparent hover:border-neutral-300 rounded-sm dark:border-neutral-600 h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
 >
   <!-- Imagen de fondo con opacidad -->
   <img
@@ -261,41 +255,41 @@ try {
     </div>
     <div class="grid grid-cols-2 gap-4 mb-4">
       <div
-        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
       <div
-        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
       <div
-        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
       <div
-        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
     </div>
     <div
-      class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-96 mb-4"
+      class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-96 mb-4"
     >
     </div>
     <div class="grid grid-cols-2 gap-4">
       <div
-        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
       <div
-        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
       <div
-        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
       <div
-        class="border-2 border-dashed rounded-lg border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
+        class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
       </div>
     </div>
