@@ -8,8 +8,7 @@ import courseData from "../../courseData.js";
 import SettingsCheckIcon from "../../icons/SettingsCheckIcon.astro";
 
 const { userId } = Astro.params;
-const params = new URLSearchParams(window.location.search);
-const img = params.get("img");
+
 let userData = null;
 
 try {
@@ -24,6 +23,61 @@ try {
 } catch (error) {
   console.error("Error al obtener los datos del usuario:", error);
 }
+
+import { createAuth0Client } from "@auth0/auth0-spa-js";
+
+    let auth0Client = null;
+
+    async function configureAuth0() {
+      // Configurar Auth0 Client
+      auth0Client = await createAuth0Client({
+        domain: "dev-6tbiy7tc5eqhqb7k.us.auth0.com", // Tu dominio de Auth0
+        clientId: "JozbrwbE60QoHfD6hZiQy18zIQFxGEw0", // Tu Client ID
+        authorizationParams: {
+          scope: "openid profile email", // Solicitar los permisos necesarios
+        },
+      });
+    }
+
+    async function getUserData() {
+      try {
+        if (!auth0Client) {
+          // Si Auth0 aún no ha sido configurado, hacerlo
+          await configureAuth0();
+        }
+
+        // Si ya estamos autenticados, obtenemos el token silenciosamente
+        const accessToken = await auth0Client.getTokenSilently();
+
+        if (!accessToken) {
+          throw new Error("No se pudo obtener el token de acceso.");
+        }
+
+        console.log("access token: ", accessToken);
+
+        // Obtener los datos del usuario con el token de acceso
+        const userInfoResponse = await fetch(
+          "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/userinfo",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${accessToken}`, // Usamos el token como Bearer
+            },
+          },
+        );
+
+        if (!userInfoResponse.ok) {
+          throw new Error("Error al obtener los datos del usuario.");
+        }
+
+        const userData = await userInfoResponse.json();
+        console.log("Datos del usuario:", userData);
+      }catch(error){
+        console.error("Error al obtener los datos del usuario:", error);
+      }
+    }
+
+    getUserData()
 ---
 
 <head>
@@ -75,7 +129,7 @@ try {
         <img
           id="avatar-image"
           class="w-full h-56 object-cover object-center"
-          src={img}
+          src={userData.picture ? userData.picture : "https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"}
           alt="avatar"
         />
         <div class="flex items-center px-6 py-3 bg-[#191919]">

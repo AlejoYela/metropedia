@@ -157,7 +157,7 @@ import Layout from "../layouts/Layout.astro";
         }
         // document.getElementById("user-backend-data").textContent = JSON.stringify(backendData, null, 2);
 
-        window.location.href = `/campus/${backendData.id}?img=${encodeURIComponent(userData.picture)}`;
+        window.location.href = `/campus/${backendData.id}`;
       } catch (error) {
         console.error("Error al obtener los datos del usuario:", error);
       }
