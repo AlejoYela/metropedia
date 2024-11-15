@@ -7,7 +7,9 @@ import NotebookIcon from "../../icons/NotebookIcon.astro";
 import courseData from "../../courseData.js";
 import SettingsCheckIcon from "../../icons/SettingsCheckIcon.astro";
 
-const { userId, img } = Astro.params;
+const { userId } = Astro.params;
+const params = new URLSearchParams(window.location.search);
+const img = params.get("img");
 let userData = null;
 
 try {
@@ -43,7 +45,7 @@ try {
     <div class="flex flex-wrap justify-between items-center">
       <div class="flex justify-start items-center">
         <a
-          href="https://metropedia.vercel.app"
+          href="/"
           class="flex items-center justify-between mr-4"
         >
           <img
