@@ -7,13 +7,7 @@ import NotebookIcon from "../../icons/NotebookIcon.astro";
 import courseData from "../../courseData.js";
 import SettingsCheckIcon from "../../icons/SettingsCheckIcon.astro";
 
-const userAuth0 = JSON.parse(localStorage.getItem("userData"));
 
-if (userAuth0) {
-  console.log("Usuario autenticado:", userAuth0);
-} else {
-  console.log("Usuario no autenticado");
-}
 
 const { userId } = Astro.params;
 
@@ -82,7 +76,7 @@ try {
         <img
           id="avatar-image"
           class="w-full h-56 object-cover object-center"
-          src={userAuth0.picture ? userAuth0.picture : "https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"}
+          src="https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
           alt="avatar"
         />
         <div class="flex items-center px-6 py-3 bg-[#191919]">
@@ -304,6 +298,20 @@ try {
     </div>
   </main>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const userAuth0 = JSON.parse(localStorage.getItem("userData"));
+    const avatarImage = document.getElementById("avatar-image")
+  
+  if (userAuth0) {
+    console.log("Usuario autenticado:", userAuth0);
+    avatarImage.src = userAuth0.picture
+  } else {
+    console.log("Usuario no autenticado");
+  }
+})
+</script>
 
 <style>
   html {
