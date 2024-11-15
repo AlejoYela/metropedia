@@ -4,24 +4,31 @@ import CertificateIcon from "../icons/CertificateIcon.astro";
 ---
 
 <Layout title="Metropedia.">
-  <div class="pt-20 h-auto flex bg-[#191919]">
+  <div class="md:pt-20 pt-10 h-auto flex bg-[#191919]">
     <div
-      class="text-[#9a9a9a] font-semibold p-10 flex gap-5 w-full max-w-7xl mx-auto"
+      class="text-[#9a9a9a] font-semibold p-6 md:p-10 flex gap-5 w-full max-w-7xl mx-auto relative"
     >
-      <div class="">
+      <div class="max-w-4xl">
         <p class="flex gap-3">
-          <span class="text-[#ffd16f]"> Cursos </span>
+          <span class="text-[#ffd16f] text-sm md:text-base"> Cursos </span>
           &#62;
-          <span class="text-[#ffd16f]"> Categoría </span>
+          <span class="text-[#ffd16f] text-sm md:text-base"> Categoría </span>
           &#62;
-          <span class="text-[#ffd16f]"> Curso seleccionado </span>
+          <span class="text-[#ffd16f] text-sm md:text-base">
+            Curso seleccionado
+          </span>
         </p>
+        <img
+          src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731452608/11_ivbu4n.png"
+          alt="Two each of gray, white, and black shirts laying flat."
+          class="rounded-sm md:hidden my-3 w-full object-cover object-center"
+        />
 
-        <h2 class="text-white my-8 text-3xl font-extrabold">
+        <h2 class="text-white my-5 md:my-8 text-2xl md:text-3xl font-extrabold">
           Python TOTAL - Programador Avanzado en 16 días
         </h2>
 
-        <p class="mb-8">
+        <p class="mb-8 text-sm md:text-base">
           Domina los principios esenciales de la medición y entiende cómo la
           precisión influye directamente en la calidad. Con teoría y práctica,
           obtendrás una base sólida para el manejo de instrumentos y
@@ -49,10 +56,10 @@ import CertificateIcon from "../icons/CertificateIcon.astro";
           >
             <button
               type="button"
-              class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b border-neutral-200 rounded-t-lg hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:text-white dark:focus:ring-neutral-500 dark:focus:text-white"
+              class="relative inline-flex text-start items-center w-full px-4 py-2 text-xs md:text-sm font-medium border-b border-neutral-200 rounded-t-lg hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:text-white dark:focus:ring-neutral-500 dark:focus:text-white"
             >
               <svg
-                class="w-3 h-3 me-2.5"
+                class="md:w-3 md:h-3 w-8 me-2.5"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -66,10 +73,10 @@ import CertificateIcon from "../icons/CertificateIcon.astro";
             </button>
             <button
               type="button"
-              class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b border-neutral-200 hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:text-white dark:focus:ring-neutral-500 dark:focus:text-white"
+              class="relative inline-flex text-start items-center w-full px-4 py-2 text-xs md:text-sm font-medium border-b border-neutral-200 hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:text-white dark:focus:ring-neutral-500 dark:focus:text-white"
             >
               <svg
-                class="w-3 h-3 me-2.5"
+                class="md:w-3 md:h-3 w-8 me-2.5"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -87,10 +94,10 @@ import CertificateIcon from "../icons/CertificateIcon.astro";
             </button>
             <button
               type="button"
-              class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b border-neutral-200 hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:text-white dark:focus:ring-neutral-500 dark:focus:text-white"
+              class="relative inline-flex text-start items-center w-full px-4 py-2 text-xs md:text-sm font-medium border-b border-neutral-200 hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:text-white dark:focus:ring-neutral-500 dark:focus:text-white"
             >
               <svg
-                class="w-3 h-3 me-2.5"
+                class="md:w-3 md:h-3 w-8 me-2.5"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 18"
@@ -107,10 +114,10 @@ import CertificateIcon from "../icons/CertificateIcon.astro";
             </button>
             <button
               type="button"
-              class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium rounded-b-lg hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:text-white dark:focus:ring-neutral-500 dark:focus:text-white"
+              class="relative inline-flex text-start items-center w-full px-4 py-2 text-xs md:text-sm font-medium rounded-b-lg hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:text-white dark:focus:ring-neutral-500 dark:focus:text-white"
             >
               <svg
-                class="w-3 h-3 me-2.5"
+                class="md:w-3 md:h-3 w-8 me-2.5"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -127,35 +134,395 @@ import CertificateIcon from "../icons/CertificateIcon.astro";
             </button>
           </div>
           <p class="text-white text-lg mt-5">Este curso incluye:</p>
-          <div class=" grid grid-cols-2 my-2 gap-2">
+          <div class="md:grid grid-cols-2 my-2 gap-2 text-xs md:text-base">
             <div class="inline-flex gap-2 items-center">
-              <CertificateIcon/>
+              <CertificateIcon />
               <p>30,5 horas de vídeo bajo demanda</p>
             </div>
             <div class="inline-flex gap-2 items-center">
-              <CertificateIcon/>
+              <CertificateIcon />
               <p>162 ejercicios de codificación</p>
             </div>
             <div class="inline-flex gap-2 items-center">
-              <CertificateIcon/>
+              <CertificateIcon />
               <p>18 artículos</p>
             </div>
             <div class="inline-flex gap-2 items-center">
-              <CertificateIcon/>
+              <CertificateIcon />
               <p>124 recursos descargables</p>
             </div>
             <div class="inline-flex gap-2 items-center">
-              <CertificateIcon/>
+              <CertificateIcon />
               <p>Acceso en dispositivos móviles y TV</p>
             </div>
             <div class="inline-flex gap-2 items-center">
-              <CertificateIcon/>
+              <CertificateIcon />
               <p>Certificado de finalización</p>
             </div>
           </div>
         </div>
+
+        <div class="hs-accordion-group data-hs-accordion-always-open">
+          <h3 class="text-white text-2xl mb-3">Contenido del curso.</h3>
+          <div
+            class="hs-accordion active"
+            id="hs-basic-with-title-and-arrow-stretched-heading-one"
+          >
+            <button
+              class="hs-accordion-toggle text-lg hs-accordion-active:text-primary py-3 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-start text-neutral-500 hover:text-neutral-300 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+              aria-expanded="true"
+              aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one"
+            >
+              Bienvenida al Curso
+              <svg
+                class="hs-accordion-active:hidden block size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+              <svg
+                class="hs-accordion-active:block hidden size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m18 15-6-6-6 6"></path>
+              </svg>
+            </button>
+            <div
+              id="hs-basic-with-title-and-arrow-stretched-collapse-one"
+              class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
+              role="region"
+              aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one"
+            >
+              <ol
+                class="relative border-s border-neutral-200 dark:border-neutral-700"
+              >
+                <li class="mb-5 ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 1</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Recomendaciones para una mejor experiencia en el curso
+                  </h3>
+                  <p
+                    class="mb-4 text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Conocerás la plataforma de educación virtual y aprenderás a
+                    sacar el mejor provecho a tu formación virtual
+                  </p>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div
+            class="hs-accordion"
+            id="hs-basic-with-title-and-arrow-stretched-heading-two"
+          >
+            <button
+              class="hs-accordion-toggle text-lg hs-accordion-active:text-primary py-3 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-start text-neutral-500 hover:text-neutral-300 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+              aria-expanded="false"
+              aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-two"
+            >
+              Operadores Aritméticos
+              <svg
+                class="hs-accordion-active:hidden block size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+              <svg
+                class="hs-accordion-active:block hidden size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m18 15-6-6-6 6"></path>
+              </svg>
+            </button>
+            <div
+              id="hs-basic-with-title-and-arrow-stretched-collapse-two"
+              class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+              role="region"
+              aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-two"
+            >
+              <ol
+                class="relative border-s border-neutral-200 dark:border-neutral-700"
+              >
+                <li class="mb-5 ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 1</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Números
+                  </h3>
+                  <p
+                    class="mb-4 text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Deleniti saepe nesciunt rem accusantium, architecto corrupti
+                    ex perspiciatis consequuntur debitis officia impedit
+                    asperiores. Quis nisi ullam aliquam distinctio et aliquid
+                    tempore?
+                  </p>
+                </li>
+                <li class="mb-5 ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 2</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Operadores Aritméticos y Jerarquía de Operaciones (Teoría)
+                  </h3>
+                  <p
+                    class="text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Tenetur ex nihil omnis sed? A et autem adipisci atque fuga
+                    dicta, molestiae, neque, repudiandae vero quas molestias
+                    repellendus eligendi enim. Earum.
+                  </p>
+                </li>
+                <li class="ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 3</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Operadores Aritméticos con Variables
+                  </h3>
+                  <p
+                    class="text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Necessitatibus ipsum unde quam nam porro maiores est
+                    corporis delectus, explicabo commodi consequatur architecto
+                    doloribus, officiis soluta? Praesentium, cupiditate non!
+                    Laudantium, nesciunt.
+                  </p>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div
+            class="hs-accordion"
+            id="hs-basic-with-title-and-arrow-stretched-heading-three"
+          >
+            <button
+              class="hs-accordion-toggle text-lg hs-accordion-active:text-primary py-3 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-start text-neutral-500 hover:text-neutral-300 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+              aria-expanded="false"
+              aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-three"
+            >
+              Cadenas de texto
+              <svg
+                class="hs-accordion-active:hidden block size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+              <svg
+                class="hs-accordion-active:block hidden size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m18 15-6-6-6 6"></path>
+              </svg>
+            </button>
+            <div
+              id="hs-basic-with-title-and-arrow-stretched-collapse-three"
+              class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+              role="region"
+              aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-three"
+            >
+              <ol
+                class="relative border-s border-neutral-200 dark:border-neutral-700"
+              >
+                <li class="mb-5 ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 4</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Cadenas de Texto (Teoría)
+                  </h3>
+                  <p
+                    class="mb-4 text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Deleniti saepe nesciunt rem accusantium, architecto corrupti
+                    ex perspiciatis consequuntur debitis officia impedit
+                    asperiores. Quis nisi ullam aliquam distinctio et aliquid
+                    tempore?
+                  </p>
+                </li>
+                <li class="mb-5 ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 5</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Debanado de Cadenas
+                  </h3>
+                  <p
+                    class="text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Tenetur ex nihil omnis sed? A et autem adipisci atque fuga
+                    dicta, molestiae, neque, repudiandae vero quas molestias
+                    repellendus eligendi enim. Earum.
+                  </p>
+                </li>
+                <li class="ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 6</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Métodos de Cadenas
+                  </h3>
+                  <p
+                    class="text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Necessitatibus ipsum unde quam nam porro maiores est
+                    corporis delectus, explicabo commodi consequatur architecto
+                    doloribus, officiis soluta? Praesentium, cupiditate non!
+                    Laudantium, nesciunt.
+                  </p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class=" gap-3 flex flex-col">
+          <h3 class="text-white text-2xl mb-3 my-10">Descripción.</h3>
+          <p>
+            Python es Hoy uno de los lenguajes más utilizados por Excelencia.
+            Esto se debe por su simpleza al momento de Desarrollar aplicaciones.
+            Por su capacidad de procesamiento a altas velocidades con grandes
+            volúmenes de información. Es un increíble lenguaje con el cual si no
+            sabes programar, podrás aprender. Y si ya sabes desarrollar, te
+            aconsejo aprenderlo ya que en el mercado cada vez se solicitan más
+            desarrolladores en Python. Aspirar al trabajo que desean, o mejorar
+            sus ingresos con un aumento de salario. Python se utiliza para
+            muchisimas cosas como:
+          </p>
+          <ul class=" list-disc pl-5">
+            <li>Machine Learning</li>
+            <li>Data Science</li>
+            <li>Inteligencia Artificial.</li>
+            <li>Y mucho más!</li>
+          </ul>
+          <p>
+            En este curso te acompañare en el proceso por el cual aprenderás las
+            bases del lenguaje, para luego determinar qué camino quieres seguir.
+          </p>
+          <p>
+            Yo soy Álvaro Chirou, tengo más de 20 Años de experiencia trabajando
+            en Tecnología, eh dado disertaciones en eventos internacionales como
+            OWASP, tengo más de 500.000 estudiantes en Udemy y 100 formaciones
+            profesionales impartidas en la misma. Y junto a mi compañero Walter
+            Coto donde con él hemos dado formaciones profesionales en conjunto
+            también en la plataforma de Udemy, hoy les traemos esta oportunidad
+            de seguirse formando en el lenguaje mas demandado por el mercado.
+            Tendrás acceso de por vida al curso, recibirás actualizaciones y
+            respuestas a tus preguntas a través de la plataforma de Udemy.
+            Empieza a aprender ya mismo!
+          </p>
+        </div>
       </div>
-      <div class="bg-white p-1 max-w-xs max-h-max">
+      <div
+        class="hidden md:block bg-white p-1 max-w-xs max-h-max sticky right-0 top-24"
+      >
         <img
           class="object-cover h-48 w-full"
           src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731448961/1_zatgis.png"

@@ -11,328 +11,569 @@ console.log(selectedCourse);
 ---
 
 <Layout title="Metropedia.">
-  <div
-    class="relative about flex flex-col justify-center items-center gap-12 pt-10 md:pt-20"
-  >
-    <div class="pt-6">
-      <nav aria-label="Breadcrumb">
-        <ol
-          role="list"
-          class="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-        >
-          <li>
-            <div class="flex items-center">
-              <a href="#" class="mr-2 text-sm font-medium text-[#9a9a9a]"
-                >Cursos</a
-              >
-              <svg
-                width="16"
-                height="20"
-                viewBox="0 0 16 20"
-                fill="currentColor"
-                aria-hidden="true"
-                class="h-5 w-4 text-neutral-300"
-              >
-                <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z"
-                ></path>
-              </svg>
-            </div>
-          </li>
-          <li>
-            <div class="flex items-center">
-              <a href="#" class="mr-2 text-sm font-medium text-[#9a9a9a]"
-                >{selectedCourse.category}</a
-              >
-              <svg
-                width="16"
-                height="20"
-                viewBox="0 0 16 20"
-                fill="currentColor"
-                aria-hidden="true"
-                class="h-5 w-4 text-neutral-300"
-              >
-                <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z"
-                ></path>
-              </svg>
-            </div>
-          </li>
+  <div class="md:pt-20 pt-10 h-auto flex bg-[#191919]">
+    <div
+      class="text-[#9a9a9a] font-semibold p-6 md:p-10 flex gap-5 w-full max-w-7xl mx-auto relative"
+    >
+      <div class="max-w-4xl">
+        <p class="flex gap-3">
+          <span class="text-[#ffd16f] text-sm md:text-base"> Cursos </span>
+          &#62;
+          <span class="text-[#ffd16f] text-sm md:text-base"> Categoría </span>
+          &#62;
+          <span class="text-[#ffd16f] text-sm md:text-base">
+            Curso seleccionado
+          </span>
+        </p>
+        <img
+          src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731452608/11_ivbu4n.png"
+          alt="Two each of gray, white, and black shirts laying flat."
+          class="rounded-sm md:hidden my-3 w-full object-cover object-center"
+        />
 
-          <li class="text-sm">
-            <a
-              href="#"
-              aria-current="page"
-              class="font-medium text-[#ffd16f] hover:text-[#9a9a9a]"
-              >{selectedCourse.course}</a
+        <h2 class="text-white my-5 md:my-8 text-2xl md:text-3xl font-extrabold">
+          Python TOTAL - Programador Avanzado en 16 días
+        </h2>
+
+        <p class="mb-8 text-sm md:text-base">
+          Domina los principios esenciales de la medición y entiende cómo la
+          precisión influye directamente en la calidad. Con teoría y práctica,
+          obtendrás una base sólida para el manejo de instrumentos y
+          calibración, fundamental para cualquier entorno industrial.
+        </p>
+        <div class="flex items-center gap-3 text-xs my-3">
+          <p class="bg-[#f1c669] text-secondary py-1 px-2">Lo más vendido</p>
+          <p class="text-primary">4,8 (500 calificaciones)</p>
+          <p>75.642 estudiantes</p>
+        </div>
+        <p class="text-sm">
+          Creado por <span class="text-[#f1c669]"
+            >Andrés Alejandro Yela Bastidas</span
+          >
+        </p>
+        <div class="flex items-center gap-3 text-sm my-3 text-white">
+          <p>Última actualización: 5/2024</p>
+          <p>Español</p>
+        </div>
+        <div class="bg-secondary my-10 w-full p-5">
+          <p class="text-white text-lg">Lo que aprenderás:</p>
+
+          <div
+            class="w-full my-3 text-neutral-900 bg-white border border-neutral-200 rounded-sm dark:bg-transparent dark:border-neutral-600 dark:text-[#9a9a9a]"
+          >
+            <button
+              type="button"
+              class="relative inline-flex text-start items-center w-full px-4 py-2 text-xs md:text-sm font-medium border-b border-neutral-200 rounded-t-lg hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:text-white dark:focus:ring-neutral-500 dark:focus:text-white"
             >
-          </li>
-        </ol>
-      </nav>
+              <svg
+                class="md:w-3 md:h-3 w-8 me-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"
+                ></path>
+              </svg>
+              Dominarás la programación profesional en Python
+            </button>
+            <button
+              type="button"
+              class="relative inline-flex text-start items-center w-full px-4 py-2 text-xs md:text-sm font-medium border-b border-neutral-200 hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:text-white dark:focus:ring-neutral-500 dark:focus:text-white"
+            >
+              <svg
+                class="md:w-3 md:h-3 w-8 me-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7.75 4H19M7.75 4a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 4h2.25m13.5 6H19m-2.25 0a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 10h11.25m-4.5 6H19M7.75 16a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 16h2.25"
+                ></path>
+              </svg>
+              Trabajarás en programas del mundo real todos los días
+            </button>
+            <button
+              type="button"
+              class="relative inline-flex text-start items-center w-full px-4 py-2 text-xs md:text-sm font-medium border-b border-neutral-200 hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:text-white dark:focus:ring-neutral-500 dark:focus:text-white"
+            >
+              <svg
+                class="md:w-3 md:h-3 w-8 me-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 18"
+                fill="currentColor"
+              >
+                <path
+                  d="M18 4H16V9C16 10.0609 15.5786 11.0783 14.8284 11.8284C14.0783 12.5786 13.0609 13 12 13H9L6.846 14.615C7.17993 14.8628 7.58418 14.9977 8 15H11.667L15.4 17.8C15.5731 17.9298 15.7836 18 16 18C16.2652 18 16.5196 17.8946 16.7071 17.7071C16.8946 17.5196 17 17.2652 17 17V15H18C18.5304 15 19.0391 14.7893 19.4142 14.4142C19.7893 14.0391 20 13.5304 20 13V6C20 5.46957 19.7893 4.96086 19.4142 4.58579C19.0391 4.21071 18.5304 4 18 4Z"
+                  fill="currentColor"></path>
+                <path
+                  d="M12 0H2C1.46957 0 0.960859 0.210714 0.585786 0.585786C0.210714 0.960859 0 1.46957 0 2V9C0 9.53043 0.210714 10.0391 0.585786 10.4142C0.960859 10.7893 1.46957 11 2 11H3V13C3 13.1857 3.05171 13.3678 3.14935 13.5257C3.24698 13.6837 3.38668 13.8114 3.55279 13.8944C3.71889 13.9775 3.90484 14.0126 4.08981 13.996C4.27477 13.9793 4.45143 13.9114 4.6 13.8L8.333 11H12C12.5304 11 13.0391 10.7893 13.4142 10.4142C13.7893 10.0391 14 9.53043 14 9V2C14 1.46957 13.7893 0.960859 13.4142 0.585786C13.0391 0.210714 12.5304 0 12 0Z"
+                  fill="currentColor"></path>
+              </svg>
+              Comprenderás la Programación Orientada a Objetos (OOP)
+            </button>
+            <button
+              type="button"
+              class="relative inline-flex text-start items-center w-full px-4 py-2 text-xs md:text-sm font-medium rounded-b-lg hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:text-white dark:focus:ring-neutral-500 dark:focus:text-white"
+            >
+              <svg
+                class="md:w-3 md:h-3 w-8 me-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z"
+                ></path>
+                <path
+                  d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+                ></path>
+              </svg>
+              Crearás programas sólidos, avanzados y útiles
+            </button>
+          </div>
+          <p class="text-white text-lg mt-5">Este curso incluye:</p>
+          <div class="md:grid grid-cols-2 my-2 gap-2 text-xs md:text-base">
+            <div class="inline-flex gap-2 items-center">
+              <CertificateIcon />
+              <p>30,5 horas de vídeo bajo demanda</p>
+            </div>
+            <div class="inline-flex gap-2 items-center">
+              <CertificateIcon />
+              <p>162 ejercicios de codificación</p>
+            </div>
+            <div class="inline-flex gap-2 items-center">
+              <CertificateIcon />
+              <p>18 artículos</p>
+            </div>
+            <div class="inline-flex gap-2 items-center">
+              <CertificateIcon />
+              <p>124 recursos descargables</p>
+            </div>
+            <div class="inline-flex gap-2 items-center">
+              <CertificateIcon />
+              <p>Acceso en dispositivos móviles y TV</p>
+            </div>
+            <div class="inline-flex gap-2 items-center">
+              <CertificateIcon />
+              <p>Certificado de finalización</p>
+            </div>
+          </div>
+        </div>
 
-      <!-- Image gallery -->
-      <div
-        class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8"
-      >
-        <div
-          class="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block"
-        >
-          <img
-            src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731452608/11_ivbu4n.png"
-            alt="Two each of gray, white, and black shirts laying flat."
-            class="h-full w-full object-cover object-center"
-          />
-        </div>
-        <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-          <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-            <img
-              src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731452609/13_e7vawn.png"
-              alt="Model wearing plain black basic tee."
-              class="h-full w-full object-cover object-center"
-            />
+        <div class="hs-accordion-group data-hs-accordion-always-open">
+          <h3 class="text-white text-2xl mb-3">Contenido del curso.</h3>
+          <div
+            class="hs-accordion active"
+            id="hs-basic-with-title-and-arrow-stretched-heading-one"
+          >
+            <button
+              class="hs-accordion-toggle text-lg hs-accordion-active:text-primary py-3 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-start text-neutral-500 hover:text-neutral-300 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+              aria-expanded="true"
+              aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one"
+            >
+              Bienvenida al Curso
+              <svg
+                class="hs-accordion-active:hidden block size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+              <svg
+                class="hs-accordion-active:block hidden size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m18 15-6-6-6 6"></path>
+              </svg>
+            </button>
+            <div
+              id="hs-basic-with-title-and-arrow-stretched-collapse-one"
+              class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
+              role="region"
+              aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one"
+            >
+              <ol
+                class="relative border-s border-neutral-200 dark:border-neutral-700"
+              >
+                <li class="mb-5 ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 1</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Recomendaciones para una mejor experiencia en el curso
+                  </h3>
+                  <p
+                    class="mb-4 text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Conocerás la plataforma de educación virtual y aprenderás a
+                    sacar el mejor provecho a tu formación virtual
+                  </p>
+                </li>
+              </ol>
+            </div>
           </div>
-          <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-            <img
-              src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731452609/14_j761hx.png"
-              alt="Model wearing plain gray basic tee."
-              class="h-full w-full object-cover object-center"
-            />
+
+          <div
+            class="hs-accordion"
+            id="hs-basic-with-title-and-arrow-stretched-heading-two"
+          >
+            <button
+              class="hs-accordion-toggle text-lg hs-accordion-active:text-primary py-3 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-start text-neutral-500 hover:text-neutral-300 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+              aria-expanded="false"
+              aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-two"
+            >
+              Operadores Aritméticos
+              <svg
+                class="hs-accordion-active:hidden block size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+              <svg
+                class="hs-accordion-active:block hidden size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m18 15-6-6-6 6"></path>
+              </svg>
+            </button>
+            <div
+              id="hs-basic-with-title-and-arrow-stretched-collapse-two"
+              class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+              role="region"
+              aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-two"
+            >
+              <ol
+                class="relative border-s border-neutral-200 dark:border-neutral-700"
+              >
+                <li class="mb-5 ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 1</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Números
+                  </h3>
+                  <p
+                    class="mb-4 text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Deleniti saepe nesciunt rem accusantium, architecto corrupti
+                    ex perspiciatis consequuntur debitis officia impedit
+                    asperiores. Quis nisi ullam aliquam distinctio et aliquid
+                    tempore?
+                  </p>
+                </li>
+                <li class="mb-5 ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 2</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Operadores Aritméticos y Jerarquía de Operaciones (Teoría)
+                  </h3>
+                  <p
+                    class="text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Tenetur ex nihil omnis sed? A et autem adipisci atque fuga
+                    dicta, molestiae, neque, repudiandae vero quas molestias
+                    repellendus eligendi enim. Earum.
+                  </p>
+                </li>
+                <li class="ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 3</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Operadores Aritméticos con Variables
+                  </h3>
+                  <p
+                    class="text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Necessitatibus ipsum unde quam nam porro maiores est
+                    corporis delectus, explicabo commodi consequatur architecto
+                    doloribus, officiis soluta? Praesentium, cupiditate non!
+                    Laudantium, nesciunt.
+                  </p>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div
+            class="hs-accordion"
+            id="hs-basic-with-title-and-arrow-stretched-heading-three"
+          >
+            <button
+              class="hs-accordion-toggle text-lg hs-accordion-active:text-primary py-3 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-start text-neutral-500 hover:text-neutral-300 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+              aria-expanded="false"
+              aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-three"
+            >
+              Cadenas de texto
+              <svg
+                class="hs-accordion-active:hidden block size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+              <svg
+                class="hs-accordion-active:block hidden size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m18 15-6-6-6 6"></path>
+              </svg>
+            </button>
+            <div
+              id="hs-basic-with-title-and-arrow-stretched-collapse-three"
+              class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+              role="region"
+              aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-three"
+            >
+              <ol
+                class="relative border-s border-neutral-200 dark:border-neutral-700"
+              >
+                <li class="mb-5 ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 4</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Cadenas de Texto (Teoría)
+                  </h3>
+                  <p
+                    class="mb-4 text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Deleniti saepe nesciunt rem accusantium, architecto corrupti
+                    ex perspiciatis consequuntur debitis officia impedit
+                    asperiores. Quis nisi ullam aliquam distinctio et aliquid
+                    tempore?
+                  </p>
+                </li>
+                <li class="mb-5 ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 5</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Debanado de Cadenas
+                  </h3>
+                  <p
+                    class="text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Tenetur ex nihil omnis sed? A et autem adipisci atque fuga
+                    dicta, molestiae, neque, repudiandae vero quas molestias
+                    repellendus eligendi enim. Earum.
+                  </p>
+                </li>
+                <li class="ms-4">
+                  <div
+                    class="absolute w-3 h-3 bg-neutral-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-neutral-900 dark:bg-neutral-700"
+                  >
+                  </div>
+                  <time
+                    class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+                    >Día 6</time
+                  >
+                  <h3
+                    class="text-base font-semibold text-neutral-900 dark:text-white"
+                  >
+                    Métodos de Cadenas
+                  </h3>
+                  <p
+                    class="text-base font-normal text-neutral-500 dark:text-neutral-400"
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Necessitatibus ipsum unde quam nam porro maiores est
+                    corporis delectus, explicabo commodi consequatur architecto
+                    doloribus, officiis soluta? Praesentium, cupiditate non!
+                    Laudantium, nesciunt.
+                  </p>
+                </li>
+              </ol>
+            </div>
           </div>
         </div>
-        <div
-          class="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg"
-        >
-          <img
-            src={selectedCourse.image}
-            alt="Model wearing plain white basic tee."
-            class="h-full w-full object-cover object-center"
-          />
+        <div class=" gap-3 flex flex-col">
+          <h3 class="text-white text-2xl mb-3 my-10">Descripción.</h3>
+          <p>
+            Python es Hoy uno de los lenguajes más utilizados por Excelencia.
+            Esto se debe por su simpleza al momento de Desarrollar aplicaciones.
+            Por su capacidad de procesamiento a altas velocidades con grandes
+            volúmenes de información. Es un increíble lenguaje con el cual si no
+            sabes programar, podrás aprender. Y si ya sabes desarrollar, te
+            aconsejo aprenderlo ya que en el mercado cada vez se solicitan más
+            desarrolladores en Python. Aspirar al trabajo que desean, o mejorar
+            sus ingresos con un aumento de salario. Python se utiliza para
+            muchisimas cosas como:
+          </p>
+          <ul class=" list-disc pl-5">
+            <li>Machine Learning</li>
+            <li>Data Science</li>
+            <li>Inteligencia Artificial.</li>
+            <li>Y mucho más!</li>
+          </ul>
+          <p>
+            En este curso te acompañare en el proceso por el cual aprenderás las
+            bases del lenguaje, para luego determinar qué camino quieres seguir.
+          </p>
+          <p>
+            Yo soy Álvaro Chirou, tengo más de 20 Años de experiencia trabajando
+            en Tecnología, eh dado disertaciones en eventos internacionales como
+            OWASP, tengo más de 500.000 estudiantes en Udemy y 100 formaciones
+            profesionales impartidas en la misma. Y junto a mi compañero Walter
+            Coto donde con él hemos dado formaciones profesionales en conjunto
+            también en la plataforma de Udemy, hoy les traemos esta oportunidad
+            de seguirse formando en el lenguaje mas demandado por el mercado.
+            Tendrás acceso de por vida al curso, recibirás actualizaciones y
+            respuestas a tus preguntas a través de la plataforma de Udemy.
+            Empieza a aprender ya mismo!
+          </p>
         </div>
       </div>
-
-      <!-- Product info -->
       <div
-        class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16"
+        class="hidden md:block bg-white p-1 max-w-xs max-h-max sticky right-0 top-24"
       >
-        <div class="lg:col-span-2 lg:border-r lg:border-neutral-200 lg:pr-8">
-          <h1
-            class="text-2xl font-bold tracking-tight text-[#ffd16f] sm:text-3xl"
+        <img
+          class="object-cover h-48 w-full"
+          src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731448961/1_zatgis.png"
+          alt=""
+        />
+        <div class="flex w-full items-center justify-center">
+          <a
+            href="#"
+            class="border w-1/2 text-center py-3 border-b-black text-black"
           >
-            {selectedCourse.course}
-          </h1>
+            Personal
+          </a>
+          <a href="#" class="border w-1/2 text-center py-3">Empresa</a>
         </div>
-
-        <!-- Options -->
-        <div class="mt-4 lg:row-span-3 lg:mt-0">
-          <h2 class="sr-only">Product information</h2>
-          <p class="text-3xl tracking-tight text-white">
-            ${selectedCourse.price}
+        <div class="p-4">
+          <p class="text-black text-lg font-extrabold leading-tight mb-1">
+            Suscribirse a los mejores cursos de Metropedia
           </p>
-
-          <!-- Reviews -->
-          <div class="mt-6">
-            <h3 class="sr-only">Reviews</h3>
-            <div class="flex items-center">
-              <div class="flex items-center">
-                <!-- Active: "text-[#9a9a9a]", Default: "text-neutral-200" -->
-                <svg
-                  class="h-5 w-5 shrink-0 text-[#9a9a9a]"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
-                    clip-rule="evenodd"></path>
-                </svg>
-                <svg
-                  class="h-5 w-5 shrink-0 text-[#9a9a9a]"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
-                    clip-rule="evenodd"></path>
-                </svg>
-                <svg
-                  class="h-5 w-5 shrink-0 text-[#9a9a9a]"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
-                    clip-rule="evenodd"></path>
-                </svg>
-                <svg
-                  class="h-5 w-5 shrink-0 text-[#9a9a9a]"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
-                    clip-rule="evenodd"></path>
-                </svg>
-                <svg
-                  class="h-5 w-5 shrink-0 text-neutral-200"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
-                    clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <p class="sr-only">4 out of 5 stars</p>
-              <a
-                href="#"
-                class="ml-3 text-sm font-medium text-primary hover:text-[#ffd16f]"
-                >117 reseñas</a
-              >
-            </div>
-          </div>
-
-          <form class="mt-10">
-            <!-- Duration -->
-            <div class="mb-3">
-              <h3 class="text-sm font-medium text-white">Duración</h3>
-
-              <li class="flex items-center text-xl mt-1 md:text-2xl font-semibold text-[#9a9a9a]">
-                <svg
-                  class="w-4 h-4 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
-                  ></path>
-                </svg>
-                {selectedCourse.duration} horas
-              </li>
-            </div>
-            <div class="mb-3">
-              <h3 class="text-sm font-medium text-white">Modalidad</h3>
-
-              <li class="flex items-center text-xl mt-1 md:text-2xl font-semibold text-[#9a9a9a]">
-                <svg
-                  class="w-4 h-4 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
-                  ></path>
-                </svg>
-                Autoguiado
-              </li>
-            </div>
-            <div class="mb-3">
-              <h3 class="text-sm font-medium text-white">Certificación</h3>
-
-              <li class="flex items-center text-xl mt-1 md:text-2xl font-semibold text-[#9a9a9a]">
-                <svg
-                  class="w-4 h-4 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
-                  ></path>
-                </svg>
-                Certificado digital
-              </li>
-            </div>
-            <div class="mb-3">
-              <h3 class="text-sm font-medium text-white">Prerrequisitos</h3>
-
-              <li class="flex items-center text-xl mt-1 md:text-2xl font-semibold text-[#9a9a9a]">
-                <svg
-                  class="w-4 h-4 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
-                  ></path>
-                </svg>
-                Ninguno
-              </li>
-            </div>
-            
-
-           
-
-            <button
-              type="submit"
-              class="mt-10 flex w-full items-center justify-center rounded-sm border border-transparent bg-primary px-8 py-3 text-base font-medium text-secondary hover:bg-[#ffd16f] focus:outline-none focus:ring-2 focus:ring-[#ffd16f] focus:ring-offset-2"
-              >Tomar curso</button
+          <p class="text-[#696969] text-sm">
+            Consigue este curso y más de 2000 de nuestros cursos mejor valorados
+            con el Plan Personal. <a class="underline" href=""
+              >Más información</a
             >
-          </form>
-        </div>
-
-        <div
-          class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-neutral-200 lg:pr-8 lg:py-6"
-        >
-          <!-- Description and details -->
-          <div>
-            <h3 class="sr-only">Description</h3>
-
-            <div class="space-y-6">
-              <p class="text-base text-[#9a9a9a] font-semibold">
-                {selectedCourse.description}
-              </p>
-            </div>
+          </p>
+          <button
+            class="bg-primary text-secondary border border-transparent hover:border-primary font-bold tracking-tight px-3 py-2 rounded-sm mt-3 mb-1 w-full hover:bg-[#f1c669]"
+            >Prueba gratis el plan personal</button
+          >
+          <p class="text-xs text-center">
+            A partir de 43.000 COL$ al mes tras la prueba
+          </p>
+          <div class="relative flex py-3 items-center">
+            <div class="flex-grow border-t border-neutral-400"></div>
+            <span class="flex-shrink mx-4 text-neutral-400">o</span>
+            <div class="flex-grow border-t border-neutral-400"></div>
           </div>
-
-          <div class="mt-10">
-            <h3 class="text-sm font-medium text-white">Módulos</h3>
-
-            <div class="mt-4">
-              <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
-                {
-                  selectedCourse.modules.map((module) => (
-                    <li class="text-neutral-400">
-                      <span class="text-[#9a9a9a]">{module}</span>
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
-          </div>
-
-          <div class="mt-10">
-            <h2 class="text-sm font-medium text-white">Detailles</h2>
-
-            <div class="mt-4 space-y-6">
-              <p class="text-sm text-[#9a9a9a]">
-                Nuestros cursos, impartidos por expertos en metrología, ofrecen
-                contenido actualizado conforme a las normativas internacionales.
-                Diseñados para facilitar el aprendizaje práctico, combinan
-                explicaciones claras, ejemplos aplicables y estudios de caso
-                reales para que puedas desarrollar tus habilidades y aplicar los
-                conocimientos en tu entorno profesional.
-              </p>
-            </div>
-          </div>
+          <p class="text-black font-extrabold text-2xl tracking-tight">
+            $ 30.000 COP
+          </p>
+          <button
+            class="bg-transparent text-secondary border border-secondary font-bold tracking-tight px-3 py-2 rounded-sm mt-3 mb-1 w-full hover:bg-[#9a9a9a]"
+            >Tomar curso</button
+          >
+          <p class="text-xs text-center">Garantía de reembolso de 30 días</p>
         </div>
       </div>
     </div>
