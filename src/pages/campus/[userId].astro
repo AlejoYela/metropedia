@@ -74,8 +74,7 @@ try {
     <div class="overflow-y-auto py-5 px-3 h-full bg-[#161717]">
       <div class="max-w-sm bg-secondary shadow-lg rounded-sm overflow-hidden my-1">
         <img
-          id="avatar-image"
-          class="w-full h-56 object-cover object-center"
+          class="avatar-image w-full h-56 object-cover object-center"
           src="https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
           alt="avatar"
         />
@@ -146,10 +145,19 @@ try {
       style="background-image: url(https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011941/measure-bg_c27r6h.png)"
       class="bg-[#252627] rounded-sm h-auto mb-4 flex-col items-center p-10"
     >
-      <h1 class="text-white text-lg md:text-3xl font-bold">
-        ¡Bienvenido(a) {userData?.name ?? "Estudiante"}!
-      </h1>
-      <p class="text-[#9a9a9a] text-sm md:text-lg font-semibold">
+    <div class=" flex justify-center mb-5">
+      <img class="md:hidden avatar-image h-20 rounded-full" src="https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg" alt="">
+    </div>
+    <h1 class="text-[#ffd16f] text-base md:text-3xl font-bold text-center md:hidden">
+      {userData?.name ?? "Estudiante"}
+    </h1>
+    <h1 class="text-white text-lg md:text-3xl font-bold text-center md:hidden">
+      ¡Bienvenido(a)!
+    </h1>
+    <h1 class="text-white text-lg md:text-3xl font-bold hidden md:block">
+      ¡Bienvenido(a) {userData?.name ?? "Estudiante"}!
+    </h1>
+      <p class="text-[#9a9a9a] text-sm md:text-lg font-semibold hidden md:block">
         En este dashboard encontrarás toda la información y progreso de tus
         cursos.
       </p>
@@ -302,7 +310,7 @@ try {
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const userAuth0 = JSON.parse(localStorage.getItem("userData"));
-    const avatarImage = document.getElementById("avatar-image")
+    const avatarImage = document.getElementsByClassName("avatar-image")
   
   if (userAuth0) {
     console.log("Usuario autenticado:", userAuth0);

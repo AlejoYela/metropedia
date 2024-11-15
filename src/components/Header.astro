@@ -41,6 +41,9 @@ const navItems = [
                         {link.title}
                     </a>
                 ))}
+                <a id="avatar-a" class="hidden px-2 transition hover:text-[#fcb316] dark:hover:text-[#fcb316]" href="#">
+                    <img id="avatar-image" class=" h-6" src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1730913326/user2_a2p8w8.png" alt="">
+                </a>
             </div>
         </nav>
     </header>
@@ -67,6 +70,18 @@ const navItems = [
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const closeMenu = document.getElementById('close-menu');
+        const avatarImage = document.getElementById("avatar-image")
+        const avatarA = document.getElementById("avatar-a")
+
+        const userAuth0 = JSON.parse(localStorage.getItem("userData"));
+        if(userAuth0){
+            avatarA.classList.remove("hidden")
+            avatarA.classList.add("block")
+            avatarImage.src = userAuth0.picture
+        }else{
+            avatarA.classList.add("hidden")
+            avatarA.classList.remove("block")
+        }
 
         // Abrir menú
         menuToggle.addEventListener('click', () => {
