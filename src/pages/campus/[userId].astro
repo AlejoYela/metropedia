@@ -172,14 +172,14 @@ try {
         </div>
       </div>
     </div>
-    <p id="en-curso-p" class="font-semibold text-xl text-white mb-3 hidden">
+    <p id="en-curso-p" class="font-semibold text-xl text-white mb-3">
       Formaciones <span class="text-[#ffd16f]">en curso</span>.
     </p>
 
     <!-- Grid de cursos en curso -->
     <div
     id="en-curso-div"
-      class={`grid ${(userData?.certificates?.length ?? 0) <= 1 ? "grid-cols-1" : (userData?.certificates?.length ?? 0) === 2? "grid-cols-2": (userData?.certificates?.length ?? 0) <= 3? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-3": "grid-cols-2 sm:grid-cols-3 lg:grid-cols-3"} gap-4 mb-4 hidden`}
+      class={`grid ${(userData?.certificates?.length ?? 0) <= 1 ? "grid-cols-1" : (userData?.certificates?.length ?? 0) === 2? "grid-cols-2": (userData?.certificates?.length ?? 0) <= 3? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-3": "grid-cols-2 sm:grid-cols-3 lg:grid-cols-3"} gap-4 mb-4`}
     >
       {
         userData.certificates.length == 0 ? 
