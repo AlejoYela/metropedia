@@ -102,38 +102,38 @@ try {
       >
         <!-- Cursos -->
         <li>
-          <a
-            href="#"
-            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-sm transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
+          <button
+          id="en-curso-button"
+            class="w-full text-neutral-600 flex items-center p-2 text-base font-medium rounded-sm transition duration-75 bg-neutral-100"
           >
             <NotebookIcon
-              class="flex-shrink-0 w-6 h-6 text-[#9a9a9a] transition duration-75 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"
+              class="flex-shrink-0 w-6 h-6 transition duration-75 text-neutral-900 dark:group-hover:text-white"
             />
-            <span class="ml-3">Cursos</span>
-          </a>
+            <span class="ml-3">En curso</span>
+          </button>
         </li>
         <!-- Certificados -->
         <li>
           <a
             href="#"
-            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-sm transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
+            class="text-[#9a9a9a] hover:text-neutral-600 flex items-center p-2 text-base font-medium rounded-sm transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
           >
             <CertificateIcon
               class="flex-shrink-0 w-6 h-6 text-[#9a9a9a] transition duration-75 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"
             />
-            <span class="ml-3">Certificados</span>
+            <span class="ml-3">Terminados</span>
           </a>
         </li>
         <!-- Configuración -->
         <li>
           <a
             href="#"
-            class="text-[#9a9a9a] flex items-center p-2 text-base font-medium rounded-sm transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
+            class="text-[#9a9a9a] hover:text-neutral-600 flex items-center p-2 text-base font-medium rounded-sm transition duration-75 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:text-white group"
           >
             <SettingsCheckIcon
               class="flex-shrink-0 w-6 h-6 text-[#9a9a9a] transition duration-75 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"
             />
-            <span class="ml-3">Configuración</span>
+            <span class="ml-3">Certificados</span>
           </a>
         </li>
       </ul>
@@ -145,18 +145,18 @@ try {
       style="background-image: url(https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011941/measure-bg_c27r6h.png)"
       class="bg-[#252627] rounded-sm h-auto mb-4 flex-col items-center p-10"
     >
-    <div class=" flex justify-center mb-5">
-      <img class="md:hidden avatar-image h-20 rounded-full" src="https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg" alt="">
-    </div>
-    <h1 class="text-[#ffd16f] text-base md:text-3xl font-bold text-center md:hidden">
-      {userData?.name ?? "Estudiante"}
-    </h1>
-    <h1 class="text-white text-lg md:text-3xl font-bold text-center md:hidden">
-      ¡Bienvenido(a)!
-    </h1>
-    <h1 class="text-white text-lg md:text-3xl font-bold hidden md:block">
-      ¡Bienvenido(a) {userData?.name ?? "Estudiante"}!
-    </h1>
+      <div class=" flex justify-center mb-5">
+        <img class="md:hidden avatar-image h-20 rounded-full" src="https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg" alt="">
+      </div>
+      <h1 class="text-[#ffd16f] text-base md:text-3xl font-bold text-center md:hidden">
+        {userData?.name ?? "Estudiante"}
+      </h1>
+      <h1 class="text-white text-lg md:text-3xl font-bold text-center md:hidden">
+        ¡Bienvenido(a)!
+      </h1>
+      <h1 class="text-white text-lg md:text-3xl font-bold hidden md:block">
+        ¡Bienvenido(a) {userData?.name ?? "Estudiante"}!
+      </h1>
       <p class="text-[#9a9a9a] text-sm md:text-lg font-semibold hidden md:block">
         En este dashboard encontrarás toda la información y progreso de tus
         cursos.
@@ -172,13 +172,14 @@ try {
         </div>
       </div>
     </div>
-    <p class="font-semibold text-xl text-white mb-3">
+    <p id="en-curso-p" class="font-semibold text-xl text-white mb-3 hidden">
       Formaciones <span class="text-[#ffd16f]">en curso</span>.
     </p>
 
     <!-- Grid de cursos en curso -->
     <div
-      class={`grid ${(userData?.certificates?.length ?? 0) <= 1 ? "grid-cols-1" : (userData?.certificates?.length ?? 0) === 2? "grid-cols-2": (userData?.certificates?.length ?? 0) <= 3? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-3": "grid-cols-2 sm:grid-cols-3 lg:grid-cols-3"} gap-4 mb-4`}
+    id="en-curso-div"
+      class={`grid ${(userData?.certificates?.length ?? 0) <= 1 ? "grid-cols-1" : (userData?.certificates?.length ?? 0) === 2? "grid-cols-2": (userData?.certificates?.length ?? 0) <= 3? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-3": "grid-cols-2 sm:grid-cols-3 lg:grid-cols-3"} gap-4 mb-4 hidden`}
     >
       {
         userData.certificates.length == 0 ? 
@@ -188,105 +189,88 @@ try {
           href={`/validate/${certificate.certificate}`}
           class="relative border-2 border-transparent hover:border-neutral-300 rounded-sm h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
         >
-        <!-- Imagen de fondo con opacidad -->
-        <img
-          src={`${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"}`}
-          alt="Course Image"
-          class="absolute inset-0 w-full h-full object-cover opacity-30"
-        />
-  
-        <!-- Contenido -->
-        <div class="relative z-10">
-          <p class="font-semibold text-sm md:text-md text-white">
-            {certificate.course}
-          </p>
-          <span class="text-[#9a9a9a] font-semibold text-sm">
-            Duración de {certificate.duration} horas
-          </span>
-        </div>
-
-        <div class="relative z-10 w-full bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 mt-2">
-          <div
-            class="bg-blue-600 h-2.5 rounded-full"
-            style={`background-color: ${courseData[index].color}; width: 30%`}
+          <!-- Imagen de fondo con opacidad -->
+          <img
+            src={`${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"}`}
+            alt="Course Image"
+            class="absolute inset-0 w-full h-full object-cover opacity-30"
           />
-        </div>
-      </a> ))}
-    </div>
-    <p class="font-semibold text-xl text-white mb-3">
-      Formaciones <span class="text-[#ffd16f]">completadas</span>.
-    </p>
-    <div
-      class={`grid ${userData.certificates.length === 1 ? "grid-cols-1" : userData.certificates.length === 2 ? "grid-cols-2" : userData.certificates.length <= 4 ? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-4" : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"} gap-4 mb-4`}
-    >
+    
+          <!-- Contenido -->
+          <div class="relative z-10">
+            <p class="font-semibold text-sm md:text-md text-white">
+              {certificate.course}
+            </p>
+            <span class="text-[#9a9a9a] font-semibold text-sm">
+              Duración de {certificate.duration} horas
+            </span>
+          </div>
+
+          <div class="relative z-10 w-full bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 mt-2">
+            <div
+              class="bg-blue-600 h-2.5 rounded-full"
+              style={`background-color: ${courseData[index].color}; width: 30%`}
+            />
+          </div>
+        </a> ))}
+      </div>
+      <p class="font-semibold text-xl text-white mb-3">
+        Formaciones <span class="text-[#ffd16f]">completadas</span>.
+      </p>
+    
+      <div
+      class={`grid ${(userData?.certificates?.length ?? 0) <= 1 ? "grid-cols-1" : (userData?.certificates?.length ?? 0) === 2? "grid-cols-2": (userData?.certificates?.length ?? 0) <= 3? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-3": "grid-cols-2 sm:grid-cols-3 lg:grid-cols-3"} gap-4 mb-4`}
+      >
       {
         userData.certificates.length == 0 ? 
         <p class="text-[#9a9a9a]">¡No tienes formaciones completadas!</p> :
         userData.certificates.slice(0, 4).map((certificate, index) => (
         <a
-  href={`/validate/${certificate.certificate}`}
-  class="relative border-2 border-transparent hover:border-neutral-300 rounded-sm dark:border-neutral-600 h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
->
-  <!-- Imagen de fondo con opacidad -->
-  <img
-    src={`${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"}`}
-    alt="Course Background"
-    class="absolute inset-0 w-full h-full object-cover opacity-20"
-  />
-  
-  <!-- Contenido en primer plano -->
-  <div class="relative z-10">
-    <p class="font-semibold text-sm md:text-md text-white">
-      {certificate.course}
-    </p>
-    <span class="text-[#9a9a9a] font-semibold text-sm">
-      Duración de {certificate.duration} horas
-    </span>
-  </div>
-  
-  <div class="relative z-10 mt-4">
-    <span
-      class="font-bold text-sm md:text-lg"
-      style={`color: ${courseData[index].color}; width: 100%`}
-    >
-      {certificate.certificate}
-    </span>
+          href={`/validate/${certificate.certificate}`}
+          class="relative border-2 border-transparent hover:border-neutral-300 rounded-sm dark:border-neutral-600 h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
+        >
+          <!-- Imagen de fondo con opacidad -->
+          <img
+            src={`${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"}`}
+            alt="Course Background"
+            class="absolute inset-0 w-full h-full object-cover opacity-20"
+          />
+    
+          <!-- Contenido en primer plano -->
+          <div class="relative z-10">
+            <p class="font-semibold text-sm md:text-md text-white">
+              {certificate.course}
+            </p>
+            <span class="text-[#9a9a9a] font-semibold text-sm">
+              Duración de {certificate.duration} horas
+            </span>
+          </div>
+    
+          <div class="relative z-10 mt-4">
+            <span
+              class="font-bold text-sm md:text-lg"
+              style={`color: ${courseData[index].color}; width: 100%`}
+            >
+              {certificate.certificate}
+            </span>
 
-    <div class="w-full bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 mt-1">
-      <div
-        class="h-2.5 rounded-full"
-        style={`background-color: ${courseData[index].color}; width: 100%`}
-      />
+            <div class="w-full bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 mt-1">
+              <div
+                class="h-2.5 rounded-full"
+                style={`background-color: ${courseData[index].color}; width: 100%`}
+              />
+            </div>
+          </div>
+        </a>))}
     </div>
-  </div>
-</a>
 
-        ))
-      }
-    </div>
-    <div class="grid grid-cols-2 gap-4 mb-4">
-      <div
-        class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
-      >
-      </div>
-      <div
-        class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
-      >
-      </div>
-      <div
-        class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
-      >
-      </div>
-      <div
-        class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
-      >
-      </div>
-    </div>
     <div
       class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-96 mb-4"
     >
     </div>
-    <div class="grid grid-cols-2 gap-4">
+
+
+    <div class="grid grid-cols-2 gap-4 mb-4">
       <div
         class="border-2 border-dashed rounded-sm border-neutral-300 dark:border-neutral-600 h-48 md:h-72"
       >
@@ -311,6 +295,11 @@ try {
   document.addEventListener('DOMContentLoaded', () => {
     const userAuth0 = JSON.parse(localStorage.getItem("userData"));
     const avatarImage = document.getElementsByClassName("avatar-image")
+    const enCursoButton = document.getElementById("en-curso-button")
+    const enCursoP = document.getElementById("en-curso-p")
+    const enCursoDiv = document.getElementById("en-curso-div")
+
+    
   
   if (userAuth0) {
     console.log("Usuario autenticado:", userAuth0);
@@ -318,6 +307,12 @@ try {
   } else {
     console.log("Usuario no autenticado");
   }
+
+  enCursoButton.addEventListener("click",()=>{
+    enCursoP.classList.toggle("hidden")
+    enCursoDiv.classList.toggle("hidden")
+  })
+  
 })
 </script>
 
