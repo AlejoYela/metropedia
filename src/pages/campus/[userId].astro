@@ -215,9 +215,9 @@ try {
                             aria-label="Dropdown"
                         >
                             <img
-                            id="avatar-image"
+                                id="avatar-image"
                                 class="shrink-0 size-[38px] rounded-full"
-                                src=`https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80`
+                                src=`https://openclipart.org/image/2000px/247319`
                                 alt="Avatar"
                             />
                         </button>
@@ -429,7 +429,7 @@ try {
         tabindex="-1"
         aria-label="Sidebar"
     >
-        <div class="relative flex flex-col h-full max-h-full">
+        <div class="relative flex flex-col h-full max-h-full border-r border-neutral-700">
             <div class="px-8 pt-4">
                 <!-- Logo -->
                 <a
@@ -444,7 +444,7 @@ try {
 
             <!-- Content -->
             <div
-                class="h-full overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-neutral-100 [&::-webkit-scrollbar-thumb]:bg-neutral-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+                class="h-full overflow-y-auto  [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-neutral-100 [&::-webkit-scrollbar-thumb]:bg-neutral-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
             >
                 <nav
                     class="hs-accordion-group p-3 w-full flex flex-col flex-wrap"
@@ -1072,6 +1072,8 @@ try {
   
   if (userAuth0) {
     console.log("Usuario autenticado:", userAuth0);
+    console.log("User auth0 picture: ", userAuth0.picture);
+    
     avatarImage.src = userAuth0.picture
   } else {
     console.log("Usuario no autenticado");
