@@ -70,7 +70,7 @@ const ownToolsInfo = [
   </div>
   <p
     class="mb-6 text-white/40 text-base sm:text-lg md:text-xl font-normal text-neutral-300"
-  >
+  > 
     Aprende como implementar y aplicar la <span class="text-[#ffd16f]">normativa metrológica</span> en tu contexto
     con los cursos disponibles.
   </p>
@@ -92,19 +92,22 @@ const ownToolsInfo = [
     }
   </div>
 
-  <ul role="list" class=" md:hidden divide-y divide-[#555555]">
-    {
-      ownToolsInfo.map((tool)=>(
-        <InfoList
-          title={tool.title}
-          description={tool.description}
-          link={tool.link}
-          icono={tool.icono}
-          color={tool.color}
-        />
-      ))
-    }
-  </ul>
+  
+
+    <ul role="list" class=" md:hidden divide-y divide-[#555555]">
+      {
+        ownToolsInfo.map((tool)=>(
+          <InfoList
+            title={tool.title}
+            description={tool.description}
+            link={tool.link}
+            icono={tool.icono}
+            color={tool.color}
+          />
+        ))
+      }
+    </ul>
+ 
 
 
 
