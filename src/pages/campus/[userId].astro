@@ -484,367 +484,45 @@ try {
                     <ul class="flex flex-col space-y-1">
                         <li>
                             <a
-                                class="flex items-center gap-x-3.5 py-2 px-2.5 bg-white/10 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
+                                id="boton-inicio"
+                                class="flex items-center gap-x-3.5 py-2 px-2.5 bg-white/10 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10  dark:text-white"
                                 href="#"
                             >
                                 <HomeIcon class="shrink-0 size-4"/>
                                 Inicio
                             </a>
                         </li>
-
-                        <li class="hs-accordion" id="users-accordion">
-                            <button
-                                type="button"
-                                class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
-                                aria-expanded="true"
-                                aria-controls="users-accordion-child"
+                        <li>
+                            <a
+                            id="boton-explorar"
+                                class="flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-white rounded-lg  focus:outline-none  dark:text-white"
+                                href="#"
                             >
                                 <ExploreIcon class="shrink-0 size-4"/>
                                 Explorar
-
-                                <svg
-                                    class="hs-accordion-active:block ms-auto hidden size-4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    ><path d="m18 15-6-6-6 6"></path></svg
-                                >
-
-                                <svg
-                                    class="hs-accordion-active:hidden ms-auto block size-4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    ><path d="m6 9 6 6 6-6"></path></svg
-                                >
-                            </button>
-
-                            <div
-                                id="users-accordion-child"
-                                class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
-                                role="region"
-                                aria-labelledby="users-accordion"
-                            >
-                                <ul
-                                    class="hs-accordion-group ps-8 pt-1 space-y-1"
-                                    data-hs-accordion-always-open
-                                >
-                                    <li
-                                        class="hs-accordion"
-                                        id="users-accordion-sub-1"
-                                    >
-                                        <button
-                                            type="button"
-                                            class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
-                                            aria-expanded="true"
-                                            aria-controls="users-accordion-sub-1-child"
-                                        >
-                                            Sub Menu 1
-
-                                            <svg
-                                                class="hs-accordion-active:block ms-auto hidden size-4"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                ><path d="m18 15-6-6-6 6"
-                                                ></path></svg
-                                            >
-
-                                            <svg
-                                                class="hs-accordion-active:hidden ms-auto block size-4"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                ><path d="m6 9 6 6 6-6"
-                                                ></path></svg
-                                            >
-                                        </button>
-
-                                        <div
-                                            id="users-accordion-sub-1-child"
-                                            class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
-                                            role="region"
-                                            aria-labelledby="users-accordion-sub-1"
-                                        >
-                                            <ul class="pt-1 space-y-1">
-                                                <li>
-                                                    <a
-                                                        class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-                                                        href="#"
-                                                    >
-                                                        Link 1
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-                                                        href="#"
-                                                    >
-                                                        Link 2
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-                                                        href="#"
-                                                    >
-                                                        Link 3
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li
-                                        class="hs-accordion"
-                                        id="users-accordion-sub-2"
-                                    >
-                                        <button
-                                            type="button"
-                                            class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
-                                            aria-expanded="true"
-                                            aria-controls="users-accordion-sub-2-child"
-                                        >
-                                            Sub Menu 2
-
-                                            <svg
-                                                class="hs-accordion-active:block ms-auto hidden size-4"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                ><path d="m18 15-6-6-6 6"
-                                                ></path></svg
-                                            >
-
-                                            <svg
-                                                class="hs-accordion-active:hidden ms-auto block size-4"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                ><path d="m6 9 6 6 6-6"
-                                                ></path></svg
-                                            >
-                                        </button>
-
-                                        <div
-                                            id="users-accordion-sub-2-child"
-                                            class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
-                                            role="region"
-                                            aria-labelledby="users-accordion-sub-2"
-                                        >
-                                            <ul class="pt-1 space-y-1">
-                                                <li>
-                                                    <a
-                                                        class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-                                                        href="#"
-                                                    >
-                                                        Link 1
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-                                                        href="#"
-                                                    >
-                                                        Link 2
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-                                                        href="#"
-                                                    >
-                                                        Link 3
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                            </a>
                         </li>
-
-                        <li class="hs-accordion" id="account-accordion">
-                            <button
-                                type="button"
-                                class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
-                                aria-expanded="true"
-                                aria-controls="account-accordion-child"
+                       
+                        <li>
+                            <a
+                            id="boton-cursos"
+                                class="flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-white rounded-lg  focus:outline-none  dark:text-white"
+                                href="#"
                             >
-                                <UserConfigIcon class="shrink-0 mt-0.5 size-4"/>
-                                Cuenta
-
-                                <svg
-                                    class="hs-accordion-active:block ms-auto hidden size-4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    ><path d="m18 15-6-6-6 6"></path></svg
-                                >
-
-                                <svg
-                                    class="hs-accordion-active:hidden ms-auto block size-4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    ><path d="m6 9 6 6 6-6"></path></svg
-                                >
-                            </button>
-
-                            <div
-                                id="account-accordion-child"
-                                class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
-                                role="region"
-                                aria-labelledby="account-accordion"
-                            >
-                                <ul class="ps-8 pt-1 space-y-1">
-                                    <li>
-                                        <a
-                                            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-                                            href="#"
-                                        >
-                                            Link 1
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-                                            href="#"
-                                        >
-                                            Link 2
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-                                            href="#"
-                                        >
-                                            Link 3
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <li class="hs-accordion" id="projects-accordion">
-                            <button
-                                type="button"
-                                class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
-                                aria-expanded="true"
-                                aria-controls="projects-accordion-child"
-                            >
-                                <NotebookIcon class="shrink-0 size-4" />
+                                <NotebookIcon class="shrink-0 size-4"/>
                                 Cursos
-
-                                <svg
-                                    class="hs-accordion-active:block ms-auto hidden size-4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    ><path d="m18 15-6-6-6 6"></path></svg
-                                >
-
-                                <svg
-                                    class="hs-accordion-active:hidden ms-auto block size-4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    ><path d="m6 9 6 6 6-6"></path></svg
-                                >
-                            </button>
-
-                            <div
-                                id="projects-accordion-child"
-                                class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
-                                role="region"
-                                aria-labelledby="projects-accordion"
+                            </a>
+                        </li>
+                       
+                        <li>
+                            <a
+                            id="boton-cuenta"
+                                class="flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-white rounded-lg  focus:outline-none  dark:text-white"
+                                href="#"
                             >
-                                <ul class="ps-8 pt-1 space-y-1">
-                                    <li>
-                                        <a
-                                            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-                                            href="#"
-                                        >
-                                            Link 1
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-                                            href="#"
-                                        >
-                                            Link 2
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-                                            href="#"
-                                        >
-                                            Link 3
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                                <UserConfigIcon class="shrink-0 size-4"/>
+                                Cuenta
+                            </a>
                         </li>
 
                         
@@ -858,92 +536,155 @@ try {
 
     <!-- Content -->
     <div class="w-full pt-5 px-4 sm:px-6 md:px-8 lg:ps-72">
-        <div class="w-full bg-white text-sm p-3 mb-3 md:mb-8 md:p-3 flex items-center justify-between rounded-sm gap-x-1">
-            <div class="flex items-center gap-x-3.5 min-w-36">
-                <UnlockIcon class="shrink-0 size-6 hidden md:block" stroke="#fcb316"/>
-                <p class="md:text-sm text-xs">Desbloquea todo tu potencial.</p>
-            </div>
-            <button class="bg-[#191919] text-white px-3 py-2 rounded-sm w-full md:w-auto text-xs md:text-base font-bold">Asesoría personalizada</button>
-        </div>
-        <div class="md:mb-8 mb-3">
-            <h2 class="text-white text-lg md:text-xl font-semibold md:mb-1">
-                    ¡Hola {userData?.name.split(" ")[0] ?? "Estudiante"}!
-            </h2>
-            <p class="text-[#9a9a9a]">Bienvenido(a) de vuelta</p>
-        </div>
+        <div id="start">
 
-        <div
-            style="background-image: url(https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011941/measure-bg_c27r6h.png)"
-            class="bg-[#252627] rounded-sm h-auto flex-col items-center p-3 md:p-5 md:mb-8 mb-3"
-        >
-            <p
-                class="text-[#9a9a9a] text-sm md:text-base font-semibold hidden md:block"
+            <div class="w-full bg-white text-sm p-3 mb-3 md:mb-8 md:p-3 flex items-center justify-between rounded-sm gap-x-1">
+                <div class="flex items-center gap-x-3.5 min-w-36">
+                    <UnlockIcon class="shrink-0 size-6 hidden md:block" stroke="#fcb316"/>
+                    <p class="md:text-sm text-xs">Desbloquea todo tu potencial. <span class="md:text-sm text-xs hidden md:inline">Pide ya una asesoría especializada impartida por un experto.</span></p>
+                    
+                </div>
+                <button class="bg-[#191919] hover:bg-black/60 text-white px-3 py-2 rounded-sm w-full md:w-auto text-xs md:text-base font-bold">Asesoría personalizada</button>
+            </div>
+            <div class="md:mb-8 mb-3">
+                <h2 class="text-white text-lg md:text-xl font-semibold md:mb-1">
+                        ¡Hola {userData?.name.split(" ")[0] ?? "Estudiante"}!
+                </h2>
+                <p class="text-[#9a9a9a]">Bienvenido(a) de vuelta al Campus</p>
+            </div>
+    
+            <div
+                style="background-image: url(https://res.cloudinary.com/dc0aja7yx/image/upload/v1731011941/measure-bg_c27r6h.png)"
+                class="bg-[#252627] rounded-sm h-auto flex-col items-center p-3 md:p-5 md:mb-8 mb-3"
             >
-                Encuentra aquí toda la información y progreso de
-                tus cursos.
-            </p>
-            <div class="md:flex gap-5 mt-3">
-                <div class="inline-flex text-white gap-1">
-                    <NotebookIcon class="stroke-[#60a5fa]" />
-                    0 cursos en curso.
-                </div>
-                <div class="inline-flex text-white gap-1">
-                    <CertificateIcon class="stroke-[#47be72]" />
-                    {userData?.certificates?.length ?? 0} cursos completados.
+                <p
+                    class="text-[#9a9a9a] text-sm md:text-base font-semibold hidden md:block"
+                >
+                    Encuentra aquí toda la información y progreso de
+                    tus cursos.
+                </p>
+                <div class="md:flex gap-5 mt-3">
+                    <div class="inline-flex text-white gap-1">
+                        <NotebookIcon class="stroke-[#60a5fa]" />
+                        0 cursos en curso.
+                    </div>
+                    <div class="inline-flex text-white gap-1">
+                        <CertificateIcon class="stroke-[#47be72]" />
+                        {userData?.certificates?.length ?? 0} cursos completados.
+                    </div>
                 </div>
             </div>
+    
+        </div>
+        <div id="user-section">
+
+            <!-- Profile -->
+            <div class="flex items-center gap-x-3">
+                <div class="shrink-0">
+                <img class="shrink-0 size-16 rounded-full" src="https://images.unsplash.com/photo-1510706019500-d23a509eecd4?q=80&w=2667&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Avatar">
+                </div>
+            
+                <div class="grow">
+                <h1 class="text-lg font-medium text-gray-800 dark:text-neutral-200">
+                    Eliana Garcia
+                </h1>
+                <p class="text-sm text-gray-600 dark:text-neutral-400">
+                    Graphic Designer, Web designer/developer
+                </p>
+                </div>
+            </div>
+            <!-- End Profile -->
+            
+            <!-- About -->
+            <div class="mt-8">
+                <p class="text-sm text-gray-600 dark:text-neutral-400">
+                I am a seasoned graphic designer with over 14 years of experience in creating visually appealing and user-centric designs. My expertise spans across UI design, design systems, and custom illustrations, helping clients bring their digital visions to life.
+                </p>
+            
+                <p class="mt-3 text-sm text-gray-600 dark:text-neutral-400">
+                Currently, I work remotely for Notion, where I design template UIs, convert them into HTML and CSS, and provide comprehensive support to our users. I am passionate about crafting elegant and functional designs that enhance user experiences.
+                </p>
+            
+                <ul class="mt-5 flex flex-col gap-y-3">
+                <li class="flex items-center gap-x-2.5">
+                    <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <a class="text-[13px] text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-none focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400" href="#">
+                    elianagarcia997@about.me
+                    </a>
+                </li>
+            
+                <li class="flex items-center gap-x-2.5">
+                    <svg class="shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.1881 10.1624L22.7504 0H20.7214L13.2868 8.82385L7.34878 0H0.5L9.47944 13.3432L0.5 24H2.5291L10.3802 14.6817L16.6512 24H23.5L14.1881 10.1624ZM11.409 13.4608L3.26021 1.55962H6.37679L20.7224 22.5113H17.6058L11.409 13.4613V13.4608Z" fill="currentColor"/></svg>
+                    <a class="text-[13px] text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-none focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400" href="#">
+                    @elianagarcia997
+                    </a>
+                </li>
+            
+                <li class="flex items-center gap-x-2.5">
+                    <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"/></svg>
+                    <a class="text-[13px] text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-none focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400" href="#">
+                    @elianagarcia997
+                    </a>
+                </li>
+                </ul>
+            </div>
+            <!-- End About -->
         </div>
 
-        <h2 class="mb-5 md:mb-5 text-xl font-semibold text-white">Descubre las escuelas</h2>
         
+        <div id="escuelas" class="">
+            <h2 class="mb-5 md:mb-5 text-xl font-semibold text-white">Descubre las escuelas</h2>
+            <Schools/>
+        </div>
 
-       <Schools/>
+       <div id="formaciones-completadas" class="hidden">
 
+           <p class="font-semibold text-xl text-white mb-3">
+               Formaciones <span class="text-[#ffd16f]">completadas</span>.
+           </p>
+           
+             <div class={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-4`}>
+               {userData.certificates.length == 0 ? 
+                   <p class="text-[#9a9a9a]">¡No tienes formaciones completadas!</p> :
+                   userData.certificates.slice(0, 4).map((certificate, index) => (
+                       <a href={`/validate/${certificate.certificate}`} class="relative border-2 border-transparent hover:border-neutral-300 rounded-sm dark:border-neutral-600 h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
+                       >
+                       <!-- Imagen de fondo con opacidad -->
+                       <img
+                           src={`${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"}`}
+                           alt="Course Background"
+                           class="absolute inset-0 w-full h-full object-cover opacity-20"
+                       />
+                       <!-- Contenido en primer plano -->
+                       <div class="relative z-10">
+                           <p class="font-semibold text-sm md:text-md text-white">
+                               {certificate.course}
+                           </p>
+                           <span class="text-[#9a9a9a] font-semibold text-sm">
+                               Duración de {certificate.duration} horas
+                           </span>
+                       </div>
+                   
+                       <div class="relative z-10 mt-4">
+                           <span
+                           class="font-bold text-sm md:text-lg"
+                           style={`color: ${courseData[index].color}; width: 100%`}
+                           >
+                               {certificate.certificate}
+                           </span>
+               
+                           <div class="w-full bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 mt-1">
+                           <div
+                               class="h-2.5 rounded-full"
+                               style={`background-color: ${courseData[index].color}; width: 100%`}
+                           />
+                           </div>
+                       </div>
+                   </a>
+               ))}
+             </div>
+       </div>
 
-        <p class="font-semibold text-xl text-white mb-3">
-            Formaciones <span class="text-[#ffd16f]">completadas</span>.
-        </p>
-        
-          <div class={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-4`}>
-            {userData.certificates.length == 0 ? 
-                <p class="text-[#9a9a9a]">¡No tienes formaciones completadas!</p> :
-                userData.certificates.slice(0, 4).map((certificate, index) => (
-                    <a href={`/validate/${certificate.certificate}`} class="relative border-2 border-transparent hover:border-neutral-300 rounded-sm dark:border-neutral-600 h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
-                    >
-                    <!-- Imagen de fondo con opacidad -->
-                    <img
-                        src={`${courseData.find((c) => c.course === certificate.course)?.image || "/path/to/default-image.png"}`}
-                        alt="Course Background"
-                        class="absolute inset-0 w-full h-full object-cover opacity-20"
-                    />
-                    <!-- Contenido en primer plano -->
-                    <div class="relative z-10">
-                        <p class="font-semibold text-sm md:text-md text-white">
-                            {certificate.course}
-                        </p>
-                        <span class="text-[#9a9a9a] font-semibold text-sm">
-                            Duración de {certificate.duration} horas
-                        </span>
-                    </div>
-                
-                    <div class="relative z-10 mt-4">
-                        <span
-                        class="font-bold text-sm md:text-lg"
-                        style={`color: ${courseData[index].color}; width: 100%`}
-                        >
-                            {certificate.certificate}
-                        </span>
-            
-                        <div class="w-full bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 mt-1">
-                        <div
-                            class="h-2.5 rounded-full"
-                            style={`background-color: ${courseData[index].color}; width: 100%`}
-                        />
-                        </div>
-                    </div>
-                </a>
-            ))}
-          </div>
      </div>
     <!-- End Content -->
     <!-- ========== END MAIN CONTENT ========== -->
@@ -953,24 +694,65 @@ try {
   document.addEventListener('DOMContentLoaded', () => {
     const userAuth0 = JSON.parse(localStorage.getItem("userData"));
     const avatarImage = document.getElementById("avatar-image")
-
-    
+    const startSection = document.getElementById("start")
+    const escuelasSection = document.getElementById("escuelas")
+    const formacionesCompletadasSection = document.getElementById("formaciones-completadas")
+    const userSection = document.getElementById("user-section")
+    const botonInicio = document.getElementById("boton-inicio")
+    const botonExplorar = document.getElementById("boton-explorar")
+    const botonCuenta = document.getElementById("boton-cuenta")
+    const botonCursos = document.getElementById("boton-cursos")
   
-  if (userAuth0) {
-    console.log("Usuario autenticado:", userAuth0);
-    console.log("User auth0 picture: ", userAuth0.picture);
-    
-    avatarImage.src = userAuth0.picture
-  } else {
-    console.log("Usuario no autenticado");
-  }
+    if (userAuth0) {
+        console.log("Usuario autenticado:", userAuth0);
+        console.log("User auth0 picture: ", userAuth0.picture);
+        
+        avatarImage.src = userAuth0.picture
+    } else {
+        console.log("Usuario no autenticado");
+    }
 
-  enCursoButton.addEventListener("click",()=>{
-    enCursoP.classList.toggle("hidden")
-    enCursoDiv.classList.toggle("hidden")
+
+
+    // Agrupar botones y secciones
+const botones = {
+    inicio: botonInicio,
+    explorar: botonExplorar,
+    cursos: botonCursos,
+    cuenta: botonCuenta,
+};
+
+const secciones = {
+    inicio: startSection,
+    explorar: escuelasSection,
+    cursos: formacionesCompletadasSection,
+    cuenta: userSection,
+};
+
+// Función para manejar el cambio de botón activo
+function activarBotonYSeccion(activo) {
+    // Desactivar todos los botones y ocultar todas las secciones
+    Object.keys(botones).forEach((key) => {
+        botones[key].classList.remove("bg-white/10", "hover:bg-white/10", "focus:bg-white/10");
+        secciones[key].classList.add("hidden");
+    });
+
+    // Activar el botón y mostrar la sección correspondiente
+    botones[activo].classList.add("bg-white/10", "hover:bg-white/10", "focus:bg-white/10");
+    secciones[activo].classList.remove("hidden");
+}
+
+// Asignar eventos a cada botón
+botonInicio.addEventListener("click", () => activarBotonYSeccion("inicio"));
+botonExplorar.addEventListener("click", () => activarBotonYSeccion("explorar"));
+botonCursos.addEventListener("click", () => activarBotonYSeccion("cursos"));
+botonCuenta.addEventListener("click", () => activarBotonYSeccion("cuenta"));
+
+
+
+
+ 
   })
-  
-})
 </script>
 
 <style>
