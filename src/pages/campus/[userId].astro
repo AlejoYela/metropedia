@@ -703,7 +703,7 @@ try {
 </CampusLayout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const userAuth0 = JSON.parse(localStorage.getItem("userData"));
     const avatarImage = document.getElementById("avatar-image")
     const avatarProfile = document.getElementById("avatar-profile")
@@ -720,53 +720,46 @@ try {
         console.log("Usuario autenticado:", userAuth0);
         console.log("User auth0 picture: ", userAuth0.picture);
         
-        avatarImage.src = userAuth0.picture
-        avatarProfile.src = userAuth0.picture
+        avatarImage ?? avatarImage.src = userAuth0.picture
+        avatarProfile ?? avatarProfile.src = userAuth0.picture
     } else {
         console.log("Usuario no autenticado");
     }
 
-
-
     // Agrupar botones y secciones
-const botones = {
-    inicio: botonInicio,
-    explorar: botonExplorar,
-    cursos: botonCursos,
-    cuenta: botonCuenta,
-};
+    const botones = {
+        inicio: botonInicio,
+        explorar: botonExplorar,
+        cursos: botonCursos,
+        cuenta: botonCuenta,
+    };
 
-const secciones = {
-    inicio: startSection,
-    explorar: escuelasSection,
-    cursos: formacionesCompletadasSection,
-    cuenta: userSection,
-};
+    const secciones = {
+        inicio: startSection,
+        explorar: escuelasSection,
+        cursos: formacionesCompletadasSection,
+        cuenta: userSection,
+    };
 
-// Función para manejar el cambio de botón activo
-function activarBotonYSeccion(activo) {
-    // Desactivar todos los botones y ocultar todas las secciones
-    Object.keys(botones).forEach((key) => {
-        botones[key].classList.remove("bg-white/10", "hover:bg-white/10", "focus:bg-white/10");
-        secciones[key].classList.add("hidden");
-    });
+    // Función para manejar el cambio de botón activo
+    function activarBotonYSeccion(activo) {
+        // Desactivar todos los botones y ocultar todas las secciones
+        Object.keys(botones).forEach((key) => {
+            botones[key].classList.remove("bg-white/10", "hover:bg-white/10", "focus:bg-white/10");
+            secciones[key].classList.add("hidden");
+        });
 
-    // Activar el botón y mostrar la sección correspondiente
-    botones[activo].classList.add("bg-white/10", "hover:bg-white/10", "focus:bg-white/10");
-    secciones[activo].classList.remove("hidden");
-}
+        // Activar el botón y mostrar la sección correspondiente
+        botones[activo].classList.add("bg-white/10", "hover:bg-white/10", "focus:bg-white/10");
+        secciones[activo].classList.remove("hidden");
+    }
 
-// Asignar eventos a cada botón
-botonInicio.addEventListener("click", () => activarBotonYSeccion("inicio"));
-botonExplorar.addEventListener("click", () => activarBotonYSeccion("explorar"));
-botonCursos.addEventListener("click", () => activarBotonYSeccion("cursos"));
-botonCuenta.addEventListener("click", () => activarBotonYSeccion("cuenta"));
-
-
-
-
- 
-  })
+    // Asignar eventos a cada botón
+    botonInicio.addEventListener("click", () => activarBotonYSeccion("inicio"));
+    botonExplorar.addEventListener("click", () => activarBotonYSeccion("explorar"));
+    botonCursos.addEventListener("click", () => activarBotonYSeccion("cursos"));
+    botonCuenta.addEventListener("click", () => activarBotonYSeccion("cuenta"));
+})
 </script>
 
 <style>
