@@ -59,9 +59,17 @@ const numberToWord = {
           {selectedCourse.course}
         </h2>
 
-        <p class="mb-8 text-sm md:text-base">
+        <p class="mb-0 text-sm md:text-base">
           {selectedCourse.description}
         </p>
+        <div class="mb-5 flex md:hidden">
+
+          <a
+            href="https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/authorize?response_type=code&client_id=JozbrwbE60QoHfD6hZiQy18zIQFxGEw0&redirect_uri=https%3A%2F%2Fmetropedia.vercel.app%2Flogin&state=STATE"
+            class="bg-primary text-center text-secondary border border-transparent hover:border-primary font-bold tracking-tight px-3 py-2 rounded-sm mt-3 mb-1 w-full hover:bg-[#f1c669]">
+            Tomar curso
+          </a>
+        </div>
         <div class="flex items-center gap-3 text-xs my-3">
           <p class="bg-[#f1c669] text-secondary py-1 px-2">Lo más vendido</p>
           <p class="text-primary">
@@ -226,21 +234,15 @@ const numberToWord = {
         </div>
         <div class="p-4">
           <p class="text-black text-lg font-extrabold leading-tight mb-1">
-            Suscribirse a los mejores cursos de Metropedia
+            Toma este curso y certifícate con Metropedia
           </p>
           <p class="text-[#696969] text-sm">
             Consigue este curso y más de 2000 de nuestros cursos mejor valorados
-            con el Plan Personal. <a class="underline" href=""
+            por los ususarios. <a class="underline" href=""
               >Más información</a
             >
           </p>
-          <button
-            class="bg-primary text-secondary border border-transparent hover:border-primary font-bold tracking-tight px-3 py-2 rounded-sm mt-3 mb-1 w-full hover:bg-[#f1c669]"
-            >Prueba gratis el plan personal</button
-          >
-          <p class="text-xs text-center">
-            A partir de 20.000 COL$ al mes tras la prueba
-          </p>
+          
           <div class="relative flex py-3 items-center">
             <div class="flex-grow border-t border-neutral-400"></div>
             <span class="flex-shrink mx-4 text-neutral-400">o</span>
@@ -249,10 +251,19 @@ const numberToWord = {
           <p class="text-black font-extrabold text-2xl tracking-tight">
             $ {selectedCourse.price} COP
           </p>
-          <button
-            class="bg-transparent text-secondary border border-secondary font-bold tracking-tight px-3 py-2 rounded-sm mt-3 mb-1 w-full hover:bg-[#9a9a9a]"
-            >Tomar curso</button
-          >
+
+          <div class="my-5 flex">
+
+            <a
+              href="https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/authorize?response_type=code&client_id=JozbrwbE60QoHfD6hZiQy18zIQFxGEw0&redirect_uri=https%3A%2F%2Fmetropedia.vercel.app%2Flogin&state=STATE"
+              class="bg-primary text-center text-secondary border border-transparent hover:border-primary font-bold tracking-tight px-3 py-2 rounded-sm mt-3 mb-1 w-full hover:bg-[#f1c669]">
+              Tomar curso
+            </a>
+          </div>
+          <p class="text-xs text-center">
+            Inicia en dos días hábiles
+          </p>
+          
           <p class="text-xs text-center">Garantía de reembolso de 30 días</p>
         </div>
       </div>
