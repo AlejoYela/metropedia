@@ -720,8 +720,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Usuario autenticado:", userAuth0);
         console.log("User auth0 picture: ", userAuth0.picture);
         
-        avatarImage ?? avatarImage.src = userAuth0.picture
-        avatarProfile ?? avatarProfile.src = userAuth0.picture
+        // avatarImage.src = userAuth0.picture
+        // avatarProfile.src = userAuth0.picture
     } else {
         console.log("Usuario no autenticado");
     }
