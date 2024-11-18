@@ -577,6 +577,7 @@ try {
             <!-- Profile 2 -->
             <div class="flex flex-col md:flex-row items-center border border-neutral-700 w-full md:w-[75vw] max-w-[650px] p-8 md:p-12 bg-transparent rounded-sm shadow-[0_80px_60px_rgba(0,0,0,0.12)] relative mt-10 md:mt-0 md:ml-3">
                 <img 
+                id="avatar-profile"
                   src="https://static.vecteezy.com/system/resources/thumbnails/008/442/086/small/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg" 
                   alt="Card Image" 
                   class="w-[30vw] max-w-[30vw] md:max-w-[280px] md:w-[32vw] h-[30vw] md:h-[300px] object-cover mb-6 md:mb-0 -mt-[70px] md:mt-0 -ml-0 md:-ml-[60px] mr-0 md:mr-[30px] rounded-full md:rounded-lg md:rounded-inherit shadow-[0_60px_40px_rgba(0,0,0,0.12)]"
@@ -721,7 +722,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("User auth0 picture: ", userAuth0.picture);
         
         avatarImage.src = userAuth0.picture
-        // avatarProfile.src = userAuth0.picture
+        avatarProfile.src = userAuth0.picture
     } else {
         console.log("Usuario no autenticado");
     }
