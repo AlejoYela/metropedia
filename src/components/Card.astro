@@ -4,7 +4,7 @@ const { title, description, icon: Icon, clase, link } = Astro.props;
 const claseStyles = {
   Calculadora: {
     button: "bg-blue-100 text-blue-800",
-    darkButton: "dark:bg-neutral-700 dark:text-blue-400",
+    darkButton: "dark:bg-blue-400/20 dark:text-blue-400",
     readMoreButton: "bg-blue-800 text-white",
     darkReadMoreButton: "dark:bg-blue-400 dark:text-[#252627]"
   },
@@ -31,18 +31,20 @@ const claseStyles = {
 const currentStyles = claseStyles[clase] || claseStyles.default;
 ---
 
-<div class="max-w-sm p-6 bg-white border border-neutral-200 rounded-sm shadow  bg-opacity-10 dark:border-white/30">
+<div class="max-w-sm p-4 md:p-6 bg-white border border-neutral-200 rounded-sm shadow bg-opacity-10 dark:border-white/30 flex justify-between md:block">
+  <div>
     <a href="#" class={`${currentStyles.button} text-xs font-medium inline-flex items-center gap-1 px-2.5 rounded-sm mb-2 py-1 ${currentStyles.darkButton}`}>
         <Icon class=" size-4" /> <!-- Asegúrate de agregar clases para el tamaño del icono -->
         {clase}
     </a>
     <a href="#">
-        <h5 class=" my-2 text-lg md:text-2xl font-semibold tracking-wider text-neutral-900 dark:text-white">{title}</h5>
+        <h5 class=" md:my-2 text-base md:text-2xl font-semibold tracking-wider text-neutral-900 dark:text-white">{title}</h5>
     </a>
-    <p class="text-base md:text-xl mb-3 font-normal text-neutral-500 dark:text-neutral-400">{description}</p>
+  </div>
+    <p class="hidden md:block text-base md:text-xl mb-3 font-normal text-neutral-500 dark:text-neutral-400">{description}</p>
     <a href={link} class={`inline-flex items-center px-3 py-2 text-sm font-medium text-center rounded-sm hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-opacity-50 ${currentStyles.readMoreButton} ${currentStyles.darkReadMoreButton}`}>
-        Ir a la herramienta
-        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+        <span class="hidden md:block">Ir a la herramienta</span>
+        <svg class="rtl:rotate-180 w-3.5 h-3.5 md:ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
         </svg>
     </a>
