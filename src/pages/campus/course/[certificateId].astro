@@ -180,7 +180,7 @@ await fetchCertificate();
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
-                                stroke-width="2"
+                                stroke-width="2" 
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 ><path
@@ -305,12 +305,12 @@ await fetchCertificate();
                                 <p
                                     class="text-sm text-neutral-500 dark:text-neutral-500"
                                 >
-                                    Signed in as
+                                    Correo de ingreso
                                 </p>
                                 <p
                                     class="text-sm font-medium text-neutral-800 dark:text-neutral-200"
                                 >
-                                    james@site.com
+                                    {userData.email}
                                 </p>
                             </div>
                             <div class="p-1.5 space-y-0.5">
@@ -487,15 +487,7 @@ await fetchCertificate();
     <!-- Sidebar -->
     <div
         id="hs-application-sidebar"
-        class="hs-overlay [--auto-close:lg]
-    hs-overlay-open:translate-x-0
-    -translate-x-full transition-all duration-300 transform
-    w-[260px] h-full
-    hidden
-    fixed inset-y-0 start-0 z-[60]
-    bg-neutral-900
-    lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
-    dark:bg-neutral-800 dark:border-neutral-700"
+        class="hs-overlay [--auto-close:lg] hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform w-[260px] h-full hidden fixed inset-y-0 start-0 z-[60] bg-neutral-900 lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 dark:bg-neutral-800 dark:border-neutral-700"
         role="dialog"
         tabindex="-1"
         aria-label="Sidebar"
@@ -517,26 +509,27 @@ await fetchCertificate();
 
             <!-- Content -->
             <div
-                class="h-full overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-neutral-100 [&::-webkit-scrollbar-thumb]:bg-neutral-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+                class="h-full overflow-y-auto  [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-neutral-100 [&::-webkit-scrollbar-thumb]:bg-neutral-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
             >
                 <nav
                     class="hs-accordion-group p-3 w-full flex flex-col flex-wrap"
                     data-hs-accordion-always-open
                 >
-                    <ul class="flex flex-col space-y-1">
+                    <ul class="flex flex-col space-y-1 ">
                         {
                             cordCourse.modules.map((module) => (
                                 <li class="hs-accordion" id="users-accordion">
                                     <button
                                         type="button"
-                                        class="hs-accordion-toggle hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-400 dark:hs-accordion-active:text-white dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                                        class="hs-accordion-toggle max-w-56 hs-accordion-active:text-primary hs-accordion-active:hover:bg-transparent w-full text-start inline-flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-400 dark:hs-accordion-active:text-white dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
                                         aria-expanded="true"
                                         aria-controls="users-accordion"
                                     >
                                         <svg
+                                            class="shrink-0"
                                             xmlns="http://www.w3.org/2000/svg"
-                                            width="24"
-                                            height="24"
+                                            width="18"
+                                            height="18"
                                             viewBox="0 0 24 24"
                                             fill="none"
                                             stroke="currentColor"
@@ -554,9 +547,9 @@ await fetchCertificate();
                                                 <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
                                             </>
                                         </svg>
-                                        {module.title}
+                                        <p class="truncate">{module.title}</p>
                                         <svg
-                                            class="hs-accordion-active:block ms-auto hidden size-4 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400"
+                                            class="hs-accordion-active:block ms-auto hidden size-4 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400 shrink-0"
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="24"
                                             height="24"
@@ -570,7 +563,7 @@ await fetchCertificate();
                                             <path d="m18 15-6-6-6 6" />
                                         </svg>
                                         <svg
-                                            class="hs-accordion-active:hidden ms-auto block size-4 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400"
+                                            class="hs-accordion-active:hidden ms-auto block size-4 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400 shrink-0"
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="24"
                                             height="24"
@@ -587,7 +580,7 @@ await fetchCertificate();
 
                                     <div
                                         id="users-accordion"
-                                        class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
+                                        class="hs-accordion-content max-w-56 w-full overflow-hidden transition-[height] duration-300 hidden"
                                         role="region"
                                         aria-labelledby="users-accordion"
                                     >
@@ -597,16 +590,16 @@ await fetchCertificate();
                                         >
                                             {module.content.map((cont) => (
                                                 <li
-                                                    class="hs-accordion"
+                                                    class="hs-accordion truncate"
                                                     id="users-accordion-sub-1"
                                                 >
                                                     <button
                                                         type="button"
-                                                        class="hs-accordion-toggle hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-400 dark:hs-accordion-active:text-white dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                                                        class="hs-accordion-toggle hs-accordion-active:text-primary hs-accordion-active:hover:bg-transparent w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-400 dark:hs-accordion-active:text-white dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
                                                         aria-expanded="true"
                                                         aria-controls="users-accordion-sub-1"
                                                     >
-                                                        {cont.subtitle}
+                                                        <p class="truncate">{cont.subtitle}</p>
                                                     </button>
                                                 </li>
                                             ))}
@@ -630,6 +623,7 @@ await fetchCertificate();
                 >{userData.certificate.course}</span
             >
         </h2>
+        
         <div
             class="w-full bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 mt-1 mb-5"
         >
@@ -639,6 +633,7 @@ await fetchCertificate();
             >
             </div>
         </div>
+        <p class="text-[#555555] font-semibold">A continuación podrás visualizar el contenido de tu curso</p>
         <Course certificateId={userData.certificate.course} />
     </div>
 

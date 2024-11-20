@@ -2,108 +2,262 @@
 const navItems = [
     { title: "Herramientas", label: "experiencia", url: "/#experiencia" },
     { title: "Formación", label: "proyectos", url: "/landing-cursos/" },
-    { title: "Contacto", label: "contacto", url: "mailto:andres.alejo.yela@gmail.com" },
-    { title: "Ingresar", label: "contacto", url: "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/authorize?response_type=code&client_id=JozbrwbE60QoHfD6hZiQy18zIQFxGEw0&redirect_uri=https%3A%2F%2Fmetropedia.vercel.app%2Flogin&state=STATE" },
+    {
+        title: "Contacto",
+        label: "contacto",
+        url: "mailto:andres.alejo.yela@gmail.com",
+    },
+    {
+        title: "Ingresar",
+        label: "contacto",
+        url: "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/authorize?response_type=code&client_id=JozbrwbE60QoHfD6hZiQy18zIQFxGEw0&redirect_uri=https%3A%2F%2Fmetropedia.vercel.app%2Flogin&state=STATE",
+    },
 ];
+
+
 ---
 
-<div class="z-10 header-wrapper flex justify-center fixed w-full bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10">
-    <header class="flex justify-between items-center max-w-screen-xl w-full px-4 lg:px-6">
-        <a href="/" class="relative flex items-center gap-3">
-            <img src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731012164/logolargo_yjfjl4.png" class="metropedia h-12 md:h-20 relative z-20" alt="Logo" />
-        </a>
-
-        <!-- Search Form -->
-        <form class="hidden md:flex max-w-xs mx-auto items-center w-full">
-            <label for="default-search" class="mb-2 text-sm font-medium sr-only text-white">Buscar</label>
-            <div class="relative w-full">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-neutral-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"></path>
-                    </svg>
-                </div>
-                <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm border rounded-sm bg-[#252627] border-neutral-600 placeholder-neutral-400 text-white focus:ring-[#fcb316] focus:border-[#fcb316]" placeholder="Buscar en la página" required />
-                <button type="submit" class="text-[#252627] absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-sm text-sm px-4 py-2 bg-[#fcb316] hover:bg-yellow-600 focus:ring-yellow-800">Buscar</button>
-            </div>
-        </form>
-
-        <!-- Navbar -->
-        <nav class="flex items-center text-xs md:text-lg font-medium text-neutral-200">
-            <button id="menu-toggle" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-neutral-500 rounded-lg md:hidden hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:ring-neutral-600" aria-controls="mobile-menu" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                </svg>
-            </button>
-            <div class="hidden md:flex space-x-2" id="desktop-menu">
-                {navItems.map((link) => (
-                    <a class="block px-2 transition hover:text-[#fcb316] dark:hover:text-[#fcb316]" aria-label={link.label} href={link.url}>
-                        {link.title}
-                    </a>
-                ))}
-                <a id="avatar-a" class="hidden px-2 transition hover:text-[#fcb316] dark:hover:text-[#fcb316]">
-                    <img id="avatar-image" class=" h-6 rounded-full border border-green-400" src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1730913326/user2_a2p8w8.png" alt="">
+<div
+    class="z-10 header-wrapper flex justify-center fixed w-full bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10"
+>
+    <header
+        class="flex justify-between items-center max-w-screen-xl w-full lg:px-0 px-4"
+    >
+        <!--Preline navbar -->
+        <nav
+            class="max-w-[85rem] w-full mx-auto sm:flex sm:items-center sm:justify-between md:px-4"
+        >
+            <div class="flex items-center justify-between">
+                <a href="/" class="relative flex items-center gap-3 min-w-max">
+                    <img
+                        src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731012164/logolargo_yjfjl4.png"
+                        class="metropedia h-14 md:h-16 relative z-20"
+                        alt="Logo"
+                    />
                 </a>
+
+                <div class="sm:hidden">
+                    <button
+                        type="button"
+                        class="hs-collapse-toggle relative size-7 flex justify-center items-center gap-x-2 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10"
+                        id="hs-navbar-example-collapse"
+                        aria-expanded="false"
+                        aria-controls="hs-navbar-example"
+                        aria-label="Toggle navigation"
+                        data-hs-collapse="#hs-navbar-example"
+                    >
+                        <svg
+                            class="hs-collapse-open:hidden shrink-0 size-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><line x1="3" x2="21" y1="6" y2="6"></line><line
+                                x1="3"
+                                x2="21"
+                                y1="12"
+                                y2="12"></line><line
+                                x1="3"
+                                x2="21"
+                                y1="18"
+                                y2="18"></line></svg
+                        >
+                        <svg
+                            class="hs-collapse-open:block hidden shrink-0 size-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><path d="M18 6 6 18"></path><path d="m6 6 12 12"
+                            ></path></svg
+                        >
+                        <span class="sr-only">Toggle navigation</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search Input -->
+            <div
+                class="hidden md:block relative border rounded-sm border-neutral-400"
+            >
+                <div
+                    class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5"
+                >
+                    <svg
+                        class="shrink-0 size-4 text-neutral-400 dark:text-white/60"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><circle cx="11" cy="11" r="8"></circle><path
+                            d="m21 21-4.3-4.3"></path></svg
+                    >
+                </div>
+                <input
+                    type="text"
+                    class="py-2 ps-10 pe-16 block w-full bg-white border-neutral-200 rounded-sm text-sm focus:outline-none focus:border-primary focus:ring-primary disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-600"
+                    placeholder="Buscar"
+                />
+                <div
+                    class="hidden absolute inset-y-0 end-0 flex items-center pointer-events-none z-20 pe-1"
+                >
+                    <button
+                        type="button"
+                        class="inline-flex shrink-0 justify-center items-center size-6 rounded-full text-neutral-500 hover:text-primary focus:outline-none focus:text-primary dark:text-neutral-500 dark:hover:text-primary dark:focus:text-primary"
+                        aria-label="Close"
+                    >
+                        <span class="sr-only">Close</span>
+                        <svg
+                            class="shrink-0 size-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><circle cx="12" cy="12" r="10"></circle><path
+                                d="m15 9-6 6"></path><path d="m9 9 6 6"
+                            ></path></svg
+                        >
+                    </button>
+                </div>
+                <div
+                    class="absolute inset-y-0 end-0 flex items-center pointer-events-none z-20 pe-3 text-neutral-400"
+                >
+                    <svg
+                        class="shrink-0 size-3 text-neutral-400 dark:text-white/60"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path
+                            d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"
+                        ></path></svg
+                    >
+                    <span class="mx-1">
+                        <svg
+                            class="shrink-0 size-3 text-neutral-400 dark:text-white/60"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><path d="M5 12h14"></path><path d="M12 5v14"
+                            ></path></svg
+                        >
+                    </span>
+                    <span class="text-xs">/</span>
+                </div>
+            </div>
+
+            <div
+                id="hs-navbar-example"
+                class="hidden hs-collapse overflow-hidden transition-all duration-300 sm:block"
+                aria-labelledby="hs-navbar-example-collapse"
+            >
+                <div
+                    class="flex flex-col gap-5 my-5 md:my-0 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5"
+                >
+                    {
+                        navItems.map((link) => (
+                            <a
+                                class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+                                aria-label={link.label}
+                                href={link.url}
+                            >
+                                {link.title}
+                            </a>
+                        ))
+                    }
+                    <a
+                        id="avatar-a"
+                        
+                        href="#"
+                    >
+                    <img class="h-8 rounded-full border-green-500 border-2" id="avatar-image" src="https://openclipart.org/image/2000px/247319" alt="avatar image">
+                    </a>
+                </div>
             </div>
         </nav>
+        <!--end Preline navbar -->
     </header>
-</div>
-
-<!-- Mobile Menu -->
-<div class="fixed top-0 right-0 w-3/4 max-w-sm h-full bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10 transform transition-transform duration-300 ease-in-out translate-x-full opacity-0 md:hidden z-20" id="mobile-menu">
-    <!-- Botón para cerrar el menú -->
-    <button id="close-menu" class="absolute top-4 right-4 text-white text-lg focus:outline-none">
-        ✕
-    </button>
-    <nav class="flex flex-col p-4 mt-10 space-y-2">
-        {navItems.map((link) => (
-            <a class="block px-2 py-1 text-white transition hover:text-[#fcb316] dark:hover:text-[#fcb316]" aria-label={link.label} href={link.url}>
-                {link.title}
-            </a>
-        ))}
-    </nav>
 </div>
 
 <!-- JavaScript para el Toggle del Menú -->
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenu = document.getElementById('close-menu');
-        const avatarImage = document.getElementById("avatar-image")
-        const avatarA = document.getElementById("avatar-a")
+    document.addEventListener("DOMContentLoaded", () => {
+        const avatarImage = document.getElementById("avatar-image");
+        const avatarA = document.getElementById("avatar-a");
 
         const userAuth0 = JSON.parse(localStorage.getItem("userData"));
-        if(userAuth0){
-            avatarA.classList.remove("hidden")
-            avatarA.classList.add("block")
-            avatarImage.src = userAuth0.picture
-        }else{
-            avatarA.classList.add("hidden")
-            avatarA.classList.remove("block")
+        if (userAuth0) {
+            avatarA.classList.remove("hidden");
+            avatarA.classList.add("block");
+            avatarImage.src = userAuth0.picture;
+        } else {
+            avatarA.classList.add("hidden");
+            avatarA.classList.remove("block");
         }
-
-        // Abrir menú
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.remove('translate-x-full', 'opacity-0'); // Remueve para que se vea
-            mobileMenu.classList.add('translate-x-0', 'opacity-100'); // Añade clases para mostrar con animación
-        });
-
-        // Cerrar menú
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.add('translate-x-full', 'opacity-0'); // Oculta el menú nuevamente con animación
-            mobileMenu.classList.remove('translate-x-0', 'opacity-100');
-        });
     });
 </script>
-
 
 <!-- Estilos -->
 <style>
     .metropedia {
-        -webkit-mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent),
-                           linear-gradient(to left, transparent, black 30%, black 70%, transparent);
-        mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent),
-                    linear-gradient(to left, transparent, black 30%, black 70%, transparent);
+        -webkit-mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            ),
+            linear-gradient(
+                to left,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            );
+        mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            ),
+            linear-gradient(
+                to left,
+                transparent,
+                black 30%,
+                black 70%,
+                transparent
+            );
     }
 </style>

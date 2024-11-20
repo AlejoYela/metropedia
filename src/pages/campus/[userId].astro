@@ -10,6 +10,7 @@ import CertificateIcon from "../../icons/CertificateIcon.astro";
 import courseData from "../../courseData";
 import UserConfigIcon from "../../icons/UserConfigIcon.astro"
 import Schools from "../../components/Schools.astro";
+import LogoutIcon from "../../icons/LogoutIcon.astro";
 
 
 const { userId } = Astro.params;
@@ -79,7 +80,7 @@ try {
             >
                 <div class="hidden md:block">
                     <!-- Search Input -->
-                    <div class="relative border rounded-lg border-neutral-400">
+                    <div class="relative border rounded-sm border-neutral-400">
                         <div
                             class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5"
                         >
@@ -100,8 +101,8 @@ try {
                         </div>
                         <input
                             type="text"
-                            class="py-2 ps-10 pe-16 block w-full bg-white border-neutral-200 rounded-lg text-sm focus:outline-none focus:border-primary focus:ring-primary disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-600"
-                            placeholder="Search"
+                            class="py-2 ps-10 pe-16 block w-full bg-white border-neutral-200 rounded-sm text-sm focus:outline-none focus:border-primary focus:ring-primary disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-600"
+                            placeholder="Buscar"
                         />
                         <div
                             class="hidden absolute inset-y-0 end-0 flex items-center pointer-events-none z-20 pe-1"
@@ -265,12 +266,12 @@ try {
                                 <p
                                     class="text-sm text-neutral-500 dark:text-neutral-500"
                                 >
-                                    Signed in as
+                                    Correo de ingreso
                                 </p>
                                 <p
                                     class="text-sm font-medium text-neutral-800 dark:text-neutral-200"
                                 >
-                                    james@site.com
+                                    {userData.email}
                                 </p>
                             </div>
                             <div class="p-1.5 space-y-0.5">
@@ -478,14 +479,14 @@ try {
                 class="h-full overflow-y-auto  [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-neutral-100 [&::-webkit-scrollbar-thumb]:bg-neutral-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
             >
                 <nav
-                    class="hs-accordion-group p-3 w-full flex flex-col flex-wrap"
+                    class="hs-accordion-group p-3 w-full flex flex-col justify-between h-full flex-wrap"
                     data-hs-accordion-always-open
                 >
                     <ul class="flex flex-col space-y-1">
                         <li>
                             <a
                                 id="boton-inicio"
-                                class="flex items-center gap-x-3.5 py-2 px-2.5 bg-white/10 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10  dark:text-white"
+                                class="flex items-center gap-x-3.5 py-2 px-2.5 bg-white/10 text-sm text-white rounded-lg hover:bg-white/20 focus:outline-none focus:bg-white/10  dark:text-white"
                                 href="#"
                             >
                                 <HomeIcon class="shrink-0 size-4"/>
@@ -495,7 +496,7 @@ try {
                         <li>
                             <a
                             id="boton-explorar"
-                                class="flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-white rounded-lg  focus:outline-none  dark:text-white"
+                                class="flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-white rounded-lg hover:bg-white/20  focus:outline-none  dark:text-white"
                                 href="#"
                             >
                                 <ExploreIcon class="shrink-0 size-4"/>
@@ -506,7 +507,7 @@ try {
                         <li>
                             <a
                             id="boton-cursos"
-                                class="flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-white rounded-lg  focus:outline-none  dark:text-white"
+                                class="flex items-center gap-x-3.5 py-2 px-2.5  text-sm hover:bg-white/20 text-white rounded-lg  focus:outline-none  dark:text-white"
                                 href="#"
                             >
                                 <NotebookIcon class="shrink-0 size-4"/>
@@ -517,7 +518,7 @@ try {
                         <li>
                             <a
                             id="boton-cuenta"
-                                class="flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-white rounded-lg  focus:outline-none  dark:text-white"
+                                class="flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-white rounded-lg hover:bg-white/20  focus:outline-none  dark:text-white"
                                 href="#"
                             >
                                 <UserConfigIcon class="shrink-0 size-4"/>
@@ -527,6 +528,20 @@ try {
 
                         
                     </ul>
+                    <ul class="flex flex-col space-y-1">
+                        <li>
+                            <a
+                                id="boton-inicio"
+                                class="flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-white rounded-lg hover:bg-white/20  focus:outline-none  dark:text-white"
+                                href="/"
+                            >
+                                <LogoutIcon class="shrink-0 size-4"/>
+                                Salir
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
                 </nav>
             </div>
             <!-- End Content -->

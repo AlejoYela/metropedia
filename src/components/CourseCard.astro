@@ -1,18 +1,30 @@
 ---
-const {name,img,description, category, price, id} = Astro.props 
+const { name, img, description, category, price, id } = Astro.props;
+---
 
---- 
-
-<a class="flex flex-col group bg-white h-auto shadow-sm rounded-sm overflow-hidden hover:shadow-lg focus:outline-none focus:shadow-lg transition dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70" href=`/courses/${id}`>
-    <div class="relative pt-[50%] sm:pt-[60%] lg:pt-[80%] rounded-t-sm overflow-hidden">
-      <img class="size-full absolute top-0 start-0 object-cover group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-t-sm" src={img} alt="Card Image">
-    </div>
-    <div class="p-4 md:p-5">
-      <h3 class="md:text-lg text-base font-bold truncate text-gray-800 dark:text-white capitalize">
-        {name}
-      </h3>
-      <p class="mt-1 truncate text-sm md:text-base text-gray-500 dark:text-neutral-400">
-        {description}
-      </p>
-    </div>
-  </a>
+<a
+  class="flex flex-col group bg-white h-auto shadow-sm rounded-sm overflow-hidden hover:shadow-lg focus:outline-none focus:shadow-lg transition dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
+  href=`/courses/${id}`
+>
+  <div
+    class="relative pt-[50%] sm:pt-[60%] lg:pt-[80%] rounded-t-sm overflow-hidden"
+  >
+    <img
+      class="size-full absolute top-0 start-0 object-cover group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-t-sm"
+      src={img}
+      alt="Card Image"
+    />
+  </div>
+  <div class="p-4 md:p-5">
+    <h3
+      class="md:text-lg text-base font-bold truncate text-gray-800 dark:text-white capitalize"
+    >
+      {name}
+    </h3>
+    <p
+      class="mt-1 truncate text-sm md:text-base text-gray-500 dark:text-neutral-400"
+    >
+      {description}
+    </p>
+  </div>
+</a>
