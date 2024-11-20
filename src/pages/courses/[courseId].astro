@@ -55,7 +55,7 @@ const numberToWord = {
           class="rounded-sm md:hidden my-3 w-full h-44 object-cover object-center"
         />
 
-        <h2 class="text-white my-5 md:my-8 text-2xl md:text-3xl font-extrabold">
+        <h2 class="dark:text-white my-5 md:my-8 text-2xl md:text-3xl font-extrabold">
           {selectedCourse.course}
         </h2>
 
@@ -82,12 +82,12 @@ const numberToWord = {
             >Andrés Alejandro Yela Bastidas</span
           >
         </p>
-        <div class="flex items-center gap-3 text-sm my-3 text-white">
+        <div class="flex items-center gap-3 text-sm my-3 dark:text-white">
           <p>Última actualización: {selectedCourse.lastUpdated}</p>
           <p>{selectedCourse.language}</p>
         </div>
-        <div class="bg-secondary my-10 w-full p-5">
-          <p class="text-white text-lg">Lo que aprenderás:</p>
+        <div class="dark:bg-secondary my-10 w-full p-5">
+          <p class="dark:text-white text-lg">Lo que aprenderás:</p>
 
           <div
             class="w-full my-3 text-neutral-900 bg-white border border-neutral-200 rounded-sm dark:bg-transparent dark:border-neutral-600 dark:text-[#9a9a9a]"
@@ -96,7 +96,7 @@ const numberToWord = {
               selectedCourse.highlights.map((highlight) => (
                 <button
                   type="button"
-                  class="relative inline-flex text-start items-center w-full px-4 py-2 text-xs md:text-sm font-medium border-b border-neutral-200 rounded-t-lg hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:text-white dark:focus:ring-neutral-500 dark:focus:text-white"
+                  class="relative inline-flex text-start items-center w-full px-4 py-2 text-xs md:text-sm font-medium border-b border-neutral-200 rounded-t-lg hover:bg-neutral-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary dark:border-neutral-600 dark:hover:bg-neutral-600 dark:hover:dark:text-white dark:focus:ring-neutral-500 dark:focus:dark:text-white"
                 >
                   <svg
                     class="md:w-3 md:h-3 w-8 me-2.5"
@@ -112,7 +112,7 @@ const numberToWord = {
               ))
             }
           </div>
-          <p class="text-white text-lg mt-5">Este curso incluye:</p>
+          <p class="dark:text-white text-lg mt-5">Este curso incluye:</p>
           <div class="md:grid grid-cols-2 my-2 gap-2 text-xs md:text-base">
             {
               selectedCourse.includes.map((include) => (
@@ -126,7 +126,7 @@ const numberToWord = {
         </div>
 
         <div class="hs-accordion-group data-hs-accordion-always-open">
-          <h3 class="text-white text-2xl mb-3">Contenido del curso.</h3>
+          <h3 class="dark:text-white text-2xl mb-3">Contenido del curso.</h3>
 
           {
             selectedCourse.modules.map((module, indexa) => (
@@ -182,7 +182,7 @@ const numberToWord = {
                         <time class="mb-1 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500">
                           Día {indexa}
                         </time>
-                        <h3 class="text-base font-semibold text-neutral-900 dark:text-white">
+                        <h3 class="text-base font-semibold text-neutral-900 dark:dark:text-white">
                           {sub.subtitle}
                         </h3>
                         <p class="mb-4 text-base font-normal text-neutral-500 dark:text-neutral-400">
@@ -197,7 +197,7 @@ const numberToWord = {
           }
         </div>
         <div class="gap-3 flex flex-col">
-          <h3 class="text-white text-2xl mb-3 my-10">Descripción.</h3>
+          <h3 class="dark:text-white text-2xl mb-3 my-10">Descripción.</h3>
           <p>
             {selectedCourse.long_description}
           </p>

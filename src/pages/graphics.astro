@@ -16,7 +16,7 @@ import Layout from "../layouts/Layout.astro";
                 >
             </h3>
         </div>
-        <p class="text-xl text-white/50">
+        <p class="text-xl dark:text-white/50">
             Calcula la corrección de las mediciones de tus condiciones
             ambientales para simular ambientes ideales en servicios externos.
         </p>
@@ -25,7 +25,7 @@ import Layout from "../layouts/Layout.astro";
             id="correction-form"
             class="max-w-screen-xl w-full border border-primary/80 rounded-sm p-12"
         >
-            <p class="text-white/40 text-sm mb-6 w-full flex justify-center">
+            <p class="dark:text-white/40 text-sm mb-6 w-full flex justify-center">
                 Ingresa los datos de lectura del instrumento y referencia del
                 patrón presentes en el certificado de tu instrumento de
                 monitoreo.
@@ -56,12 +56,12 @@ import Layout from "../layouts/Layout.astro";
                         >
                             <th
                                 scope="row"
-                                class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap bg-neutral-50 dark:text-white dark:bg-[#49494a]/50"
+                                class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap bg-neutral-50 dark:dark:text-white dark:bg-[#49494a]/50"
                             >
                                 <input
                                     type="text"
                                     aria-describedby="helper-text-explanation"
-                                    class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                                    class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary"
                                     placeholder="0"
                                 />
                             </th>
@@ -69,7 +69,7 @@ import Layout from "../layouts/Layout.astro";
                                 <input
                                     type="text"
                                     aria-describedby="helper-text-explanation"
-                                    class="bg-transparent text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                                    class="bg-transparent text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary"
                                     placeholder="0"
                                 />
                             </td>
@@ -100,7 +100,7 @@ import Layout from "../layouts/Layout.astro";
                     <label
                         id="equations-label"
                         for="equations"
-                        class="block mb-6 text-sm font-medium text-neutral-900 dark:text-white"
+                        class="block mb-6 text-sm font-medium text-neutral-900 dark:dark:text-white"
                         >Ecuaciones de regresión evaluadas:</label
                     >
                     <div
@@ -110,7 +110,7 @@ import Layout from "../layouts/Layout.astro";
                         <div class="flex flex-col justify-center items-center">
                             <p
                                 id="linear"
-                                class="text-white p-3 rounded-sm mb-2"
+                                class="dark:text-white p-3 rounded-sm mb-2"
                             >
                                 0
                             </p>
@@ -121,7 +121,7 @@ import Layout from "../layouts/Layout.astro";
                         <div class="flex flex-col justify-center items-center">
                             <p
                                 id="quadratic"
-                                class="text-white p-3 rounded-sm mb-2"
+                                class="dark:text-white p-3 rounded-sm mb-2"
                             >
                                 0
                             </p>
@@ -132,7 +132,7 @@ import Layout from "../layouts/Layout.astro";
                         <div class="flex flex-col justify-center items-center">
                             <p
                                 id="cubic"
-                                class="text-white p-3 rounded-sm mb-2"
+                                class="dark:text-white p-3 rounded-sm mb-2"
                             >
                                 0
                             </p>
@@ -178,11 +178,11 @@ import Layout from "../layouts/Layout.astro";
             "dark:border-primary",
         );
         newRow.innerHTML = `
-        <th scope="row" class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap bg-neutral-50 dark:text-white dark:bg-[#49494a]/50">
-            <input type="text" aria-describedby="helper-text-explanation" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" />
+        <th scope="row" class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap bg-neutral-50 dark:dark:text-white dark:bg-[#49494a]/50">
+            <input type="text" aria-describedby="helper-text-explanation" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-transparent dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" />
         </th>
         <td class="px-6 py-4">
-            <input type="text" aria-describedby="helper-text-explanation" class="bg-transparent text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" />
+            <input type="text" aria-describedby="helper-text-explanation" class="bg-transparent text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" />
         </td>
     `;
         tableBody.appendChild(newRow);

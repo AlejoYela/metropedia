@@ -14,7 +14,7 @@ import CalendarIcon from "../icons/CalendarIcon.astro";
                 Calculadora de <span class="text-primary">Intervalos de Calibración</span>
             </h3>
         </div>
-        <p class="text-xl text-white/50">
+        <p class="text-xl dark:text-white/50">
             Calcula la próxima fecha de calibración basada en varios factores.
         </p>
 
@@ -31,106 +31,106 @@ import CalendarIcon from "../icons/CalendarIcon.astro";
         <form id="interval-calculator-form" class="max-w-screen-xl w-full border border-primary/80 rounded-sm p-12">
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
-                    <label for="deriva-periodo" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="deriva-periodo" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         Deriva en el periodo (Años)
                     </label>
-                    <input type="text" id="deriva-periodo" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" required />
+                    <input type="text" id="deriva-periodo" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required />
                 </div>
                 <div>
-                    <label for="fecha-servicio" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="fecha-servicio" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         Fecha de servicio
                     </label>
-                    <input type="date" id="fecha-servicio" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" required />
+                    <input type="date" id="fecha-servicio" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required />
                 </div>
                 <div>
-                    <label for="fecha-proxima" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="fecha-proxima" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         Fecha de próxima calibración por deriva calculada en 1
                     </label>
-                    <input type="date" id="fecha-proxima" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" required />
+                    <input type="date" id="fecha-proxima" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required />
                 </div>
                 <div>
-                    <label for="u-obtenida-superior" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="u-obtenida-superior" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿La U obtenida es superior a la requerida?
                     </label>
-                    <select id="u-obtenida-superior" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="u-obtenida-superior" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
                     </select>
                 </div>
                 <div>
-                    <label for="supero-emp" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="supero-emp" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿Se superó el EMP?
                     </label>
-                    <select id="supero-emp" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="supero-emp" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
                     </select>
                 </div>
                 <div>
-                    <label for="uso-incrementado" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="uso-incrementado" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿El uso en el último periodo ha incrementado un 50% al período anterior?
                     </label>
-                    <select id="uso-incrementado" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="uso-incrementado" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
                     </select>
                 </div>
                 <div>
-                    <label for="condiciones-desfavorables" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="condiciones-desfavorables" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿Las condiciones ambientales de uso han sido desfavorables?
                     </label>
-                    <select id="condiciones-desfavorables" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="condiciones-desfavorables" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
                     </select>
                 </div>
                 <div>
-                    <label for="tendencia-resultados" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="tendencia-resultados" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿Hay tendencia en los resultados de las últimas 3 calibraciones?
                     </label>
-                    <select id="tendencia-resultados" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="tendencia-resultados" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
                     </select>
                 </div>
                 <div>
-                    <label for="mantenimiento-correctivo" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="mantenimiento-correctivo" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿Se realizó mantenimiento correctivo?
                     </label>
-                    <select id="mantenimiento-correctivo" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="mantenimiento-correctivo" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
                     </select>
                 </div>
                 <div>
-                    <label for="rotacion-personal" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="rotacion-personal" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿Se presentó rotación en el personal autorizado para el uso?
                     </label>
-                    <select id="rotacion-personal" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="rotacion-personal" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
                     </select>
                 </div>
                 <div>
-                    <label for="ajuste-calibracion" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="ajuste-calibracion" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         Se recomienda ajustar el lapso de calibración en la siguiente cantidad de meses
                     </label>
-                    <input type="text" id="ajuste-calibracion" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" required />
+                    <input type="text" id="ajuste-calibracion" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required />
                 </div>
             </div>
-            <button type="submit" class="text-white bg-primary hover:bg-primary/80 focus:ring-4 focus:ring-primary font-medium rounded-sm text-sm px-5 py-2.5 text-center dark:bg-primary/80 dark:hover:bg-primary">
+            <button type="submit" class="dark:text-white bg-primary hover:bg-primary/80 focus:ring-4 focus:ring-primary font-medium rounded-sm text-sm px-5 py-2.5 text-center dark:bg-primary/80 dark:hover:bg-primary">
                 Calcular Próxima Fecha de Calibración
             </button>
         </form>
 
-        <div id="mensaje" class="text-xl text-white/50 hidden mt-8"></div>
+        <div id="mensaje" class="text-xl dark:text-white/50 hidden mt-8"></div>
     </div>
 </Layout>
 

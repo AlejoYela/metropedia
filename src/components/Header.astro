@@ -1,4 +1,6 @@
 ---
+import ThemeSwitch from "./ThemeSwitch.astro";
+
 const navItems = [
     { title: "Herramientas", label: "experiencia", url: "/#experiencia" },
     { title: "Formación", label: "proyectos", url: "/landing-cursos/" },
@@ -18,7 +20,7 @@ const navItems = [
 ---
 
 <div
-    class="z-10 header-wrapper flex justify-center fixed w-full bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10"
+    class="z-10 header-wrapper flex justify-center fixed w-full dark:bg-[#252627]/80 backdrop-blur shadow-lg ring-1 ring-white/10"
 >
     <header
         class="flex justify-between items-center max-w-screen-xl w-full lg:px-0 px-4"
@@ -39,7 +41,7 @@ const navItems = [
                 <div class="sm:hidden">
                     <button
                         type="button"
-                        class="hs-collapse-toggle relative size-7 flex justify-center items-center gap-x-2 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10"
+                        class="hs-collapse-toggle relative size-7 flex justify-center items-center gap-x-2 bg-white text-neutral-800 shadow-sm hover:bg-neutral-50 focus:outline-none focus:bg-neutral-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10"
                         id="hs-navbar-example-collapse"
                         aria-expanded="false"
                         aria-controls="hs-navbar-example"
@@ -94,7 +96,7 @@ const navItems = [
                     class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5"
                 >
                     <svg
-                        class="shrink-0 size-4 text-neutral-400 dark:text-white/60"
+                        class="shrink-0 size-4 text-neutral-400 dark:dark:text-white/60"
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
@@ -143,7 +145,7 @@ const navItems = [
                     class="absolute inset-y-0 end-0 flex items-center pointer-events-none z-20 pe-3 text-neutral-400"
                 >
                     <svg
-                        class="shrink-0 size-3 text-neutral-400 dark:text-white/60"
+                        class="shrink-0 size-3 text-neutral-400 dark:dark:text-white/60"
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
@@ -159,7 +161,7 @@ const navItems = [
                     >
                     <span class="mx-1">
                         <svg
-                            class="shrink-0 size-3 text-neutral-400 dark:text-white/60"
+                            class="shrink-0 size-3 text-neutral-400 dark:dark:text-white/60"
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
@@ -188,7 +190,7 @@ const navItems = [
                     {
                         navItems.map((link) => (
                             <a
-                                class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+                                class="font-medium text-neutral-600 hover:text-neutral-400 focus:outline-none focus:text-neutral-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
                                 aria-label={link.label}
                                 href={link.url}
                             >
@@ -196,6 +198,7 @@ const navItems = [
                             </a>
                         ))
                     }
+                    <ThemeSwitch/>
                     <a
                         id="avatar-a"
                         

@@ -13,22 +13,22 @@ import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
                 Calculadora de <span class="text-primary">Desviación Estándar</span>
             </h3>
         </div>
-        <p class="text-xl text-white/50">
+        <p class="text-xl dark:text-white/50">
             Calcula la desviación estándar de un conjunto de números.
         </p>
 
         <form id="standard-deviation-form" class="max-w-screen-xl w-full border border-primary/80 rounded-sm p-12">
-            <p class="text-white/40 text-sm mb-6 w-full flex justify-center">
+            <p class="dark:text-white/40 text-sm mb-6 w-full flex justify-center">
                 Calcula la desviación estándar de un grupo de números
             </p>
             <div class="mb-6">
-                <label for="numbers-input" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                <label for="numbers-input" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                     Ingresa los números separados por comas (ejemplo: 1, 2, 3, 4, 5).
                 </label>
                 <input
                     type="text"
                     id="numbers-input"
-                    class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary"
                     placeholder="0"
                     required
                 />
@@ -42,7 +42,7 @@ import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
 
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
-                    <label for="std-deviation-population" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="std-deviation-population" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         Desviación Estándar de la Población
                     </label>
                     <span
@@ -53,7 +53,7 @@ import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
                     </span>
                 </div>
                 <div>
-                    <label for="std-deviation-sample" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="std-deviation-sample" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         Desviación Estándar de la Muestra
                     </label>
                     <span
@@ -64,7 +64,7 @@ import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
                     </span>
                 </div>
                 <div>
-                    <label for="sample-size" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="sample-size" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         Tamaño de la Muestra
                     </label>
                     <span
@@ -75,7 +75,7 @@ import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
                     </span>
                 </div>
                 <div>
-                    <label for="average" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="average" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         Promedio
                     </label>
                     <span
@@ -86,7 +86,7 @@ import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
                     </span>
                 </div>
                 <div>
-                    <label for="variance" class="block mb-2 text-sm font-medium text-neutral-900 dark:text-white">
+                    <label for="variance" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         Varianza
                     </label>
                     <span
@@ -107,14 +107,14 @@ import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
         <ArrowDownIcon class="absolute bottom-0 bounce" />
     </div>
 
-    <div class="p-6 mt-12 text-white/50">
+    <div class="p-6 mt-12 dark:text-white/50">
         <div class="max-w-screen-xl mx-auto shadow-lg rounded-sm p-12 bg-[#4c4c4d]/20">
             <h1 class="text-3xl font-bold mb-6 text-primary">
                 Desviación Estándar
             </h1>
 
             <section class="mb-8">
-                <h2 class="text-2xl text-white font-semibold mb-4">
+                <h2 class="text-2xl dark:text-white font-semibold mb-4">
                     ¿Qué es la Desviación Estándar?
                 </h2>
                 <p class="mb-4">
@@ -123,7 +123,7 @@ import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
             </section>
 
             <section class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4 text-white">
+                <h2 class="text-2xl font-semibold mb-4 dark:text-white">
                     ¿Cómo usar la calculadora?
                 </h2>
                 <p class="mb-4">

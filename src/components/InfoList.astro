@@ -20,7 +20,7 @@ const { title, description, link, icono: Icon, color } = Astro.props;
       <Icon class="size-10" style={`stroke: ${color}`} />
     </div>
     <div class="min-w-0 flex-auto text-left">
-      <p class=" font-semibold text-white text-lg">{title}</p>
+      <p class=" font-semibold dark:text-white text-lg">{title}</p>
       <ul class="font-normal text-sm text-[#9a9a9a]">
         {description.map((item) => <span>{item}, </span>)}
       </ul>
