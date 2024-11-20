@@ -8,6 +8,7 @@ import UserConfigIcon from "../../../icons/UserConfigIcon.astro";
 import CampusLayout from "../../../layouts/CampusLayout.astro";
 import courseData from "../../../courseData";
 import Course from "../../../components/Course.astro";
+import LogoutIcon from "../../../icons/LogoutIcon.astro";
 const { certificateId } = Astro.params;
 
 let userData = null;
@@ -180,7 +181,7 @@ await fetchCertificate();
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
-                                stroke-width="2" 
+                                stroke-width="2"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 ><path
@@ -512,10 +513,10 @@ await fetchCertificate();
                 class="h-full overflow-y-auto  [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-neutral-100 [&::-webkit-scrollbar-thumb]:bg-neutral-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
             >
                 <nav
-                    class="hs-accordion-group p-3 w-full flex flex-col flex-wrap"
+                    class="hs-accordion-group p-3 w-full flex flex-col justify-between flex-wrap h-full"
                     data-hs-accordion-always-open
                 >
-                    <ul class="flex flex-col space-y-1 ">
+                    <ul class="flex flex-col space-y-1">
                         {
                             cordCourse.modules.map((module) => (
                                 <li class="hs-accordion" id="users-accordion">
@@ -599,7 +600,9 @@ await fetchCertificate();
                                                         aria-expanded="true"
                                                         aria-controls="users-accordion-sub-1"
                                                     >
-                                                        <p class="truncate">{cont.subtitle}</p>
+                                                        <p class="truncate">
+                                                            {cont.subtitle}
+                                                        </p>
                                                     </button>
                                                 </li>
                                             ))}
@@ -608,6 +611,19 @@ await fetchCertificate();
                                 </li>
                             ))
                         }
+                    </ul>
+                    <ul class="flex flex-col space-y-1">
+                        <li>
+                            <a
+                                id="boton-inicio"
+                                class="flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-white rounded-lg hover:bg-white/20  focus:outline-none  dark:text-white"
+                                href="/"
+                            >
+                                <LogoutIcon class="shrink-0 size-4"/>
+                                Salir
+                            </a>
+                        </li>
+                        
                     </ul>
                 </nav>
             </div>
@@ -623,7 +639,7 @@ await fetchCertificate();
                 >{userData.certificate.course}</span
             >
         </h2>
-        
+
         <div
             class="w-full bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 mt-1 mb-5"
         >
@@ -633,7 +649,9 @@ await fetchCertificate();
             >
             </div>
         </div>
-        <p class="text-[#555555] font-semibold">A continuación podrás visualizar el contenido de tu curso</p>
+        <p class="text-[#555555] font-semibold">
+            A continuación podrás visualizar el contenido de tu curso
+        </p>
         <Course certificateId={userData.certificate.course} />
     </div>
 
