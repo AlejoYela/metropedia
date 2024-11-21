@@ -1,0 +1,50 @@
+---
+const { module } = Astro.props;
+---
+
+<!--ScrollSpy start -->
+<div id="scrollspy-scrollable-parent-2" class="max-h-[40rem] overflow-y-auto mt-5">
+    <div class="grid grid-cols-3 md:grid-cols-6 gap-5 lg:px-8 px-4">
+        <div class="col-span-1 border-r border-[#5e5e5e] pe-3">
+            <ul
+                class="sticky top-0"
+                data-hs-scrollspy="#scrollspy-2"
+                data-hs-scrollspy-scrollable-parent="#scrollspy-scrollable-parent-2"
+            >
+                {
+                    module.content.map((cont, index) => (
+                        <li data-hs-scrollspy-group="">
+                            <a
+                                href={`#item-${index + 1}`}
+                                class="block py-0.5 text-sm font-medium leading-6 text-gray-700 hover:text-gray-900 focus:outline-none focus:text-blue-600 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-blue-500 hs-scrollspy-active:text-blue-600 dark:hs-scrollspy-active:text-blue-500 active"
+                            >
+                                {cont.subtitle}
+                            </a>
+                            
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+
+        <div class="col-span-2 md:col-span-5 lg:px-5">
+            <div id="scrollspy-2" class="space-y-4">
+                {
+                    module.content.map((cont, index) => (
+                        <div id={`item-${index + 1}`}>
+                            <h3 class="text-lg font-semibold dark:text-white">
+                                {cont.subtitle}
+                            </h3>
+                            <h4 class="text-[#ffd16f]">{cont.description}</h4>
+                            <img src={cont.image} alt="" />
+                            <p class="mt-1 text-sm leading-6 text-gray-600 dark:text-neutral-400">
+                                {cont.desarrollo}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!--ScrollSpy end -->

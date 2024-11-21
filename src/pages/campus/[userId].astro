@@ -626,7 +626,7 @@ try {
             <Schools/>
         </div>
 
-       <div id="formaciones-completadas" class="hidden">
+        <div id="formaciones-completadas" class="hidden">
 
            <p class="font-semibold text-xl dark:text-white mb-3">
                Formaciones <span class="text-[#ffd16f]">completadas</span>.
@@ -680,7 +680,7 @@ try {
                {userData.certificates.length == 0 ? 
                    <p class="text-[#9a9a9a]">¡No tienes formaciones en curso!</p> :
                    userData.certificates.map((certificate, index) => (
-                       <a href={`/campus/course/${certificate.certificate}`} class="relative border-2 border-transparent hover:border-neutral-300 rounded-sm dark:border-neutral-600 h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
+                       <a href={`/campus/course/${certificate.courseCode}`} class="relative border-2 border-transparent hover:border-neutral-300 rounded-sm dark:border-neutral-600 h-auto md:h-64 flex flex-col p-5 justify-between overflow-hidden"
                        >
                        <!-- Imagen de fondo con opacidad -->
                        <img
@@ -713,7 +713,7 @@ try {
              </div>
        </div>
 
-     </div>
+    </div>
     <!-- End Content -->
     <!-- ========== END MAIN CONTENT ========== -->
 </CampusLayout>
