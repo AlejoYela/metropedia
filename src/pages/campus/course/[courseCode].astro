@@ -235,7 +235,7 @@ await fetchCertificate();
                             >
                                 <img
                                     id="avatar-image"
-                                    class="shrink-0 size-[38px] rounded-full"
+                                    class="shrink-0 size-8 md:size-[36px] rounded-full border-green-500 border-2"
                                     src=`https://openclipart.org/image/2000px/247319`
                                     alt="Avatar"
                                 />
@@ -385,6 +385,23 @@ await fetchCertificate();
         <Steper userData={userData} />
     </div>
 </CampusLayout>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const userAuth0 = JSON.parse(localStorage.getItem("userData"));
+        const avatarImage = document.getElementById("avatar-image");
+
+        if (userAuth0) {
+            console.log("Usuario autenticado:", userAuth0);
+            console.log("User auth0 picture: ", userAuth0.picture);
+
+            avatarImage.src = userAuth0.picture;
+        } else {
+            console.log("Usuario no autenticado");
+        }
+    })
+
+</script>
 
 <style>
     html {

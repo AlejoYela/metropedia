@@ -1,9 +1,10 @@
 ---
-const { module } = Astro.props;
+const { module, indexSuperior } = Astro.props;
+import FlipCard from "../components/FlipCard.astro"
 ---
 
 <!--ScrollSpy start -->
-<div id="scrollspy-scrollable-parent-2" class=" overflow-y-auto mt-5 md:max-h-[75dvh] max-h-[60dvh]">
+<div id="scrollspy-scrollable-parent-2" class=" overflow-y-auto mt-5 md:max-h-[70dvh] sm:max-h-[60dvh] max-h-[55dvh]">
     <div class="grid grid-cols-4 md:grid-cols-6 gap-5 lg:px-8 px-0">
         <div class="col-span-1 border-r border-[#5e5e5e] pe-3">
             <ul
@@ -15,10 +16,10 @@ const { module } = Astro.props;
                     module.content.map((cont, index) => (
                         <li data-hs-scrollspy-group="">
                             <a
-                                href={`#item-${index + 1}`}
+                                href={`#item-${indexSuperior}-${index + 1}`} 
                                 class="block truncate py-0.5 text-sm font-medium leading-6 text-gray-700 hover:text-gray-900 focus:outline-none focus:text-blue-600 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-blue-500 hs-scrollspy-active:text-blue-600 dark:hs-scrollspy-active:text-blue-500 active"
                             >
-                                {cont.subtitle}
+                                {indexSuperior}-{index + 1}. {cont.subtitle}
                             </a>
                             
                         </li>
@@ -31,7 +32,7 @@ const { module } = Astro.props;
             <div id="scrollspy-2" class="space-y-4">
                 {
                     module.content.map((cont, index) => (
-                        <div id={`item-${index + 1}`}>
+                        <div id={`item-${indexSuperior}-${index + 1}`} >
                             <h3 class="text-lg font-semibold dark:text-white">
                                 {cont.subtitle}
                             </h3>
@@ -40,6 +41,7 @@ const { module } = Astro.props;
                             <p class="mt-1 text-sm leading-6 text-gray-600 dark:text-neutral-400">
                                 {cont.desarrollo}
                             </p>
+                            <FlipCard/>
                         </div>
                     ))
                 }
