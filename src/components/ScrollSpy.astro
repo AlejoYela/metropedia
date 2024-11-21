@@ -1,10 +1,14 @@
 ---
 const { module, indexSuperior } = Astro.props;
-import FlipCard from "../components/FlipCard.astro"
+import FlipCard from "../components/FlipCard.astro";
+import LogoutIcon from "../icons/LogoutIcon.astro";
 ---
 
 <!--ScrollSpy start -->
-<div id="scrollspy-scrollable-parent-2" class=" overflow-y-auto mt-5 md:max-h-[70dvh] sm:max-h-[60dvh] max-h-[55dvh]">
+<div
+    id="scrollspy-scrollable-parent-2"
+    class="overflow-y-auto mt-5 md:max-h-[70dvh] sm:max-h-[60dvh] max-h-[55dvh]"
+>
     <div class="grid grid-cols-4 md:grid-cols-6 gap-5 lg:px-8 px-0">
         <div class="col-span-1 border-r border-[#5e5e5e] pe-3">
             <ul
@@ -16,15 +20,24 @@ import FlipCard from "../components/FlipCard.astro"
                     module.content.map((cont, index) => (
                         <li data-hs-scrollspy-group="">
                             <a
-                                href={`#item-${indexSuperior}-${index + 1}`} 
+                                href={`#item-${indexSuperior}-${index + 1}`}
                                 class="block truncate py-0.5 text-sm font-medium leading-6 text-gray-700 hover:text-gray-900 focus:outline-none focus:text-blue-600 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-blue-500 hs-scrollspy-active:text-blue-600 dark:hs-scrollspy-active:text-blue-500 active"
                             >
                                 {indexSuperior}-{index + 1}. {cont.subtitle}
                             </a>
-                            
                         </li>
                     ))
                 }
+                <li>
+                    <a
+                        id="boton-inicio"
+                        class="flex items-center gap-x-1.5 py-2  text-sm dark:text-white rounded-lg hover:bg-white/20  focus:outline-none  dark:dark:text-white"
+                        href="/"
+                    >
+                        <LogoutIcon class="shrink-0 size-4"/>
+                        Salir
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -32,16 +45,23 @@ import FlipCard from "../components/FlipCard.astro"
             <div id="scrollspy-2" class="space-y-4">
                 {
                     module.content.map((cont, index) => (
-                        <div id={`item-${indexSuperior}-${index + 1}`} >
-                            <h3 class="text-lg font-semibold dark:text-white">
+                        <div id={`item-${indexSuperior}-${index + 1}`}>
+                            <h3 class="md:text-lg text-base font-semibold dark:text-white">
                                 {cont.subtitle}
                             </h3>
-                            <h4 class="text-[#ffd16f]">{cont.description}</h4>
-                            <img src={cont.image} class="object-cover h-48 w-96 rounded-lg" alt="" />
-                            <p class="mt-1 text-sm leading-6 text-gray-600 dark:text-neutral-400">
+
+                            <h4 class="text-[#ffd16f] md:text-base text-xs">
+                                {cont.description}
+                            </h4>
+                            <FlipCard
+                                image={cont.image}
+                                subtitulo={cont.subtitle}
+                                description={cont.description}
+                                content={cont.desarrollo}
+                            />
+                            <p class="mt-1 md:text-sm text-xs leading-snug text-gray-600 dark:text-neutral-400 mb-3">
                                 {cont.desarrollo}
                             </p>
-                            <FlipCard/>
                         </div>
                     ))
                 }

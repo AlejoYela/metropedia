@@ -1,37 +1,72 @@
-<div class="group h-96 w-96 [perspective:1000px] overflow-hidden">
+---
+const { image, subtitulo, description, content } = Astro.props;
+---
+
+<div
+    class="group h-60 md:h-96 md:w-96 [perspective:1000px] overflow-hidden rounded-sm my-3"
+>
     <div
-        class="relative h-full w-full rounded-xl shadow-xl [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] transition-transform duration-500"
+        class="relative h-full w-full rounded-sm shadow-xl [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] transition-transform duration-300"
     >
         <!-- Cara frontal -->
-        <div
-            class="absolute inset-0 [backface-visibility:hidden]"
-        >
-            <img
-                class="h-auto w-full rounded-xl object-cover shadow-xl transition-all duration-500 shadow-black/40"
-                src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1732217193/Qu%C3%A9_es_Metrolog%C3%ADa_plhzzy.png"
-                alt="Metrología Básica"
-            />
-            <div class="bg-[#191919] rounded-b-xl p-3 h-full">
-                <h2 class="text-xl font-bold">METROLOGÍA BÁSICA</h2>
-                <p class="text-base">
-                    Click para ver
-                </p>
+        <div class="absolute inset-0 ">
+            <div class="h-full w-full relative">
+                <img
+                    class="h-full w-full rounded-sm object-cover shadow-xl transition-all duration-500 shadow-black/40"
+                    src={image}
+                    alt="Metrología Básica"
+                />
+                <div
+                    class="absolute bottom-0 text-white font-semibold text-xs md:text-base h-auto bg-secondary/70 inset-x-0 text-center flex gap-2 items-center justify-center my-5 mx-10 rounded-sm py-2 shadow-lg border border-[#9a9a9a]"
+                >
+                    <p>{subtitulo}</p>
+                </div>
+                <div
+                    class="absolute md:h-auto md:w-auto h-12 w-12 top-0 end-0 text-secondary/50 font-semibold text-center flex items-center justify-center p-2"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="50"
+                        height="50"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-click"
+                        ><path stroke="none" d="M0 0h24v24H0z" fill="none"
+                        ></path><path d="M3 12l3 0"></path><path d="M12 3l0 3"
+                        ></path><path d="M7.8 7.8l-2.2 -2.2"></path><path
+                            d="M16.2 7.8l2.2 -2.2"></path><path
+                            d="M7.8 16.2l-2.2 2.2"></path><path
+                            d="M12 12l9 3l-4 2l-2 4l-3 -9"></path></svg
+                    >
+                </div>
             </div>
         </div>
-        
+
         <!-- Cara trasera -->
         <div
-            class="absolute inset-0 h-full w-full rounded-xl bg-black/80 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]"
+            class="absolute inset-0 h-full w-full rounded-sm bg-black/90 md:px-12 p-4 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]"
         >
-            <div class="flex min-h-full flex-col items-center justify-center">
-                <h2 class="text-3xl font-bold">METROLOGÍA BÁSICA</h2>
-                <p class="text-lg">
-                    Domina los principios esenciales de la medición y entiende
-                    cómo la precisión impacta en la ciencia y la industria.
+            <div
+                class="flex min-h-full flex-col items-center justify-center text-start"
+            >
+                <h2
+                    class="text-base md:text-xl font-bold md:mb-5 mb-1 text-start w-full"
+                >
+                    {subtitulo}
+                </h2>
+                <p class="md:text-lg text-xs md:mb-5 mb-1">
+                    {description}
                 </p>
-                <button
-                    class="mt-2 rounded-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"
-                >Aprender más</button>
+                <a
+                    target="_blank"
+                    href="https://www.gob.mx/se/articulos/que-es-la-metrologia#:~:text=La%20Metrolog%C3%ADa%20es%20la%20ciencia,con%20la%20normalizaci%C3%B3n%20sea%20factible."
+                    class="mt-2 rounded-md md:text-sm text-xs hover:bg-primary/40 hover:text-white bg-primary px-3 py-2 text-secondary font-semibold"
+                    >Aprender más
+                </a>
             </div>
         </div>
     </div>
