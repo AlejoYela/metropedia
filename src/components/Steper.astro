@@ -7,7 +7,7 @@ const { userData } = Astro.props;
     <!-- Stepper -->
     <div data-hs-stepper="">
         <!-- Stepper Nav -->
-        <ul class="relative flex flex-row gap-x-2">
+        <ul class="relative flex flex-row gap-x-2 ">
             {
                 userData.modules.map((module, index) => (
                     <li
@@ -34,7 +34,7 @@ const { userData } = Astro.props;
                                     <polyline points="20 6 9 17 4 12" />
                                 </svg>
                             </span>
-                            <span class="ms-2 text-sm font-medium text-gray-800 dark:text-white">
+                            <span class="ms-2 text-sm font-medium text-gray-800 dark:text-white truncate hidden md:block">
                                 {module.title}
                             </span>
                         </span>
@@ -54,7 +54,7 @@ const { userData } = Astro.props;
                     <div
                         data-hs-stepper-content-item={`{"index": ${index + 1}}`}
                     >
-                        <div class="p-4 h-auto max-h-fit bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl dark:bg-neutral-700 dark:border-neutral-600">
+                        <div class="p-4 h-auto bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl dark:bg-neutral-700 dark:border-neutral-600">
                             <h3 class="text-gray-500 dark:text-neutral-400">
                                 <ScrollSpy module={module} />
                             </h3>
