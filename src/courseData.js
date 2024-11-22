@@ -15,19 +15,19 @@ const courseData = [
                     {
                         subtitle: "¿Qué es Metrología?",
                         description: "Definición, propósito y alcance de la metrología como ciencia de las mediciones.",
-                        image: "",
+                        image: "https://res.cloudinary.com/dc0aja7yx/image/upload/v1732217193/Qu%C3%A9_es_Metrolog%C3%ADa_plhzzy.png",
                         desarrollo: "La metrología se define como la ciencia que estudia las mediciones, abarcando sus métodos, técnicas y aplicaciones. Su propósito principal es garantizar la precisión y confiabilidad en las mediciones, fundamentales para la industria, la ciencia y la vida cotidiana. El alcance de la metrología incluye sistemas de medición, patrones de referencia y la trazabilidad internacional de las medidas."
                     },
                     {
                         subtitle: "Importancia de la Metrología",
                         description: "Relevancia en la industria, la investigación y la vida cotidiana.",
-                        image: "",
+                        image: "https://res.cloudinary.com/dc0aja7yx/image/upload/v1732217192/Importancia_de_la_Metrolog%C3%ADa_c63cq0.png",
                         desarrollo: "La metrología es esencial para mantener estándares de calidad en la producción industrial, facilitar el comercio internacional y garantizar la seguridad en ámbitos como la salud y el transporte. Además, es clave en la investigación científica, donde se requieren mediciones precisas para validar teorías y experimentos. En la vida cotidiana, asegura que las mediciones de peso, tiempo, temperatura y más sean uniformes y confiables."
                     },
                     {
                         subtitle: "Historia de la Metrología",
                         description: "Evolución histórica desde las primeras mediciones hasta los estándares modernos.",
-                        image: "",
+                        image: "https://res.cloudinary.com/dc0aja7yx/image/upload/v1732217192/Historia_de_la_Metrolog%C3%ADa_dpybvs.png",
                         desarrollo: "La historia de la metrología comienza con las primeras civilizaciones, que desarrollaron sistemas de medida basados en el cuerpo humano o elementos naturales, como el codo o el pie. Con el tiempo, estos sistemas evolucionaron hacia estándares más precisos, como los establecidos por la Revolución Francesa, que introdujo el sistema métrico. Actualmente, la metrología está regida por organismos internacionales como el Sistema Internacional de Unidades (SI), que garantizan la uniformidad global."
                     }
                 ]
