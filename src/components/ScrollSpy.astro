@@ -31,10 +31,10 @@ import LogoutIcon from "../icons/LogoutIcon.astro";
                 <li>
                     <a
                         id="boton-inicio"
-                        class="flex items-center gap-x-1.5 py-2  text-sm dark:text-white rounded-lg hover:bg-white/20  focus:outline-none  dark:dark:text-white"
+                        class="flex items-center gap-x-1.5 py-2 text-sm dark:text-white rounded-lg hover:bg-white/20 focus:outline-none dark:dark:text-white"
                         href="/"
                     >
-                        <LogoutIcon class="shrink-0 size-4"/>
+                        <LogoutIcon class="shrink-0 size-4" />
                         Salir
                     </a>
                 </li>
@@ -59,9 +59,12 @@ import LogoutIcon from "../icons/LogoutIcon.astro";
                                 description={cont.description}
                                 content={cont.desarrollo}
                             />
-                            <p class="mt-1 md:text-sm text-xs leading-snug text-gray-600 dark:text-neutral-400 mb-3">
-                                {cont.desarrollo}
-                            </p>
+
+                            <div class="mt-5 bg-white rounded-lg py-3 px-4 dark:bg-neutral-800">
+                                <p class="text-gray-500 dark:text-neutral-400">
+                                    {cont.desarrollo}
+                                </p>
+                            </div>
                         </div>
                     ))
                 }

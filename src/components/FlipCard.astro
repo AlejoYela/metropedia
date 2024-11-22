@@ -1,5 +1,5 @@
 ---
-const { image, subtitulo, description, content } = Astro.props;
+const { image, subtitulo, description } = Astro.props;
 ---
 
 <div
@@ -9,7 +9,7 @@ const { image, subtitulo, description, content } = Astro.props;
         class="relative h-full w-full rounded-sm shadow-xl [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] transition-transform duration-300"
     >
         <!-- Cara frontal -->
-        <div class="absolute inset-0 ">
+        <div class="absolute inset-0">
             <div class="h-full w-full relative">
                 <img
                     class="h-full w-full rounded-sm object-cover shadow-xl transition-all duration-500 shadow-black/40"
@@ -54,6 +54,7 @@ const { image, subtitulo, description, content } = Astro.props;
                 class="flex min-h-full flex-col items-center justify-center text-start"
             >
                 <h2
+                    id="subtitulo"
                     class="text-base md:text-xl font-bold md:mb-5 mb-1 text-start w-full"
                 >
                     {subtitulo}
@@ -61,13 +62,54 @@ const { image, subtitulo, description, content } = Astro.props;
                 <p class="md:text-lg text-xs md:mb-5 mb-1">
                     {description}
                 </p>
-                <a
-                    target="_blank"
-                    href="https://www.gob.mx/se/articulos/que-es-la-metrologia#:~:text=La%20Metrolog%C3%ADa%20es%20la%20ciencia,con%20la%20normalizaci%C3%B3n%20sea%20factible."
-                    class="mt-2 rounded-md md:text-sm text-xs hover:bg-primary/40 hover:text-white bg-primary px-3 py-2 text-secondary font-semibold"
-                    >Aprender más
-                </a>
+
+                
+                <button
+                    type="button"
+                    class="hs-collapse-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                    id="hs-basic-collapse"
+                    aria-expanded="false"
+                    aria-controls="hs-basic-collapse-heading"
+                    data-hs-collapse="#hs-basic-collapse-heading"
+                >
+                    Aprender más
+                    <svg
+                        class="hs-collapse-open:rotate-180 size-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                </button>
+                
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    // Obtener el botón "Aprender más" y añadirle un evento de clic
+    const aprenderMasBtn = document.getElementById("aprender-mas");
+
+    // Asumimos que el subtítulo está dentro de un elemento con id="subtitulo"
+    // Si no es así, ajusta el selector de acuerdo a tu estructura
+    const subtitulo = document.getElementById("subtitulo").textContent;
+
+    aprenderMasBtn.addEventListener("click", function () {
+        // Borrar cualquier valor previo en el localStorage con la clave 'subtituloCurso'
+        localStorage.removeItem("subtituloCurso");
+
+        // Guardar el nuevo subtítulo en localStorage
+        localStorage.setItem("subtituloCurso", subtitulo);
+
+        // Aquí puedes incluir la lógica para abrir el modal si lo necesitas
+        // (si el modal está controlado por JS, puedes agregar código para mostrarlo)
+    });
+</script>

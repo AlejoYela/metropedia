@@ -1,8 +1,8 @@
 ---
 import LogoMonoIcon from "../../../icons/LogoMonoIcon.astro";
 import CampusLayout from "../../../layouts/CampusLayout.astro";
-import ScrollSpy from "../../../components/ScrollSpy.astro";
 import Steper from "../../../components/Steper.astro";
+import ContentModal from "../../../components/ContentModal.astro";
 const { courseCode } = Astro.params;
 console.log("Course code: ", courseCode);
 
@@ -30,6 +30,7 @@ await fetchCertificate();
 ---
 
 <CampusLayout title="Metropedia">
+    
     <div class="h-dvh">
         <!--Header start -->
         <header
