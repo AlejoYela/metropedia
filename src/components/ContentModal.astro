@@ -1,54 +1,54 @@
-
 ---
-const {image, subtitulo, description, index} = Astro.props
+const { image, subtitulo, description, index, content, video } = Astro.props;
 ---
 
+<div id={`${index}-my-popover`} popover class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true" transition:name=`content ${index} box`>
+  <div class="fixed inset-0 bg-neutral-900/75 transition-opacity" aria-hidden="true"></div>
 
-<div id={`${index}-content-modal-visible`} class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    <!--
-      Background backdrop, show/hide based on modal state.
-  
-      Entering: "ease-out duration-300"
-        From: "opacity-0"
-        To: "opacity-100"
-      Leaving: "ease-in duration-200"
-        From: "opacity-100"
-        To: "opacity-0"
-    -->
-    <div class="fixed inset-0 bg-neutral-900/75 transition-opacity" aria-hidden="true"></div>
-  
-    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-        <!--
-          Modal panel, show/hide based on modal state.
-  
-          Entering: "ease-out duration-300"
-            From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            To: "opacity-100 translate-y-0 sm:scale-100"
-          Leaving: "ease-in duration-200"
-            From: "opacity-100 translate-y-0 sm:scale-100"
-            To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-        -->
-        <div class="relative transform overflow-hidden rounded-sm bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-          <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-            <div class="sm:flex sm:items-start">
-              <div class="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:size-10">
-                
-                <img src={image} alt="">
-              </div>
-              <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                <h3 class="text-base font-semibold text-neutral-900" id="modal-title">{subtitulo}</h3>
-                <div class="mt-2">
-                  <p class="text-sm text-neutral-500">{description}</p>
-                </div>
+  <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+    <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+      <div class="relative transform overflow-hidden rounded-sm bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+        <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div class="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:size-10">
+              <img src={image} class="rounded-sm" alt="" transition:name=`content ${index} image`>
+            </div>
+            <div class="mt-3  sm:ml-4 sm:mt-0 text-left">
+              <h3 class="text-base font-semibold text-neutral-900" id="modal-title">{subtitulo}</h3>
+              <div class="mt-2">
+                <p class="text-sm text-neutral-500 mb-3">{content}</p>
+                <p class="text-sm text-neutral-500 mb-3">Este video te ayudará a comprender mejor:</p>
+                <iframe class="w-full aspect-video" src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
               </div>
             </div>
           </div>
-          <div class="bg-neutral-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-            <button id={`${index}-deactivate-button`} type="button" class="mt-3 inline-flex w-full justify-center rounded-sm bg-white px-3 py-2 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 sm:mt-0 sm:w-auto">Cerrar</button>
-          </div>
+        </div>
+        <div class="bg-neutral-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+          <!-- El botón tiene un atributo data-index -->
+          <button 
+            type="button" 
+            class="mt-3 inline-flex w-full justify-center rounded-sm bg-white px-3 py-2 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 sm:mt-0 sm:w-auto"
+            data-index={`${index}`} 
+          >
+            Cerrar
+          </button>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
+
+<script>
+  // Delegación de eventos para los botones "Cerrar"
+  document.addEventListener('click', (event) => {
+    // Verificar si el clic ocurrió en un botón con data-index
+    const closeButton = event.target.closest('button[data-index]');
+    if (closeButton) {
+      const index = closeButton.getAttribute('data-index');
+      const popover = document.getElementById(`${index}-my-popover`);
+      if (popover) {
+        popover.hidePopover(); // Cierra el popover
+      }
+    }
+  });
+</script>

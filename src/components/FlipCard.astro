@@ -1,9 +1,8 @@
 ---
 import ContentModal from "./ContentModal.astro";
 
-const { image, subtitulo, description, index } = Astro.props;
+const { image, subtitulo, description, index, content, video } = Astro.props;
 ---
-
 
 <div
     class="group h-60 md:h-96 md:w-96 [perspective:1000px] overflow-hidden rounded-sm my-3"
@@ -18,6 +17,7 @@ const { image, subtitulo, description, index } = Astro.props;
                     class="h-full w-full rounded-sm object-cover shadow-xl transition-all duration-500 shadow-black/40"
                     src={image}
                     alt="Metrología Básica"
+                    transition:name=`content ${index} image`
                 />
                 <div
                     class="absolute bottom-0 text-white font-semibold text-xs md:text-base h-auto bg-secondary/40 backdrop-blur-sm inset-x-0 text-center flex gap-2 items-center justify-center my-3 mx-10 rounded-sm py-2 shadow-lg"
@@ -58,44 +58,60 @@ const { image, subtitulo, description, index } = Astro.props;
             >
                 <h2
                     id="subtitulo"
-                    class="text-base md:text-xl font-bold md:mb-5 mb-1 text-start w-full"
+                    class="text-base md:text-xl font-bold md:mb-5 mb-1 text-center w-full"
                 >
                     {subtitulo}
                 </h2>
-                <p class="md:text-lg text-xs md:mb-5 mb-1">
-                    {description}
+                <p class="md:text-lg text-xs md:mb-5 mb-1 truncate max-w-48 md:max-w-80">
+                    {content}
                 </p>
 
                 <button
-                    id={`${index}-aprender-mas`}
+                    popovertarget={`${index}-my-popover`}
                     type="button"
-                    class="hs-collapse-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-neutral-200 bg-white text-neutral-800 shadow-sm hover:bg-neutral-50 focus:outline-none focus:bg-neutral-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
-                    id="hs-basic-collapse"
-                    aria-expanded="false"
-                    aria-controls="hs-basic-collapse-heading"
-                    data-hs-collapse="#hs-basic-collapse-heading"
+                    class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-neutral-200 bg-white text-neutral-800 shadow-sm hover:bg-neutral-50 focus:outline-none focus:bg-neutral-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                    transition:name=`content ${index} box`
                 >
-                    Aprender más <span id="span-aux">{index}</span>
+                    Aprender más
                 </button>
+
+                <ContentModal
+                    image={image}
+                    subtitulo={subtitulo}
+                    description={description}
+                    index={index}
+                    content={content}
+                    video={video}
+                />
             </div>
         </div>
     </div>
 </div>
-<ContentModal image={image} subtitulo={subtitulo} description={description} index={index}/>
+<ContentModal
+    image={image}
+    subtitulo={subtitulo}
+    description={description}
+    index={index}
+/>
 
-<script >
-    document.addEventListener('DOMContentLoaded', function () {
-
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
         const spanAux = document.getElementById("span-aux").textContent;
-        const contentModalVisible = document.getElementById(`${spanAux}-content-modal-visible`,);
-        const aprenderMasButton = document.getElementById(`${spanAux}-aprender-mas`);
-        const deactivateButton = document.getElementById(`${spanAux}-deactivate-button`);
-    
-        aprenderMasButton.addEventListener("click", ()=>{
-            contentModalVisible.classList.toggle("hidden")
-        })
-        deactivateButton.addEventListener("click", ()=>{
-            contentModalVisible.classList.toggle("hidden")
-        })
-    })
+        const contentModalVisible = document.getElementById(
+            `${spanAux}-content-modal-visible`,
+        );
+        const aprenderMasButton = document.getElementById(
+            `${spanAux}-aprender-mas`,
+        );
+        const deactivateButton = document.getElementById(
+            `${spanAux}-deactivate-button`,
+        );
+
+        aprenderMasButton.addEventListener("click", () => {
+            contentModalVisible.classList.toggle("hidden");
+        });
+        deactivateButton.addEventListener("click", () => {
+            contentModalVisible.classList.toggle("hidden");
+        });
+    });
 </script>

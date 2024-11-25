@@ -2,15 +2,14 @@
 const { module, indexSuperior } = Astro.props;
 import FlipCard from "../components/FlipCard.astro";
 import LogoutIcon from "../icons/LogoutIcon.astro";
-import ContentModal from "./ContentModal.astro";
 ---
 
-<!--ScrollSpy start --> 
+<!--ScrollSpy start -->
 <div
     id="scrollspy-scrollable-parent-2"
     class="overflow-y-auto mt-5 md:max-h-[70dvh] sm:max-h-[60dvh] max-h-[55dvh]"
 >
-    <div class="grid grid-cols-4 md:grid-cols-6 gap-5 lg:px-8 px-0">
+    <div class="grid grid-cols-4 md:grid-cols-7 gap-5 lg:px-8 px-0">
         <div class="col-span-1 border-r border-[#5e5e5e] pe-3">
             <ul
                 class="sticky top-0"
@@ -42,7 +41,7 @@ import ContentModal from "./ContentModal.astro";
             </ul>
         </div>
 
-        <div class="col-span-3 md:col-span-5 lg:px-5">
+        <div class="col-span-3 md:col-span-6 lg:px-5 flex-1 ">
             <div id="scrollspy-2" class="space-y-4">
                 {
                     module.content.map((cont, index) => (
@@ -50,25 +49,23 @@ import ContentModal from "./ContentModal.astro";
                             <h3 class="md:text-lg text-base font-semibold dark:text-white">
                                 {cont.subtitle}
                             </h3>
+                            <div class="mb-5 mt-1 bg-white rounded-lg py-3 px-4 dark:bg-neutral-800">
+                                <p class="text-neutral-500 dark:text-neutral-400 text-sm md:text-base">
+                                    {cont.description}
+                                </p>
+                            </div>
 
-                            <h4 class="text-[#ffd16f] md:text-base text-xs">
-                                {cont.description}
-                            </h4>
+                            
                             <FlipCard
                                 image={cont.image}
                                 subtitulo={cont.subtitle}
                                 description={cont.description}
                                 content={cont.desarrollo}
                                 index={`${index}-${indexSuperior}`}
+                                video={cont.interactiveElements[0].video?.link}
                             />
-<ContentModal image={cont.image} subtitulo={cont.subtitle} description={cont.description} index={`${index}-${indexSuperior}`}/>
-                            
 
-                            <div class="mt-5 bg-white rounded-lg py-3 px-4 dark:bg-neutral-800">
-                                <p class="text-neutral-500 dark:text-neutral-400">
-                                    {cont.desarrollo}
-                                </p>
-                            </div>
+                            
                         </div>
                     ))
                 }
