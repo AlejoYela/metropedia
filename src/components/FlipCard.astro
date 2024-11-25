@@ -1,6 +1,9 @@
 ---
-const { image, subtitulo, description } = Astro.props;
+import ContentModal from "./ContentModal.astro";
+
+const { image, subtitulo, description, index } = Astro.props;
 ---
+
 
 <div
     class="group h-60 md:h-96 md:w-96 [perspective:1000px] overflow-hidden rounded-sm my-3"
@@ -63,53 +66,36 @@ const { image, subtitulo, description } = Astro.props;
                     {description}
                 </p>
 
-                
                 <button
+                    id={`${index}-aprender-mas`}
                     type="button"
-                    class="hs-collapse-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                    class="hs-collapse-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-neutral-200 bg-white text-neutral-800 shadow-sm hover:bg-neutral-50 focus:outline-none focus:bg-neutral-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
                     id="hs-basic-collapse"
                     aria-expanded="false"
                     aria-controls="hs-basic-collapse-heading"
                     data-hs-collapse="#hs-basic-collapse-heading"
                 >
-                    Aprender más
-                    <svg
-                        class="hs-collapse-open:rotate-180 size-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="m6 9 6 6 6-6"></path>
-                    </svg>
+                    Aprender más <span id="span-aux">{index}</span>
                 </button>
-                
             </div>
         </div>
     </div>
 </div>
+<ContentModal image={image} subtitulo={subtitulo} description={description} index={index}/>
 
-<script>
-    // Obtener el botón "Aprender más" y añadirle un evento de clic
-    const aprenderMasBtn = document.getElementById("aprender-mas");
+<script >
+    document.addEventListener('DOMContentLoaded', function () {
 
-    // Asumimos que el subtítulo está dentro de un elemento con id="subtitulo"
-    // Si no es así, ajusta el selector de acuerdo a tu estructura
-    const subtitulo = document.getElementById("subtitulo").textContent;
-
-    aprenderMasBtn.addEventListener("click", function () {
-        // Borrar cualquier valor previo en el localStorage con la clave 'subtituloCurso'
-        localStorage.removeItem("subtituloCurso");
-
-        // Guardar el nuevo subtítulo en localStorage
-        localStorage.setItem("subtituloCurso", subtitulo);
-
-        // Aquí puedes incluir la lógica para abrir el modal si lo necesitas
-        // (si el modal está controlado por JS, puedes agregar código para mostrarlo)
-    });
+        const spanAux = document.getElementById("span-aux").textContent;
+        const contentModalVisible = document.getElementById(`${spanAux}-content-modal-visible`,);
+        const aprenderMasButton = document.getElementById(`${spanAux}-aprender-mas`);
+        const deactivateButton = document.getElementById(`${spanAux}-deactivate-button`);
+    
+        aprenderMasButton.addEventListener("click", ()=>{
+            contentModalVisible.classList.toggle("hidden")
+        })
+        deactivateButton.addEventListener("click", ()=>{
+            contentModalVisible.classList.toggle("hidden")
+        })
+    })
 </script>

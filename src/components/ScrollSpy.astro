@@ -2,9 +2,10 @@
 const { module, indexSuperior } = Astro.props;
 import FlipCard from "../components/FlipCard.astro";
 import LogoutIcon from "../icons/LogoutIcon.astro";
+import ContentModal from "./ContentModal.astro";
 ---
 
-<!--ScrollSpy start -->
+<!--ScrollSpy start --> 
 <div
     id="scrollspy-scrollable-parent-2"
     class="overflow-y-auto mt-5 md:max-h-[70dvh] sm:max-h-[60dvh] max-h-[55dvh]"
@@ -21,7 +22,7 @@ import LogoutIcon from "../icons/LogoutIcon.astro";
                         <li data-hs-scrollspy-group="">
                             <a
                                 href={`#item-${indexSuperior}-${index + 1}`}
-                                class="block truncate py-0.5 text-sm font-medium leading-6 text-gray-700 hover:text-gray-900 focus:outline-none focus:text-blue-600 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-blue-500 hs-scrollspy-active:text-blue-600 dark:hs-scrollspy-active:text-blue-500 active"
+                                class="block truncate py-0.5 text-sm font-medium leading-6 text-neutral-700 hover:text-neutral-900 focus:outline-none focus:text-blue-600 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-blue-500 hs-scrollspy-active:text-blue-600 dark:hs-scrollspy-active:text-blue-500 active"
                             >
                                 {indexSuperior}-{index + 1}. {cont.subtitle}
                             </a>
@@ -58,10 +59,13 @@ import LogoutIcon from "../icons/LogoutIcon.astro";
                                 subtitulo={cont.subtitle}
                                 description={cont.description}
                                 content={cont.desarrollo}
+                                index={`${index}-${indexSuperior}`}
                             />
+<ContentModal image={cont.image} subtitulo={cont.subtitle} description={cont.description} index={`${index}-${indexSuperior}`}/>
+                            
 
                             <div class="mt-5 bg-white rounded-lg py-3 px-4 dark:bg-neutral-800">
-                                <p class="text-gray-500 dark:text-neutral-400">
+                                <p class="text-neutral-500 dark:text-neutral-400">
                                     {cont.desarrollo}
                                 </p>
                             </div>
