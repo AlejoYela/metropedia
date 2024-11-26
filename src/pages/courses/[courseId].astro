@@ -8,7 +8,6 @@ const selectedObject = courseData.filter(
   (course) => course.id === Number(courseId),
 );
 const selectedCourse = selectedObject[0];
-console.log(selectedCourse);
 
 const numberToWord = {
   1: "one",
@@ -55,7 +54,9 @@ const numberToWord = {
           class="rounded-sm md:hidden my-3 w-full h-44 object-cover object-center"
         />
 
-        <h2 class="dark:text-white my-5 md:my-8 text-2xl md:text-3xl font-extrabold">
+        <h2
+          class="dark:text-white my-5 md:my-8 text-2xl md:text-3xl font-extrabold"
+        >
           {selectedCourse.course}
         </h2>
 
@@ -63,10 +64,10 @@ const numberToWord = {
           {selectedCourse.description}
         </p>
         <div class="mb-5 flex md:hidden">
-
           <a
             href="https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/authorize?response_type=code&client_id=JozbrwbE60QoHfD6hZiQy18zIQFxGEw0&redirect_uri=https%3A%2F%2Fmetropedia.vercel.app%2Flogin&state=STATE"
-            class="bg-primary text-center text-secondary border border-transparent hover:border-primary font-bold tracking-tight px-3 py-2 rounded-sm mt-3 mb-1 w-full hover:bg-[#f1c669]">
+            class="bg-primary text-center text-secondary border border-transparent hover:border-primary font-bold tracking-tight px-3 py-2 rounded-sm mt-3 mb-1 w-full hover:bg-[#f1c669]"
+          >
             Tomar curso
           </a>
         </div>
@@ -211,12 +212,13 @@ const numberToWord = {
             Yo soy Alejandro Yela, tengo más de 4 Años de experiencia trabajando
             en Metrología y Software, he dado clases y participado en distintos
             congresos, y apoyado a la formación en el Servicio Nacional de
-            Aprendizaje de Colombia SENA, y soy quien diseñó este curso. Empieza a aprender ya mismo!
+            Aprendizaje de Colombia SENA, y soy quien diseñó este curso. Empieza
+            a aprender ya mismo!
           </p>
         </div>
       </div>
       <div
-        class="hidden md:block bg-white p-1 max-w-xs max-h-max sticky right-0 top-24"
+        class="hidden md:block bg-white/60 backdrop-blur-lg p-1 max-w-xs max-h-max sticky right-0 top-24"
       >
         <img
           class="object-cover h-48 w-full"
@@ -238,11 +240,9 @@ const numberToWord = {
           </p>
           <p class="text-[#696969] text-sm">
             Consigue este curso y más de 2000 de nuestros cursos mejor valorados
-            por los ususarios. <a class="underline" href=""
-              >Más información</a
-            >
+            por los ususarios. <a class="underline" href="">Más información</a>
           </p>
-          
+
           <div class="relative flex py-3 items-center">
             <div class="flex-grow border-t border-neutral-400"></div>
             <span class="flex-shrink mx-4 text-neutral-400">o</span>
@@ -253,17 +253,15 @@ const numberToWord = {
           </p>
 
           <div class="my-5 flex">
-
             <a
               href="https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/authorize?response_type=code&client_id=JozbrwbE60QoHfD6hZiQy18zIQFxGEw0&redirect_uri=https%3A%2F%2Fmetropedia.vercel.app%2Flogin&state=STATE"
-              class="bg-primary text-center text-secondary border border-transparent hover:border-primary font-bold tracking-tight px-3 py-2 rounded-sm mt-3 mb-1 w-full hover:bg-[#f1c669]">
+              class="bg-primary text-center text-secondary border border-transparent hover:border-primary font-bold tracking-tight px-3 py-2 rounded-sm mt-3 mb-1 w-full hover:bg-[#f1c669]"
+            >
               Tomar curso
             </a>
           </div>
-          <p class="text-xs text-center">
-            Inicia en dos días hábiles
-          </p>
-          
+          <p class="text-xs text-center">Inicia en dos días hábiles</p>
+
           <p class="text-xs text-center">Garantía de reembolso de 30 días</p>
         </div>
       </div>

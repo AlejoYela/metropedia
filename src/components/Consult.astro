@@ -170,7 +170,6 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
 
     modalButton.addEventListener("click", () => {
       const id = modalInput.value;
-      console.log("modalinput value: ", modalInput.value);
       spinner.classList.remove("hidden");
       spinner.classList.add("flex");
       async function fetchUserData(id) {
@@ -184,7 +183,7 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
           }
 
           let userData = await response.json();
-          console.log(userData);
+        
           spinner.classList.add("hidden");
           spinner.classList.remove("flex");
           nombreUsuario.textContent = userData.name;
@@ -210,7 +209,7 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
 
           auxDiv.appendChild(auxUl); // Finalmente, agrega la lista al contenedor
         } catch (err) {
-          console.log(
+          console.warn(
             "Error al obtener los datos. Verifica el número de cédula o código: ",
             err,
           );

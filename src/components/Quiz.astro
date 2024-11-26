@@ -45,7 +45,7 @@ const { index, module } = Astro.props;
               <div class="mt-2">
                 <p class="text-sm text-neutral-500 mb-3">
                   {
-                    module.quiz.questions.map((question, index) => (
+                    module.quiz?.questions.map((question, index) => (
                       <div>
                         <h3 class="mt-5">{question.question}</h3>
                         <div class="relative">

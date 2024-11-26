@@ -1,18 +1,22 @@
 ---
-const { module, indexSuperior } = Astro.props;
+const { module, indexSuperior, color } = Astro.props;
 import FlipCard from "../components/FlipCard.astro";
 import LogoutIcon from "../icons/LogoutIcon.astro";
 import UncertainlyIcon from "../icons/UncertainlyIcon.astro";
 import Quiz from "./Quiz.astro";
+
+const courseColor = `bg-[${color}]`
+console.log('color: ', courseColor)
+
 ---
 
 <!--ScrollSpy start -->
 <div
     id="scrollspy-scrollable-parent-2"
-    class="overflow-y-auto mt-5 md:max-h-[70dvh] sm:max-h-[60dvh] max-h-[55dvh]"
+    class="overflow-y-auto mt-5 md:max-h-[67dvh] sm:max-h-[60dvh] max-h-[53dvh] scroll-smooth"
 >
-    <div class="grid grid-cols-4 md:grid-cols-7 gap-5 lg:px-8 px-0">
-        <div class="col-span-1 border-r border-[#5e5e5e] pe-3">
+    <div class="grid grid-cols-1 md:grid-cols-7 gap-5 lg:px-8 px-0">
+        <div class="col-span-0 hidden md:block border-r border-[#5e5e5e] pe-3">
             <ul
                 class="sticky top-0 flex flex-col justify-between"
                 data-hs-scrollspy="#scrollspy-2"
@@ -23,7 +27,7 @@ import Quiz from "./Quiz.astro";
                         <li data-hs-scrollspy-group="">
                             <a
                                 href={`#item-${indexSuperior}-${index + 1}`}
-                                class="block truncate py-0.5 text-sm font-medium leading-6 text-neutral-700 hover:text-neutral-900 focus:outline-none focus:text-blue-600 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-blue-500 hs-scrollspy-active:text-blue-600 dark:hs-scrollspy-active:text-blue-500 active"
+                                class="block truncate py-0.5 text-sm font-medium leading-6 text-neutral-700 hover:text-neutral-900 focus:outline-none focus:text-blue-600 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-blue-500 hs-scrollspy-active:text-blue-600 dark:hs-scrollspy-active:text-blue-500"
                             >
                                 {indexSuperior}-{index + 1}. {cont.subtitle}
                             </a>
@@ -32,8 +36,7 @@ import Quiz from "./Quiz.astro";
                 }
                 <li data-hs-scrollspy-group="">
                     <a
-                        
-                        class="flex items-center gap-x-1.5 py-1 text-sm dark:text-white rounded-lg hover:bg-white/20 focus:outline-none dark:dark:text-white"
+                        class="flex items-center gap-x-1.5 py-1 text-sm dark:text-white rounded-lg hover:bg-white/20 focus:outline-none dark:dark:text-white truncate"
                         href={`#item-cuestionario-${indexSuperior}`}
                     >
                         <UncertainlyIcon class="shrink-0 size-4" />
@@ -43,7 +46,7 @@ import Quiz from "./Quiz.astro";
                 <li>
                     <a
                         id="boton-inicio"
-                        class="flex items-center gap-x-1.5 py-1 text-sm dark:text-white rounded-lg hover:bg-white/20 focus:outline-none dark:dark:text-white"
+                        class="flex items-center gap-x-1.5 py-1 text-sm dark:text-white rounded-lg hover:bg-white/20 focus:outline-none dark:dark:text-white truncate"
                         href="/"
                     >
                         <LogoutIcon class="shrink-0 size-4" />
@@ -53,19 +56,17 @@ import Quiz from "./Quiz.astro";
             </ul>
         </div>
 
-        <div class="col-span-3 md:col-span-6 lg:px-5 flex-1">
+        <div class="col-span-3 md:col-span-4 lg:px-5 flex-1">
             <div id="scrollspy-2" class="space-y-4">
                 {
                     module.content.map((cont, index) => (
-                        <div id={`item-${indexSuperior}-${index + 1}`}>
-                            <h3 class="md:text-lg text-base font-semibold dark:text-white">
+                        <div id={`item-${indexSuperior}-${index + 1}`} class="divide-y mb-10">
+                            <h3 class="md:text-lg text-base font-semibold dark:text-white mb-3">
                                 {cont.subtitle}
                             </h3>
-                            <div class="mb-5 mt-1 bg-white rounded-lg py-3 px-4 dark:bg-neutral-800">
-                                <p class="text-neutral-500 dark:text-neutral-400 text-sm md:text-base">
-                                    {cont.description}
-                                </p>
-                            </div>
+                            <p class="text-[#ffd16f] text-xs md:text-base py-3">
+                                {cont.description}
+                            </p>
 
                             <FlipCard
                                 image={cont.image}
@@ -73,26 +74,21 @@ import Quiz from "./Quiz.astro";
                                 description={cont.description}
                                 content={cont.desarrollo}
                                 index={`${index}-${indexSuperior}`}
-                                video={cont.interactiveElements[0].video?.link}
+                               
                             />
                         </div>
                     ))
                 }
 
-                <h2 class="mb-3">
-                    Aquí hay una consola funcional de Python para practicar tus
-                    conocimientos:
-                </h2>
-                <iframe
-                    src="https://jupyterlite.github.io/demo/repl/index.html?kernel=python&toolbar=1"
-                    width="100%"
-                    height="300px"
-                >
-                </iframe>
+                
                 <div id={`item-cuestionario-${indexSuperior}`}>
-                    <button popovertarget={`${indexSuperior}-my-quiz-popover`} class="bg-primary px-3 py-2 rounded-sm text-secondary hover:bg-primary/40 my-10">Realizar Cuestionario sobre {module.title}</button>
-                    
-                    <Quiz index={indexSuperior} module={module}/>
+                    <button
+                        popovertarget={`${indexSuperior}-my-quiz-popover`}
+                        class={`${courseColor} px-3 py-2 rounded-sm text-[#191919] hover:${courseColor}/40 my-10 md:text-base text-xs`}
+                        >Realizar Cuestionario sobre {module.title}</button
+                    >
+
+                    <Quiz index={indexSuperior} module={module} />
                 </div>
             </div>
         </div>

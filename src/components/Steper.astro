@@ -1,6 +1,7 @@
 ---
 import ScrollSpy from "./ScrollSpy.astro";
 const { userData } = Astro.props;
+
 ---
 
 <div class="p-4 bg-white rounded-lg shadow-md dark:bg-neutral-800">
@@ -15,7 +16,7 @@ const { userData } = Astro.props;
                         data-hs-stepper-nav-item={`{"index": ${index + 1}}`}
                     >
                         <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
-                            <span class="size-7 flex justify-center items-center shrink-0 bg-neutral-100 font-medium text-neutral-800 rounded-full group-focus:bg-neutral-200 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-neutral-600 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
+                            <span class="size-7 flex justify-center items-center shrink-0 bg-neutral-100 font-medium text-neutral-800 rounded-full group-focus:bg-neutral-200 dark:bg-[#191919] dark:text-white dark:group-focus:bg-neutral-600 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
                                 <span class="hs-stepper-success:hidden hs-stepper-completed:hidden">
                                     {index + 1}
                                 </span>
@@ -54,9 +55,9 @@ const { userData } = Astro.props;
                     <div
                         data-hs-stepper-content-item={`{"index": ${index + 1}}`}
                     >
-                        <div class="p-4 h-auto bg-neutral-50 flex justify-between items-center border border-dashed border-neutral-200 rounded-sm dark:bg-neutral-700 dark:border-neutral-600 ">
+                        <div class="p-4 h-auto bg-neutral-50 flex justify-between items-center border border-neutral-200 rounded-sm dark:bg-[#191919] dark:border-neutral-600 ">
                             <h3 class="text-neutral-500 dark:text-neutral-400 w-full">
-                                <ScrollSpy module={module} indexSuperior ={index+1}/>
+                                <ScrollSpy module={module} indexSuperior ={index+1} color={userData.color}/>
                             </h3>
                         </div>
                     </div>
@@ -69,7 +70,7 @@ const { userData } = Astro.props;
                 style="display: none;"
             >
                 <div
-                    class="p-4 h-48 bg-neutral-50 flex justify-center items-center border border-dashed border-neutral-200 rounded-xl dark:bg-neutral-700 dark:border-neutral-600"
+                    class="p-4 h-48 bg-neutral-50 flex justify-center items-center border border-dashed border-neutral-200 rounded-xl dark:bg-[#191919] dark:border-neutral-600"
                 >
                     <h3 class="text-neutral-500 dark:text-neutral-400">
                         Felicidades, terminaste el curso {userData.course}
@@ -82,7 +83,7 @@ const { userData } = Astro.props;
             <div class="mt-5 flex justify-between items-center gap-x-2">
                 <button
                     type="button"
-                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-neutral-200 bg-white text-neutral-800 shadow-sm hover:bg-neutral-50 focus:outline-none focus:bg-neutral-50 disabled:opacity-50 disabled:pointer-events-none"
+                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-sm border border-neutral-200 bg-white text-neutral-800 shadow-sm hover:bg-neutral-50 focus:outline-none focus:bg-neutral-50 disabled:opacity-50 disabled:pointer-events-none"
                     data-hs-stepper-back-btn=""
                 >
                     <svg
@@ -103,7 +104,7 @@ const { userData } = Astro.props;
                 </button>
                 <button
                     type="button"
-                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-sm border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                     data-hs-stepper-next-btn=""
                 >
                     Siguiente
@@ -124,7 +125,7 @@ const { userData } = Astro.props;
                 </button>
                 <button
                     type="button"
-                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-sm border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                     data-hs-stepper-finish-btn=""
                     style="display: none;"
                 >
@@ -132,7 +133,7 @@ const { userData } = Astro.props;
                 </button>
                 <button
                     type="reset"
-                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-sm border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                     data-hs-stepper-reset-btn=""
                     style="display: none;"
                 >

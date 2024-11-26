@@ -1,7 +1,7 @@
 ---
 import ContentModal from "./ContentModal.astro";
 
-const { image, subtitulo, description, index, content, video } = Astro.props;
+const { image, subtitulo, description, index, content } = Astro.props;
 ---
 
 <div
@@ -81,18 +81,13 @@ const { image, subtitulo, description, index, content, video } = Astro.props;
                     description={description}
                     index={index}
                     content={content}
-                    video={video}
+                    
                 />
             </div>
         </div>
     </div>
 </div>
-<ContentModal
-    image={image}
-    subtitulo={subtitulo}
-    description={description}
-    index={index}
-/>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
