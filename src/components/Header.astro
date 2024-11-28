@@ -1,5 +1,12 @@
 ---
+import { Image } from "astro:assets";
 import ThemeSwitch from "./ThemeSwitch.astro";
+
+const logo = {
+    mobileSrc: "https://res.cloudinary.com/dc0aja7yx/image/upload/v1732761290/dark-logo-mobile_wvdvce.png",
+    src: "https://res.cloudinary.com/dc0aja7yx/image/upload/v1731012164/logolargo_yjfjl4.png",
+    alt: "Logo de Metropedia",
+};
 
 const navItems = [
     { title: "Herramientas", label: "experiencia", url: "/#experiencia" },
@@ -15,8 +22,6 @@ const navItems = [
         url: "https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/authorize?response_type=code&client_id=JozbrwbE60QoHfD6hZiQy18zIQFxGEw0&redirect_uri=https%3A%2F%2Fmetropedia.vercel.app%2Flogin&state=STATE",
     },
 ];
-
-
 ---
 
 <div
@@ -31,10 +36,20 @@ const navItems = [
         >
             <div class="flex items-center justify-between">
                 <a href="/" class="relative flex items-center gap-3 min-w-max">
-                    <img
-                        src="https://res.cloudinary.com/dc0aja7yx/image/upload/v1731012164/logolargo_yjfjl4.png"
-                        class="metropedia h-14 md:h-16 relative z-20"
-                        alt="Logo"
+                    
+                    <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        width="256"
+                        height="64"
+                        class="hidden md:block metropedia h-14 md:h-16 relative z-20"
+                    />
+                    <Image
+                        src={logo.mobileSrc}
+                        alt={logo.alt}
+                        width="240"
+                        height="64"
+                        class="md:hidden metropedia-mobile h-14 md:h-16 relative z-20"
                     />
                 </a>
 
@@ -198,13 +213,14 @@ const navItems = [
                             </a>
                         ))
                     }
-                    <ThemeSwitch/>
-                    <a
-                        id="avatar-a"
-                        
-                        href="#"
-                    >
-                    <img class="h-8 rounded-full border-green-500 border-2" id="avatar-image" src="https://openclipart.org/image/2000px/247319" alt="avatar image">
+                    <ThemeSwitch />
+                    <a id="avatar-a" href="#">
+                        <img
+                            class="h-8 rounded-full border-green-500 border-2"
+                            id="avatar-image"
+                            src="https://openclipart.org/image/2000px/247319"
+                            alt="avatar image"
+                        />
                     </a>
                 </div>
             </div>
@@ -263,4 +279,19 @@ const navItems = [
                 transparent
             );
     }
+    .metropedia-mobile {
+    -webkit-mask-image: linear-gradient(
+        to right, /* El gradiente va hacia la derecha */
+        black,    /* Parte completamente visible (sin transparencia) */
+        transparent 99% /* Empieza a desvanecerse al 70% */
+    );
+    mask-image: linear-gradient(
+        to right,
+        black,
+        transparent 99%
+    );
+    -webkit-mask-repeat: no-repeat; /* Asegura que el gradiente no se repita */
+    mask-repeat: no-repeat;
+}
+
 </style>
