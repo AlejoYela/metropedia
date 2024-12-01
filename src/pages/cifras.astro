@@ -8,80 +8,171 @@ import TargetIcon from "../icons/TargetIcon.astro";
 ---
 
 <Layout title="Metropedia">
-    <div class="calculadora relative about flex flex-col justify-center items-center  gap-12 pt-12">
+    <div
+        class="calculadora relative about flex flex-col justify-center items-center gap-12 pt-24 px-3"
+    >
         <div class="flex">
             <CalculatorIcon class="size-10 mr-2 stroke-[#fcb316]" />
-            <h3 class="text-4xl font-extrabold">
-                Calculadora de <span class="text-primary">Cifras Significativas</span>
+            <h3 class="md:text-4xl text-2xl font-extrabold">
+                Calculadora de <span class="text-primary"
+                    >Cifras Significativas</span
+                >
             </h3>
         </div>
-        <p class="text-xl dark:text-white/50">
-            Determina el número de cifras significativas en un número y muestra cuáles son esas cifras.
+        <p class="text-xl text-center dark:text-white/50">
+            Determina el número de cifras significativas en un número y muestra
+            cuáles son esas cifras.
         </p>
 
         <!-- Navegación de Pestañas -->
         <div class="border-b border-neutral-200 dark:border-neutral-700">
-            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-neutral-500 dark:text-neutral-400">
+            <ul
+                class="flex -mb-px text-sm font-medium text-center text-neutral-500 dark:text-neutral-400"
+            >
                 <li class="me-2">
-                    <button id="encontrar-cifras" onclick="showSection('find')" class="inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group" role="tab">
-                        <SearchIcon class="size-5" /> Encontrar cifras
+                    <button
+                        id="encontrar-cifras"
+                        onclick="showSection('find')"
+                        class="inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group"
+                        role="tab"
+                    >
+                        <SearchIcon class="size-5" /> Encontrar <span class="hidden md:block">cifras</span>
                     </button>
                 </li>
                 <li class="me-2">
-                    <button id="redondear-cifras" onclick="showSection('round')" class="inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-neutral-600 hover:border-neutral-300 dark:hover:text-neutral-300 group" role="tab">
-                        <TargetIcon class="size-5" /> Redondear cifras
+                    <button
+                        id="redondear-cifras"
+                        onclick="showSection('round')"
+                        class="inline-flex gap-2 items-center justify-center p-4 border-b-2 text-blue-500 border-blue-500 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-300 dark:hover:text-blue-300 group"
+                        role="tab"
+                    >
+                        <TargetIcon class="size-5" /> Redondear <span class="hidden md:block">cifras</span>
                     </button>
                 </li>
             </ul>
         </div>
 
         <!-- Formulario para encontrar cifras significativas -->
-        <form id="find-significant-figures" class="max-w-screen-xl w-full border border-primary/80 rounded-sm p-12">
-            <p class="dark:text-white/40 text-sm mb-6 w-full flex justify-center">
+        <form
+            id="find-significant-figures"
+            class="max-w-screen-xl w-full border border-primary/80 rounded-sm p-12"
+        >
+            <p
+                class="dark:text-white/40 text-sm mb-6 w-full flex justify-center"
+            >
                 Encuentra cuántas cifras significativas tiene un número.
             </p>
             <div class="mb-6">
-                <label for="number-input" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
-                    Introduzca el número en notación inglesa (ejemplos: 1.2; 1020; 12.3)
+                <label
+                    for="number-input"
+                    class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white"
+                >
+                    Introduzca el número en notación inglesa (ejemplos: 1.2;
+                    1020; 12.3)
                 </label>
-                <input type="text" id="number-input" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
+                <input
+                    type="text"
+                    id="number-input"
+                    class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    placeholder="0"
+                    required
+                />
             </div>
-            <button type="button" onclick="calculateSignificantFigures()" class="text-secondary bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4">Encontrar Número de Cifras Significativas</button>
+            <button
+                type="button"
+                onclick="calculateSignificantFigures()"
+                class="text-secondary bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+                >Encontrar Número de Cifras Significativas</button
+            >
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
-                    <label for="significant-figures-count" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">Cantidad de cifras significativas</label>
-                    <span id="significant-figures-count" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary">0</span>
+                    <label
+                        for="significant-figures-count"
+                        class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white"
+                        >Cantidad de cifras significativas</label
+                    >
+                    <span
+                        id="significant-figures-count"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        >0</span
+                    >
                 </div>
                 <div>
-                    <label for="significant-figures-value" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">Cifras significativas</label>
-                    <span id="significant-figures-value" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary">0</span>
+                    <label
+                        for="significant-figures-value"
+                        class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white"
+                        >Cifras significativas</label
+                    >
+                    <span
+                        id="significant-figures-value"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        >0</span
+                    >
                 </div>
             </div>
         </form>
 
         <!-- Formulario para redondear cifras significativas -->
-        <form id="round-significant-figures" class="hidden max-w-screen-xl w-full border rounded-sm p-12">
-            <p class="dark:text-white/40 text-sm mb-6 w-full flex justify-center">
+        <form
+            id="round-significant-figures"
+            class="hidden max-w-screen-xl w-full border border-blue-500 rounded-sm p-12"
+        >
+            <p
+                class="dark:text-white/40 text-sm mb-6 w-full flex justify-center"
+            >
                 Redondea cualquier número a las cifras decimales que escojas.
             </p>
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
-                    <label for="round-number-input" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
-                        Introduzca el número en notación inglesa (ejemplos: 1.2; 1020; 12.3)
+                    <label
+                        for="round-number-input"
+                        class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white"
+                    >
+                        Introduzca el número en notación inglesa (ejemplos: 1.2;
+                        1020; 12.3)
                     </label>
-                    <input type="text" id="round-number-input" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
+                    <input
+                        type="text"
+                        id="round-number-input"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                        placeholder="0"
+                        required
+                    />
                 </div>
                 <div>
-                    <label for="precision-input" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
+                    <label
+                        for="precision-input"
+                        class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white"
+                    >
                         Introduzca las cifras a las que quiere redondear
                     </label>
-                    <input type="number" id="precision-input" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
+                    <input
+                        type="number"
+                        id="precision-input"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                        placeholder="0"
+                        required
+                    />
                 </div>
             </div>
-            <button type="button" onclick="roundSignificantFigures()" class="dark:text-white bg-amber-500 hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-500 dark:hover:bg-amber-700 dark:focus:ring-white mb-4">Redondear Número a las Cifras Ingresadas</button>
+            <button
+                type="button"
+                onclick="roundSignificantFigures()"
+                class="dark:text-white bg-blue-500 hover:bg-blue-500/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-500 dark:hover:bg-blue-700 dark:focus:ring-white mb-4"
+                >Redondear Número a las Cifras Ingresadas</button
+            >
             <div class="mb-6">
-                <label for="rounded-result" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">Número redondeado</label>
-                <div id="rounded-result" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-amber-500 dark:focus:ring-primary dark:focus:border-primary">0</div>
+                <label
+                    for="rounded-result"
+                    class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white"
+                    >Número redondeado</label
+                >
+                <div
+                    id="rounded-result"
+                    class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-blue-500 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                >
+                    0
+                </div>
             </div>
         </form>
     </div>
@@ -92,26 +183,89 @@ import TargetIcon from "../icons/TargetIcon.astro";
 <!-- JavaScript en el cliente -->
 <script client:load>
     function showSection(section) {
-        document.getElementById('find-significant-figures').classList.toggle('hidden', section !== 'find');
-        document.getElementById('round-significant-figures').classList.toggle('hidden', section !== 'round');
+        document
+            .getElementById("find-significant-figures")
+            .classList.toggle("hidden", section !== "find");
+        document
+            .getElementById("round-significant-figures")
+            .classList.toggle("hidden", section !== "round");
     }
 
     function calculateSignificantFigures() {
-        const input = document.getElementById('number-input').value;
-        const digits = input.replace(/[^0-9]/g, '');
-        const count = digits.length;
-        document.getElementById('significant-figures-count').textContent = count;
-        document.getElementById('significant-figures-value').textContent = digits;
+        // Obtener el valor del campo de entrada
+        const input = document.getElementById("number-input").value.trim();
+
+        // Verificar que el valor no esté vacío
+        if (!input) {
+            document.getElementById("significant-figures-count").textContent =
+                "0";
+            document.getElementById("significant-figures-value").textContent =
+                "";
+            return;
+        }
+
+        // Eliminar signos y espacios innecesarios
+        let number = input.replace(/^[+-]/, "").trim();
+
+        // Si el número tiene notación científica, separar la base
+        if (number.includes("e") || number.includes("E")) {
+            const [base] = number.split(/[eE]/);
+            number = base;
+        }
+
+        let count = 0;
+        let processedNumber = number;
+
+        // Si tiene punto decimal, contar cifras significativas
+        if (number.includes(".")) {
+            // Eliminar ceros a la izquierda del primer dígito significativo
+            processedNumber = number.replace(/^0+/, "");
+
+            // Eliminar ceros a la izquierda después del punto decimal
+            processedNumber = processedNumber.replace(/^0*\./, ".");
+
+            // Encontrar las cifras significativas
+            const significantDigits = processedNumber.match(
+                /[1-9][0-9]*|[1-9](?=0*)|[1-9]+(?=\.)/g,
+            );
+            count = significantDigits ? significantDigits.join("").length : 0;
+
+            // Asegurarse de que no muestre un punto decimal innecesario
+            if (processedNumber.startsWith(".")) {
+                processedNumber = processedNumber.slice(1); // Eliminar el punto si está al inicio
+            }
+        } else {
+            // Si no tiene punto decimal, contar los dígitos no nulos y los ceros finales significativos
+            processedNumber = number.replace(/^0+/, ""); // Remover ceros iniciales
+            processedNumber = processedNumber.replace(/0+$/, ""); // Remover ceros finales no significativos
+            count = processedNumber.length;
+        }
+
+        // Eliminar ceros a la izquierda en el número procesado
+        processedNumber = processedNumber.replace(/^0+/, "");
+
+        // Mostrar la cantidad de cifras significativas
+        document.getElementById("significant-figures-count").textContent =
+            count;
+
+        // Mostrar el valor procesado (sin ceros innecesarios)
+        document.getElementById("significant-figures-value").textContent =
+            processedNumber;
     }
 
     function roundSignificantFigures() {
-        const number = parseFloat(document.getElementById('round-number-input').value);
-        const precision = parseInt(document.getElementById('precision-input').value);
+        const number = parseFloat(
+            document.getElementById("round-number-input").value,
+        );
+        const precision = parseInt(
+            document.getElementById("precision-input").value,
+        );
         if (!isNaN(number) && !isNaN(precision) && precision > 0) {
             const rounded = number.toPrecision(precision);
-            document.getElementById('rounded-result').textContent = rounded;
+            document.getElementById("rounded-result").textContent = rounded;
         } else {
-            document.getElementById('rounded-result').textContent = "Valor inválido";
+            document.getElementById("rounded-result").textContent =
+                "Valor inválido";
         }
     }
 </script>
