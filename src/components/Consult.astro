@@ -198,6 +198,8 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
           userData.certificates.forEach((certificate) => {
             const li = document.createElement("li"); // Crea un nuevo elemento <li>
             const a = document.createElement("a"); // Crea un nuevo elemento <a>
+              console.log("Datos del certificado: ", certificate);
+              
             a.href = `/courses/${certificate.id}`; // Agrega el enlace al <a>
             
             li.textContent = certificate.course; // Agrega texto al <li>
