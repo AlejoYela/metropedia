@@ -187,7 +187,7 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
           spinner.classList.add("hidden");
           spinner.classList.remove("flex");
           nombreUsuario.textContent = userData.name;
-          extraP.textContent = "Cursos completados";
+          extraP.textContent = "Todos los cursos han sido completados con éxito.";
 
           // Limpiar la lista existente antes de agregar nuevos elementos
           auxDiv.innerHTML = ""; // Esto elimina los elementos anteriores
@@ -207,6 +207,8 @@ import ZoomInIcon from "../icons/ZoomInIcon.astro";
             li.classList.add("text-neutral-800");
             li.classList.add("dark:text-neutral-400");
             li.classList.add("ml-5");
+            li.classList.add("hover:text-white");
+
 
             a.appendChild(li); // Agrega el <li> al <a>
             auxUl.appendChild(a); // Agrega el <a> al contenedor
