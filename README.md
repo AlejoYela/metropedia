@@ -53,7 +53,8 @@ bun run dev
 
 Metropedia está desplegado en Vercel. Estado actual:
 
-![Website Deploy](https://deploy-badge.vercel.app/?url=https://metropedia.vercel.app/&name=Metropedia)
+![Website Deploy](https://deploy-badge.vercel.app/?url=https://www.metropedia.net/&name=Metropedia)
+
 ## Fuentes y Créditos
 
 - [Fontsource](https://fontsource.org/)
