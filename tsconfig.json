@@ -1,3 +1,15 @@
 {
-  "extends": "astro/tsconfigs/base"
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "baseUrl": ".",  // Esto establece la raíz de tu proyecto como la base para las rutas absolutas.
+    "paths": {
+      "@components/*": ["src/components/*"],  // Alias para la carpeta de componentes
+      "@icons/*": ["src/icons/*"],            // Alias para la carpeta de iconos          // Alias para la carpeta de assets
+      "@layouts/*": ["src/layouts/*"],            // Alias para la carpeta de layouts          // Alias para la carpeta de assets
+      "@pages/*": ["src/pages/*"],            // Alias para la carpeta de pages         // Alias para la carpeta de assets
+    }
+  },
+  "exclude": [
+    "node_modules"  // Para evitar que node_modules sea incluido en las rutas
+  ]
 }

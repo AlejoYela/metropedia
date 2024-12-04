@@ -1,8 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 const { courseId } = Astro.params;
 import courseData from "../../courseData";
-import CertificateIcon from "../../icons/CertificateIcon.astro";
+import CertificateIcon from "@icons/CertificateIcon.astro";
 
 const selectedObject = courseData.filter(
   (course) => course.id === Number(courseId),
