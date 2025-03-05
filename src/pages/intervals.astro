@@ -20,7 +20,7 @@ import CalendarIcon from "@icons/CalendarIcon.astro";
         <div class="border-b border-neutral-200 dark:border-neutral-700">
             <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-neutral-500 dark:text-neutral-400">
                 <li class="me-2">
-                    <a href="#" id="calculo-intervalo" class="inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group">
+                    <a href="#" id="calculo-intervalo" class="inline-flex gap-2 items-center justify-center p-4 text-primary-600 border-b-2 border-primary-600 rounded-t-lg active dark:text-primary-600 dark:border-primary-600 group">
                         <CalendarIcon class="size-5" /> Calcular Intervalo
                     </a>
                 </li>
@@ -33,25 +33,25 @@ import CalendarIcon from "@icons/CalendarIcon.astro";
                     <label for="deriva-periodo" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         Deriva en el periodo (Años)
                     </label>
-                    <input type="text" id="deriva-periodo" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required />
+                    <input type="text" id="deriva-periodo" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary" required />
                 </div>
                 <div>
                     <label for="fecha-servicio" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         Fecha de servicio
                     </label>
-                    <input type="date" id="fecha-servicio" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required />
+                    <input type="date" id="fecha-servicio" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary" required />
                 </div>
                 <div>
                     <label for="fecha-proxima" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         Fecha de próxima calibración por deriva calculada en 1
                     </label>
-                    <input type="date" id="fecha-proxima" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required />
+                    <input type="date" id="fecha-proxima" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary" required />
                 </div>
                 <div>
                     <label for="u-obtenida-superior" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿La U obtenida es superior a la requerida?
                     </label>
-                    <select id="u-obtenida-superior" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="u-obtenida-superior" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
@@ -61,7 +61,7 @@ import CalendarIcon from "@icons/CalendarIcon.astro";
                     <label for="supero-emp" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿Se superó el EMP?
                     </label>
-                    <select id="supero-emp" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="supero-emp" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
@@ -71,7 +71,7 @@ import CalendarIcon from "@icons/CalendarIcon.astro";
                     <label for="uso-incrementado" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿El uso en el último periodo ha incrementado un 50% al período anterior?
                     </label>
-                    <select id="uso-incrementado" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="uso-incrementado" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
@@ -81,7 +81,7 @@ import CalendarIcon from "@icons/CalendarIcon.astro";
                     <label for="condiciones-desfavorables" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿Las condiciones ambientales de uso han sido desfavorables?
                     </label>
-                    <select id="condiciones-desfavorables" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="condiciones-desfavorables" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
@@ -91,7 +91,7 @@ import CalendarIcon from "@icons/CalendarIcon.astro";
                     <label for="tendencia-resultados" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿Hay tendencia en los resultados de las últimas 3 calibraciones?
                     </label>
-                    <select id="tendencia-resultados" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="tendencia-resultados" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
@@ -101,7 +101,7 @@ import CalendarIcon from "@icons/CalendarIcon.astro";
                     <label for="mantenimiento-correctivo" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿Se realizó mantenimiento correctivo?
                     </label>
-                    <select id="mantenimiento-correctivo" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="mantenimiento-correctivo" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
@@ -111,7 +111,7 @@ import CalendarIcon from "@icons/CalendarIcon.astro";
                     <label for="rotacion-personal" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         ¿Se presentó rotación en el personal autorizado para el uso?
                     </label>
-                    <select id="rotacion-personal" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required>
+                    <select id="rotacion-personal" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary" required>
                         <option value="">Seleccione</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
@@ -121,10 +121,10 @@ import CalendarIcon from "@icons/CalendarIcon.astro";
                     <label for="ajuste-calibracion" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">
                         Se recomienda ajustar el lapso de calibración en la siguiente cantidad de meses
                     </label>
-                    <input type="text" id="ajuste-calibracion" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" required />
+                    <input type="text" id="ajuste-calibracion" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary" required />
                 </div>
             </div>
-            <button type="submit" class="dark:text-white bg-primary hover:bg-primary/80 focus:ring-4 focus:ring-primary font-medium rounded-sm text-sm px-5 py-2.5 text-center dark:bg-primary/80 dark:hover:bg-primary">
+            <button type="submit" class="dark:text-white bg-primary-600 hover:bg-primary/80 focus:ring-4 focus:ring-primary-600 font-medium rounded-sm text-sm px-5 py-2.5 text-center dark:bg-primary/80 dark:hover:bg-primary">
                 Calcular Próxima Fecha de Calibración
             </button>
         </form>
@@ -174,7 +174,7 @@ import CalendarIcon from "@icons/CalendarIcon.astro";
                 }
             }
 
-            mensajeElement.innerHTML = `Próxima Fecha de Calibración Calculada: <span class="text-primary font-extrabold">${proximaFechaCalibracionCalculada}</span>`;
+            mensajeElement.innerHTML = `Próxima Fecha de Calibración Calculada: <span class="text-primary-600 font-extrabold">${proximaFechaCalibracionCalculada}</span>`;
             mensajeElement.classList.remove('hidden');
         });
     });

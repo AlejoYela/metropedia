@@ -22,7 +22,7 @@ import SuperScriptIcon from "@icons/SuperScriptIcon.astro"
         <div class="border-b border-neutral-200 dark:border-neutral-700">
             <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-neutral-500 dark:text-neutral-400">
                 <li class="me-2">
-                    <a href="#" id="decimal-a-cientifica" class="inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group">
+                    <a href="#" id="decimal-a-cientifica" class="inline-flex gap-2 items-center justify-center p-4 text-primary-600 border-b-2 border-primary-600 rounded-t-lg active dark:text-primary-600 dark:border-primary-600 group">
                         <SuperScriptIcon class="size-5" /> Decimal a Científica
                     </a>
                 </li>
@@ -38,18 +38,18 @@ import SuperScriptIcon from "@icons/SuperScriptIcon.astro"
             <p class="dark:text-white/40 text-sm mb-6 w-full flex justify-center">Convierte un número de notación decimal a notación científica.</p>
             <div class="mb-6">
                 <label for="decimal-input" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">Introduzca el número en notación decimal (ejemplos: 1.2; 1020; 12.3)</label>
-                <input type="text" id="decimal-input" aria-describedby="helper-text-explanation" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
+                <input type="text" id="decimal-input" aria-describedby="helper-text-explanation" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary" placeholder="0" required />
             </div>
-            <button type="submit" class="text-secondary bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4">Convertir a Notación Científica</button>
+            <button type="submit" class="text-secondary bg-primary-600 hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary/30 dark:focus:ring-white mb-4">Convertir a Notación Científica</button>
 
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
                     <label for="scientific-output" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">Número en notación científica</label>
-                    <span id="scientific-output" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary">0</span>
+                    <span id="scientific-output" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary-600 dark:focus:ring-primary-600 dark:focus:border-primary">0</span>
                 </div>
             </div>
             <p class="hidden" id="mensaje3">
-                El número ingresado en notación científica es: <span class="text-primary font-extrabold">0</span>
+                El número ingresado en notación científica es: <span class="text-primary-600 font-extrabold">0</span>
             </p>
         </form>
 
@@ -57,13 +57,13 @@ import SuperScriptIcon from "@icons/SuperScriptIcon.astro"
             <p class="dark:text-white/40 text-sm mb-6 w-full flex justify-center">Convierte un número de notación científica a notación decimal.</p>
             <div class="mb-6">
                 <label for="scientific-input" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">Introduzca el número en notación científica (ejemplos: 1.2e3; 2.34e-5)</label>
-                <input type="text" id="scientific-input" aria-describedby="helper-text-explanation" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder="0" required />
+                <input type="text" id="scientific-input" aria-describedby="helper-text-explanation" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary" placeholder="0" required />
             </div>
             <button type="submit" class="dark:text-white bg-amber-500 hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-500 dark:hover:bg-amber-700 dark:focus:ring-white mb-4">Convertir a Notación Decimal</button>
 
             <div class="mb-6">
                 <label for="decimal-output" class="block mb-2 text-sm font-medium text-neutral-900 dark:dark:text-white">Número en notación decimal</label>
-                <div id="decimal-output" aria-describedby="helper-text-explanation" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-amber-500 dark:focus:ring-primary dark:focus:border-primary">0</div>
+                <div id="decimal-output" aria-describedby="helper-text-explanation" class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-amber-500 dark:focus:ring-primary-600 dark:focus:border-primary">0</div>
             </div>
             <p class="hidden" id="mensaje4">
                 El número ingresado en notación decimal es: <span class="text-amber-500 font-extrabold">0</span>
@@ -127,7 +127,7 @@ import SuperScriptIcon from "@icons/SuperScriptIcon.astro"
             const numeroDecimal = parseFloat(decimalInput.value);
             const numeroCientifico = convertirACientifica(numeroDecimal);
             scientificOutput.innerText = numeroCientifico;
-            mensajeSalida3.innerHTML = `El número ingresado en notación científica es: <span class="text-primary font-extrabold">${numeroCientifico}</span>`;
+            mensajeSalida3.innerHTML = `El número ingresado en notación científica es: <span class="text-primary-600 font-extrabold">${numeroCientifico}</span>`;
             mensajeSalida3.classList.remove("hidden");
         });
 
@@ -147,7 +147,7 @@ import SuperScriptIcon from "@icons/SuperScriptIcon.astro"
             form2.className = "hidden max-w-screen-xl w-full border rounded-sm p-12";
 
             botonDecimalACientifica.className =
-                "inline-flex gap-2 items-center justify-center p-4 text-primary border-b-2 border-primary rounded-t-lg active dark:text-primary dark:border-primary group";
+                "inline-flex gap-2 items-center justify-center p-4 text-primary-600 border-b-2 border-primary-600 rounded-t-lg active dark:text-primary-600 dark:border-primary-600 group";
             botonCientificaADecimal.className =
                 "inline-flex gap-2 items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-neutral-600 hover:border-neutral-300 dark:hover:text-neutral-300 group";
         });

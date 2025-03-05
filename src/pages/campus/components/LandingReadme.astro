@@ -1,0 +1,43 @@
+---
+import MetropediaLogo from '/favicon.svg?raw';
+
+import * as readMe from '../../campus/campus-info.md';
+const SITE_TITLE = "Campus virtual de Metropedia"
+---
+
+<div
+	class="bg-gradient-to-r from-zinc-100 to-zinc-200 dark:from-zinc-900 dark:to-zinc-800 text-zinc-800 dark:text-zinc-100 mb-20 p-4 lg:p-16 shadow-xl shadow-zinc-200 dark:shadow-zinc-900"
+>
+	<header
+		class="p-8 flex justify-center items-center flex-wrap flex-col w-full mt-16"
+	>
+
+		<div class="flex justify-center w-full">
+			<div set:html={MetropediaLogo} class="svg-inline w-16 h-16" />
+		</div>
+	</header>
+
+
+
+	<article class="flex justify-center pt-32 pb-32">
+		<div class="w-full readme format dark:format-invert lg:format-lg">
+			<h1 class="text-center">
+				<!-- {readMe.getHeadings()[0].text} -->
+				{SITE_TITLE}
+			</h1>
+			<readMe.Content />
+		</div>
+	</article>
+</div>
+
+<style>
+	/* Override in Markdown H1 title */
+	.readme :global(h1:nth-of-type(2)) {
+		display: none;
+	}
+
+	.svg-inline :global(svg) {
+		height: 100%;
+		width: 100%;
+	}
+</style>

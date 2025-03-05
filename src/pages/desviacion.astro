@@ -28,14 +28,14 @@ import ArrowDownIcon from "@icons/ArrowDownIcon.astro";
                 <input
                     type="text"
                     id="numbers-input"
-                    class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary dark:focus:border-primary"
+                    class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:dark:text-white dark:focus:ring-primary-600 dark:focus:border-primary"
                     placeholder="0"
                     required
                 />
             </div>
             <button
                 type="submit"
-                class="text-secondary bg-primary hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
+                class="text-secondary bg-primary-600 hover:bg-primary/30 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary/30 dark:focus:ring-white mb-4"
             >
                 Calcular Desviación Estándar
             </button>
@@ -47,7 +47,7 @@ import ArrowDownIcon from "@icons/ArrowDownIcon.astro";
                     </label>
                     <span
                         id="std-deviation-population"
-                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary-600 dark:focus:ring-primary-600 dark:focus:border-primary"
                     >
                         0
                     </span>
@@ -58,7 +58,7 @@ import ArrowDownIcon from "@icons/ArrowDownIcon.astro";
                     </label>
                     <span
                         id="std-deviation-sample"
-                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary-600 dark:focus:ring-primary-600 dark:focus:border-primary"
                     >
                         0
                     </span>
@@ -69,7 +69,7 @@ import ArrowDownIcon from "@icons/ArrowDownIcon.astro";
                     </label>
                     <span
                         id="sample-size"
-                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary-600 dark:focus:ring-primary-600 dark:focus:border-primary"
                     >
                         0
                     </span>
@@ -80,7 +80,7 @@ import ArrowDownIcon from "@icons/ArrowDownIcon.astro";
                     </label>
                     <span
                         id="average"
-                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary-600 dark:focus:ring-primary-600 dark:focus:border-primary"
                     >
                         0
                     </span>
@@ -91,7 +91,7 @@ import ArrowDownIcon from "@icons/ArrowDownIcon.astro";
                     </label>
                     <span
                         id="variance"
-                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary dark:focus:ring-primary dark:focus:border-primary"
+                        class="bg-neutral-50 text-neutral-900 text-sm rounded-sm focus:ring-primary-600 block w-full p-2.5 dark:bg-[#49494a] dark:placeholder-neutral-400 dark:text-primary-600 dark:focus:ring-primary-600 dark:focus:border-primary"
                     >
                         0
                     </span>
@@ -99,7 +99,7 @@ import ArrowDownIcon from "@icons/ArrowDownIcon.astro";
             </div>
             <p class="hidden" id="std-deviation-message">
                 La desviación estándar de los números ingresados es:
-                <span class="text-primary font-extrabold">0</span>
+                <span class="text-primary-600 font-extrabold">0</span>
             </p>
         </form>
 
@@ -194,7 +194,7 @@ import ArrowDownIcon from "@icons/ArrowDownIcon.astro";
                 averageElem.textContent =average.toFixed(4);
                 varianceElem.textContent = variance.toFixed(4);
 
-                stdDeviationMessage.innerHTML = `La desviación estándar de los números ingresados es: <span class="text-primary font-extrabold">${sampleStdDeviation.toFixed(4)}</span>`;
+                stdDeviationMessage.innerHTML = `La desviación estándar de los números ingresados es: <span class="text-primary-600 font-extrabold">${sampleStdDeviation.toFixed(4)}</span>`;
                 stdDeviationMessage.classList.remove("hidden");
             });
         });
