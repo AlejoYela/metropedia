@@ -1,0 +1,61 @@
+---
+const { class: clazz } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Metropedia Campus</title>
+
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Panel del campus educativo virtual de Metropedia" />
+		<meta name="" content="Panel del campus educativo virtual de Metropedia" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link
+			rel="sitemap"
+			type="application/xml"
+			href="#"
+		/>
+
+		<meta
+			name="author"
+			content="Julian Cataldo, Zoltán Szőgyényi, Robert Tanislav"
+		/>
+		<meta name="copyright" content="MIT" />
+
+		<script is:inline>
+			if (
+				localStorage.getItem('color-theme') === 'dark' ||
+				(!('color-theme' in localStorage) &&
+					window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+		</script>
+	</head>
+	<body
+		class:list={[
+			//
+			clazz,
+			'bg-neutral-50 dark:bg-neutral-800',
+			'scrollbar scrollbar-w-3 scrollbar-thumb-rounded-[0.25rem]',
+			'scrollbar-track-zinc-200  scrollbar-thumb-neutral-400',
+			'dark:scrollbar-track-neutral-900 dark:scrollbar-thumb-neutral-700',
+		]}
+	>
+		<slot />
+	</body>
+</html>
+
+<script>
+	import 'flowbite';
+	import 'flowbite/dist/datepicker.js';
+</script>
+
+<style is:global>
+	@import url('https://fonts.cdnfonts.com/css/inter');
+</style>
