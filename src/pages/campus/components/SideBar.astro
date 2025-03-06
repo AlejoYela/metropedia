@@ -1,3 +1,7 @@
+---
+import CertificateIcon from "../../../../src/icons/CertificateIcon.astro";
+---
+
 <!-- TODO: Dynamic dropdowns -->
 <aside
 	id="sidebar"
@@ -73,7 +77,7 @@
 					</li>
 					<li>
 						<a
-							href="/campus/app/sidebar"
+							href="/campus/app/dashboard"
 							class="flex items-center p-2 text-base text-neutral-900 rounded-lg hover:bg-neutral-100 group dark:text-neutral-200 dark:hover:bg-neutral-700"
 						>
 							<svg
@@ -90,6 +94,55 @@
 						</a>
 					</li>
 
+					<li>
+						<button
+							type="button"
+							class="flex items-center w-full p-2 text-base text-neutral-900 transition duration-75 rounded-lg group hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-700"
+							aria-controls="dropdown-cursos"
+							data-collapse-toggle="dropdown-cursos"
+						>
+							<CertificateIcon
+								class="flex-shrink-0 w-6 h-6 text-neutral-500 transition duration-75 group-hover:text-neutral-900 dark:text-neutral-400 dark:group-hover:text-white"
+							/>
+							
+							<span
+								class="flex-1 ml-3 text-left whitespace-nowrap"
+								sidebar-toggle-item>Cursos</span
+							>
+							<svg
+								sidebar-toggle-item
+								class="w-6 h-6"
+								fill="currentColor"
+								viewBox="0 0 20 20"
+								xmlns="http://www.w3.org/2000/svg"
+								><path
+									fill-rule="evenodd"
+									d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+									clip-rule="evenodd"></path></svg
+							>
+						</button>
+						<ul id="dropdown-cursos" class="hidden space-y-2 py-2">
+							<!-- if not (eq .Params.group crud) }}hidden {{ end }} -->
+							<li>
+								<!-- {{ if eq $page_slug "products" }} -->
+								<!-- bg-neutral-100 dark:bg-neutral-700 -->
+								<a
+									href="/campus/app/products"
+									class="text-base text-neutral-900 rounded-lg flex items-center p-2 group hover:bg-neutral-100 transition duration-75 pl-11 dark:text-neutral-200 dark:hover:bg-neutral-700"
+									>En curso</a
+								>
+							</li>
+							<li>
+								<!--  {{ if eq $page_slug "users" }} -->
+								<!-- bg-neutral-100 dark:bg-neutral-700 -->
+								<a
+									href="/campus/app/users"
+									class="text-base text-neutral-900 rounded-lg flex items-center p-2 group hover:bg-neutral-100 transition duration-75 pl-11 dark:text-neutral-200 dark:hover:bg-neutral-700"
+									>Finalizados</a
+								>
+							</li>
+						</ul>
+					</li>
 					<li>
 						<button
 							type="button"
@@ -112,7 +165,7 @@
 							</svg>
 							<span
 								class="flex-1 ml-3 text-left whitespace-nowrap"
-								sidebar-toggle-item>CRUD</span
+								sidebar-toggle-item>Datos</span
 							>
 							<svg
 								sidebar-toggle-item
@@ -134,7 +187,7 @@
 								<a
 									href="/campus/app/products"
 									class="text-base text-neutral-900 rounded-lg flex items-center p-2 group hover:bg-neutral-100 transition duration-75 pl-11 dark:text-neutral-200 dark:hover:bg-neutral-700"
-									>Productos</a
+									>Formación</a
 								>
 							</li>
 							<li>
