@@ -59,6 +59,7 @@ export default {
 	],
 	plugins: [
 		require('preline/plugin'),
-		require('flowbite/plugin')
+		require('flowbite/plugin'),
+		require('flowbite-typography'),
 	],
 }

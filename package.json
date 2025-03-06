@@ -31,5 +31,8 @@
     "regression": "^2.0.1",
     "simple-statistics": "^7.8.3",
     "tailwindcss": "^3.4.4"
+  },
+  "devDependencies": {
+    "flowbite-typography": "^1.0.5"
   }
 }

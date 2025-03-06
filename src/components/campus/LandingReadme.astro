@@ -2,7 +2,7 @@
 import MetropediaLogo from '/favicon.svg?raw';
 
 import * as readMe from './campus-info.md';
-const SITE_TITLE = "Campus virtual de Metropedia"
+
 ---
 
 <div
@@ -22,8 +22,8 @@ const SITE_TITLE = "Campus virtual de Metropedia"
 	<article class="flex justify-center pt-32 pb-32">
 		<div class="w-full readme format dark:format-invert lg:format-lg">
 			<h1 class="text-center">
-				<!-- {readMe.getHeadings()[0].text} -->
-				{SITE_TITLE}
+				{readMe.getHeadings()[0].text} 
+				
 			</h1>
 			<readMe.Content />
 		</div>

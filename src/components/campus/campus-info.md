@@ -1,6 +1,6 @@
 
 
-# Bienvenido al Campus Virtual de Metropedia
+# Campus Virtual de Metropedia
 
 ¡Hola! 👋  
 Bienvenido a tu espacio de aprendizaje en **metrología y normativa internacional**. Desde este panel puedes gestionar tu aprendizaje, acceder a herramientas especializadas y administrar tu cuenta. Todo está organizado para que tengas una experiencia fluida y productiva.  
