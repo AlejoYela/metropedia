@@ -2,9 +2,9 @@
 /* eslint max-lines: 'off' */
 
 
-import NavPagination from '../components/NavPagination.astro';
+import NavPagination from './NavPagination.astro';
 
-const productsBig = await import("../../../../data/products.json")
+const productsBig = await import("../../../data/products.json")
 const products = productsBig.default
 
 ---

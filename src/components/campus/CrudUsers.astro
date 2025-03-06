@@ -1,11 +1,11 @@
 ---
 /* eslint max-lines: 'off' */
 
-import NavPagination from '../components/NavPagination.astro';
+import NavPagination from './NavPagination.astro';
 
 const { class: clazz } = Astro.props;
 
-const usersBig = await import("../../../../data/users.json")
+const usersBig = await import("../../../data/users.json")
 const users = usersBig.default
  
 ---
