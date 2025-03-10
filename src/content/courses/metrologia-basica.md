@@ -88,7 +88,7 @@ La metrología se divide tradicionalmente en tres categorías:
 | Ciencia | Resultados no reproducibles | Validación de teorías, avance científico |
 | Vida diaria | Caos en mediciones cotidianas | Productos consistentes, seguridad |
 
-> ⚠️ **Reflexión:** Imagina un mundo sin metrología estandarizada: aviones que no podrían aterrizar en aeropuertos extranjeros por diferencias en los sistemas de medición, dispositivos médicos incompatibles entre hospitales, o componentes industriales que no encajarían entre sí.
+>⚠️ **Reflexión:** Imagina un mundo sin metrología estandarizada: aviones que no podrían aterrizar en aeropuertos extranjeros por diferencias en los sistemas de medición, dispositivos médicos incompatibles entre hospitales, o componentes industriales que no encajarían entre sí.
 
 ### 🌐 **Áreas de aplicación de la Metrología**
 
