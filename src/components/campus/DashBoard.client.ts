@@ -44,9 +44,9 @@ const getMainChartOptions = () => {
 		tooltip: {
 			style: {
 				fontSize: '14px',
-				fontFamily: 'Inter, sans-serif',
+				fontFamily: 'Inter, sans-serif'
 			},
-			class: "bg-white dark:bg-neutral-700 text-neutral-500 dark:text-neutral-400 border-0 rounded-lg shadow-lg"
+			
 		},
 		grid: {
 			show: true,
