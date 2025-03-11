@@ -1,5 +1,6 @@
 ---
 import CertificateIcon from "../../../src/icons/CertificateIcon.astro";
+const {userData} = Astro.props
 ---
 
 <!-- TODO: Dynamic dropdowns -->
@@ -123,6 +124,19 @@ import CertificateIcon from "../../../src/icons/CertificateIcon.astro";
 						</button>
 						<ul id="dropdown-cursos" class="hidden space-y-2 py-2">
 							<!-- if not (eq .Params.group crud) }}hidden {{ end }} -->
+							 {userData?.certificates.map(certificate=>(
+								
+								<li>
+								
+								<a
+									href="/campus/app/[courseCode]"
+									class="text-base text-neutral-900 rounded-lg flex items-center p-2 group hover:bg-neutral-100 transition duration-75 pl-11 dark:text-neutral-200 dark:hover:bg-neutral-700"
+									>
+										{certificate.course}
+								</a>
+							</li>
+
+							 ))}
 							<li>
 								<!-- {{ if eq $page_slug "products" }} -->
 								<!-- bg-neutral-100 dark:bg-neutral-700 -->
