@@ -1,29 +1,158 @@
 ---
-import MetropediaLogo from '/favicon.svg?raw';
+import MetropediaLogo from "/favicon.svg?raw";
 
-import * as readMe from '../../content/courses/metrologia-basica.md';
+import * as readMe from "../../content/courses/metrologia-basica.md";
+const headings = readMe.getHeadings();
+console.log("md headers: ", readMe.getHeadings());
 
+const depth2Headings = headings.filter((h) => h.depth === 2);
 ---
 
 <div
 	class="bg-gradient-to-r from-zinc-100 to-zinc-200 dark:from-zinc-900 dark:to-zinc-800 text-zinc-800 dark:text-zinc-100 mb-20 p-4 lg:p-16 shadow-xl shadow-zinc-200 dark:shadow-zinc-900"
 >
 	<header
-		class="px-8 hidden flex justify-center items-center flex-wrap flex-col w-full "
+		class="px-8 hidden flex justify-center items-center flex-wrap flex-col w-full"
 	>
-
 		<div class="flex justify-center w-full">
 			<div set:html={MetropediaLogo} class="svg-inline w-16 h-16" />
 		</div>
 	</header>
 
+	<header
+		class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-40 w-full bg-white text-sm py-4 dark:bg-neutral-800"
+	>
+		<nav
+			class="max-w-[85rem] w-full mx-auto sm:flex sm:items-center sm:justify-between"
+		>
+			<div class="flex items-center justify-between">
+				<a
+					class="flex-none lg:pl-3 font-semibold text-xl text-black focus:outline-hidden focus:opacity-80 dark:text-white truncate"
+					href="#"
+					aria-label="Brand"
+					>{headings.find((h) => h.depth === 1).text}</a
+				>
+				<div class="sm:hidden">
+					<button
+						type="button"
+						class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-lg border border-gray-200 font-medium bg-white text-gray-700 shadow-2xs align-middle hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+						id="hs-scrollspy-example"
+						aria-expanded="false"
+						aria-controls="hs-scrollspy-example-heading"
+						data-hs-collapse="#hs-scrollspy-example-heading"
+					>
+						<svg
+							class="hs-collapse-open:hidden shrink-0 size-4"
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<line x1="3" x2="21" y1="6" y2="6"></line>
+							<line x1="3" x2="21" y1="12" y2="12"></line>
+							<line x1="3" x2="21" y1="18" y2="18"></line>
+						</svg>
+						<svg
+							class="hs-collapse-open:block hidden shrink-0 size-4"
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M18 6 6 18"></path>
+							<path d="m6 6 12 12"></path>
+						</svg>
+					</button>
+				</div>
+			</div>
+			<div
+				id="hs-scrollspy-example-heading"
+				class="hidden overflow-hidden transition-all duration-300 basis-full grow sm:block"
+				aria-labelledby="hs-scrollspy-example"
+			>
+				<div
+					data-hs-scrollspy="#scrollspy-example"
+					data-hs-scrollspy-scrollable-parent="#scrollspy-scrollable-parent-example"
+					class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end [--scrollspy-offset:220] md:[--scrollspy-offset:70] sm:mt-0 sm:ps-5"
+				>
+					{
+						depth2Headings.slice(0, 2).map((heading) => (
+							<a
+								class="text-sm truncate text-gray-700 leading-6 hover:text-gray-500 focus:outline-hidden focus:text-blue-600 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-blue-500 hs-scrollspy-active:text-blue-600 dark:hs-scrollspy-active:text-blue-500 active"
+								href="#first"
+							>
+								{heading.text}
+							</a>
+						))
+					}
+					
 
+					<div
+						class="hs-dropdown [--strategy:static] [--adaptive:none] sm:[--placement:bottom-right]"
+					>
+						<button
+							id="hs-dropdown-scrollspy"
+							type="button"
+							class="group hs-scrollspy-active:text-blue-600 mb-3 sm:mb-0 inline-flex justify-center items-center gap-x-1 text-sm text-gray-700 leading-6 hover:text-gray-500 focus:outline-hidden focus:text-blue-600 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-blue-500 dark:hs-scrollspy-active:text-blue-500"
+							aria-haspopup="menu"
+							aria-expanded="false"
+							aria-label="Dropdown"
+						>
+							Más...
+							<svg
+								class="shrink-0 size-4"
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path d="m6 9 6 6 6-6"></path>
+							</svg>
+						</button>
+
+						<div
+							class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full sm:w-48 z-10 bg-white sm:shadow-md rounded-lg sm:p-2 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute top-full sm:border border-gray-200 before:-top-5 before:start-0 before:w-full before:h-5 hidden"
+							role="menu"
+							aria-orientation="vertical"
+							aria-labelledby="hs-dropdown-scrollspy"
+						>
+							{
+								depth2Headings.slice(3).map((heading) => (
+									<a
+										class="flex items-center gap-x-3.5 py-2 sm:px-3 rounded-lg text-sm text-gray-700 leading-6 hover:text-gray-500 focus:outline-hidden focus:text-blue-600 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-blue-500 hs-scrollspy-active:text-blue-600 dark:hs-scrollspy-active:text-blue-500"
+										href="#third"
+									>
+										{heading.text}
+									</a>
+								))
+							}
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
 
 	<article class="flex justify-center pt-10 pb-32">
 		<div class="w-full readme format dark:format-invert lg:format-lg">
 			<h1 class="text-center">
-				{readMe.getHeadings()[0].text} 
-				
+				{readMe.getHeadings()[0].text}
 			</h1>
 			<readMe.Content />
 		</div>

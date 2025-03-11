@@ -3,6 +3,8 @@
 import ColorModeSwitcher from './ColorModeSwitcher.astro';
 import GitHubButton from './GitHubButton.astro';
 import SearchInput from './SearchInput.astro';
+
+const { userData } = Astro.props;
 ---
 
 <nav
@@ -574,6 +576,10 @@ import SearchInput from './SearchInput.astro';
 				</div>
 
 				<ColorModeSwitcher />
+
+				<p>¡Hola {userData?.name.split(" ")[0] ?? "Estudiante"}!</p>
+
+				
 
 				<!-- Profile -->
 				<div class="flex items-center ml-3">
