@@ -3,6 +3,8 @@ import MetropediaLogo from '/favicon.svg?raw';
 
 import * as readMe from './campus-info.md';
 
+const {userData} = Astro.props
+console.log('User data de Landing Readme: ', userData)
 ---
 
 <div
@@ -11,6 +13,7 @@ import * as readMe from './campus-info.md';
 	<header
 		class="p-8 flex justify-center items-center flex-wrap flex-col w-full mt-16"
 	>
+		{userData ? `¡Hola ${userData}!` : '¡Hola estudiante!'}
 
 		<div class="flex justify-center w-full">
 			<div set:html={MetropediaLogo} class="svg-inline w-16 h-16" />
